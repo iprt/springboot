@@ -21,6 +21,10 @@ repositories {
 }
 
 dependencies {
+
+    // commons
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
@@ -31,6 +35,9 @@ dependencies {
 
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
