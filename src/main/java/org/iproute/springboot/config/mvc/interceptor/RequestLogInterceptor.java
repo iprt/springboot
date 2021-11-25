@@ -2,7 +2,7 @@ package org.iproute.springboot.config.mvc.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.entities.RequestLog;
-import org.iproute.springboot.repository.mysql.RequestLogMapper;
+import org.iproute.springboot.repository.zhuzhenjie.RequestLogMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

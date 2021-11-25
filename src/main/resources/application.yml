@@ -18,11 +18,16 @@ spring:
     database: 0
   datasource:
     dynamic:
-      primary: mysql
+      primary: zhuzhenjie
       strict: false
       datasource:
-        mysql:
+        zhuzhenjie:
           url: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+          username: root
+          password: Root@123#
+          driver-class-name: com.mysql.cj.jdbc.Driver
+        mysql:
+          url: jdbc:mysql://172.100.1.100:3306/mysql?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
           password: Root@123#
           driver-class-name: com.mysql.cj.jdbc.Driver

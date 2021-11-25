@@ -1,4 +1,4 @@
-package org.iproute.springboot.repository.mysql;
+package org.iproute.springboot.repository.zhuzhenjie;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,5 +14,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface RequestLogMapper extends BaseMapper<RequestLog> {
-
 }
