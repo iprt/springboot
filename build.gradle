@@ -1,10 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'org.springframework.boot' version '2.3.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
     id 'java'
 }
 
-group = 'com.winterfell'
+group = 'org.iproute'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -21,11 +21,30 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'com.alibaba:fastjson:1.2.75'
+
+    // web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // mybatis
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
+    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.4.1'
+
+    // jdbc driver
+    implementation 'mysql:mysql-connector-java'
+
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.apache.commons:commons-pool2:2.9.0'
+
+    // 加密 , 3.0 的还有一定问题
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
 }
 
 test {
