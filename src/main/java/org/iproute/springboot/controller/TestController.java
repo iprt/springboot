@@ -1,13 +1,10 @@
 package org.iproute.springboot.controller;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
-import org.iproute.springboot.entities.User;
 import org.iproute.springboot.repository.mysql.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * TestController
@@ -26,10 +23,10 @@ public class TestController {
         return "hello world";
     }
 
-    @GetMapping("/mysqlUser")
-    @DS("mysql")
-    public List<User> mysqlUser() {
-        return userMapper.selectList(null);
+    @GetMapping("/sayHello/{name}")
+    public String sayHello(@PathVariable("name") String name) {
+        return "hello " + name;
     }
+
 }
 

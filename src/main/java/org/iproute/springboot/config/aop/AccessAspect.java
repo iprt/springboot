@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+
 /**
  * ControllerAop
  *
@@ -47,10 +48,9 @@ public class AccessAspect {
         try {
             res = joinPoint.proceed();
         } finally {
-            long take = System.currentTimeMillis() - start;
-            log.info("{}|{}|{}ms", name, functionName, take);
+            long cost = System.currentTimeMillis() - start;
+            log.info("{}|{}|{}ms", name, functionName, cost);
         }
         return res;
     }
-
 }
