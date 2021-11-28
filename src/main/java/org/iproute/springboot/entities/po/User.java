@@ -1,4 +1,4 @@
-package org.iproute.springboot.entities;
+package org.iproute.springboot.entities.po;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

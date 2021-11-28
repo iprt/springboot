@@ -1,7 +1,7 @@
 package org.iproute.springboot.config.mvc.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.springboot.entities.RequestLog;
+import org.iproute.springboot.entities.po.RequestLog;
 import org.iproute.springboot.repository.zhuzhenjie.RequestLogMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -30,14 +30,16 @@ public class RequestLogInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
+        try {
+            String uri = request.getRequestURI();
 
-        String uri = request.getRequestURI();
-
-        requestLogMapper.insert(RequestLog.builder()
-                .application(applicationName)
-                .uri(uri)
-                .build());
-
+            requestLogMapper.insert(RequestLog.builder()
+                    .application(applicationName)
+                    .uri(uri)
+                    .build());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
         return true;
     }
 }

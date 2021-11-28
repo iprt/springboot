@@ -2,16 +2,17 @@ package org.iproute.springboot.repository.mysql;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.iproute.springboot.entities.po.User;
+import org.iproute.springboot.entities.po.Dept;
 import org.springframework.stereotype.Repository;
 
 /**
- * UserMapper
+ * DeptMapper
  *
  * @author winterfell
- * @since 2021/11/25
+ * @since 2021/11/27
  */
 @Repository
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface DeptMapper extends BaseMapper<Dept> {
+
 }
