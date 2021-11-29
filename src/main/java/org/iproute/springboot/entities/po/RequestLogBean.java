@@ -20,13 +20,40 @@ import java.util.Date;
 @Builder
 @Data
 @TableName("request_log")
-public class RequestLog {
+public class RequestLogBean {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
     @TableField("application")
     private String application;
+
+    @TableField("method")
+    private String method;
+
     @TableField("uri")
     private String uri;
+
+    @TableField("content_type")
+    private String contentType;
+
+    @TableField("query_string")
+    private String queryString;
+
+    /**
+     * 预留
+     */
+    @TableField("body")
+    private String body;
+
+    @TableField("uname")
+    private String uname;
+
+    @TableField("user_agent")
+    private String userAgent;
+
+    @TableField("ip")
+    private String ip;
+
     @TableField("create_time")
     private Date createTime;
 }

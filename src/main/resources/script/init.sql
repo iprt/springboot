@@ -2,11 +2,18 @@ drop table if exists request_log;
 
 create table request_log
 (
-    `id`          bigint      not null primary key auto_increment comment 'id',
-    `application` varchar(20) not null default '' comment 'application name',
-    `uri`         varchar(50) not null default '' comment 'request uri',
-
-    `create_time` datetime    not null default now() comment 'create time'
+    `id`           bigint       not null auto_increment comment 'id',
+    `application`  varchar(30)  not null default '' comment 'application name',
+    `method`       varchar(10)  not null default 'GET' comment 'method',
+    `uri`          varchar(100) not null default '' comment 'request uri',
+    `content_type` varchar(30)  not null default '' comment 'content_type',
+    `query_string` text comment 'query string',
+    `body`         text comment 'request body',
+    `user_agent`   varchar(255) not null default '' comment 'user agent',
+    `uname`        varchar(50)  not null default '' comment 'user name',
+    `ip`           varchar(20)  not null default '127.0.0.1' comment 'ip addr',
+    `create_time`  datetime     not null default now() comment 'create time',
+    primary key (`id`)
 )engine = InnoDB ROW_FORMAT = DYNAMIC comment = '请求记录';
 
 
@@ -56,17 +63,25 @@ INSERT INTO `dept`(`id`, `name`, `pid`)
 VALUES ('1015', '上海研发二部', '1013');
 
 -- function get_child_list
-delimiter $$
+delimiter
+$$
 drop function if exists get_child_list$$
-create function get_child_list(in_id varchar(10)) returns varchar(1000)
+create function get_child_list(in_id varchar (10)) returns varchar(1000)
 begin
- declare ids varchar(1000) default '';
- declare tempids varchar(1000);
+ declare
+ids varchar(1000) default '';
+ declare
+tempids varchar(1000);
 
- set tempids = in_id;
- while tempids is not null do
+ set
+tempids = in_id;
+ while
+tempids is not null do
   set ids = CONCAT_WS(',',ids,tempids);
-select GROUP_CONCAT(id) into tempids from dept where FIND_IN_SET(pid,tempids)>0;
+select GROUP_CONCAT(id)
+into tempids
+from dept
+where FIND_IN_SET(pid, tempids) > 0;
 end while;
 return ids;
 end

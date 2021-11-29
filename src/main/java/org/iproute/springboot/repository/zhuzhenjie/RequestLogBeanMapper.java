@@ -2,7 +2,7 @@ package org.iproute.springboot.repository.zhuzhenjie;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.iproute.springboot.entities.po.RequestLog;
+import org.iproute.springboot.entities.po.RequestLogBean;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface RequestLogMapper extends BaseMapper<RequestLog> {
+public interface RequestLogBeanMapper extends BaseMapper<RequestLogBean> {
 }
