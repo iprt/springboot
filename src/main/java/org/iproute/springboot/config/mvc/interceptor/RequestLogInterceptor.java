@@ -55,8 +55,10 @@ public class RequestLogInterceptor implements HandlerInterceptor {
                 .queryString(queryString(request))
                 .body(body(request))
                 .userAgent(userAgent(request))
+                .uid(-1L)
                 .uname(StringUtils.EMPTY)
                 .ip(ip(request))
+                .requestDesc(requestLog.value())
                 .build();
 
         try {

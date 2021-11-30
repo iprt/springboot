@@ -11,8 +11,10 @@ create table request_log
     `body`         text comment 'request body',
     `user_agent`   varchar(255) not null default '' comment 'user agent',
     `uname`        varchar(50)  not null default '' comment 'user name',
-    `ip`           varchar(20)  not null default '127.0.0.1' comment 'ip addr',
-    `create_time`  datetime     not null default now() comment 'create time',
+    `uid`          bigint       not null default -1 comment 'user name',
+    `ip`           varchar(20)  not null default '127.0.0.1' comment 'ip',
+    `request_time` datetime     not null default now() comment 'create time',
+    `request_desc` varchar(50)  not null default '' comment 'request desc',
     primary key (`id`)
 )engine = InnoDB ROW_FORMAT = DYNAMIC comment = '请求记录';
 

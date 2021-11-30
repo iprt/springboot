@@ -48,12 +48,18 @@ public class RequestLogBean {
     @TableField("uname")
     private String uname;
 
+    @TableField("uid")
+    private long uid;
+
     @TableField("user_agent")
     private String userAgent;
 
     @TableField("ip")
     private String ip;
 
-    @TableField("create_time")
-    private Date createTime;
+    @TableField("request_time")
+    private Date requestTime;
+
+    @TableField("request_desc")
+    private String requestDesc;
 }

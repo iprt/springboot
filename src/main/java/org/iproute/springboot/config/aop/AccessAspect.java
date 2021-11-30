@@ -28,18 +28,17 @@ public class AccessAspect {
     }
 
     @Around("getMappingPointcut()")
-    public Object beforeGetMapping(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundGetMapping(ProceedingJoinPoint joinPoint) throws Throwable {
         return statistic(joinPoint);
     }
 
     @Around("postMappingPoint()")
-    public Object beforePostMapping(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object aroundPostMapping(ProceedingJoinPoint joinPoint) throws Throwable {
         return statistic(joinPoint);
     }
 
     private Object statistic(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
-
         String name = joinPoint.getTarget().getClass().getSimpleName();
         String functionName = joinPoint.getSignature().getName();
 
