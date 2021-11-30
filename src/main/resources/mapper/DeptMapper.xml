@@ -3,4 +3,13 @@
 
 <mapper namespace="org.iproute.springboot.repository.mysql.DeptMapper">
 
+
+    <select id="children" resultType="org.iproute.springboot.entities.po.Dept">
+
+        select *
+        from dept
+        where find_in_set(id, get_child_list(#{id}));
+
+    </select>
+
 </mapper>

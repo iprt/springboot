@@ -18,7 +18,25 @@ create table request_log
     primary key (`id`)
 )engine = InnoDB ROW_FORMAT = DYNAMIC comment = '请求记录';
 
+drop table if exists request_error_log;
 
+create table request_error_log
+(
+    `id`            bigint       not null auto_increment comment 'id',
+    `application`   varchar(30)  not null default '' comment 'application name',
+    `method`        varchar(10)  not null default 'GET' comment 'method',
+    `uri`           varchar(100) not null default '' comment 'request uri',
+    `content_type`  varchar(30)  not null default '' comment 'content_type',
+    `query_string`  text comment 'query string',
+    `body`          text comment 'request body',
+    `user_agent`    varchar(255) not null default '' comment 'user agent',
+    `uname`         varchar(50)  not null default '' comment 'user name',
+    `uid`           bigint       not null default -1 comment 'user name',
+    `ip`            varchar(20)  not null default '127.0.0.1' comment 'ip',
+    `request_time`  datetime     not null default now() comment 'create time',
+    `exception_msg` varchar(200) not null default '' comment 'request desc',
+    primary key (`id`)
+)engine = InnoDB ROW_FORMAT = DYNAMIC comment = '请求错误记录';
 
 drop table if exists `dept`;
 

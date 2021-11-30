@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.iproute.springboot.entities.po.Dept;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * DeptMapper
  *
@@ -14,5 +16,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface DeptMapper extends BaseMapper<Dept> {
+
+    /**
+     * Children list.
+     *
+     * @param id the id
+     * @return the list
+     */
+    List<Dept> children(long id);
 
 }

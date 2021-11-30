@@ -2,7 +2,9 @@ package org.iproute.springboot.config.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -40,8 +42,20 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisCacheManager redisCacheManager() {
-        return null;
+    public RedisCacheManager redisCacheManager(RedisConnectionFactory redisConnectionFactory) {
+        // 1. 获取一个 RedisCacheConfiguration
+        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+                .disableCachingNullValues();
+
+
+        // 2. 通过Builder创建RedisCacheManager
+        // 2.1 cacheWriter can not be null
+        RedisCacheWriter cacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
+
+        return RedisCacheManager.builder()
+                .cacheDefaults(config)
+                .cacheWriter(cacheWriter)
+                .build();
     }
 
 }
