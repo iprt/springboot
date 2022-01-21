@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: springboot
+    name: generic
   mvc:
     throw-exception-if-no-handler-found: true
   resources:
