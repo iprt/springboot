@@ -1,19 +1,17 @@
-package org.iproute.springboot.intergration.server;
+package org.iproute.springboot.tcp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * IntergrationApplication
+ * TcpApplication
  *
  * @author winterfell
- * @since 2022/1/21
+ * @since 2022/1/23
  */
 @SpringBootApplication
-public class ServerApplication {
-
+public class TcpApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ServerApplication.class, args);
+        SpringApplication.run(TcpApplication.class, args);
     }
-
 }

@@ -1,18 +1,19 @@
-package org.iproute.springboot.intergration.server.config;
+package org.iproute.springboot.intergration.tcpserver;
 
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-/**
- * TcpServerProps
- *
- * @author winterfell
- * @since 2022/1/21
- */
 @Component
 @ConfigurationProperties("tcp.server")
-@Data
 public class TcpServerProps {
-    int port;
+
+    private int port;
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
 }

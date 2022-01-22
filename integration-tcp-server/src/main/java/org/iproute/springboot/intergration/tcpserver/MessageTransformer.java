@@ -1,14 +1,8 @@
-package org.iproute.springboot.intergration.server.config;
+package org.iproute.springboot.intergration.tcpserver;
 
 import org.springframework.integration.transformer.GenericTransformer;
 import org.springframework.stereotype.Component;
 
-/**
- * MessageTransformer
- *
- * @author winterfell
- * @since 2022/1/21
- */
 @Component
 public class MessageTransformer implements GenericTransformer<String, String> {
 
@@ -16,5 +10,4 @@ public class MessageTransformer implements GenericTransformer<String, String> {
     public String transform(String input) {
         return "Hello " + input + "!";
     }
-
 }

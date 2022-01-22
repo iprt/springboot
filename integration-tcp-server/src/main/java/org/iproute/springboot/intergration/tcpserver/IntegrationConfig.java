@@ -1,4 +1,4 @@
-package org.iproute.springboot.intergration.server.config;
+package org.iproute.springboot.intergration.tcpserver;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +9,6 @@ import org.springframework.integration.dsl.Transformers;
 import org.springframework.integration.ip.dsl.Tcp;
 import org.springframework.integration.ip.tcp.serializer.TcpCodecs;
 
-/**
- * IntegrationConfig
- *
- * @author winterfell
- * @since 2022/1/21
- */
 @EnableIntegration
 @Configuration
 public class IntegrationConfig {
@@ -30,14 +24,11 @@ public class IntegrationConfig {
 
     @Bean
     public IntegrationFlow integrationFlow() {
-        return IntegrationFlows.from(
-                        Tcp.inboundGateway(Tcp.nioServer(this.props.getPort())
-                                .deserializer(TcpCodecs.crlf())
-                                .get())
-                )
+        return IntegrationFlows.from(Tcp.inboundGateway(Tcp.nioServer(this.props.getPort())
+                        .deserializer(TcpCodecs.crlf())
+                        .get()))
                 .transform(Transformers.objectToString())
                 .transform(this.messageTransformer)
                 .get();
     }
-
 }

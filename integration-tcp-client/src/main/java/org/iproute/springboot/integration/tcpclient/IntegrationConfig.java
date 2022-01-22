@@ -1,4 +1,4 @@
-package org.iproute.springboot.integration.client.tcp;
+package org.iproute.springboot.integration.tcpclient;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,12 +8,6 @@ import org.springframework.integration.dsl.Transformers;
 import org.springframework.integration.ip.dsl.Tcp;
 import org.springframework.integration.ip.tcp.serializer.TcpCodecs;
 
-/**
- * IntegrationConfig
- *
- * @author winterfell
- * @since 2022/1/21
- */
 @EnableIntegration
 @Configuration
 public class IntegrationConfig {
@@ -29,10 +23,8 @@ public class IntegrationConfig {
                         Tcp.outboundGateway(
                                 Tcp.nioClient(this.props.getHost(), this.props.getPort())
                                         .serializer(TcpCodecs.crlf())
-                                        .get()
-                        )
+                                        .get())
                 )
                 .transform(Transformers.objectToString());
     }
-
 }
