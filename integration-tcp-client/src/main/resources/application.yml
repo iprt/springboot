@@ -1,0 +1,11 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: integration-tcp-clien
+
+tcp:
+  client:
+    host: ${server:localhost}
+    port: ${server.port:5000}

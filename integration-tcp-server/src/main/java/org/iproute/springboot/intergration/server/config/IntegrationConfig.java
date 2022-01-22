@@ -1,4 +1,4 @@
-package org.iproute.springboot.intergration.config;
+package org.iproute.springboot.intergration.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

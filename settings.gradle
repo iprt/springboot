@@ -1,4 +1,5 @@
 rootProject.name = 'springboot'
 
 include 'generic'
-include 'integration'
+include 'integration-tcp-server'
+include 'integration-tcp-client'

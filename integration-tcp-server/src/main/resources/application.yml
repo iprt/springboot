@@ -1,6 +1,6 @@
 spring:
   application:
-    name: integration
+    name: integration-tcp-server
 
 tcp:
   server:

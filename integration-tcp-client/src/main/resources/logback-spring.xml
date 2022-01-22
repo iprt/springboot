@@ -79,7 +79,7 @@
 
     <logger name="org.iproute" level="debug"/>
 
-    <logger name="logging.level.org.springframework.integration" level="debug"/>
+    <logger name="org.springframework.integration" level="debug"/>
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">

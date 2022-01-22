@@ -1,4 +1,4 @@
-package org.iproute.springboot.intergration.config;
+package org.iproute.springboot.intergration.server.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
