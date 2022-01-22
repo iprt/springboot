@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 /**
  * User
  *
@@ -16,10 +18,16 @@ import lombok.*;
 @Builder
 @Data
 @TableName("user")
-public class User {
-    @TableField("Host")
+public class MysqlUser {
+    @TableField("host")
     private String host;
 
-    @TableField("Name")
-    private String name;
+    @TableField("User")
+    private String user;
+
+    @TableField("plugin")
+    private String plugin;
+
+    @TableField("password_last_changed")
+    private LocalDateTime passwordLastChanged;
 }

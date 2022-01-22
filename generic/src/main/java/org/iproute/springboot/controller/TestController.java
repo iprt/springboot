@@ -6,6 +6,8 @@ import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.dto.LocalTimeReq;
 import org.iproute.springboot.entities.dto.PostDTO;
 import org.iproute.springboot.entities.po.LocalDateTimeTestBean;
+import org.iproute.springboot.entities.po.MysqlUser;
+import org.iproute.springboot.repository.mysql.UserMapper;
 import org.iproute.springboot.repository.zhuzhenjie.LocalDateTimeTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +28,8 @@ public class TestController {
     @Autowired
     private LocalDateTimeTestMapper localDateTimeTestMapper;
 
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * Say hello string.
@@ -75,5 +79,17 @@ public class TestController {
         log.info("req = {}", req);
         return localDateTimeTestMapper.selectList(null);
     }
+
+    /**
+     * mybatis plus 多数据源测试
+     *
+     * @return the list
+     */
+    @RequestLog("Mysql用户查询")
+    @GetMapping("mysqlUsers")
+    public List<MysqlUser> mysqlUser() {
+        return userMapper.selectList(null);
+    }
+
 }
 
