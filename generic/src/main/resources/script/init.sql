@@ -108,5 +108,19 @@ end
 $$
 delimiter ;
 
+-- #################### localDateTime test ####################
+drop table if exists localtime_test;
+
+create table localtime_test
+(
+    id          bigint      not null primary key auto_increment comment 'id',
+    name        varchar(20) not null default 'zero',
+    create_time timestamp            default current_timestamp
+);
+
+insert into localtime_test (name)
+values ('hello'),
+       ('world');
+
 
 

@@ -32,7 +32,7 @@ public class SyncExecutor {
     private static final int QUEUE_CAPACITY = 20;
 
     @Bean
-    public Executor myAsyncExecutor() {
+    public Executor asyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(CORE_POOL_SIZE);
         executor.setMaxPoolSize(MAX_POOL_SIZE);

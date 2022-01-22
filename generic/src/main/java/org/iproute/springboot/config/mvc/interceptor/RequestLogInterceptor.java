@@ -6,6 +6,7 @@ import org.iproute.springboot.config.mvc.RequestLogUtils;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.po.RequestLogBean;
 import org.iproute.springboot.repository.zhuzhenjie.RequestLogBeanMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
+import java.util.concurrent.Executor;
 
 /**
  * RequestLogInterceptor
@@ -31,6 +33,10 @@ public class RequestLogInterceptor implements HandlerInterceptor {
 
     @Resource
     private RequestLogBeanMapper requestLogMapper;
+
+    @Autowired
+    private Executor asyncExecutor;
+
 
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -49,15 +55,18 @@ public class RequestLogInterceptor implements HandlerInterceptor {
 
         RequestLogBean logBean = RequestLogUtils.requestLogBean(request);
 
-        logBean.setApplication(applicationName);
+        logBean.setApplication(application());
         logBean.setRequestDesc(requestLog.value());
 
-        try {
-            requestLogMapper.insert(logBean);
-        } catch (Exception e) {
-            // do nothing
-            log.error("RequestLogInterceptor.preHandle Exception | {}", e.getMessage());
-        }
+        asyncExecutor.execute(() -> {
+            try {
+                requestLogMapper.insert(logBean);
+            } catch (Exception e) {
+                // do nothing
+                log.error("RequestLogInterceptor.preHandle Exception | {}", e.getMessage());
+            }
+        });
+
         return true;
     }
 
