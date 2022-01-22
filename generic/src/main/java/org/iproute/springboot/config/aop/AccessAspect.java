@@ -48,7 +48,7 @@ public class AccessAspect {
             res = joinPoint.proceed();
         } finally {
             long cost = System.currentTimeMillis() - start;
-            log.info("{}|{}|{}ms", name, functionName, cost);
+            log.info("\r\n\tControllerName: {}\r\n\tFunctionName: {}\r\n\tCostTime: 5{}ms", name, functionName, cost);
         }
         return res;
     }

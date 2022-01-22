@@ -121,6 +121,21 @@
         <appender-ref ref="access"/>
     </logger>
 
+    <logger name="org.iproute.springboot.config.aop.RecordParametersAdvice" level="debug"
+            additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="access"/>
+    </logger>
+
+    <!--  另外一种写法？
+    <logger name="org.iproute.springboot.config.aop" level="debug"
+            additivity="false">
+        <appender-ref ref="console"/>
+        <appender-ref ref="access"/>
+    </logger>
+      -->
+
+
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">
         <appender-ref ref="console"/>

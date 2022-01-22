@@ -1,5 +1,6 @@
 package org.iproute.springboot.controller;
 
+import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.entities.po.Dept;
 import org.iproute.springboot.repository.mysql.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.List;
  * @since 2021/11/30
  */
 @RestController
+@RecordParameters
 public class DeptController {
 
     @Autowired

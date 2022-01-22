@@ -1,6 +1,7 @@
 package org.iproute.springboot.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.dto.PostDTO;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2021 /11/25
  */
 @RestController
+@RecordParameters
 @Slf4j
 public class TestController {
 
