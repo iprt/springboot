@@ -1,6 +1,7 @@
 package org.iproute.springboot.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
@@ -55,6 +56,9 @@ public class DeptController {
         int pageSize = Optional.ofNullable(pageReq.getPageSize()).orElse(10);
         boolean searchCount = Optional.ofNullable(pageReq.getSearchCount()).orElse(false);
         Page<Dept> page = new Page<>(pageNum, pageSize, searchCount);
-        return deptMapper.selectPage(page, null);
+        return deptMapper.selectPage(page,
+                Wrappers.<Dept>lambdaQuery()
+                        .orderByDesc(Dept::getId)
+        );
     }
 }
