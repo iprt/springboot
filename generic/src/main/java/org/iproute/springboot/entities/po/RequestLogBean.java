@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -21,7 +22,7 @@ import java.util.Date;
 @Data
 @TableName("request_log")
 public class RequestLogBean {
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
     @TableField("application")

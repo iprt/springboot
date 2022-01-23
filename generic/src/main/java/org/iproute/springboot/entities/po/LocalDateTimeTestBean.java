@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * LocalTimeTestBean
@@ -29,5 +29,5 @@ public class LocalDateTimeTestBean {
     private String name;
 
     @TableField("create_time")
-    private LocalDateTime createTime;
+    private Date createTime;
 }

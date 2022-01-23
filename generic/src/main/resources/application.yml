@@ -21,16 +21,57 @@ spring:
       primary: zhuzhenjie
       strict: false
       datasource:
-        zhuzhenjie:
-          url: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
-          username: root
-          password: Root@123#
-          driver-class-name: com.mysql.cj.jdbc.Driver
+        #zhuzhenjie:
+        #  url: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        #  username: root
+        #  password: Root@123#
+        #  driver-class-name: com.mysql.cj.jdbc.Driver
         mysql:
           url: jdbc:mysql://172.100.1.100:3306/mysql?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
           password: Root@123#
           driver-class-name: com.mysql.cj.jdbc.Driver
 
+  # 分表配置
+  shardingsphere:
+    datasource:
+      names: zhuzhenjie
+      zhuzhenjie:
+        type: com.zaxxer.hikari.HikariDataSource
+        # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
+        jdbcUrl: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        username: root
+        password: Root@123#
+        driverClassName: com.mysql.cj.jdbc.Driver
+    props:
+      # 日志显示SQL
+      sql.show: true
+    sharding:
+      tables:
+        # 请求日志表
+        request_log:
+          # 真实表
+          # zhuzhenjie 是 sharding 里面定义的name
+          # 分库策略
+          # databaseStrategy:
+          #  none:
+          # 分表策略
+          logicTable: request_log
+          actualDataNodes: zhuzhenjie.request_log_$->{2022..2025}_$->{1..12}
+          table-strategy:
+            standard:
+              sharding-column: request_time
+              precise-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
+              range-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
+      binding-tables:
+        - request_log
+db:
+  schema-name: zhuzhenjie
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*Mapper.xml
+  typeAliasesPackage: org.iproute.springboot.entities
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true

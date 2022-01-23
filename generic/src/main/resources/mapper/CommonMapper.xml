@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.iproute.springboot.repository.zhuzhenjie.CommonMapper">
+
+    <resultMap id="selectTableCreateSqlResultMap" type="org.iproute.springboot.entities.bo.CreateTableSql">
+        <result column="Table" property="table"/>
+        <result column="Create Table" property="createTable"/>
+    </resultMap>
+
+    <select id="getAllTableNameBySchema" resultType="java.lang.String">
+        SELECT TABLES.TABLE_NAME
+        FROM information_schema.TABLES
+        WHERE TABLES.TABLE_SCHEMA = #{schema}
+    </select>
+
+    <select id="selectTableCreateSql" parameterType="java.lang.String" resultMap="selectTableCreateSqlResultMap">
+        SHOW CREATE TABLE ${tableName}
+    </select>
+
+    <update id="executeSql">
+        ${sql}
+    </update>
+
+</mapper>

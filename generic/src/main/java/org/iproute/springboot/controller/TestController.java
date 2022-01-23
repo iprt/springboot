@@ -3,11 +3,13 @@ package org.iproute.springboot.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
+import org.iproute.springboot.entities.bo.CreateTableSql;
 import org.iproute.springboot.entities.dto.LocalTimeReq;
 import org.iproute.springboot.entities.dto.PostDTO;
 import org.iproute.springboot.entities.po.LocalDateTimeTestBean;
 import org.iproute.springboot.entities.po.MysqlUser;
 import org.iproute.springboot.repository.mysql.UserMapper;
+import org.iproute.springboot.repository.zhuzhenjie.CommonMapper;
 import org.iproute.springboot.repository.zhuzhenjie.LocalDateTimeTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +32,9 @@ public class TestController {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private CommonMapper commonMapper;
 
     /**
      * Say hello string.
@@ -86,11 +91,15 @@ public class TestController {
      * @return the list
      */
     @RequestLog("Mysql用户查询")
-    @GetMapping("mysqlUsers")
+    @GetMapping("/mysqlUsers")
     public List<MysqlUser> mysqlUser() {
         return userMapper.selectList(null);
     }
 
+    @GetMapping("/showCreateTable/{tableName}")
+    public CreateTableSql showCreateTable(@PathVariable("tableName") String tableName) {
+        return commonMapper.selectTableCreateSql(tableName);
+    }
 
 }
 
