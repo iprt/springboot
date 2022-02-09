@@ -14,11 +14,11 @@ import java.util.UUID;
  * @since 2022/1/23
  */
 @Component
-public class RestTest implements CommandLineRunner {
+public class RedisCommandLineRunner implements CommandLineRunner {
 
     private final StringRedisTemplate stringRedisTemplate;
 
-    public RestTest(StringRedisTemplate stringRedisTemplate) {
+    public RedisCommandLineRunner(StringRedisTemplate stringRedisTemplate) {
         this.stringRedisTemplate = stringRedisTemplate;
     }
 
