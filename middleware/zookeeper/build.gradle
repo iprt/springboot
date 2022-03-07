@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'org.iproute'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenCentral()
+}
+
+dependencies {
+
+    // zookeeper
+
+    implementation "com.google.protobuf:protobuf-java:3.11.1"
+
+    implementation "org.apache.commons:commons-lang3:3.11"
+
+}

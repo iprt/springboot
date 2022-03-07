@@ -1,6 +1,11 @@
 rootProject.name = 'springboot'
 
 include 'generic'
-include 'integration-tcp-server'
-include 'integration-tcp-client'
-include 'tcp'
+
+
+include 'component:integration:integration-tcp-server'
+include 'component:integration:integration-tcp-client'
+include 'component:integration:tcp'
+
+include 'middleware:kafka'
+include 'middleware:zookeeper'
