@@ -9,4 +9,4 @@ include 'component:integration:tcp'
 
 include 'middleware:kafka'
 include 'middleware:kafka-springboot'
-include 'middleware:zookeeper'
+include 'middleware:zookeeper-lock'
