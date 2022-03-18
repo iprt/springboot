@@ -1,0 +1,16 @@
+sentinelServersConfig:
+  # @link{org.redisson.config.SentinelServersConfig}
+  sentinelAddresses:
+    - redis://172.100.1.191:26379
+    - redis://172.100.1.192:26379
+    - redis://172.100.1.193:26379
+  masterName: redis-master
+  database: 0
+  # @link{org.redisson.config.BaseMasterSlaveServersConfig}
+  slaveConnectionMinimumIdleSize: 10
+  slaveConnectionPoolSize: 20
+
+  masterConnectionMinimumIdleSize: 10
+  masterConnectionPoolSize: 20
+  # @link{org.redisson.config.BaseConfig}
+  password: 123456
