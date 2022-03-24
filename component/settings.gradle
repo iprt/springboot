@@ -1,26 +1,6 @@
-// == Define locations for build logic ==
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-    }
-    // 1. 引入构建逻辑
-    includeBuild('../build-logic')
-}
-
-// == Define locations for components ==
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
-}
-// 2. 引入 platform
-includeBuild('../platforms')
-
-
 // 定义项目的组成
 rootProject.name = 'component'
 
 include('integration:integration-tcp-client')
 include('integration:integration-tcp-server')
 include('integration:tcp')
-include('web')

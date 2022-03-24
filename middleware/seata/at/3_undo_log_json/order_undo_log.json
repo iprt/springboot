@@ -1,0 +1,85 @@
+{
+  "@class": "io.seata.rm.datasource.undo.BranchUndoLog",
+  "xid": "172.100.1.27:8091:8881342996539199495",
+  "branchId": 8881342996539199502,
+  "sqlUndoLogs": [
+    "java.util.ArrayList",
+    [
+      {
+        "@class": "io.seata.rm.datasource.undo.SQLUndoLog",
+        "sqlType": "INSERT",
+        "tableName": "`order`",
+        "beforeImage": {
+          "@class": "io.seata.rm.datasource.sql.struct.TableRecords$EmptyTableRecords",
+          "tableName": "order",
+          "rows": [
+            "java.util.ArrayList",
+            []
+          ]
+        },
+        "afterImage": {
+          "@class": "io.seata.rm.datasource.sql.struct.TableRecords",
+          "tableName": "order",
+          "rows": [
+            "java.util.ArrayList",
+            [
+              {
+                "@class": "io.seata.rm.datasource.sql.struct.Row",
+                "fields": [
+                  "java.util.ArrayList",
+                  [
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "order_id",
+                      "keyType": "PRIMARY_KEY",
+                      "type": 4,
+                      "value": 1
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "username",
+                      "keyType": "NULL",
+                      "type": 12,
+                      "value": "zhangsan"
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "points",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 3
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "goodsCode",
+                      "keyType": "NULL",
+                      "type": 12,
+                      "value": "coke"
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "quantity",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 10
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "amount",
+                      "keyType": "NULL",
+                      "type": 7,
+                      "value": [
+                        "java.lang.Float",
+                        30.0
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  ]
+}

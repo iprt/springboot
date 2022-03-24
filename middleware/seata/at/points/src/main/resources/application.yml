@@ -2,7 +2,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   configuration:
@@ -16,7 +15,7 @@ spring:
   cloud:
     alibaba:
       seata:
-        tx-service-group: fsp_tx_group
+        tx-service-group: my_test_tx_group
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.100.1.100:3307/seata-points?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
@@ -26,4 +25,4 @@ spring:
 logging:
   level:
     io:
-      seata: DEBUG
+      seata: debug

@@ -20,10 +20,9 @@ spring:
   cloud:
     alibaba:
       seata:
-        tx-service-group: fsp_tx_group
+        tx-service-group: my_test_tx_group
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.100.1.100:3307/seata-storage?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: Root@123#
-

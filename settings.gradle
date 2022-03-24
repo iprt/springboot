@@ -5,7 +5,3 @@ includeBuild('component')
 include('generic')
 
 includeBuild('middleware')
-
-includeBuild('platforms')
-
-includeBuild('build-logic')

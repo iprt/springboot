@@ -45,9 +45,12 @@ dependencies {
     */
 
 
-    implementation ('io.seata:seata-spring-boot-starter:1.4.2'){
-        exclude group: "com.alibaba", module: "druid"
+    // seata 1.4.2 config
+    implementation('com.alibaba.cloud:spring-cloud-alibaba-seata:2.1.0.RELEASE') {
+//        exclude group: "io.seata", module: "seata-all"
+        exclude group: "io.seata", module: "seata-spring-boot-starter"
     }
+    implementation 'io.seata:seata-all:1.4.2'
 
     // druid数据库连接池
     implementation 'com.alibaba:druid-spring-boot-starter:1.1.10'

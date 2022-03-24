@@ -21,40 +21,40 @@ import javax.sql.DataSource;
 @Deprecated
 public class DataSourceConfiguration {
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource druidDataSource() {
-        DruidDataSource druidDataSource = new DruidDataSource();
-        return druidDataSource;
-    }
-
-    /**
-     * 6.1 创建DataSourceProxy
-     *
-     * @param druidDataSource the druid data source
-     * @return data source proxy
-     */
-    @Primary
-    @Bean("dataSource") //
-    public DataSourceProxy dataSourceProxy(DataSource druidDataSource) {
-        return new DataSourceProxy(druidDataSource);
-    }
-
-    /**
-     * 6.2 将原有的DataSource对象替换为DataSourceProxy
-     *
-     * @param dataSourceProxy the data source proxy
-     * @return sql session factory
-     * @throws Exception the exception
-     */
-    @Bean
-    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
-        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath*:/mapper/*.xml"));
-        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
-        return sqlSessionFactoryBean.getObject();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix = "spring.datasource")
+//    public DataSource druidDataSource() {
+//        DruidDataSource druidDataSource = new DruidDataSource();
+//        return druidDataSource;
+//    }
+//
+//    /**
+//     * 6.1 创建DataSourceProxy
+//     *
+//     * @param druidDataSource the druid data source
+//     * @return data source proxy
+//     */
+//    @Primary
+//    @Bean("dataSource") //
+//    public DataSourceProxy dataSourceProxy(DataSource druidDataSource) {
+//        return new DataSourceProxy(druidDataSource);
+//    }
+//
+//    /**
+//     * 6.2 将原有的DataSource对象替换为DataSourceProxy
+//     *
+//     * @param dataSourceProxy the data source proxy
+//     * @return sql session factory
+//     * @throws Exception the exception
+//     */
+//    @Bean
+//    public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
+//        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+//        sqlSessionFactoryBean.setDataSource(dataSourceProxy);
+//        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
+//                .getResources("classpath*:/mapper/*.xml"));
+//        sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
+//        return sqlSessionFactoryBean.getObject();
+//    }
 
 }

@@ -1,16 +1,18 @@
 package org.iproute.middleware.seata.at.business.service;
 
+import io.seata.spring.annotation.GlobalTransactional;
 import org.iproute.middleware.seata.at.business.client.OrderServiceClient;
 import org.iproute.middleware.seata.at.business.client.PointsServiceClient;
 import org.iproute.middleware.seata.at.business.client.StorageServiceClient;
 import org.iproute.middleware.seata.at.business.client.entity.Order;
-import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 /**
  * 业务逻辑
+ *
+ * @author winterfell
  */
 @Service
 public class BusinessService {
@@ -40,6 +42,7 @@ public class BusinessService {
         storageServiceClient.decrease(goodsCode, quantity);
         Order order = orderServiceClient.create(goodsCode, quantity, username, points, amount);
 //        try {
+//            // for show undo_log content
 //            Thread.sleep(60000);
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();

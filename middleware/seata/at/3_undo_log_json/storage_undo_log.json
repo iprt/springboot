@@ -1,0 +1,91 @@
+{
+  "@class": "io.seata.rm.datasource.undo.BranchUndoLog",
+  "xid": "172.100.1.27:8091:8881342996539199495",
+  "branchId": 8881342996539199499,
+  "sqlUndoLogs": [
+    "java.util.ArrayList",
+    [
+      {
+        "@class": "io.seata.rm.datasource.undo.SQLUndoLog",
+        "sqlType": "UPDATE",
+        "tableName": "storage",
+        "beforeImage": {
+          "@class": "io.seata.rm.datasource.sql.struct.TableRecords",
+          "tableName": "storage",
+          "rows": [
+            "java.util.ArrayList",
+            [
+              {
+                "@class": "io.seata.rm.datasource.sql.struct.Row",
+                "fields": [
+                  "java.util.ArrayList",
+                  [
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "storage_id",
+                      "keyType": "PRIMARY_KEY",
+                      "type": 4,
+                      "value": 1
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "goods_code",
+                      "keyType": "NULL",
+                      "type": 12,
+                      "value": "coke"
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "quantity",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 100
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "afterImage": {
+          "@class": "io.seata.rm.datasource.sql.struct.TableRecords",
+          "tableName": "storage",
+          "rows": [
+            "java.util.ArrayList",
+            [
+              {
+                "@class": "io.seata.rm.datasource.sql.struct.Row",
+                "fields": [
+                  "java.util.ArrayList",
+                  [
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "storage_id",
+                      "keyType": "PRIMARY_KEY",
+                      "type": 4,
+                      "value": 1
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "goods_code",
+                      "keyType": "NULL",
+                      "type": 12,
+                      "value": "coke"
+                    },
+                    {
+                      "@class": "io.seata.rm.datasource.sql.struct.Field",
+                      "name": "quantity",
+                      "keyType": "NULL",
+                      "type": 4,
+                      "value": 90
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  ]
+}
