@@ -10,3 +10,5 @@ include('seata:at:eureka')
 include('seata:at:order')
 include('seata:at:points')
 include('seata:at:storage')
+
+include("raft")
