@@ -1,13 +1,11 @@
 rootProject.name = 'springboot'
 
-include 'generic'
+includeBuild('component')
 
+include('generic')
 
-include 'component:integration:integration-tcp-server'
-include 'component:integration:integration-tcp-client'
-include 'component:integration:tcp'
+includeBuild('middleware')
 
-include 'middleware:kafka'
-include 'middleware:kafka-springboot'
-include 'middleware:redisson-springboot'
-include 'middleware:zookeeper-lock'
+includeBuild('platforms')
+
+includeBuild('build-logic')

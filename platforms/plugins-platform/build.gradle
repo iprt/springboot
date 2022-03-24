@@ -1,0 +1,17 @@
+plugins {
+    id('java-platform')
+}
+
+group = 'org.iproute.platform'
+
+dependencies {
+    // constraints = 约束
+    constraints {
+        api('com.android.tools.build:gradle:4.1.1')
+        api('org.jetbrains.kotlin.android:org.jetbrains.kotlin.android.gradle.plugin:1.5.31')
+        api('org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.5.31')
+
+        // 前缀: org.springframework.boot 分号 后缀 org.springframework.boot.gradle.plugin:2.3.4.RELEASE
+        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.3.4.RELEASE')
+    }
+}

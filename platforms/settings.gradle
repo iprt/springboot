@@ -1,0 +1,4 @@
+rootProject.name = 'platforms'
+
+include('plugins-platform')
+include('boot-platform')

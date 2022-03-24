@@ -1,0 +1,13 @@
+plugins {
+    id('org.iproute.spring-boot-simple-web')
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+
+}

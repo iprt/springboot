@@ -1,0 +1,13 @@
+plugins {
+    id('groovy-gradle-plugin') // <1>
+}
+
+dependencies {
+    implementation(platform('org.iproute.platform:plugins-platform')) // <2>
+
+    // 引入commons 是为了 src/main/groovy 中的东西生效
+    implementation(project(':commons')) // <3>
+
+    // 构建的逻辑在这里就不需要加版本了，能这么用也是依赖于 groovy-gradle-plugin
+    implementation('org.springframework.boot:org.springframework.boot.gradle.plugin')  // <4>
+}
