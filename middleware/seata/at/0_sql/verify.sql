@@ -1,10 +1,10 @@
 use `seata-order`;
 
-# order
+-- order
 select *
 from `order`;
 
-# order undo_log
+-- order undo_log
 select *
 from undo_log;
 
@@ -12,21 +12,21 @@ from undo_log;
 use `seata-points`;
 
 
-# points
+-- points
 select *
 from points;
 
-# points undo_log
+-- points undo_log
 select *
 from undo_log;
 
 
 use `seata-storage`;
 
-# storage
+-- storage
 select *
 from storage;
 
-# storage undo_log
+-- storage undo_log
 select *
 from undo_log;
