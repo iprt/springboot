@@ -4,3 +4,5 @@ rootProject.name = 'component'
 include('integration:integration-tcp-client')
 include('integration:integration-tcp-server')
 include('integration:tcp')
+
+include('oauth2')
