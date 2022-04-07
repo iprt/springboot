@@ -6,3 +6,5 @@ include('integration:integration-tcp-server')
 include('integration:tcp')
 
 include('oauth2')
+
+include('alibaba:sentinel')
