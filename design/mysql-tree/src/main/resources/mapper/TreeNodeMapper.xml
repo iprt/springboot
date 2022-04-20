@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.iproute.springboot.design.mysqltree.mapper.TreeNodeMapper">
+
+    <sql id="treep">
+        `id`
+        ,`name`,`lft`,`rgt`,`level`,`sort_key`,`create_time`,`update_time`
+    </sql>
+
+    <select id="nodeInfo" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node where `id` =#{id}
+    </select>
+
+    <select id="levelNodes" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node
+        where
+        `level` =#{level}
+        order by lft, rgt desc;
+    </select>
+
+    <select id="levelMaxOrMinNode" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select `lft`,
+        `rgt`
+        from tree_node
+        where `level` = #{level}
+        order by rgt
+        <choose>
+            <when test="max == true">
+                desc
+            </when>
+            <when test="max == false">
+                asc
+            </when>
+        </choose>
+        limit 1
+
+    </select>
+
+    <select id="parents" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node
+        where
+        lft
+        <choose>
+            <when test="include == false">
+                <![CDATA[ < ]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ <= ]]>
+            </when>
+        </choose>
+        #{node.lft}
+        and
+        rgt
+        <choose>
+            <when test="include == false">
+                <![CDATA[ > ]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ >= ]]>
+            </when>
+        </choose>
+        #{node.rgt}
+        <choose>
+            <!-- 极限边界优化 -->
+            <when test="level gt 0 and include == false">
+                and `level` >= (#{node.level} - #{level})
+                and `level`  <![CDATA[ < ]]> #{node.level}
+            </when>
+            <when test="level gt 0 and include == true">
+                and `level` >= (#{node.level} - #{level})
+                and `level`  <![CDATA[ <= ]]> #{node.level}
+            </when>
+        </choose>
+        order by lft desc
+    </select>
+
+    <select id="parent" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select *
+        from tree_node
+        where lft  <![CDATA[ < ]]> (select lft from tree_node where id = @id)
+          and rgt  <![CDATA[ > ]]> (select rgt from tree_node where id = @id)
+          and `level` > 1
+        order by lft desc limit 1;
+    </select>
+
+    <select id="children" resultType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node where
+        lft
+        <choose>
+            <when test="include == false">
+                <![CDATA[ > ]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ >= ]]>
+            </when>
+        </choose>
+        #{node.lft}
+        and
+        rgt
+        <choose>
+            <when test="include == false">
+                <![CDATA[ <]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ <= ]]>
+            </when>
+        </choose>
+        #{node.rgt}
+        <if test="level gt -1">
+            and `level`  <![CDATA[ <= ]]> (#{node.level} + #{level})
+        </if>
+    </select>
+
+    <insert id="addNode" useGeneratedKeys="true" keyProperty="id"
+            parameterType="org.iproute.springboot.design.mysqltree.model.TreeNode">
+        insert into tree_node(`name`, `lft`, `rgt`, `level`, `sort_key`)
+            value
+            (#{name}, #{lft}, #{rgt}, #{level}, #{sortKey})
+    </insert>
+
+    <update id="updateLft">
+        update tree_node
+        set lft=lft + 2
+        where lft >= #{newNodeRgt}
+    </update>
+
+    <update id="updateRgt">
+        update tree_node
+        set rgt=rgt + 2
+        where rgt >= #{newNodeLft}
+    </update>
+
+    <delete id="removeRange">
+        delete
+        from tree_node
+        where
+        lft
+        <choose>
+            <when test="include == false">
+                <![CDATA[ > ]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ >= ]]>
+            </when>
+        </choose>
+        #{lft}
+        and
+        rgt
+        <choose>
+            <when test="include == false">
+                <![CDATA[ > ]]>
+            </when>
+            <when test="include == true">
+                <![CDATA[ >= ]]>
+            </when>
+        </choose>
+        #{rgt}
+    </delete>
+
+</mapper>

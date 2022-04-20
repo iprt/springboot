@@ -2,6 +2,10 @@ rootProject.name = 'springboot'
 
 includeBuild('component')
 
+includeBuild('design')
+
 include('generic')
+
+include('reactor-java')
 
 includeBuild('middleware')

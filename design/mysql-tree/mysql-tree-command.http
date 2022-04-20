@@ -1,0 +1,18 @@
+### Command操作
+POST http://127.0.0.1:8090/treeNode/command
+Accept: application/json
+Content-Type: application/json
+
+{
+  "command": "treeNode --option=query --type=children --id=9949"
+}
+
+
+### 初始化数据
+POST http://127.0.0.1:8090/treeNode/init
+Accept: application/json
+Content-Type: application/json
+
+{
+  "path": "D:/code/IdeaProjects/work"
+}
