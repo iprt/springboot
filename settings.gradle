@@ -1,11 +1,23 @@
 rootProject.name = 'springboot'
 
-includeBuild('component')
+include('component:integration:integration-tcp-client')
+include('component:integration:integration-tcp-server')
+include('component:integration:tcp')
 
-includeBuild('design')
+include('design:mysql-tree')
 
 include('generic')
 
-include('reactor-java')
+include('middleware:kafka')
+include('middleware:kafka-springboot')
+include('middleware:raft')
 
-includeBuild('middleware')
+include('middleware:redisson-springboot')
+
+include('middleware:seata:at:business')
+include('middleware:seata:at:eureka')
+include('middleware:seata:at:order')
+include('middleware:seata:at:points')
+include('middleware:seata:at:storage')
+
+include('middleware:zookeeper-lock')
