@@ -3,6 +3,8 @@ rootProject.name = 'springboot'
 include('component:integration:integration-tcp-client')
 include('component:integration:integration-tcp-server')
 include('component:integration:tcp')
+include('component:alibaba:sentinel')
+include('component:oauth2')
 
 include('design:mysql-tree')
 
@@ -21,3 +23,5 @@ include('middleware:seata:at:points')
 include('middleware:seata:at:storage')
 
 include('middleware:zookeeper-lock')
+
+include('reactor-java')
