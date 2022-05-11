@@ -4,7 +4,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "command": "treeNode --option=query --type=children --id=9949"
+  "command": "treeNode --option=query --type=children --id=5 --level=2"
 }
 
 
@@ -14,5 +14,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "path": "D:/code/IdeaProjects/work"
+  "path": "D:/work"
 }

@@ -1,13 +1,20 @@
 package org.iproute.springboot.design.mysqltree.service.impl;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
 import org.iproute.springboot.design.mysqltree.service.FolderTreeNodeInit;
 import org.iproute.springboot.design.mysqltree.service.TreeNodeService;
+import org.iproute.springboot.design.mysqltree.utils.recursion.TreeRecursionUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * FolderTreeNodeInitImpl
@@ -26,70 +33,83 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
 
     @Override
     public void init(String path) {
-        File folder = new File(path);
-        if (!folder.exists() || folder.isFile()) {
+        FileTreeNodeHelper fh = FileTreeNodeHelper.builder()
+                .file(new File(path))
+                .id(-1L)
+                .build();
+        if (!fh.getFile().exists() || fh.getFile().isFile()) {
             return;
         }
-        this.recursionList(folder, 0, -1L, path);
-    }
+        TreeRecursionUtils<FileTreeNodeHelper> u = TreeRecursionUtils.<FileTreeNodeHelper>builder()
+                .root(fh)
+                .parentFuncWithParent(
+                        (n, p) -> {
+                            Long pid = p.getId();
+                            String name = n.getFile().getAbsolutePath().substring(path.length());
+                            if (StringUtils.isBlank(name)) {
+                                name = "\\";
+                            }
+                            TreeNode treeNode = treeNodeService.addNode(pid, name);
 
-    private void recursionList(File file, int spaceTimes, Long pid, String path) {
-        if (ignore(file.getName(),
-                new String[]{
-                        ".git", ".idea", "@", "#", "node_modules", "target", "out"
-                }, new String[]{
-                        ".class"
+                            // for child
+                            Long id = treeNode.getId();
+                            n.setId(id);
+                        }
+                )
+                .childFuncWithParent(
+                        (n, p) -> {
+                            Long pid = p.getId();
+                            String name = n.getFile().getAbsolutePath().substring(path.length());
+                            treeNodeService.addNode(pid, name);
+                        }
+                )
+                .listable(f -> f.getFile().isDirectory())
+                .listFunc(f -> {
+                    File[] files = f.getFile().listFiles();
+                    if (Objects.isNull(files)) {
+                        return Collections.emptyList();
+                    }
+                    return Stream.of(files)
+                            .map(ff -> FileTreeNodeHelper.builder().file(ff).build())
+                            .collect(Collectors.toList());
                 })
-        ) {
-            return;
-        }
+                .filter(f -> {
+                    String[] prefixIgnored = new String[]{
+                            ".git", ".idea", "@", "#", "node_modules", "target", "out"
+                    };
 
-        if (file.isFile()) {
-            String fileName = file.getAbsolutePath().substring(path.length());
-            // System.out.println(space(spaceTimes) + fileName);
-            TreeNode folderNode = treeNodeService.addNode(pid, fileName);
-        }
-        if (file.isDirectory()) {
-            String folderName = file.getAbsolutePath().substring(path.length());
-            // System.out.println(space(spaceTimes) + folderName);
-            if (StringUtils.isBlank(folderName)) {
-                folderName = "\\";
-            }
-            TreeNode folderNode = treeNodeService.addNode(pid, folderName);
-            Long newPid = folderNode.getId();
+                    String[] suffixIgnored = new String[]{
+                            ".class"
+                    };
 
-            File[] files = file.listFiles();
-            if (Objects.isNull(files)) {
-                return;
-            }
+                    for (String s : prefixIgnored) {
+                        if (f.getFile().getName().startsWith(s)) {
+                            return true;
+                        }
+                    }
+                    for (String e : suffixIgnored) {
+                        if (f.getFile().getName().endsWith(e)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                })
+                .build();
 
-            for (File tmpFile : files) {
-                recursionList(tmpFile, spaceTimes + 1, newPid, path);
-            }
-        }
+        u.operateWithParent(FileTreeNodeHelper.builder().id(-1L).build());
     }
 
 
-    private String space(int level) {
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < level; i++) {
-            builder.append("  ");
-        }
-        return builder.toString();
-    }
+    @Builder
+    private static class FileTreeNodeHelper {
 
-    private boolean ignore(String fileName, String[] startIgnore, String[] endIgnore) {
-        for (String s : startIgnore) {
-            if (fileName.startsWith(s)) {
-                return true;
-            }
-        }
-        for (String e : endIgnore) {
-            if (fileName.endsWith(e)) {
-                return true;
-            }
-        }
-        return false;
+        @Getter
+        private File file;
+
+        @Setter
+        @Getter
+        private Long id;
+
     }
 
 }

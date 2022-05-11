@@ -73,7 +73,7 @@ public class TreeNodeServiceImpl implements TreeNodeService {
     @Transactional(rollbackFor = Exception.class)
     @Override
     public TreeNode addNode(Long pid, String nodeName) {
-        if (pid < 0) {
+        if (Objects.isNull(pid) || pid < 0) {
             // 找不到父节点，直接添加一层节点
             TreeNode maxRoot = treeNodeMapper.levelMaxOrMinNode(ROOT_LEVEL, true);
             int rootLft = 1 + (Objects.isNull(maxRoot) ? 0 : maxRoot.getRgt());
