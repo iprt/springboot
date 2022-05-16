@@ -1,47 +1,31 @@
 package org.iproute.springboot.design.mysqltree.utils.recursion;
 
 import lombok.Builder;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * TreeRecursionUtils 树形结构递归处理封装
+ * TreeRecursionUtils 树形结构自上而下的递归处理封装
  *
  * @author zhuzhenjie
  * @since 2022/5/11
  */
 @Builder
+@Slf4j
 public class TreeRecursionUtils<T> {
 
     private T root;
 
-    /**
-     * 父节点处理
-     */
-    private Consumer<T> parentFunc;
+    TreeNodeOperator<T> nodeOperators;
 
-    private NodeOperatorWithParent<T> parentFuncWithParent;
-
-    /**
-     * 子节点处理
-     */
-    private Consumer<T> childFunc;
-
-    private NodeOperatorWithParent<T> childFuncWithParent;
-
-    /**
-     * 节点判断
-     */
-    private Predicate<T> listable;
-
-    /**
-     * 基于父节点遍历出子节点
-     */
-    private Function<T, List<T>> listFunc;
+    private TreeNodeListable<T> listable;
 
     /**
      * 节点过滤
@@ -57,16 +41,37 @@ public class TreeRecursionUtils<T> {
         if (Objects.nonNull(filter) && filter.test(node)) {
             return;
         }
-        boolean listable = this.listable.test(node);
-        if (listable) {
-            if (Objects.nonNull(parentFunc)) {
-                parentFunc.accept(node);
+
+        if (Objects.isNull(listable)) {
+            log.info("Need Listable for Recursion");
+            return;
+        }
+
+        Predicate<T> p = this.listable.getListable();
+        if (Objects.isNull(p)) {
+            return;
+        }
+
+        if (p.test(node)) {
+            Consumer<T> nodeOperate = nodeOperators.getListableNodeOperate();
+            if (Objects.nonNull(nodeOperate)) {
+                nodeOperate.accept(node);
             }
-            List<T> nodes = listFunc.apply(node);
+
+            Function<T, List<T>> expand = listable.getExpand();
+
+            if (Objects.isNull(expand)) {
+                return;
+            }
+            List<T> nodes = expand.apply(node);
+            if (CollectionUtils.isEmpty(nodes)) {
+                return;
+            }
             nodes.forEach(this::operate);
         } else {
-            if (Objects.nonNull(childFunc)) {
-                childFunc.accept(node);
+            Consumer<T> childOperate = nodeOperators.getNodeOperate();
+            if (Objects.nonNull(childOperate)) {
+                childOperate.accept(node);
             }
         }
     }
@@ -75,29 +80,45 @@ public class TreeRecursionUtils<T> {
         operateWithParent(root, startParent);
     }
 
-    private void operateWithParent(T node, T p) {
+    private void operateWithParent(T node, T parent) {
         if (Objects.nonNull(filter) && filter.test(node)) {
             return;
         }
-        boolean listable = this.listable.test(node);
-        if (listable) {
-            if (Objects.nonNull(parentFuncWithParent)) {
+
+        if (Objects.isNull(listable)) {
+            log.info("Need Listable for Recursion");
+            return;
+        }
+
+        Predicate<T> p = this.listable.getListable();
+        if (Objects.isNull(p)) {
+            return;
+        }
+
+        if (p.test(node)) {
+            BiConsumer<T, T> nodeOperateWithParent = nodeOperators.getListableNodeOperateWithParent();
+            if (Objects.nonNull(nodeOperateWithParent)) {
                 // 父节点传值的话需要自己扩展
-                parentFuncWithParent.accept(node, p);
+                nodeOperateWithParent.accept(node, parent);
             }
-
-            List<T> nodes = listFunc.apply(node);
-
+            Function<T, List<T>> expand = this.listable.getExpand();
+            if (Objects.isNull(expand)) {
+                return;
+            }
+            List<T> nodes = expand.apply(node);
+            if (CollectionUtils.isEmpty(nodes)) {
+                return;
+            }
             nodes.forEach(t -> {
                 operateWithParent(t, node);
             });
 
         } else {
-            if (Objects.nonNull(childFuncWithParent)) {
-                childFuncWithParent.accept(node, p);
+            BiConsumer<T, T> childOperateWithParent = nodeOperators.getNodeOperateWithParent();
+            if (Objects.nonNull(childOperateWithParent)) {
+                childOperateWithParent.accept(node, parent);
             }
         }
     }
-
 
 }

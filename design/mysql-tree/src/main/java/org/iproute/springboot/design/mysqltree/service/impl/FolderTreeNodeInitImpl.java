@@ -7,6 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
 import org.iproute.springboot.design.mysqltree.service.FolderTreeNodeInit;
 import org.iproute.springboot.design.mysqltree.service.TreeNodeService;
+import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeListable;
+import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeOperator;
 import org.iproute.springboot.design.mysqltree.utils.recursion.TreeRecursionUtils;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +44,7 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
         }
         TreeRecursionUtils<FileTreeNodeHelper> u = TreeRecursionUtils.<FileTreeNodeHelper>builder()
                 .root(fh)
-                .parentFuncWithParent(
+                .nodeOperators(TreeNodeOperator.withParent(
                         (n, p) -> {
                             Long pid = p.getId();
                             String name = n.getFile().getAbsolutePath().substring(path.length());
@@ -54,25 +56,25 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
                             // for child
                             Long id = treeNode.getId();
                             n.setId(id);
-                        }
-                )
-                .childFuncWithParent(
+                        },
                         (n, p) -> {
                             Long pid = p.getId();
                             String name = n.getFile().getAbsolutePath().substring(path.length());
                             treeNodeService.addNode(pid, name);
                         }
-                )
-                .listable(f -> f.getFile().isDirectory())
-                .listFunc(f -> {
-                    File[] files = f.getFile().listFiles();
-                    if (Objects.isNull(files)) {
-                        return Collections.emptyList();
-                    }
-                    return Stream.of(files)
-                            .map(ff -> FileTreeNodeHelper.builder().file(ff).build())
-                            .collect(Collectors.toList());
-                })
+                ))
+                .listable(TreeNodeListable.<FileTreeNodeHelper>builder()
+                        .listable(f -> f.getFile().isDirectory())
+                        .expand(f -> {
+                            File[] files = f.getFile().listFiles();
+                            if (Objects.isNull(files)) {
+                                return Collections.emptyList();
+                            }
+                            return Stream.of(files)
+                                    .map(ff -> FileTreeNodeHelper.builder().file(ff).build())
+                                    .collect(Collectors.toList());
+                        })
+                        .build())
                 .filter(f -> {
                     String[] prefixIgnored = new String[]{
                             ".git", ".idea", "@", "#", "node_modules", "target", "out"

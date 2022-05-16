@@ -1,5 +1,7 @@
 package org.iproute.springboot.design.mysqltree.test;
 
+import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeListable;
+import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeOperator;
 import org.iproute.springboot.design.mysqltree.utils.recursion.TreeRecursionUtils;
 import org.junit.Test;
 
@@ -23,25 +25,24 @@ public class TreeRecursionUtilsTest {
 
         TreeRecursionUtils<File> u = TreeRecursionUtils.<File>builder()
                 .root(file)
-                .parentFunc(f -> {
-                    System.out.println("folder:" + f.getAbsolutePath());
-                })
-                .childFunc(f -> {
-                    System.out.println("file  :" + f.getAbsolutePath());
-                })
-                .listable(File::isDirectory)
-                .listFunc(f -> {
-                    File[] files = f.listFiles();
-                    if (Objects.isNull(files)) {
-                        return Collections.emptyList();
-                    }
-                    return Stream.of(files).collect(Collectors.toList());
-                })
+                .nodeOperators(TreeNodeOperator.withoutParent(
+                        f -> System.out.println("folder:" + f.getAbsolutePath()),
+                        f -> System.out.println("file  :" + f.getAbsolutePath())
+                ))
+                .listable(TreeNodeListable.<File>builder()
+                        .listable(File::isDirectory)
+                        .expand(f -> {
+                            File[] files = f.listFiles();
+                            if (Objects.isNull(files)) {
+                                return Collections.emptyList();
+                            }
+                            return Stream.of(files).collect(Collectors.toList());
+                        })
+                        .build())
                 .filter(null)
                 .build();
 
         u.operate();
-
         System.out.println();
 
     }
@@ -52,26 +53,59 @@ public class TreeRecursionUtilsTest {
 
         TreeRecursionUtils<File> u = TreeRecursionUtils.<File>builder()
                 .root(file)
-                .parentFuncWithParent((node, p) -> {
-                    System.out.println("folder:" + node.getAbsolutePath() +
-                            " parent:" + (Objects.isNull(p) ? "null" : p.getAbsolutePath()));
-                })
-                .childFuncWithParent((node, p) -> {
-                    System.out.println("file  :" + node.getAbsolutePath() +
-                            " parent:" + (Objects.isNull(p) ? "null" : p.getAbsolutePath()));
-                })
-                .listable(File::isDirectory)
-                .listFunc(f -> {
-                    File[] files = f.listFiles();
-                    if (Objects.isNull(files)) {
-                        return Collections.emptyList();
-                    }
-                    return Stream.of(files).collect(Collectors.toList());
-                })
+                .nodeOperators(TreeNodeOperator.withParent(
+                        (node, p) -> {
+                            System.out.println("folder:" + node.getAbsolutePath() +
+                                    " parent:" + (Objects.isNull(p) ? "null" : p.getAbsolutePath()));
+                        },
+                        (node, p) -> {
+                            System.out.println("file  :" + node.getAbsolutePath() +
+                                    " parent:" + (Objects.isNull(p) ? "null" : p.getAbsolutePath()));
+                        }
+                ))
+                .listable(TreeNodeListable.<File>builder()
+                        .listable(File::isDirectory)
+                        .expand(f -> {
+                            File[] files = f.listFiles();
+                            if (Objects.isNull(files)) {
+                                return Collections.emptyList();
+                            }
+                            return Stream.of(files).collect(Collectors.toList());
+                        })
+                        .build())
                 .filter(null)
                 .build();
 
         u.operateWithParent(null);
     }
+
+
+    /**
+     * 常规写法
+     */
+    @Test
+    public void listFile() {
+        listFile(new File("D:\\work"));
+    }
+
+
+    private void listFile(File f) {
+        if (Objects.isNull(f) || !f.exists()) {
+            return;
+        }
+
+        if (f.isDirectory()) {
+            System.out.println("folder : " + f.getAbsolutePath());
+            File[] files = f.listFiles();
+            if (Objects.isNull(files)) {
+                return;
+            }
+            Stream.of(files).forEach(this::listFile);
+
+        } else {
+            System.out.println("file  : " + f.getAbsolutePath());
+        }
+    }
+
 
 }
