@@ -16,7 +16,14 @@ import java.util.function.Predicate;
 @Builder
 @Getter
 public class TreeNodeListable<T> {
+    /**
+     * 展开的判断方法
+     */
     private Predicate<T> listable;
+
+    /**
+     * 是否可展开
+     */
     private Function<T, List<T>> expand;
 
     private TreeNodeListable(Predicate<T> listable, Function<T, List<T>> expand) {
