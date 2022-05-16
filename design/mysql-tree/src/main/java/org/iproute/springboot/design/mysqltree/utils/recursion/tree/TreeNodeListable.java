@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.utils.recursion;
+package org.iproute.springboot.design.mysqltree.utils.recursion.tree;
 
 import lombok.Builder;
 import lombok.Getter;

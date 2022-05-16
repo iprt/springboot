@@ -1,8 +1,8 @@
 package org.iproute.springboot.design.mysqltree.test;
 
-import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeListable;
-import org.iproute.springboot.design.mysqltree.utils.recursion.TreeNodeOperator;
-import org.iproute.springboot.design.mysqltree.utils.recursion.TreeRecursionUtils;
+import org.iproute.springboot.design.mysqltree.utils.recursion.tree.TreeNodeListable;
+import org.iproute.springboot.design.mysqltree.utils.recursion.tree.TreeNodeOperator;
+import org.iproute.springboot.design.mysqltree.utils.recursion.tree.TreeRecursionUtils;
 import org.junit.Test;
 
 import java.io.File;
