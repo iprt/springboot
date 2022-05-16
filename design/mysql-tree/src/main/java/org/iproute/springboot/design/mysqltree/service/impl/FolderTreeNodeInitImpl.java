@@ -3,6 +3,7 @@ package org.iproute.springboot.design.mysqltree.service.impl;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
 import org.iproute.springboot.design.mysqltree.service.FolderTreeNodeInit;
@@ -25,6 +26,7 @@ import java.util.stream.Stream;
  * @since 2022/4/20
  */
 @Service
+@Slf4j
 public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
 
     private final TreeNodeService treeNodeService;
@@ -99,6 +101,34 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
                 .build();
 
         u.operateWithParent(FileTreeNodeHelper.builder().id(-1L).build());
+    }
+
+
+    @Override
+    public void query(Long id) {
+
+        TreeNode treeNode = treeNodeService.nodeInfo(id);
+
+        if (Objects.isNull(treeNode)) {
+            log.error("treeNode does not exists id = {}", id);
+            return;
+        }
+
+        TreeRecursionUtils<TreeNode> u = TreeRecursionUtils.<TreeNode>builder()
+                .root(treeNode)
+                .nodeOperators(TreeNodeOperator.withoutParent(
+                        ln -> log.info("listable node: {}", ln),
+                        ln -> log.info("simple   node: {}", ln)
+                ))
+                .listable(TreeNodeListable.<TreeNode>builder()
+                        .listable(n -> {
+                            long nodeId = n.getId();
+                            return treeNodeService.children(nodeId, false, 1).size() > 0;
+                        })
+                        .expand(n -> treeNodeService.children(n.getId(), false, 1))
+                        .build())
+                .build();
+        u.operate();
     }
 
 

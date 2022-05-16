@@ -8,11 +8,21 @@ Content-Type: application/json
 }
 
 
-### 初始化数据
+### 递归初始化数据
 POST http://127.0.0.1:8090/treeNode/init
 Accept: application/json
 Content-Type: application/json
 
 {
   "path": "D:/work"
+}
+
+
+### 递归查询初始化数据
+POST http://127.0.0.1:8090/treeNode/query
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1
 }

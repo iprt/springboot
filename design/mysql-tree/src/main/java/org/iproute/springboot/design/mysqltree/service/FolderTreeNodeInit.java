@@ -14,4 +14,11 @@ public interface FolderTreeNodeInit {
      * @param path the folder
      */
     void init(String path);
+
+    /**
+     * Query.
+     *
+     * @param id the id
+     */
+    void query(Long id);
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -81,14 +82,16 @@ public class TreeNodeController {
         return treeNodeService.levelNodes(node.getLevel());
     }
 
-    @SuppressWarnings("all")
+
     @PostMapping("/init")
+    @SuppressWarnings("all")
     public String init(@RequestBody InitReq req) {
 
         if (StringUtils.isBlank(req.getPath())) {
             return "path is blank";
         }
         String path = req.getPath();
+
 
         new Thread(() -> {
             initLock.lock();
@@ -102,4 +105,24 @@ public class TreeNodeController {
         return "init in thread";
     }
 
+    @PostMapping("/query")
+    @SuppressWarnings("all")
+    public String query(@RequestBody InitReq req) {
+        if (Objects.isNull(req.getId())) {
+            return "id is null";
+        }
+
+        Long id = req.getId();
+
+        new Thread(() -> {
+            initLock.lock();
+            try {
+                folderTreeNodeInit.query(id);
+            } finally {
+                initLock.unlock();
+            }
+        }, "QUERY").start();
+
+        return "query in thread";
+    }
 }

@@ -19,4 +19,6 @@ import lombok.ToString;
 @Data
 public class InitReq {
     private String path;
+
+    private Long id;
 }
