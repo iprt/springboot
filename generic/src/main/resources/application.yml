@@ -12,9 +12,9 @@ spring:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
   redis:
-    host: ipcrystal.com
+    host: 172.100.1.100
     port: 6379
-    password: Redis_Root@123#
+    password: 123456
     database: 0
   datasource:
     dynamic:
@@ -28,9 +28,9 @@ spring:
         #  password: Root@123#
         #  driver-class-name: com.mysql.cj.jdbc.Driver
         commons:
-          url: jdbc:mysql://ipcrystal.com:3307/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: Mysql_Root@123#
+          password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
 
   # 分表配置
@@ -40,9 +40,9 @@ spring:
       springboot:
         type: com.zaxxer.hikari.HikariDataSource
         # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
-        jdbcUrl: jdbc:mysql://ipcrystal.com:3307/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        jdbcUrl: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
-        password: Mysql_Root@123#
+        password: root
         driverClassName: com.mysql.cj.jdbc.Driver
     props:
       # 日志显示SQL
