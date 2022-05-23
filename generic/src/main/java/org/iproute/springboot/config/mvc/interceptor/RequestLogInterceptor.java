@@ -29,7 +29,9 @@ import java.util.concurrent.Executor;
 @Slf4j
 public class RequestLogInterceptor implements HandlerInterceptor {
 
-    @Value("${spring.application.name}")
+    private static final String REQ_TIME_ATTRIBUTE = "RequestLogInterceptor_Request_Time";
+
+    @Value("${spring.application.name:springboot}")
     private String applicationName;
 
     @Resource
@@ -38,26 +40,33 @@ public class RequestLogInterceptor implements HandlerInterceptor {
     @Autowired
     private Executor asyncExecutor;
 
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        request.setAttribute(REQ_TIME_ATTRIBUTE, System.currentTimeMillis());
+        return true;
+    }
 
     @Override
-    public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object handler) throws Exception {
-
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
         if (!(handler instanceof HandlerMethod)) {
             log.info("RequestLogInterceptor.preHandle handler isn't HandlerMethod | class = {}", handler.getClass());
-            return true;
+            return;
         }
 
         HandlerMethod hm = (HandlerMethod) handler;
         RequestLog requestLog = hm.getMethodAnnotation(RequestLog.class);
         if (Objects.isNull(requestLog)) {
-            return true;
+            return;
         }
 
-        RequestLogBean logBean = RequestLogUtils.requestLogBean(request);
+        RequestLogBean logBean = RequestLogUtils.requestLogBean(request, true);
+        logBean.setApplication(applicationName);
 
-        logBean.setApplication(application());
-        logBean.setRequestTime(new Date());
+        Long reqTime = (Long) request.getAttribute(REQ_TIME_ATTRIBUTE);
+        logBean.setRequestTime(new Date(reqTime));
+
+        // 正确的接口描述为注解中的内容
         logBean.setRequestDesc(requestLog.value());
 
         asyncExecutor.execute(() -> {
@@ -68,12 +77,6 @@ public class RequestLogInterceptor implements HandlerInterceptor {
                 log.error("RequestLogInterceptor.preHandle Exception | {}", e.getMessage());
             }
         });
-
-        return true;
-    }
-
-    private String application() {
-        return StringUtils.isBlank(applicationName) ? "" : applicationName;
     }
 
 }

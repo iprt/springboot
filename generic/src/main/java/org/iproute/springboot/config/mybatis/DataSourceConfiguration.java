@@ -1,4 +1,4 @@
-package org.iproute.springboot.config.datasource;
+package org.iproute.springboot.config.mybatis;
 
 import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration;

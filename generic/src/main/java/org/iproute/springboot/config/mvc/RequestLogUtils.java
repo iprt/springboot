@@ -1,7 +1,6 @@
 package org.iproute.springboot.config.mvc;
 
 import org.apache.commons.lang3.StringUtils;
-import org.iproute.springboot.entities.po.RequestErrorLogBean;
 import org.iproute.springboot.entities.po.RequestLogBean;
 import org.springframework.http.HttpHeaders;
 
@@ -21,30 +20,11 @@ public class RequestLogUtils {
      * @param request the request
      * @return the request log bean
      */
-    public static RequestLogBean requestLogBean(HttpServletRequest request) {
+    public static RequestLogBean requestLogBean(HttpServletRequest request,boolean success) {
         return RequestLogBean.builder()
                 .method(method(request))
                 .uri(uri(request))
-                .contentType(contentType(request))
-                .queryString(queryString(request))
-                .body(body(request))
-                .userAgent(userAgent(request))
-                .uid(-1L)
-                .uname(StringUtils.EMPTY)
-                .ip(ip(request))
-                .build();
-    }
-
-    /**
-     * Request error log bean request error log bean.
-     *
-     * @param request the request
-     * @return the request error log bean
-     */
-    public static RequestErrorLogBean requestErrorLogBean(HttpServletRequest request) {
-        return RequestErrorLogBean.builder()
-                .method(method(request))
-                .uri(uri(request))
+                .success(success)
                 .contentType(contentType(request))
                 .queryString(queryString(request))
                 .body(body(request))

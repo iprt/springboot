@@ -5,9 +5,9 @@ import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.bo.CreateTableSql;
 import org.iproute.springboot.entities.dto.PostDTO;
-import org.iproute.springboot.entities.po.MysqlUser;
-import org.iproute.springboot.repository.commons.UserMapper;
+import org.iproute.springboot.entities.po.RequestLogBean;
 import org.iproute.springboot.repository.commons.CommonMapper;
+import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,10 +25,10 @@ import java.util.List;
 public class TestController {
 
     @Autowired
-    private UserMapper userMapper;
+    private CommonMapper commonMapper;
 
     @Autowired
-    private CommonMapper commonMapper;
+    private RequestLogBeanMapper requestLogBeanMapper;
 
     /**
      * Say hello string.
@@ -66,20 +66,14 @@ public class TestController {
         return "hello world";
     }
 
-    /**
-     * mybatis plus 多数据源测试
-     *
-     * @return the list
-     */
-    @RequestLog("Mysql用户查询")
-    @GetMapping("/mysqlUsers")
-    public List<MysqlUser> mysqlUser() {
-        return userMapper.selectList(null);
-    }
-
     @GetMapping("/showCreateTable/{tableName}")
     public CreateTableSql showCreateTable(@PathVariable("tableName") String tableName) {
         return commonMapper.selectTableCreateSql(tableName);
+    }
+
+    @GetMapping("/reqLog/all")
+    public List<RequestLogBean> allRequestLogBean() {
+        return requestLogBeanMapper.selectList(null);
     }
 
 }

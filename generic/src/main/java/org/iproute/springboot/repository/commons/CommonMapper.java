@@ -16,6 +16,7 @@ import java.util.List;
  */
 @Repository
 @Mapper
+@DS("commons")
 public interface CommonMapper {
     /**
      * 查询数据库中的所有表名
