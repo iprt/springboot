@@ -1,4 +1,4 @@
-package org.iproute.springboot.repository.mysql;
+package org.iproute.springboot.repository.commons;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

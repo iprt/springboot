@@ -14,7 +14,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "path": "D:/work"
+  "path": "D:/code"
 }
 
 

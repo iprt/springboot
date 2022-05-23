@@ -33,7 +33,7 @@ public class DataSourceConfiguration {
     /**
      * 分表数据源名称
      */
-    public static final String SHARDING_DATA_SOURCE_NAME = "zhuzhenjie";
+    public static final String SHARDING_DATA_SOURCE_NAME = "springboot";
 
     /**
      * 动态数据源配置项
@@ -70,6 +70,7 @@ public class DataSourceConfiguration {
         dataSource.setP6spy(dynamicDataSourceProperties.getP6spy());
         dataSource.setSeata(dynamicDataSourceProperties.getSeata());
 
+        // 关键在这里
         dataSource.addDataSource(SHARDING_DATA_SOURCE_NAME, shardingDataSource);
         return dataSource;
     }

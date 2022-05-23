@@ -7,7 +7,7 @@ import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.config.mvc.req.PageReq;
 import org.iproute.springboot.entities.po.Dept;
-import org.iproute.springboot.repository.zhuzhenjie.DeptMapper;
+import org.iproute.springboot.repository.springboot.DeptMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

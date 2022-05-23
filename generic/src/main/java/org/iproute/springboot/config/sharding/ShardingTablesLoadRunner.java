@@ -1,7 +1,7 @@
 package org.iproute.springboot.config.sharding;
 
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.springboot.repository.zhuzhenjie.CommonMapper;
+import org.iproute.springboot.repository.commons.CommonMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @Component
 public class ShardingTablesLoadRunner implements CommandLineRunner {
 
-    @Value("${db.schema-name}")
+    @Value("${db.schema-name:springboot}")
     private String schemaName;
 
     @Resource

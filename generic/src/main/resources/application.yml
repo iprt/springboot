@@ -12,36 +12,37 @@ spring:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
   redis:
-    host: 172.100.1.100
+    host: ipcrystal.com
     port: 6379
-    password: 123456
+    password: Redis_Root@123#
     database: 0
   datasource:
     dynamic:
-      primary: zhuzhenjie
+      # commons 为了建库而使用的
+      primary: commons
       strict: false
       datasource:
-        #zhuzhenjie:
-        #  url: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        #springboot:
+        #  url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
         #  username: root
         #  password: Root@123#
         #  driver-class-name: com.mysql.cj.jdbc.Driver
-        mysql:
-          url: jdbc:mysql://172.100.1.100:3306/mysql?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        commons:
+          url: jdbc:mysql://ipcrystal.com:3307/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: Root@123#
+          password: Mysql_Root@123#
           driver-class-name: com.mysql.cj.jdbc.Driver
 
   # 分表配置
   shardingsphere:
     datasource:
-      names: zhuzhenjie
-      zhuzhenjie:
+      names: springboot
+      springboot:
         type: com.zaxxer.hikari.HikariDataSource
         # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
-        jdbcUrl: jdbc:mysql://172.100.1.100:3306/zhuzhenjie?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+        jdbcUrl: jdbc:mysql://ipcrystal.com:3307/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
-        password: Root@123#
+        password: Mysql_Root@123#
         driverClassName: com.mysql.cj.jdbc.Driver
     props:
       # 日志显示SQL
@@ -51,13 +52,13 @@ spring:
         # 请求日志表
         request_log:
           # 真实表
-          # zhuzhenjie 是 sharding 里面定义的name
+          # springboot 是 sharding 里面定义的name
           # 分库策略
           # databaseStrategy:
           #  none:
           # 分表策略
           logicTable: request_log
-          actualDataNodes: zhuzhenjie.request_log_$->{2022..2025}_$->{1..12}
+          actualDataNodes: springboot.request_log_$->{2022..2025}_$->{1..12}
           table-strategy:
             standard:
               sharding-column: request_time
@@ -66,7 +67,7 @@ spring:
       binding-tables:
         - request_log
 db:
-  schema-name: zhuzhenjie
+  schema-name: springboot
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*Mapper.xml

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.config.mvc.RequestLogUtils;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.po.RequestLogBean;
-import org.iproute.springboot.repository.zhuzhenjie.RequestLogBeanMapper;
+import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

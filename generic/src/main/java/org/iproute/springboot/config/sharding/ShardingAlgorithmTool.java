@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.RangeShardingAlgorithm;
 import org.iproute.springboot.entities.bo.CreateTableSql;
-import org.iproute.springboot.repository.zhuzhenjie.CommonMapper;
+import org.iproute.springboot.repository.commons.CommonMapper;
 
 import java.util.HashSet;
 import java.util.List;
@@ -17,7 +17,7 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
 
     private static CommonMapper commonMapper;
 
-    private static final HashSet<String> tableNameCache = new HashSet<>();
+    private static final HashSet<String> TABLE_NAME_CACHE = new HashSet<>();
 
     /**
      * 手动注入
@@ -47,7 +47,7 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
             sql = sql.replace("CREATE TABLE", "CREATE TABLE IF NOT EXISTS");
             sql = sql.replace(logicTableName, resultTableName);
             commonMapper.executeSql(sql);
-            tableNameCache.add(resultTableName);
+            TABLE_NAME_CACHE.add(resultTableName);
         }
 
         return resultTableName;
@@ -60,7 +60,7 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      * @return 是否存在于缓存中
      */
     public boolean shardingTablesExistsCheck(String resultTableName) {
-        return tableNameCache.contains(resultTableName);
+        return TABLE_NAME_CACHE.contains(resultTableName);
     }
 
     /**
@@ -72,9 +72,9 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
         // 读取数据库中所有表名
         List<String> tableNameList = commonMapper.getAllTableNameBySchema(schemaName);
         // 删除旧的缓存(如果存在)
-        ShardingAlgorithmTool.tableNameCache.clear();
+        ShardingAlgorithmTool.TABLE_NAME_CACHE.clear();
         // 写入新的缓存
-        ShardingAlgorithmTool.tableNameCache.addAll(tableNameList);
+        ShardingAlgorithmTool.TABLE_NAME_CACHE.addAll(tableNameList);
     }
 
 }

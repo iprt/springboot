@@ -39,6 +39,7 @@ public class ShardingUtils {
                     e.printStackTrace();
                 }
                 Calendar cal = Calendar.getInstance();
+                assert tempDate != null;
                 cal.setTime(tempDate);
                 cal.add(Calendar.MONTH, 1);
                 tempSuffix = ShardingUtils.getSuffixByYearMonth(cal.getTime());
