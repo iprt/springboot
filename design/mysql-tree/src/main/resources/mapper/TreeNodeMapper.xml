@@ -127,15 +127,23 @@
             (#{name}, #{lft}, #{rgt}, #{level}, #{sortKey})
     </insert>
 
+    <insert id="addNodes" useGeneratedKeys="true" keyProperty="id" parameterType="java.util.List">
+        insert into tree_node(`name`, `lft`, `rgt`, `level`, `sort_key`)
+        values
+        <foreach collection="list" item="treeNode" separator=",">
+            (#{treeNode.name}, #{treeNode.lft}, #{treeNode.rgt}, #{treeNode.level}, #{treeNode.sortKey})
+        </foreach>
+    </insert>
+
     <update id="updateLft">
         update tree_node
-        set lft=lft + 2
+        set lft=lft + 2 * #{count}
         where lft >= #{newNodeRgt}
     </update>
 
     <update id="updateRgt">
         update tree_node
-        set rgt=rgt + 2
+        set rgt=rgt + 2 * #{count}
         where rgt >= #{newNodeLft}
     </update>
 

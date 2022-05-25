@@ -67,3 +67,28 @@ Content-Type: application/json
     "name": "level_2_1-2"
   }
 }
+
+### 添加多个第二层节点
+POST http://127.0.0.1:8090/treeNode/addNodes
+Accept: application/json
+Content-Type: application/json
+
+{
+  "parentNode": {
+    "id": 1
+  },
+  "addedNodes": [
+    {
+      "name": "AAA"
+    },
+    {
+      "name": "BBB"
+    },
+    {
+      "name": "CCC"
+    },
+    {
+      "name": "DDD"
+    }
+  ]
+}

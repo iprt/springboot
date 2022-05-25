@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * TreeNodeController
@@ -111,9 +112,7 @@ public class TreeNodeController {
         if (Objects.isNull(req.getId())) {
             return "id is null";
         }
-
         Long id = req.getId();
-
         new Thread(() -> {
             initLock.lock();
             try {
@@ -125,4 +124,19 @@ public class TreeNodeController {
 
         return "query in thread";
     }
+
+    @PostMapping("/addNode")
+    public TreeNode addNode(@RequestBody TreeNodeReq req) {
+        TreeNode parentNode = req.getParentNode();
+        TreeNode addedNode = req.getAddedNode();
+        return treeNodeService.addNode(parentNode.getId(), addedNode.getName());
+    }
+
+    @PostMapping("/addNodes")
+    public List<TreeNode> addNodes(@RequestBody TreeNodeReq req) {
+        TreeNode parentNode = req.getParentNode();
+        List<TreeNode> addNodes = req.getAddedNodes();
+        return treeNodeService.addNodes(parentNode.getId(), addNodes.stream().map(TreeNode::getName).collect(Collectors.toList()));
+    }
+
 }

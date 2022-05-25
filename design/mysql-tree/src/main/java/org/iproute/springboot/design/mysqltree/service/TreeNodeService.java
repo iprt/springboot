@@ -59,11 +59,20 @@ public interface TreeNodeService {
     /**
      * 添加节点
      *
-     * @param pid      id < 0 时：添加一层节点，否则添加子节点
+     * @param pid      id < 0 时：添加一层节点，否则添加子节点，这个行为是个约定
      * @param nodeName the node name
      * @return the tree node
      */
     TreeNode addNode(Long pid, String nodeName);
+
+    /**
+     * Add nodes tree node.
+     *
+     * @param pid       the pid
+     * @param nodeNames the node names
+     * @return the tree node
+     */
+    List<TreeNode> addNodes(Long pid, List<String> nodeNames);
 
     /**
      * Remove.

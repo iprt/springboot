@@ -84,6 +84,15 @@ public interface TreeNodeMapper extends BaseMapper<TreeNode> {
      */
     int addNode(TreeNode node);
 
+
+    /**
+     * Add nodes int.
+     *
+     * @param nodes the nodes
+     * @return the int
+     */
+    int addNodes(List<TreeNode> nodes);
+
     /**
      * 新增节点前的操作，更新需要更新的节点的 lft 的值
      * <p>
@@ -91,9 +100,10 @@ public interface TreeNodeMapper extends BaseMapper<TreeNode> {
      * -- 所有左值大于等于新节点的右值 全部加2
      *
      * @param newNodeRgt the new node rgt
+     * @param count      the count 添加的节点的个数
      * @return the int
      */
-    int updateLft(@Param("newNodeRgt") int newNodeRgt);
+    int updateLft(@Param("newNodeRgt") int newNodeRgt, @Param("count") int count);
 
     /**
      * 新增节点前的操作，更新需要更新的节点的 rgt 的值
@@ -102,9 +112,10 @@ public interface TreeNodeMapper extends BaseMapper<TreeNode> {
      * -- 所有右值大于等于新节点的左值 全部+2
      *
      * @param newNodeLft the new node lft
+     * @param count      the count 添加的节点的个数
      * @return the int
      */
-    int updateRgt(@Param("newNodeLft") int newNodeLft);
+    int updateRgt(@Param("newNodeLft") int newNodeLft, @Param("count") int count);
 
     /**
      * range remove

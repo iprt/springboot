@@ -12,6 +12,8 @@ import org.springframework.util.CollectionUtils;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * TreeNodeServiceImpl
@@ -108,14 +110,57 @@ public class TreeNodeServiceImpl implements TreeNodeService {
                 .build();
 
         // 1. update lft
-        int lftUpdate = treeNodeMapper.updateLft(newNodeRgt);
+        int lftUpdate = treeNodeMapper.updateLft(newNodeRgt, 1);
         // 2. update rgt
-        int rgtUpdate = treeNodeMapper.updateRgt(newNodeLft);
+        int rgtUpdate = treeNodeMapper.updateRgt(newNodeLft, 1);
 
         log.debug("AddNode lftUpdate = {},rgtUpdate = {}", lftUpdate, rgtUpdate);
         // 3. insert node
         treeNodeMapper.addNode(node);
         return node;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public List<TreeNode> addNodes(Long pid, List<String> nodeNames) {
+        if (Objects.isNull(pid) || pid < 0) {
+            // 找不到父节点，直接添加一层节点
+            throw new RuntimeException("pid error");
+        }
+        TreeNode pNode = treeNodeMapper.nodeInfo(pid);
+        if (Objects.isNull(pNode)) {
+            log.info("pNode error，TreeNode.id = {} ", pid);
+            throw new RuntimeException("pNode error");
+        }
+
+        if (CollectionUtils.isEmpty(nodeNames)) {
+            throw new RuntimeException("nodes error");
+        }
+
+        int pRgt = pNode.getRgt();
+        int newNodeLevel = pNode.getLevel() + 1;
+        final int count = nodeNames.size();
+
+        List<TreeNode> newNodes = IntStream.range(0, count).mapToObj(
+                i -> TreeNode.builder()
+                        .name(nodeNames.get(i))
+                        .lft(pRgt + i * 2).rgt(pRgt + i * 2 + 1)
+                        .level(newNodeLevel)
+                        .build()
+        ).collect(Collectors.toList());
+
+        // 添加多个节点的话取第一个节点
+        TreeNode first = newNodes.get(0);
+
+        // 1. update lft
+        treeNodeMapper.updateLft(first.getRgt(), count);
+
+        // 2. update rgt
+        treeNodeMapper.updateRgt(first.getLft(), count);
+
+        // 3. insert nodes
+        treeNodeMapper.addNodes(newNodes);
+        return newNodes;
     }
 
     @Transactional(rollbackFor = Exception.class)
