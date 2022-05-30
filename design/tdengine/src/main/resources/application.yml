@@ -1,0 +1,26 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: tdengine
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driverClassName: com.taosdata.jdbc.rs.RestfulDriver
+    url: jdbc:TAOS-RS://localhost:6041
+    username: root
+    password: taosdata
+    hikari:
+      connectionInitSql: use demo
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.iproute.springboot.design.mysqltree.mapper: debug

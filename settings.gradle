@@ -7,6 +7,7 @@ include('component:alibaba:sentinel')
 include('component:oauth2')
 
 include('design:mysql-tree')
+include('design:tdengine')
 
 include('generic')
 
