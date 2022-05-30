@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.controller.model.req;
+package org.iproute.springboot.design.mysqltree.model.req;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

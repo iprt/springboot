@@ -2,7 +2,7 @@ package org.iproute.springboot.design.mysqltree.controller;
 
 import com.beust.jcommander.JCommander;
 import org.apache.commons.lang3.StringUtils;
-import org.iproute.springboot.design.mysqltree.controller.model.req.InitReq;
+import org.iproute.springboot.design.mysqltree.model.req.InitReq;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
 import org.iproute.springboot.design.mysqltree.model.req.TreeNodeReq;
 import org.iproute.springboot.design.mysqltree.service.FolderTreeNodeInit;
