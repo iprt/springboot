@@ -10,6 +10,7 @@ include('design:mysql-tree')
 
 include('generic')
 
+include('middleware:es')
 include('middleware:kafka')
 include('middleware:kafka-springboot')
 include('middleware:raft')
