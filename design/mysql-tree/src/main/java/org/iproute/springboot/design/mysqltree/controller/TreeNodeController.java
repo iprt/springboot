@@ -88,16 +88,13 @@ public class TreeNodeController {
     @SuppressWarnings("all")
     public String init(@RequestBody InitReq req) {
 
-        if (StringUtils.isBlank(req.getPath())) {
-            return "path is blank";
-        }
+        Long basePid = req.getBasePid();
         String path = req.getPath();
-
 
         new Thread(() -> {
             initLock.lock();
             try {
-                folderTreeNodeInit.init(path);
+                folderTreeNodeInit.init(basePid, path);
             } finally {
                 initLock.unlock();
             }

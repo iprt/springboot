@@ -11,9 +11,10 @@ public interface FolderTreeNodeInit {
     /**
      * Init.
      *
-     * @param path the folder
+     * @param basePid 基础PID
+     * @param path    the folder
      */
-    void init(String path);
+    void init(Long basePid, String path);
 
     /**
      * Query.

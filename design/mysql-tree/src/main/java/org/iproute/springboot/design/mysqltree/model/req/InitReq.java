@@ -21,4 +21,5 @@ public class InitReq {
     private String path;
 
     private Long id;
+    private Long basePid;
 }

@@ -36,10 +36,10 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
     }
 
     @Override
-    public void init(String path) {
+    public void init(Long basePid, String path) {
         FileTreeNodeHelper fh = FileTreeNodeHelper.builder()
                 .file(new File(path))
-                .id(-1L)
+                .id(null)
                 .build();
         if (!fh.getFile().exists() || fh.getFile().isFile()) {
             return;
@@ -100,7 +100,10 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
                 })
                 .build();
 
-        u.operateWithParent(FileTreeNodeHelper.builder().id(-1L).build());
+        u.operateWithParent(FileTreeNodeHelper.builder()
+                .id(Objects.isNull(basePid) ? -1L : basePid).build());
+
+        log.info("init finished");
     }
 
 
