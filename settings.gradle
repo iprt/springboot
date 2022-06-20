@@ -5,6 +5,7 @@ include('component:integration:integration-tcp-server')
 include('component:integration:tcp')
 include('component:alibaba:sentinel')
 include('component:oauth2')
+include('component:graphql')
 
 include('design:mysql-tree')
 include('design:tdengine')

@@ -20,5 +20,6 @@ public class MonoDemo01 {
         Mono<String> data = Mono.just("foo");
 
         Flux<Integer> numbersFromFiveToSeven = Flux.range(5, 3);
+
     }
 }
