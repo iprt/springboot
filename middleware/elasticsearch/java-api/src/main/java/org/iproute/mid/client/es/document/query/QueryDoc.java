@@ -112,7 +112,6 @@ public class QueryDoc {
                 .from(0)
                 .size(2)
         );
-
         SearchResponse response = client.search(sr, RequestOptions.DEFAULT);
 
         SHOW_RESPONSE.accept(response);
@@ -120,8 +119,6 @@ public class QueryDoc {
 
 
     public static final Action QUERY_CONDITIONS = client -> {
-
-
         SHOW_RESPONSE.accept(client.search(
                 new SearchRequest(IndexConst.NAME)
                         .source(SearchSourceBuilder.searchSource()
