@@ -12,7 +12,7 @@ include('design:tdengine')
 
 include('generic')
 
-include('middleware:es')
+include('middleware:es:java-api')
 include('middleware:kafka')
 include('middleware:kafka-springboot')
 include('middleware:raft')

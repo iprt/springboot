@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'org.iproute'
+version '1.0-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public' }
+    mavenCentral()
+}
+
+
+dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    implementation 'cn.hutool:hutool-all:5.8.4'
+
+    implementation('org.elasticsearch:elasticsearch:7.8.0')
+    implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.8.0")
+
+    // log4j  color use this : -Dlog4j.skipJansi=false
+    // implementation("org.slf4j:slf4j-api:1.7.25")
+    // implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.1'
+
+    implementation("org.apache.logging.log4j:log4j-api:2.18.0")
+    implementation('org.apache.logging.log4j:log4j-core:2.18.0')
+
+    implementation('com.fasterxml.jackson.core:jackson-databind:2.12.6.1')
+
+    testImplementation 'junit:junit:4.13.1'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
