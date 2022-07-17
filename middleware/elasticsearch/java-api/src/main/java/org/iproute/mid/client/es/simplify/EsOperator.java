@@ -37,10 +37,4 @@ public class EsOperator {
             }
         }
     }
-
-    /**
-     * The interface Operate.
-     */
-
-
 }

@@ -1,19 +1,23 @@
 package org.iproute.mid.client.es.document.query;
 
-import cn.hutool.core.util.StrUtil;
+import cn.hutool.core.collection.CollectionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortOrder;
 import org.iproute.mid.client.es.config.IndexConst;
 import org.iproute.mid.client.es.simplify.Action;
-import org.iproute.mid.client.es.simplify.EsOperator;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -23,9 +27,9 @@ import java.util.function.Consumer;
  * @since 2022/7/17
  */
 public class QueryDoc {
-    private static final Logger log = LogManager.getLogger();
+    public static final Logger log = LogManager.getLogger();
 
-    private static final Consumer<SearchResponse> PRINT = response -> {
+    public static final Consumer<SearchResponse> SHOW_RESPONSE = response -> {
 
         SearchHits hits = response.getHits();
         // 查询匹配
@@ -38,6 +42,10 @@ public class QueryDoc {
 
         hits.forEach(hit -> {
             log.info("source as string : {}", hit.getSourceAsString());
+            Map<String, HighlightField> highlightFields = hit.getHighlightFields();
+            if (CollectionUtil.isNotEmpty(highlightFields)) {
+                log.info("highlightFields : {}", highlightFields);
+            }
         });
         log.info("==========");
     };
@@ -45,7 +53,7 @@ public class QueryDoc {
     /**
      * 查询所有
      */
-    private static final Action QUERY_ALL = client -> {
+    public static final Action QUERY_ALL = client -> {
         SearchRequest req = new SearchRequest();
         req.indices(IndexConst.NAME);
 
@@ -59,14 +67,14 @@ public class QueryDoc {
 
         SearchResponse response = client.search(req, RequestOptions.DEFAULT);
 
-        PRINT.accept(response);
+        SHOW_RESPONSE.accept(response);
     };
 
 
     /**
      * 分页查询
      */
-    private static Action QUERY_PAGE = client -> {
+    public static Action QUERY_PAGE = client -> {
         // 创建搜索请求对象
         SearchRequest request = new SearchRequest();
         // 索引
@@ -80,14 +88,14 @@ public class QueryDoc {
 
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
 
-        PRINT.accept(response);
+        SHOW_RESPONSE.accept(response);
     };
 
 
     /**
      * 查询排序
      */
-    private static Action QUERY_SORT = client -> {
+    public static Action QUERY_SORT = client -> {
         SearchRequest sr = new SearchRequest("shopping");
 
         sr.source(SearchSourceBuilder.searchSource()
@@ -107,14 +115,14 @@ public class QueryDoc {
 
         SearchResponse response = client.search(sr, RequestOptions.DEFAULT);
 
-        PRINT.accept(response);
+        SHOW_RESPONSE.accept(response);
     };
 
 
-    private static final Action QUERY_CONDITIONS = client -> {
+    public static final Action QUERY_CONDITIONS = client -> {
 
 
-        PRINT.accept(client.search(
+        SHOW_RESPONSE.accept(client.search(
                 new SearchRequest(IndexConst.NAME)
                         .source(SearchSourceBuilder.searchSource()
                                 .query(QueryBuilders.boolQuery()
@@ -134,9 +142,11 @@ public class QueryDoc {
 
     };
 
-
+    /**
+     * 范围查询
+     */
     public static final Action QUERY_RANGE = client -> {
-        PRINT.accept(
+        SHOW_RESPONSE.accept(
                 client.search(
                         new SearchRequest("shopping")
                                 .source(SearchSourceBuilder.searchSource()
@@ -148,22 +158,78 @@ public class QueryDoc {
         );
     };
 
+    /**
+     * 模糊查询
+     */
+    public static final Action QUERY_FUZZY = client -> {
 
-    public static void main(String[] args) {
-        EsOperator.operate(QUERY_ALL);
-        log.info("{}{}{}", StrUtil.CRLF, StrUtil.CRLF, StrUtil.CRLF);
+        SearchRequest request = new SearchRequest(IndexConst.NAME);
+        SearchSourceBuilder ssb = SearchSourceBuilder.searchSource()
+                .query(
+                        QueryBuilders.fuzzyQuery("name", "wangwu")
+                                .fuzziness(Fuzziness.ONE)
+                );
 
-        EsOperator.operate(QUERY_PAGE);
-        log.info("{}{}{}", StrUtil.CRLF, StrUtil.CRLF, StrUtil.CRLF);
+        request.source(ssb);
 
-        EsOperator.operate(QUERY_SORT);
-        log.info("{}{}{}", StrUtil.CRLF, StrUtil.CRLF, StrUtil.CRLF);
+        SHOW_RESPONSE.accept(client.search(request, RequestOptions.DEFAULT));
+    };
 
-        EsOperator.operate(QUERY_CONDITIONS);
-        log.info("{}{}{}", StrUtil.CRLF, StrUtil.CRLF, StrUtil.CRLF);
 
-        EsOperator.operate(QUERY_RANGE);
-        log.info("{}{}{}", StrUtil.CRLF, StrUtil.CRLF, StrUtil.CRLF);
+    /**
+     * 高亮
+     */
+    public static final Action QUERY_HIGHLIGHT = client -> {
+        SearchRequest request = new SearchRequest(IndexConst.NAME);
+        SearchSourceBuilder ssb = SearchSourceBuilder.searchSource()
+                .query(
+                        QueryBuilders.fuzzyQuery("name", "zhangsan")
+                                .fuzziness(Fuzziness.ONE)
+                );
 
-    }
+        ssb.highlighter(new HighlightBuilder()
+                .preTags("<font color=red>")
+                .postTags("</font>")
+                // 设置高亮字段
+                .field("name")
+        );
+
+        request.source(ssb);
+
+        SHOW_RESPONSE.accept(client.search(request, RequestOptions.DEFAULT));
+    };
+
+
+    /**
+     * 最大值查询
+     */
+    public static final Action QUERY_MAX = client -> {
+        SearchRequest request = new SearchRequest("shopping");
+
+        SearchSourceBuilder ssb = SearchSourceBuilder.searchSource()
+                .aggregation(AggregationBuilders.max("maxPrice")
+                        .field("price")
+                );
+
+        request.source(ssb);
+        SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+        log.info("response : {}", response);
+    };
+
+    /**
+     * 分组查询
+     */
+    public static final Action QUERY_GROUP = client -> {
+        SearchRequest request = new SearchRequest("shopping");
+
+        SearchSourceBuilder ssb = SearchSourceBuilder.searchSource()
+                .aggregation(AggregationBuilders
+                        .terms("price_group")
+                        .field("price")
+                );
+
+        request.source(ssb);
+        SearchResponse response = client.search(request, RequestOptions.DEFAULT);
+        log.info("response : {}", response);
+    };
 }
