@@ -14,10 +14,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableCaching
 @EnableAsync
-public class Application {
+public class GenericApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(Application.class);
+        SpringApplication application = new SpringApplication(GenericApplication.class);
         application.addListeners(new MyListenerOne());
         ConfigurableApplicationContext applicationContext = application.run(args);
         testEvent(applicationContext);

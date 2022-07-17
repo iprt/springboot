@@ -30,7 +30,7 @@ spring:
         commons:
           url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: root
+          password: Root@123#
           driver-class-name: com.mysql.cj.jdbc.Driver
 
   # 分表配置
@@ -42,7 +42,7 @@ spring:
         # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
         jdbcUrl: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
         username: root
-        password: root
+        password: Root@123#
         driverClassName: com.mysql.cj.jdbc.Driver
     props:
       # 日志显示SQL
