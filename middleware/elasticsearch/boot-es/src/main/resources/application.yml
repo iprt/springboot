@@ -7,9 +7,6 @@ spring:
 
 
 elasticsearch:
-  #  host: 127.0.0.1
-  #  port: 9200
-  #  schema: http
-  host: es.ipcrystal.com
-  port: 443
-  scheme: https
+  host: 127.0.0.1
+  port: 9200
+  schema: http
