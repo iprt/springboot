@@ -40,7 +40,7 @@ dependencies {
     // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    // dev-tools
+    // devtools
     implementation 'org.springframework.boot:spring-boot-devtools'
 
     // aop

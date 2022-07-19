@@ -38,6 +38,10 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 
+
+    // dev-tools
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
