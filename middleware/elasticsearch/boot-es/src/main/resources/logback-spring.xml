@@ -97,7 +97,7 @@
     <logger name="org.mybatis.spring" level="warn"/>
     <logger name="org.hibernate" level="info"/>
 
-    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="trace"/>
+    <!--    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="trace"/>-->
 
     <logger name="org.iproute" level="info"/>
 

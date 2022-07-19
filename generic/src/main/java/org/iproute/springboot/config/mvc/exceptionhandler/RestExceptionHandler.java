@@ -6,8 +6,9 @@ import org.iproute.springboot.entities.po.RequestLogBean;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -19,7 +20,7 @@ import java.util.concurrent.Executor;
  * @author winterfell
  * @since 2021/11/27
  */
-@RestControllerAdvice
+@ControllerAdvice
 @Slf4j
 public class RestExceptionHandler {
 
@@ -33,7 +34,7 @@ public class RestExceptionHandler {
     private Executor asyncExecutor;
 
     @ExceptionHandler(Exception.class)
-    public String handleException(HttpServletRequest request, Exception e) {
+    public @ResponseBody String handleException(HttpServletRequest request, Exception e) {
         log.error("request uri = {}", request.getRequestURI(), e);
 
         RequestLogBean reqLogBean = RequestLogUtils.requestLogBean(request, false);

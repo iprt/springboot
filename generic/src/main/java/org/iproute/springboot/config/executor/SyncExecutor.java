@@ -31,13 +31,15 @@ public class SyncExecutor {
      */
     private static final int QUEUE_CAPACITY = 20;
 
+    private static final String THREAD_NAME_PREFIX = "GenericApp";
+
     @Bean
     public Executor asyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(CORE_POOL_SIZE);
         executor.setMaxPoolSize(MAX_POOL_SIZE);
         executor.setQueueCapacity(QUEUE_CAPACITY);
-        executor.setThreadNamePrefix("Generic");
+        executor.setThreadNamePrefix(THREAD_NAME_PREFIX);
         // 设置，当任务满额时将新任务(如果有的话)，打回到原线程去执行。
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         executor.initialize();

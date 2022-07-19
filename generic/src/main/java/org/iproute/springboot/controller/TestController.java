@@ -1,15 +1,21 @@
 package org.iproute.springboot.controller;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.bo.CreateTableSql;
 import org.iproute.springboot.entities.dto.PostDTO;
 import org.iproute.springboot.entities.po.RequestLogBean;
+import org.iproute.springboot.entities.po.mysql.MysqlUser;
 import org.iproute.springboot.repository.commons.CommonMapper;
+import org.iproute.springboot.repository.mysql.MysqlUserMapper;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,13 +28,13 @@ import java.util.List;
 @RestController
 @RecordParameters
 @Slf4j
+@AllArgsConstructor
 public class TestController {
+    private final CommonMapper commonMapper;
 
-    @Autowired
-    private CommonMapper commonMapper;
+    private final MysqlUserMapper mysqlUserMapper;
 
-    @Autowired
-    private RequestLogBeanMapper requestLogBeanMapper;
+    private final RequestLogBeanMapper requestLogBeanMapper;
 
     /**
      * Say hello string.
@@ -64,6 +70,11 @@ public class TestController {
     public String post(@RequestBody PostDTO dto) {
         log.info("TestController.post | dto = {}", dto);
         return "hello world";
+    }
+
+    @GetMapping("/mysqlUsers")
+    public List<MysqlUser> mysqlUsers() {
+        return mysqlUserMapper.selectList(null);
     }
 
     @GetMapping("/showCreateTable/{tableName}")

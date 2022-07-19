@@ -32,6 +32,11 @@ spring:
           username: root
           password: Root@123#
           driver-class-name: com.mysql.cj.jdbc.Driver
+        mysql:
+          url: jdbc:mysql://172.100.1.100:3306/mysql?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+          username: root
+          password: Root@123#
+          driver-class-name: com.mysql.cj.jdbc.Driver
 
   # 分表配置
   shardingsphere:
@@ -73,6 +78,7 @@ mybatis-plus:
   mapper-locations: classpath:/mapper/**/*Mapper.xml
   typeAliasesPackage: org.iproute.springboot.entities
   configuration:
+    # 开启驼峰转换
     map-underscore-to-camel-case: true
     cache-enabled: false
     call-setters-on-nulls: true
