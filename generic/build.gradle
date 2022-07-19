@@ -37,6 +37,12 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    // actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // dev-tools
+    implementation 'org.springframework.boot:spring-boot-devtools'
+
     // aop
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 

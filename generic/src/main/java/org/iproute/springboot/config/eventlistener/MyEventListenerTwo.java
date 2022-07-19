@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MyListenerTwo implements ApplicationListener<MyEvent> {
+public class MyEventListenerTwo implements ApplicationListener<MyEvent> {
 
     /**
      * 编写处理事件的逻辑
@@ -21,6 +21,7 @@ public class MyListenerTwo implements ApplicationListener<MyEvent> {
      */
     @Override
     public void onApplicationEvent(MyEvent event) {
-        log.info("线程-【{}】 => 监听器-【MyListenerTwo】 => 监听到的事件-【{}】", Thread.currentThread().getName(), event);
+        log.info("监听器 - 线程名称 : {}", Thread.currentThread().getName());
+        log.info("监听器 - MyEventListenerTwo => 监听到的事件: {}", event);
     }
 }

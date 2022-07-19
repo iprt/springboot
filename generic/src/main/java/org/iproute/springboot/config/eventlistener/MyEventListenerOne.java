@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationListener;
  * @since 2022/1/23
  */
 @Slf4j
-public class MyListenerOne implements ApplicationListener<MyEvent> {
+public class MyEventListenerOne implements ApplicationListener<MyEvent> {
 
     /**
      * 编写处理事件的逻辑
@@ -19,6 +19,7 @@ public class MyListenerOne implements ApplicationListener<MyEvent> {
      */
     @Override
     public void onApplicationEvent(MyEvent event) {
-        log.info("线程-【{}】 => 监听器-【MyListenerOne】 => 监听到的事件-【{}】", Thread.currentThread().getName(), event);
+        log.info("监听器线程 : {}", Thread.currentThread().getName());
+        log.info("监听器(MyEventListenerOne) => 监听到的事件: {}", event);
     }
 }
