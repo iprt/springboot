@@ -1,0 +1,8 @@
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  typeAliasesPackage: org.iproute.springboot.entities
+  configuration:
+    # 开启驼峰转换
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true

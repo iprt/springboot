@@ -1,0 +1,15 @@
+management:
+  endpoints:
+    web:
+      # 配置端点访问前缀
+      base-path: /actuator
+      exposure:
+        # 暴露所有端点
+        include: '*'
+  # DataSource health check failed
+  health:
+    db:
+      enabled: false
+  endpoint:
+    shutdown:
+      enabled: true
