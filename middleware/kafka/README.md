@@ -18,17 +18,17 @@
 
 #### 不带回调函数的api
 
-[1.不带回调函数的api](src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
+[1.不带回调函数的api](java-api/src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
 
 #### 带回调函数的api
 
-[2.带回调函数的api](src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
+[2.带回调函数的api](java-api/src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
 
 - 回调函数会在 producer 收到 ack 时调用，为异步调用
 
 #### 同步发送api
 
-[3.同步发送api](src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
+[3.同步发送api](java-api/src/main/java/org/iproute/middleware/kafka/consumer/CustomConsumer.java)
 
 - 同步发送的意思就是，一条消息发送之后，会阻塞当前线程，直至返回 ack
 - 由于 send 方法返回的是一个 Future 对象，根据 Future 对象的特点，我们也可以实现同 步发送的效果，只需在调用 Future 对象的 get 方发即可
@@ -54,7 +54,7 @@ Kafka 提供了自动提交 offset 的功能，Kafka 提供了自动提交 offse
 
 #### 自动提交offset
 
-[自动提交offset](src/main/java/org/iproute/middleware/kafka/producer/CustomProducer.java)
+[自动提交offset](java-api/src/main/java/org/iproute/middleware/kafka/producer/CustomProducer.java)
 
 #### 手动提交offset
 
@@ -66,9 +66,9 @@ Kafka 提供了自动提交 offset 的功能，Kafka 提供了自动提交 offse
     - 由不可控因素导致， 也会出现提交失败
 - 而 commitAsync 则没有失败重试机制，故有可能提交失败
 
-[手动提交offset sync](src/main/java/org/iproute/middleware/kafka/producer/CustomProducer2.java)
+[手动提交offset sync](java-api/src/main/java/org/iproute/middleware/kafka/producer/CustomProducer2.java)
 
-[自动提交offset async](src/main/java/org/iproute/middleware/kafka/producer/CustomProducer3.java)
+[自动提交offset async](java-api/src/main/java/org/iproute/middleware/kafka/producer/CustomProducer3.java)
 
 ### <font color=red>数据漏消费和重复消费分析</font>
 
@@ -87,7 +87,7 @@ offset 的维护是相当繁琐的，因为需要考虑到消费者的 Rebalace�
 
 要实现自定义存储 offset，需要借助 `ConsumerRebalanceListener`
 
-[RebalanceConsumer.java](src/main/java/org/iproute/middleware/kafka/consumer/rebalance/RebalanceConsumer.java)
+[RebalanceConsumer.java](java-api/src/main/java/org/iproute/middleware/kafka/consumer/rebalance/RebalanceConsumer.java)
 
 ### producer interceptors
 
@@ -109,4 +109,4 @@ Producer 拦截器(interceptor)是在 Kafka 0.10 版本被引入的，主要用�
     - onAcknowledgement 运行在producer的IO线程中，不在在该方法中放入很重的逻辑，否则会拖慢消息发送的逻辑
 - `close`： 关闭interceptor 主要用于执行一些清理资源的工作
 
-[InterceptorProducer](src/main/java/org/iproute/middleware/kafka/producer/interceptor/InterceptorProducer.java)
+[InterceptorProducer](java-api/src/main/java/org/iproute/middleware/kafka/producer/interceptor/InterceptorProducer.java)
