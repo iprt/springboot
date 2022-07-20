@@ -6,7 +6,7 @@ import org.elasticsearch.search.sort.SortOrder;
 import org.iproute.mid.es.boot.config.IndexConst;
 import org.iproute.mid.es.boot.entities.Product;
 import org.iproute.mid.es.boot.test.BaseFrameTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;

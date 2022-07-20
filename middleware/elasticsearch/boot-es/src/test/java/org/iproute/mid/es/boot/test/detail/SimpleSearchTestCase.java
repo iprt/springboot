@@ -2,7 +2,7 @@ package org.iproute.mid.es.boot.test.detail;
 
 import org.iproute.mid.es.boot.entities.Product;
 import org.iproute.mid.es.boot.test.BaseFrameTestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

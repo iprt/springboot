@@ -3,7 +3,7 @@ package org.iproute.mid.es.boot.test.detail;
 import org.iproute.mid.es.boot.config.IndexConst;
 import org.iproute.mid.es.boot.test.BaseFrameTestCase;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 
 /**
