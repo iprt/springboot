@@ -36,14 +36,20 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // web
+    /*
     implementation('org.springframework.boot:spring-boot-starter-web') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
     implementation("org.springframework.boot:spring-boot-starter-undertow")
+    */
 
     // apache camel springboot
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter'
     implementation 'org.apache.camel.springboot:camel-stream-starter'
+
+
+    // 启动失败的问题 https://camel.apache.org/manual/camel-3-migration-guide.html#_modularization_of_camel_core
+    implementation 'org.apache.camel.springboot:camel-netty-starter'
 
     // include camel developer console
     // implementation 'org.apache.camel.springboot:camel-console-starter'
@@ -63,13 +69,11 @@ dependencies {
 }
 
 
-/*
-dependencyManagement {
-    imports {
-        mavenBom 'org.apache.camel.springboot:camel-spring-boot-bom:3.14.3'
-    }
-}
-*/
+// dependencyManagement {
+//     imports {
+//         mavenBom 'org.apache.camel.springboot:camel-spring-boot-bom:3.5.0'
+//     }
+// }
 
 test {
     useJUnitPlatform()

@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot;
+package org.iproute.mid.camel.boot.router;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;

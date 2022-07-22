@@ -1,0 +1,37 @@
+<!--
+  ~ Copyright (c) 2020-2021 VMware, Inc. or its affiliates, All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!-- 从reactor-netty 摘抄的 -->
+<!-- https://github.com/reactor/reactor-netty/blob/main/reactor-netty-examples/src/main/resources/logback.xml -->
+<configuration>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                <!-- %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n-->
+                <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %cyan([%15.15thread]) %yellow(%-5level) %green([%-40.40logger{39}] %30file:%-4line) - %msg%n-->
+                %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}\(%-4L\)) : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.iproute" level="DEBUG"/>
+
+    <root level="info">
+        <appender-ref ref="stdout"/>
+    </root>
+
+</configuration>
