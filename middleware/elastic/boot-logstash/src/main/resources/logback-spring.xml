@@ -63,22 +63,6 @@
         </filter>
     </appender>
 
-    <!-- Log file access output -->
-    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${log.filename}-access.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-access.%i.log.zip</fileNamePattern>
-            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
-            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>info</level>
-        </filter>
-    </appender>
-
     <!--    default-->
     <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
     <logger name="org.apache.catalina.util.LifecycleBase" level="ERROR"/>
@@ -97,9 +81,9 @@
     <logger name="org.mybatis.spring" level="warn"/>
     <logger name="org.hibernate" level="info"/>
 
-    <!--    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="trace"/>-->
+    <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="trace"/>
 
-    <logger name="org.iproute" level="info"/>
+    <logger name="org.iproute" level="debug"/>
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">
@@ -107,4 +91,5 @@
         <appender-ref ref="debug"/>
         <appender-ref ref="error"/>
     </root>
+
 </configuration>

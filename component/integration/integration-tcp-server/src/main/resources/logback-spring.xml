@@ -14,7 +14,7 @@
 
     <!--  file pattern  -->
     <property name="FILE_LOG_PATTERN"
-              value="%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%-40.40logger{39}] : %msg%n"/>
+              value="%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%15.15thread] %-40.40logger{39} : %msg%n"/>
 
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN"

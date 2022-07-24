@@ -1,0 +1,41 @@
+input {
+    stdin { }
+}
+
+
+
+filter {
+  if [message] =~ "\tat" {
+    grok {
+      match => ["message", "^(\tat)"]
+      add_tag => ["stacktrace"]
+    }
+  }
+
+  #
+  grok {
+    match => [ "message",
+               "(?<timestamp>%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}) %{LOGLEVEL:level}\s+\[\s*(?<thread>.{15})\] (?<class>.{40}) : (?<logmessage>.*)",
+               "message",
+               "(?<timestamp>%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}) %{LOGLEVEL:level} .+? :\s+(?<logmessage>.*)"
+             ]
+  }
+
+  mutate {
+    add_field => {
+       "application_name" => "springboot-logstash"
+    }
+    strip => [ "thread" , "class"]
+  }
+
+  #Parsing out timestamps which are in timestamp field thanks to previous grok section
+  date {
+    match => [ "timestamp" , "yyyy-MM-dd HH:mm:ss.SSS" ]
+    target => "@timestamp"
+  }
+
+}
+
+output {
+    stdout { }
+}
