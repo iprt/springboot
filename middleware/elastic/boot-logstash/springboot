@@ -1,5 +1,14 @@
 input {
-    stdin { }
+  file {
+    # type => "java"
+    path => "/opt/logstash/logstash-7.17.5/config-other/debug.log"
+    # start_position => "beginning"
+    codec => multiline {
+      pattern => "^%{YEAR}-%{MONTHNUM}-%{MONTHDAY} %{TIME}.*"
+      negate => "true"
+      what => "previous"
+    }
+  }
 }
 
 
