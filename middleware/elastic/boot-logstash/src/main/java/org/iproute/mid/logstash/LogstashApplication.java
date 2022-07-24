@@ -2,7 +2,6 @@ package org.iproute.mid.logstash;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * LogstashApplication
@@ -14,6 +13,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class LogstashApplication {
 
     public static void main(String[] args) {
-       SpringApplication.run(LogstashApplication.class, args);
+        SpringApplication.run(LogstashApplication.class, args);
     }
 }
