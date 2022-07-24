@@ -20,3 +20,19 @@
              ]
   }
 ```
+
+[springboot日志配置](./springboot)
+
+## 参考资料
+
+[https://www.elastic.co/guide/en/logstash/7.17/multiple-pipelines.html](https://www.elastic.co/guide/en/logstash/7.17/multiple-pipelines.html)
+
+[https://www.elastic.co/guide/en/logstash/7.17/plugins-inputs-file.html](https://www.elastic.co/guide/en/logstash/7.17/plugins-inputs-file.html)
+
+[https://www.elastic.co/guide/en/logstash/7.17/plugins-codecs-multiline.html](https://www.elastic.co/guide/en/logstash/7.17/plugins-codecs-multiline.html)
+
+[https://www.elastic.co/guide/en/logstash/7.17/filter-plugins.html](https://www.elastic.co/guide/en/logstash/7.17/filter-plugins.html)
+
+[https://www.elastic.co/guide/en/logstash/7.17/plugins-filters-grok.html](https://www.elastic.co/guide/en/logstash/7.17/plugins-filters-grok.html)
+
+[https://www.elastic.co/guide/en/logstash/7.17/plugins-filters-mutate.html](https://www.elastic.co/guide/en/logstash/7.17/plugins-filters-mutate.html)
