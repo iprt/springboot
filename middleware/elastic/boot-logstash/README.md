@@ -21,7 +21,7 @@
   }
 ```
 
-[springboot日志配置](./springboot)
+[springboot日志配置](./springboot-logstash.conf)
 
 ## 参考资料
 
