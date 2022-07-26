@@ -16,8 +16,8 @@ public class Netty4TcpRouter extends RouteBuilder {
 
     /**
      * netty router 的配置
-     *
-     * <a href="https://camel.apache.org/components/3.17.x/netty-component.html">...</a>
+     * <p/
+     * <a href="https://camel.apache.org/components/3.17.x/netty-component.html">https://camel.apache.org/components/3.17.x/netty-component.html</a>
      */
     @Override
     public void configure() throws Exception {
