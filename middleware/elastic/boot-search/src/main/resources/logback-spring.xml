@@ -63,22 +63,6 @@
         </filter>
     </appender>
 
-    <!-- Log file access output -->
-    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${log.filename}-access.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-access.%i.log.zip</fileNamePattern>
-            <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
-            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>info</level>
-        </filter>
-    </appender>
-
     <!--    default-->
     <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
     <logger name="org.apache.catalina.util.LifecycleBase" level="ERROR"/>
