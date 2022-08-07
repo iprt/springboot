@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server;
+package org.iproute.mid.camel.boot.server.sayhello;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
