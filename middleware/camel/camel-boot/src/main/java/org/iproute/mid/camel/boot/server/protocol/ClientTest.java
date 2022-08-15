@@ -42,23 +42,26 @@ public class ClientTest {
                             @Override
                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
                                 // 发送10条数据
-                                ctx.channel().eventLoop().execute(() -> {
-                                    for (int i = 0; i < 10; i++) {
-                                        try {
-                                            Thread.sleep(1000);
-                                        } catch (InterruptedException e) {
-                                            throw new RuntimeException(e);
-                                        }
+                                // ctx.channel().eventLoop().execute(() -> {
+                                //     for (int i = 0; i < 10; i++) {
+                                //         try {
+                                //             Thread.sleep(1000);
+                                //         } catch (InterruptedException e) {
+                                //             throw new RuntimeException(e);
+                                //         }
+                                //
+                                //         String msg = "hello world " + i;
+                                //
+                                //         byte[] bytes = msg.getBytes();
+                                //         ctx.writeAndFlush(new MyProtocol(
+                                //                 bytes.length,
+                                //                 bytes
+                                //         ));
+                                //
+                                //     }
+                                // });
 
-                                        String msg = "hello world " + i;
 
-                                        byte[] bytes = msg.getBytes();
-                                        ctx.writeAndFlush(new MyProtocol(
-                                                bytes.length,
-                                                bytes
-                                        ));
-                                    }
-                                });
                             }
 
                             @Override
@@ -73,7 +76,24 @@ public class ClientTest {
         try {
             Channel channel = bootstrap.connect("127.0.0.1", 7001).sync().channel();
 
-            channel.closeFuture().sync();
+            int i = 0;
+            for (; ; ) {
+                if (!channel.isActive()) {
+                    break;
+                }
+                Thread.sleep(1000);
+
+                String msg = "hello world " + i++;
+
+                byte[] bytes = msg.getBytes();
+                channel.writeAndFlush(new MyProtocol(
+                        bytes.length,
+                        bytes
+                ));
+            }
+
+
+            // channel.closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

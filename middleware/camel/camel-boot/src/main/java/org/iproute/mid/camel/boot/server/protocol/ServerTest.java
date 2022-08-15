@@ -40,7 +40,7 @@ public class ServerTest {
                             protected void channelRead0(ChannelHandlerContext ctx, MyProtocol msg) throws Exception {
                                 byte[] content = msg.getContent();
                                 String s = new String(content);
-                                log.info("接收到客户端消息：{}", s);
+                                log.info("接收到客户端消息|{}", s);
                                 String rtMsg = s.toUpperCase();
 
                                 byte[] rtContent = rtMsg.getBytes();
