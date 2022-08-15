@@ -61,7 +61,7 @@ public class ClientTest {
                                 //     }
                                 // });
 
-
+                                // https://github.com/netty/netty/issues/9908
                             }
 
                             @Override
