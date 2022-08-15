@@ -25,15 +25,17 @@ import java.util.TimerTask;
 /**
  * NettyConnection
  *
+ * 参考地址  <a href="https://gist.github.com/ochinchina/e97606fd0b15f106c91c">...</a>
+ *
  * @author zhuzhenjie
  * @since 2022/8/15
  */
 @Slf4j
 public class NettyConnection {
     private Bootstrap bootstrap = new Bootstrap();
-    private SocketAddress addr_;
+    private final SocketAddress addr_;
     private Channel channel_;
-    private Timer timer_;
+    private final Timer timer_;
 
     public NettyConnection(String host, int port, Timer timer) {
         this(new InetSocketAddress(host, port), timer);
