@@ -24,7 +24,7 @@ import java.util.TimerTask;
 
 /**
  * NettyConnection
- *
+ * <p>
  * 参考地址  <a href="https://gist.github.com/ochinchina/e97606fd0b15f106c91c">...</a>
  *
  * @author zhuzhenjie
