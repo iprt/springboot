@@ -2,6 +2,7 @@ package org.iproute.mid.camel.boot.server.dynamichandler.clienthandler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.socket.SocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.server.dynamichandler.SimpleProtocol;
 
@@ -23,5 +24,17 @@ public class ClientMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
     protected void channelRead0(ChannelHandlerContext ctx, SimpleProtocol msg) throws Exception {
         String receiveMsg = new String(msg.getContent());
         log.info("接收到服务端的消息|{}", receiveMsg);
+    }
+
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        log.error("ClientMsgHandler exceptionCaught");
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        SocketChannel sc = (SocketChannel) ctx.channel();
+        log.error("服务端【{}】断开连接", sc.remoteAddress().toString());
     }
 }

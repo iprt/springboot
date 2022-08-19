@@ -46,13 +46,15 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        log.info("exceptionCaught|{}", cause.getMessage());
+        SocketChannel sc = (SocketChannel) ctx.channel();
+        log.error("ServerMsgHandler exceptionCaught|{}|{}", sc.remoteAddress().toString(), cause.getMessage());
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        SocketChannel channel = (SocketChannel) ctx.channel();
-        log.info("channelInactive|{}", channel.remoteAddress().toString());
+        // log.info("channelInactive|{}", channel.remoteAddress().toString());
+        SocketChannel sc = (SocketChannel) ctx.channel();
+        log.error("客户端【{}】断开连接", sc.remoteAddress().toString());
     }
 
 }
