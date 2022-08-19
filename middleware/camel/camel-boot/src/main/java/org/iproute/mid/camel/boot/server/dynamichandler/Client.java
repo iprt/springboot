@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.protocol2;
+package org.iproute.mid.camel.boot.server.dynamichandler;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -6,15 +6,12 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.server.protocol2.clienthandler.ClientInitializer;
+import org.iproute.mid.camel.boot.server.dynamichandler.clienthandler.ClientInitializer;
 
-import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
-
-import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
 
 /**
  * client

@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.protocol2.serverhandler;
+package org.iproute.mid.camel.boot.server.dynamichandler.serverhandler;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
@@ -7,7 +7,7 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import org.iproute.mid.camel.boot.server.protocol2.Before;
+import org.iproute.mid.camel.boot.server.dynamichandler.Before;
 
 import java.util.UUID;
 

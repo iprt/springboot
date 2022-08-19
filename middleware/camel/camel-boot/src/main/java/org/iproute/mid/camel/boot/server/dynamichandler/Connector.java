@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.protocol2;
+package org.iproute.mid.camel.boot.server.dynamichandler;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;

@@ -1,12 +1,12 @@
-package org.iproute.mid.camel.boot.server.protocol2.clienthandler;
+package org.iproute.mid.camel.boot.server.dynamichandler.clienthandler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.iproute.mid.camel.boot.server.protocol2.Before;
-import org.iproute.mid.camel.boot.server.protocol2.SimpleProtocolDecoder;
-import org.iproute.mid.camel.boot.server.protocol2.SimpleProtocolEncoder;
+import org.iproute.mid.camel.boot.server.dynamichandler.Before;
+import org.iproute.mid.camel.boot.server.dynamichandler.SimpleProtocolDecoder;
+import org.iproute.mid.camel.boot.server.dynamichandler.SimpleProtocolEncoder;
 
 /**
  * ClientAuthHandler
