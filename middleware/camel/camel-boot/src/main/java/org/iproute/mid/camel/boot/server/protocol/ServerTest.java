@@ -1,6 +1,5 @@
 package org.iproute.mid.camel.boot.server.protocol;
 
-import cn.hutool.core.util.StrUtil;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
@@ -36,6 +35,18 @@ public class ServerTest {
                         ch.pipeline().addLast(new MyProtocolDecoder());
                         ch.pipeline().addLast(new MyProtocolEncoder());
                         ch.pipeline().addLast(new SimpleChannelInboundHandler<MyProtocol>() {
+
+                            @Override
+                            public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                                String msg = "Netty,Rock!";
+                                ctx.writeAndFlush(MyProtocol.builder()
+                                        .len(msg.getBytes().length)
+                                        .content(msg.getBytes())
+                                        .build());
+                                ctx.fireChannelActive();
+
+                            }
+
                             @Override
                             protected void channelRead0(ChannelHandlerContext ctx, MyProtocol msg) throws Exception {
                                 byte[] content = msg.getContent();
