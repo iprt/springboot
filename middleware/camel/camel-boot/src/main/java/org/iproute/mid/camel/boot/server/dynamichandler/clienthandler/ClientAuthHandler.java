@@ -21,6 +21,8 @@ public class ClientAuthHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         log.info("接收到验证字符串|{}", msg);
         String authRsp = StringUtils.reverse(msg);
+        // 测试验证失败
+        // String authRsp = msg;
         ctx.writeAndFlush(authRsp);
 
         // 如果服务端还有验证的话，可以尝试用 Promise
