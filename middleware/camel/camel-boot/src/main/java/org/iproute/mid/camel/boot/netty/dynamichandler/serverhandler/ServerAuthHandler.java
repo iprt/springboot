@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolDecoder;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolEncoder;
+import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
+import sun.nio.ch.Net;
 
 import java.util.UUID;
 
@@ -31,6 +33,7 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         String uuid = UUID.randomUUID().toString();
+        log.info("客户端建立连接|{}", NettyUtils.getRemoteInfo(ctx));
         log.info("发送第一次验证字符串|{}", uuid);
         ctx.writeAndFlush(uuid);
         this.authTime = 1;
@@ -48,13 +51,13 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
         if (authTime == 1) {
 
             if (!StringUtils.equals(firstAuthUUID, msg)) {
-                log.error("客户端第一次验证失败，关闭客户端|{}", sc.remoteAddress().toString());
+                log.error("客户端第一次验证失败，关闭客户端|{}", NettyUtils.getRemoteInfo(ctx));
                 ctx.close();
                 return;
             }
 
 
-            log.info("客户端第一次验证成功");
+            log.info("客户端第一次验证成功，客户端|{}", NettyUtils.getRemoteInfo(ctx));
 
             this.secondAuthUUID = UUID.randomUUID().toString();
             // 第二次验证需要发过去的字符串变成小写
@@ -68,7 +71,7 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
         if (authTime == 2) {
 
             if (!StringUtils.equals(secondAuthUUID, msg)) {
-                log.error("客户端第二次验证失败，关闭客户端|{}", sc.remoteAddress().toString());
+                log.error("客户端第二次验证失败，关闭客户端|{}", NettyUtils.getRemoteInfo(ctx));
                 ctx.close();
                 return;
             }
@@ -96,7 +99,7 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        super.exceptionCaught(ctx, cause);
+        log.error(cause.getMessage());
         ctx.close();
     }
 }

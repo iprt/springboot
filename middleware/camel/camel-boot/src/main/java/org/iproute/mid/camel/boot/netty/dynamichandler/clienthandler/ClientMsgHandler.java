@@ -5,6 +5,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
  * ClientMsgHandler
@@ -29,12 +30,11 @@ public class ClientMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        log.error("ClientMsgHandler exceptionCaught");
+        log.error("ClientMsgHandler exceptionCaught | Server is = {}", NettyUtils.getRemoteInfo(ctx));
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        SocketChannel sc = (SocketChannel) ctx.channel();
-        log.error("服务端【{}】断开连接", sc.remoteAddress().toString());
+        log.error("服务端【{}】断开连接", NettyUtils.getRemoteInfo(ctx));
     }
 }

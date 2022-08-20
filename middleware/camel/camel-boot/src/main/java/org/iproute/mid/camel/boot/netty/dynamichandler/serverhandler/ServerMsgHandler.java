@@ -2,9 +2,9 @@ package org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.socket.SocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
  * ServerMsgHandler
@@ -17,7 +17,7 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("ServerMsgHandler channelActive");
+        log.info("ServerMsgHandler channelActive | {}", NettyUtils.getRemoteInfo(ctx));
 
         String msg = "Netty,Rock!";
 
@@ -32,8 +32,7 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, SimpleProtocol msg) throws Exception {
         String clientMsg = new String(msg.getContent());
-        SocketChannel channel = (SocketChannel) ctx.channel();
-        log.info("接收到客户端消息|{}|{}", channel.remoteAddress().toString(), clientMsg);
+        log.info("接收到客户端【{}】消息|{}", NettyUtils.getRemoteInfo(ctx), clientMsg);
 
         String rspMsg = "server response ： " + clientMsg;
         SimpleProtocol pRspMsg = SimpleProtocol.builder()
@@ -46,15 +45,13 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        SocketChannel sc = (SocketChannel) ctx.channel();
-        log.error("ServerMsgHandler exceptionCaught|{}|{}", sc.remoteAddress().toString(), cause.getMessage());
+        log.error("ServerMsgHandler exceptionCaught|{}", NettyUtils.getRemoteInfo(ctx));
     }
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         // log.info("channelInactive|{}", channel.remoteAddress().toString());
-        SocketChannel sc = (SocketChannel) ctx.channel();
-        log.error("客户端【{}】断开连接", sc.remoteAddress().toString());
+        log.error("客户端断开连接|{}", NettyUtils.getRemoteInfo(ctx));
     }
 
 }
