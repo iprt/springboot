@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.reconnect;
+package org.iproute.mid.camel.boot.netty.reconnect;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;

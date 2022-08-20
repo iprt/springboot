@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.dynamichandler;
+package org.iproute.mid.camel.boot.netty.dynamichandler;
 
 /**
  * Before

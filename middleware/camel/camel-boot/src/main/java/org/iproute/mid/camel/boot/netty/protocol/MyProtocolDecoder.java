@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.dynamichandler;
+package org.iproute.mid.camel.boot.netty.protocol;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author zhuzhenjie
  * @since 2022/8/7
  */
-public class SimpleProtocolDecoder extends ByteToMessageDecoder {
+public class MyProtocolDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
@@ -37,7 +37,7 @@ public class SimpleProtocolDecoder extends ByteToMessageDecoder {
         byte[] content = new byte[len];
         in.readBytes(content);
 
-        out.add(SimpleProtocol.builder().len(len)
+        out.add(MyProtocol.builder().len(len)
                 .content(content)
                 .build());
 

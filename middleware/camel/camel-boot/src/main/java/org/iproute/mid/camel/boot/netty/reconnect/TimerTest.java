@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.reconnect;
+package org.iproute.mid.camel.boot.netty.reconnect;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.dynamichandler;
+package org.iproute.mid.camel.boot.netty.dynamichandler;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -7,7 +7,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.server.dynamichandler.serverhandler.ServerInitializer;
+import org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler.ServerInitializer;
 
 /**
  * Server

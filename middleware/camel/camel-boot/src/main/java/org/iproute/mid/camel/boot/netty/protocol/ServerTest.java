@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.protocol;
+package org.iproute.mid.camel.boot.netty.protocol;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

@@ -1,10 +1,10 @@
-package org.iproute.mid.camel.boot.server.dynamichandler.clienthandler;
+package org.iproute.mid.camel.boot.netty.dynamichandler.clienthandler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.socket.SocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.server.dynamichandler.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocol;
 
 /**
  * ClientMsgHandler

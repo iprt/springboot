@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.protocol;
+package org.iproute.mid.camel.boot.netty.dynamichandler;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +17,7 @@ import lombok.ToString;
 @ToString
 @Builder
 @Data
-public class MyProtocol {
+public class SimpleProtocol {
 
     private int len;
 

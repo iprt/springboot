@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.server.dynamichandler;
+package org.iproute.mid.camel.boot.netty.dynamichandler;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -6,7 +6,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.server.dynamichandler.clienthandler.ClientInitializer;
+import org.iproute.mid.camel.boot.netty.dynamichandler.clienthandler.ClientInitializer;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
