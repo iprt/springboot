@@ -44,7 +44,9 @@ public class ServerLoopStarter {
 
 
         try {
-            Channel channel = server.bind(7003).sync().channel();
+            int port = 7003;
+            log.info("Server start at {}", port);
+            Channel channel = server.bind(port).sync().channel();
             channel.closeFuture().sync();
         } catch (Exception e) {
             log.error(e.getMessage());
