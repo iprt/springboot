@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.netty.serverloop;
+package org.iproute.mid.camel.boot.netty.serverloopsend;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -9,6 +9,7 @@ import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * ServerLoopHandler
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2022/8/20
  */
 @Slf4j
-public class ServerLoopHandler extends SimpleChannelInboundHandler<String> {
+public class LoopServerHandler extends SimpleChannelInboundHandler<String> {
 
     private static final ScheduledExecutorService ses = Executors.newScheduledThreadPool(10);
 
@@ -26,11 +27,13 @@ public class ServerLoopHandler extends SimpleChannelInboundHandler<String> {
         log.info("客户端已连接|{}", NettyUtils.getRemoteInfo((SocketChannel) ctx.channel()));
         // 这个地方需要不断的发送消息 ?
 
+
+        AtomicLong i = new AtomicLong(1);
         ses.schedule(new Runnable() {
             @Override
             public void run() {
                 if (ctx.channel().isActive()) {
-                    ctx.writeAndFlush("Hello World");
+                    ctx.writeAndFlush("Hello World " + i.getAndIncrement());
                     ses.schedule(this, 1, TimeUnit.SECONDS);
                 }
             }

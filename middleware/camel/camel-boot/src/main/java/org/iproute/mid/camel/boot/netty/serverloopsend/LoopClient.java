@@ -1,8 +1,7 @@
-package org.iproute.mid.camel.boot.netty.serverloop;
+package org.iproute.mid.camel.boot.netty.serverloopsend;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -20,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2022/8/20
  */
 @Slf4j
-public class ReceiveClient {
+public class LoopClient {
 
     public static void main(String[] args) {
 

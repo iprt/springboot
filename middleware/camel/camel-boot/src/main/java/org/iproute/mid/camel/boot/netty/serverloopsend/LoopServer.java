@@ -1,10 +1,8 @@
-package org.iproute.mid.camel.boot.netty.serverloop;
+package org.iproute.mid.camel.boot.netty.serverloopsend;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
-import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -21,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2022/8/20
  */
 @Slf4j
-public class ServerLoopStarter {
+public class LoopServer {
 
     public static void main(String[] args) {
 
@@ -38,7 +36,7 @@ public class ServerLoopStarter {
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new StringDecoder());
                         ch.pipeline().addLast(new StringEncoder());
-                        ch.pipeline().addLast(new ServerLoopHandler());
+                        ch.pipeline().addLast(new LoopServerHandler());
                     }
                 });
 

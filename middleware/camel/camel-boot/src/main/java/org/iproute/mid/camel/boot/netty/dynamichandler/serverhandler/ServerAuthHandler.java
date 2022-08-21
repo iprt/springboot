@@ -9,7 +9,6 @@ import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolDecoder;
 import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolEncoder;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
-import sun.nio.ch.Net;
 
 import java.util.UUID;
 
