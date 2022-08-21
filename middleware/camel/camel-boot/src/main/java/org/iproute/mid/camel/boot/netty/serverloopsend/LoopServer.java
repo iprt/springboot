@@ -45,6 +45,9 @@ public class LoopServer {
             int port = 7003;
             log.info("Server start at {}", port);
             Channel channel = server.bind(port).sync().channel();
+
+            LoopServerUtils.loopSendMsg();
+
             channel.closeFuture().sync();
         } catch (Exception e) {
             log.error(e.getMessage());
