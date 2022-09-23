@@ -40,8 +40,8 @@ include('middleware:elastic:search-java-api')
 include('middleware:kafka:java-api')
 include('middleware:kafka:kafka-boot')
 
-// middleware raft
-include('middleware:raft')
+// middleware 选举算法，基于 basic-paxos 多线程实现  raft
+include('middleware:raft:election')
 
 // middleware redisson
 include('middleware:redisson-boot')
