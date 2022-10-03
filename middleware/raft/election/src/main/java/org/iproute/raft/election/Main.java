@@ -1,5 +1,7 @@
 package org.iproute.raft.election;
 
+import org.iproute.raft.election.algo.Node;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -15,7 +17,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        test11();
+        // test3();
+        test5();
+        // testMore(29);
     }
 
     static void test3() {
@@ -81,10 +85,10 @@ public class Main {
         es.execute(e);
     }
 
-    static void test11() {
+    static void testMore(int num) {
         List<Node> nodes = new ArrayList<>();
         List<Node> clusterInfo = new ArrayList<>();
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= num; i++) {
             Node x = new Node("Node" + i);
 
             nodes.add(x);

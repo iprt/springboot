@@ -1,4 +1,4 @@
-package org.iproute.raft.election;
+package org.iproute.raft.election.algo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,9 +17,12 @@ import lombok.ToString;
 @ToString
 @Builder
 @Data
-public class VoteReq {
+public class VoteRsp {
     private long iterm;
 
-    // 候选leader
-    private String candidateLeader;
+    // 谁想当Leader
+    private String possibleLeader;
+
+    // 存在的leader
+    // private String existedLeader;
 }

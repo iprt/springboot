@@ -35,7 +35,7 @@ public class Main2 {
 
         new Thread(() -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(200);
                 System.out.println("CountDownLatch hello world");
                 ctl.countDown();
             } catch (InterruptedException e) {
@@ -44,10 +44,11 @@ public class Main2 {
         }).start();
 
         try {
+            System.out.println("before await");
             boolean await = ctl.await(1, TimeUnit.SECONDS);
             System.out.println("await = " + await);
         } catch (InterruptedException e) {
-            System.out.println("发生超时");
+            throw new RuntimeException(e);
         }
 
     }

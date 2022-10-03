@@ -1,0 +1,203 @@
+2022-09-27 16:27:56.003 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 C 开始以 Follower 的状态运行
+2022-09-27 16:27:56.003 INFO  [pool-5-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 B 开始以 Follower 的状态运行
+2022-09-27 16:27:56.003 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:27:58.016 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 B 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:27:58.016 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:27:58.017 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 B 从Follower状态切换到Candidate状态
+2022-09-27 16:27:58.017 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:27:58.017 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 B 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:27:58.017 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:27:58.017 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 B 第一次双重检查角色
+2022-09-27 16:27:58.017 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 B 把自己的任期 +1 ,新的任期为 1, 一开始假设自己就是 Leader
+2022-09-27 16:27:58.017 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:27:58.017 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 1, 一开始假设自己就是 Leader
+2022-09-27 16:27:58.018 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 B,向其他人开始推荐自己
+2022-09-27 16:27:58.018 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:27:58.018 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 B,向其他人推荐完自己，等待结果
+2022-09-27 16:27:58.018 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:27:58.018 INFO  [pool-5-thread-3] org.iproute.raft.election.algo.Node     (149 ) : 当前节点 A 是候选人,接收到另外一个候选人B的投票 | 接收的数据 (投票人=B,任期=1), 自己的数据(节点名称=A,任期=1),任期相同，说明有了多个候选者，A先成为候选者，B后成为候选者并把自己的任期+1了
+2022-09-27 16:27:58.019 INFO  [pool-5-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 C 是跟随者,接收到另外一个候选人B的投票 | 接收的数据 (投票人=B,任期=1), 自己的数据(节点名称=C,任期=0),候选人的任期 > 自己的任期 无条件接收候选人B当选
+2022-09-27 16:27:58.019 INFO  [pool-7-thread-3] org.iproute.raft.election.algo.Node     (149 ) : 当前节点 B 是候选人,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=1), 自己的数据(节点名称=B,任期=1),任期相同，说明有了多个候选者，B先成为候选者，A后成为候选者并把自己的任期+1了
+2022-09-27 16:27:58.019 INFO  [pool-7-thread-4] org.iproute.raft.election.algo.Node     (171 ) : 当前节点 C 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=1), 自己的数据(节点名称=C,任期=1),因为任期相同，自己是跟随者的身份，所以同意候选人A当选
+2022-09-27 16:27:58.019 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 B 在节点不超时的情况下，双重检查角色
+2022-09-27 16:27:58.019 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:27:58.019 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (209 ) : 候选者 B 不超时的情况下，但是存在多个候选者，把自己降级为跟随者，需要重新选举,
+2022-09-27 16:27:58.019 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (209 ) : 候选者 A 不超时的情况下，但是存在多个候选者，把自己降级为跟随者，需要重新选举,
+2022-09-27 16:27:58.019 INFO  [pool-5-thread-2] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 B 开始以 Follower 的状态运行
+2022-09-27 16:27:58.019 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:00.018 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 C 在randomSeconds() = 4s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:00.018 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 C 从Follower状态切换到Candidate状态
+2022-09-27 16:28:00.018 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 C 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:00.018 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 C 第一次双重检查角色
+2022-09-27 16:28:00.018 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 C 把自己的任期 +1 ,新的任期为 2, 一开始假设自己就是 Leader
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 C,向其他人开始推荐自己
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 C,向其他人推荐完自己，等待结果
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-3] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 A 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=2), 自己的数据(节点名称=A,任期=1),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=2), 自己的数据(节点名称=B,任期=1),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 C 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 C 获得半数以上投票 成为 Leader,当前任期为 2
+2022-09-27 16:28:00.019 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 C 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:00.022 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:00.022 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 3, 一开始假设自己就是 Leader
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=3), 自己的数据(节点名称=B,任期=2),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-1] org.iproute.raft.election.algo.Node     (197 ) : 当前节点 C 是领导者，接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=3), 自己的数据(节点名称=C,任期=2),候选人的任期比自己还要大,说明领导者可能发生了什么故障,要主动降级
+2022-09-27 16:28:00.022 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:00.023 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 A 获得半数以上投票 成为 Leader,当前任期为 3
+2022-09-27 16:28:00.023 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 A 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:00.064 INFO  [pool-9-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 3
+2022-09-27 16:28:00.070 INFO  [ool-10-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Leader,A,接收到来自Leader C 的心跳，任期为: 3
+2022-09-27 16:28:00.202 INFO  [ool-10-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader C 的心跳，任期为: 3
+2022-09-27 16:28:00.210 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 3
+2022-09-27 16:28:01.021 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 B 发现 Leader A 的心跳，当前任期为 3 ,重置随机定时器 ,当前随机定时器时间为 3
+2022-09-27 16:28:01.066 INFO  [pool-7-thread-4] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:01.071 INFO  [pool-6-thread-3] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 C 开始以 Follower 的状态运行
+2022-09-27 16:28:01.203 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 C 开始以 Follower 的状态运行
+2022-09-27 16:28:01.212 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:03.204 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 C 发现 Leader null 的心跳，当前任期为 3 ,重置随机定时器 ,当前随机定时器时间为 2
+2022-09-27 16:28:03.212 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 A 发现 Leader null 的心跳，当前任期为 3 ,重置随机定时器 ,当前随机定时器时间为 2
+2022-09-27 16:28:04.022 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 B 在randomSeconds() = 3s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:04.022 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 B 从Follower状态切换到Candidate状态
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 B 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 B 第一次双重检查角色
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 B 把自己的任期 +1 ,新的任期为 4, 一开始假设自己就是 Leader
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 B,向其他人开始推荐自己
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 B,向其他人推荐完自己，等待结果
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-3] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 A 是跟随者,接收到另外一个候选人B的投票 | 接收的数据 (投票人=B,任期=4), 自己的数据(节点名称=A,任期=3),候选人的任期 > 自己的任期 无条件接收候选人B当选
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-1] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 C 是跟随者,接收到另外一个候选人B的投票 | 接收的数据 (投票人=B,任期=4), 自己的数据(节点名称=C,任期=3),候选人的任期 > 自己的任期 无条件接收候选人B当选
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 B 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 B 获得半数以上投票 成为 Leader,当前任期为 4
+2022-09-27 16:28:04.022 INFO  [pool-5-thread-4] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 B 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:04.067 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 3s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:04.067 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 5, 一开始假设自己就是 Leader
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-3] org.iproute.raft.election.algo.Node     (197 ) : 当前节点 B 是领导者，接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=5), 自己的数据(节点名称=B,任期=4),候选人的任期比自己还要大,说明领导者可能发生了什么故障,要主动降级
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 C 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=5), 自己的数据(节点名称=C,任期=4),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 A 获得半数以上投票 成为 Leader,当前任期为 5
+2022-09-27 16:28:04.067 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 A 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:04.140 INFO  [pool-8-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader B 的心跳，任期为: 5
+2022-09-27 16:28:04.161 INFO  [pool-8-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Leader,A,接收到来自Leader B 的心跳，任期为: 5
+2022-09-27 16:28:04.195 INFO  [pool-9-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 5
+2022-09-27 16:28:04.257 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 5
+2022-09-27 16:28:05.072 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 C 发现 Leader A 的心跳，当前任期为 5 ,重置随机定时器 ,当前随机定时器时间为 4
+2022-09-27 16:28:05.140 INFO  [pool-5-thread-3] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 B 开始以 Follower 的状态运行
+2022-09-27 16:28:05.161 INFO  [pool-5-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 B 开始以 Follower 的状态运行
+2022-09-27 16:28:05.197 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:05.205 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 C 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:05.205 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 C 从Follower状态切换到Candidate状态
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 C 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 C 第一次双重检查角色
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 C 把自己的任期 +1 ,新的任期为 6, 一开始假设自己就是 Leader
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 C,向其他人开始推荐自己
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 C,向其他人推荐完自己，等待结果
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-2] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 A 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=6), 自己的数据(节点名称=A,任期=5),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-3] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=6), 自己的数据(节点名称=B,任期=5),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 C 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 C 获得半数以上投票 成为 Leader,当前任期为 6
+2022-09-27 16:28:05.205 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 C 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:05.213 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 A 发现 Leader C 的心跳，当前任期为 6 ,重置随机定时器 ,当前随机定时器时间为 2
+2022-09-27 16:28:05.246 INFO  [ool-10-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,A,接收到来自Leader C 的心跳，任期为: 6
+2022-09-27 16:28:05.246 INFO  [ool-10-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader C 的心跳，任期为: 6
+2022-09-27 16:28:05.257 INFO  [pool-7-thread-4] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:06.329 INFO  [ool-10-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader C 的心跳，任期为: 6
+2022-09-27 16:28:06.435 INFO  [ool-10-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,A,接收到来自Leader C 的心跳，任期为: 6
+2022-09-27 16:28:07.199 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 A 发现 Leader C 的心跳，当前任期为 6 ,重置随机定时器 ,当前随机定时器时间为 2
+2022-09-27 16:28:07.214 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:07.214 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 7, 一开始假设自己就是 Leader
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-2] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=7), 自己的数据(节点名称=B,任期=6),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-3] org.iproute.raft.election.algo.Node     (197 ) : 当前节点 C 是领导者，接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=7), 自己的数据(节点名称=C,任期=6),候选人的任期比自己还要大,说明领导者可能发生了什么故障,要主动降级
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 A 获得半数以上投票 成为 Leader,当前任期为 7
+2022-09-27 16:28:07.214 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 A 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:07.258 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:07.258 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 8, 一开始假设自己就是 Leader
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-3] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=8), 自己的数据(节点名称=B,任期=7),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 C 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=8), 自己的数据(节点名称=C,任期=7),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 A 获得半数以上投票 成为 Leader,当前任期为 8
+2022-09-27 16:28:07.258 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 A 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:07.331 INFO  [pool-6-thread-2] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 C 开始以 Follower 的状态运行
+2022-09-27 16:28:07.338 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:07.374 INFO  [pool-9-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:07.437 INFO  [pool-6-thread-3] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 C 开始以 Follower 的状态运行
+2022-09-27 16:28:07.441 INFO  [pool-9-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:07.500 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:08.162 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 B 发现 Leader A 的心跳，当前任期为 8 ,重置随机定时器 ,当前随机定时器时间为 3
+2022-09-27 16:28:08.492 INFO  [pool-9-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:08.526 INFO  [pool-9-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:08.534 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:08.554 INFO  [pool-9-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 8
+2022-09-27 16:28:09.073 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 C 发现 Leader A 的心跳，当前任期为 8 ,重置随机定时器 ,当前随机定时器时间为 4
+2022-09-27 16:28:09.141 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 B 发现 Leader A 的心跳，当前任期为 8 ,重置随机定时器 ,当前随机定时器时间为 4
+2022-09-27 16:28:09.201 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 A 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:09.201 INFO  [pool-2-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 A 从Follower状态切换到Candidate状态
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 A 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 A 第一次双重检查角色
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 A 把自己的任期 +1 ,新的任期为 9, 一开始假设自己就是 Leader
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 A,向其他人开始推荐自己
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 A,向其他人推荐完自己，等待结果
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-4] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=9), 自己的数据(节点名称=B,任期=8),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-1] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 C 是跟随者,接收到另外一个候选人A的投票 | 接收的数据 (投票人=A,任期=9), 自己的数据(节点名称=C,任期=8),候选人的任期 > 自己的任期 无条件接收候选人A当选
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 A 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 A 获得半数以上投票 成为 Leader,当前任期为 9
+2022-09-27 16:28:09.201 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 A 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:09.225 INFO  [pool-9-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,C,接收到来自Leader A 的心跳，任期为: 9
+2022-09-27 16:28:09.332 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 C 发现 Leader A 的心跳，当前任期为 9 ,重置随机定时器 ,当前随机定时器时间为 2
+2022-09-27 16:28:09.370 INFO  [pool-9-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader A 的心跳，任期为: 9
+2022-09-27 16:28:09.438 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 C 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:09.438 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 C 从Follower状态切换到Candidate状态
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 C 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 C 第一次双重检查角色
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 C 把自己的任期 +1 ,新的任期为 10, 一开始假设自己就是 Leader
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 C,向其他人开始推荐自己
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 C,向其他人推荐完自己，等待结果
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-1] org.iproute.raft.election.algo.Node     (197 ) : 当前节点 A 是领导者，接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=10), 自己的数据(节点名称=A,任期=9),候选人的任期比自己还要大,说明领导者可能发生了什么故障,要主动降级
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-2] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=10), 自己的数据(节点名称=B,任期=9),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 C 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 C 获得半数以上投票 成为 Leader,当前任期为 10
+2022-09-27 16:28:09.438 INFO  [pool-6-thread-4] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 C 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+2022-09-27 16:28:09.493 INFO  [pool-7-thread-4] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:09.526 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:09.534 INFO  [pool-7-thread-2] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:09.555 INFO  [pool-7-thread-3] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:09.583 INFO  [ool-10-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader C 的心跳，任期为: 10
+2022-09-27 16:28:09.634 INFO  [ool-10-thread-2] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,A,接收到来自Leader C 的心跳，任期为: 10
+2022-09-27 16:28:10.226 INFO  [pool-7-thread-4] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:10.371 INFO  [pool-7-thread-1] o.i.raft.election.algo.NodeStateMachine (62  ) : 节点 A 开始以 Follower 的状态运行
+2022-09-27 16:28:10.659 INFO  [ool-10-thread-3] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,B,接收到来自Leader C 的心跳，任期为: 10
+2022-09-27 16:28:10.721 INFO  [ool-10-thread-1] org.iproute.raft.election.algo.Node     (117 ) : 当前节点Follower,A,接收到来自Leader C 的心跳，任期为: 10
+2022-09-27 16:28:11.163 INFO  [pool-4-thread-1] o.i.raft.election.algo.NodeStateMachine (83  ) : Follower节点 B 发现 Leader C 的心跳，当前任期为 10 ,重置随机定时器 ,当前随机定时器时间为 3
+Disconnected from the target VM, address: '127.0.0.1:51729', transport: 'socket'
+2022-09-27 16:28:11.334 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (76  ) : Follower节点 C 在randomSeconds() = 2s时间到了的时候，还没有收到leader的心跳
+2022-09-27 16:28:11.334 INFO  [pool-3-thread-1] o.i.raft.election.algo.NodeStateMachine (80  ) : 节点 C 从Follower状态切换到Candidate状态
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (94  ) : 节点 C 开始以 Candidate 的状态运行，想选举自己为Leader
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (99  ) : 候选者 C 第一次双重检查角色
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (109 ) : 候选者 C 把自己的任期 +1 ,新的任期为 11, 一开始假设自己就是 Leader
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (121 ) : 候选者 C,向其他人开始推荐自己
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (163 ) : 候选者 C,向其他人推荐完自己，等待结果
+2022-09-27 16:28:11.334 INFO  [pool-6-thread-2] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 A 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=11), 自己的数据(节点名称=A,任期=10),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:11.335 INFO  [pool-6-thread-3] org.iproute.raft.election.algo.Node     (178 ) : 当前节点 B 是跟随者,接收到另外一个候选人C的投票 | 接收的数据 (投票人=C,任期=11), 自己的数据(节点名称=B,任期=10),候选人的任期 > 自己的任期 无条件接收候选人C当选
+2022-09-27 16:28:11.335 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (201 ) : 候选者 C 在节点不超时的情况下，双重检查角色
+2022-09-27 16:28:11.335 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (226 ) : 候选者 C 获得半数以上投票 成为 Leader,当前任期为 11
+2022-09-27 16:28:11.335 INFO  [pool-6-thread-1] o.i.raft.election.algo.NodeStateMachine (239 ) : 节点 C 开始以 Leader 的状态运行 ,并立即向子节点发送心跳
+
+Process finished with exit code 130

@@ -1,4 +1,4 @@
-package org.iproute.raft.election;
+package org.iproute.raft.election.algo;
 
 /**
  * Role
@@ -7,7 +7,6 @@ package org.iproute.raft.election;
  * @since 2022 /9/22
  */
 public enum Role {
-
     Leader,
 
     Candidate,

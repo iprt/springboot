@@ -1,14 +1,12 @@
-package org.iproute.raft.election;
+package org.iproute.raft.election.algo;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomUtils;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -35,7 +33,7 @@ public class NodeStateMachine {
         // 跟随者
         FOLLOWER_SES = Executors.newSingleThreadScheduledExecutor();
 
-        EXCHANGE_ES = Executors.newFixedThreadPool(node.getClusterInfo().size());
+        EXCHANGE_ES = Executors.newFixedThreadPool(node.getClusterInfo().size() + 1);
 
         // 发送心跳的
         LEADER_SES = Executors.newScheduledThreadPool(node.getClusterInfo().size());
@@ -61,11 +59,16 @@ public class NodeStateMachine {
     }
 
     private void runAsFollower() {
-        log.info("节点 {} 开始以 {} 的状态运行", node.getName(), node.getRole());
-
-        AtomicBoolean exchange = new AtomicBoolean(false);
         // 重要：随机定时,小于心跳的
-        int rs = randomSeconds();
+        long rs = Utils.followerTimeoutSeconds();
+
+        log.info("节点 {} 开始以 {} 的状态运行, 随机定时器时间为 {}", node.getName(), node.getRole(), rs);
+
+        // 切换到 follower 的时候，把节点自身的标记重置
+        this.node.setLeaderName(null);
+        this.node.setLeader(false);
+
+
         FOLLOWER_SES.schedule(new Runnable() {
             @Override
             public void run() {
@@ -75,13 +78,11 @@ public class NodeStateMachine {
                     log.info("Follower节点 {} 在randomSeconds() = {}s时间到了的时候，还没有收到leader的心跳", node.getName(), rs);
                     // 角色切换 ，也就是状态切换 ，从 Follower 变成 Candidate
                     node.setRole(Role.Candidate);
-                    exchange.compareAndSet(false, true);
-                    EXCHANGE_ES.execute(() -> {
-                        runAsCandidate();
-                    });
+                    runAsRole();
+                    log.info("节点 {} 从Follower状态切换到Candidate状态", node.getName());
                 } else {
                     // 接收到 Leader的同步数据 在 raft 中，等价于接收到了节点的心跳，目前这次只做选举
-                    log.info("Follower节点 {} 存在 Leader {} 的心跳，当前任期为 {} ,重置随机定时器 ,随机定时器时间为 {}", node.getName(), node.getLeaderName(), node.getIterm(), rs);
+                    log.info("Follower节点 {} 发现 Leader {} 的心跳，当前任期为 {} ,重置随机定时器 ,当前随机定时器时间为 {}", node.getName(), heartBeat.getLeaderName(), node.getIterm(), rs);
                     FOLLOWER_SES.schedule(this, rs, TimeUnit.SECONDS);
                 }
             }
@@ -92,34 +93,40 @@ public class NodeStateMachine {
 
     // 不考虑网络分区的情况
     private void runAsCandidate() {
-
         log.info("节点 {} 开始以 {} 的状态运行，想选举自己为Leader", node.getName(), node.getRole());
 
         // Candidate 只是一种临时状态
         while (node.getRole() == Role.Candidate) {
             // 为什么想到双重检查，因为节点的状态随时会改变
             log.info("候选者 {} 第一次双重检查角色", node.getName());
-            if (node.getRole() != Role.Candidate) {
-                log.info("候选人 {} 第一次双重检查状态发生变更,新的状态为 {}", node.getName(), node.getRole());
+            // 判断是否获取到了心跳
+            HeartBeat maybeContains = this.node.getHeartBeat();
+            // 当candidate节点等待其他节点时，如果收到了来自其它节点的AppendEntries RPC请求，同时做个请求中带上的任期号不比candidate节点的小，那么说明集群中已经存在leader了
+            if (maybeContains != null && maybeContains.getIterm() >= this.node.getIterm()) {
+                this.node.setIterm(maybeContains.getIterm());
+                this.node.leaderName = maybeContains.getLeaderName();
+                this.node.setRole(Role.Follower);
                 break;
             }
 
-            // 1. 成功和失败的个数
-            AtomicInteger successCount = new AtomicInteger(0);
+            // 投票通过的个数
+            AtomicInteger votesPassed = new AtomicInteger(0);
 
-            // 2.  向集群中所有节点发送，投票，先投票自己 候选者 = （提议者 + 接收者）
+            // 向集群中所有节点发送，投票，先投票自己 候选者 = （提议者 + 接收者）
             log.info("候选者 {} 把自己的任期 +1 ,新的任期为 {}, 一开始假设自己就是 Leader", node.getName(), node.getIterm() + 1);
-            // 候选者把自己的任期+1 ，自己投票+1
-            successCount.incrementAndGet();
+            // 候选者把自己的任期+1 ，自己投票 +1
+            votesPassed.incrementAndGet();
             node.setIterm(node.getIterm() + 1);
 
             // TODO 技巧？： 把准备阶段和提交阶段在一次RPC中完成，节点就认为自己是Leader，不过成不成功不知道，不成功就再选一遍，加上延迟
+            // TODO 不成功的话，虽然任期+1了，但是可能退化成 Follower
             node.setLeaderName(this.node.getName());
 
             // 投票请求
             VoteReq voteReq = new VoteReq(node.getIterm(), node.getName());
 
             log.info("候选者 {},向其他人开始推荐自己", node.getName());
+
             // 理想的情况下只有一个候选者，如果出现了多个候选者，把自己降级成 follower ,这个是我自己的思路
             AtomicInteger sameItermCandidateNum = new AtomicInteger(1);
 
@@ -144,12 +151,13 @@ public class NodeStateMachine {
                             if (otherVoteRsp.getIterm() == voteReq.getIterm()
                                     && voteReq.getCandidateLeader().equals(otherVoteRsp.getPossibleLeader())) {
                                 // 任期相同，得到的 leader 也相同
-                                successCount.incrementAndGet();
+                                votesPassed.incrementAndGet();
                             } else if (otherVoteRsp.getIterm() == voteReq.getIterm()
                                     && !voteReq.getCandidateLeader().equals(otherVoteRsp.getPossibleLeader())) {
+                                // 任期相同，但是有多个candidate
                                 sameItermCandidateNum.incrementAndGet();
                             } else if (otherVoteRsp.getIterm() > voteReq.getIterm()) {
-                                // 自己的任期明显小了，需要降级
+                                // 投票发现返回的任期 比 自己本身的任期还要大，需要降级
                                 findBiggerIterm.incrementAndGet();
                             }
 
@@ -162,64 +170,94 @@ public class NodeStateMachine {
             log.info("候选者 {},向其他人推荐完自己，等待结果", node.getName());
 
             try {
-                // 选举超时模拟
-                boolean await = ctd.await(1, TimeUnit.SECONDS);
+                // 模拟 选举超时
+                boolean await = ctd.await(Utils.candidateTimeoutMs(), TimeUnit.MILLISECONDS);
 
                 if (!await) {
+                    log.info("候选者 {} 在节点超时的情况下，双重检查角色", node.getName());
+                    if (node.getRole() != Role.Candidate) {
+                        log.info("候选人 {} 节点超时的情况下，发现角色已经变更 ,新的角色为 {}", node.getName(), node.getRole());
+                        break;
+                    }
+
                     // 超时了要先判断是否需要绝对降级
-                    if (sameItermCandidateNum.get() > 1 || findBiggerIterm.get() > 0) {
-                        // 节点降级
+                    if (sameItermCandidateNum.get() > 1) {
+                        log.info("候选人 {} 节点超时的情况下，状态角色变更,新的角色为 {}", node.getName(), node.getRole());
                         node.setRole(Role.Follower);
-                        continue;
-                    } else if (successCount.get() >= mid) {
+                        break;
+                    }
+
+                    if (findBiggerIterm.get() > 0) {
+                        node.setRole(Role.Follower);
+                        break;
+                    }
+                    maybeContains = this.node.getHeartBeat();
+                    if (maybeContains != null && maybeContains.getIterm() >= this.node.getIterm()) {
+                        this.node.setIterm(maybeContains.getIterm());
+                        this.node.leaderName = maybeContains.getLeaderName();
+                        this.node.setRole(Role.Follower);
+                        break;
+                    }
+
+                    if (votesPassed.get() >= mid) {
                         // 集群中超过半数认同当前节点作为 Leader
-                        node.setLeader(true);
                         node.setRole(Role.Leader);
                         break;
-                    } else {
-                        continue;
                     }
+                    // 选举超时了，但是没有选举出Leader，需要重新选举
+                    continue;
                 }
 
             } catch (InterruptedException e) {
                 // TODO ...
             }
 
-
-            if (sameItermCandidateNum.get() > 1 || findBiggerIterm.get() > 0) {
-                log.info("候选者 {} 不超时，但是存在多个候选者 或者发现了更大的任期，把自己降级为跟随者，需要重新选举,", node.getName());
-                // 当前节点降级
-                node.setRole(Role.Follower);
-                continue;
-            }
-
-            log.info("候选者 {} 第二次双重检查角色", node.getName());
+            log.info("候选者 {} 在节点不超时的情况下，双重检查角色", node.getName());
             // 还是候选者状态的时候，收到了Leader的心跳，说明自己肯定不能成为Leader了
             if (node.getRole() != Role.Candidate) {
+                log.info("候选人 {} 节点不超时的情况下，发现角色已经变更 ,新的角色为 {}", node.getName(), node.getRole());
                 break;
             }
 
-            // 每个节点都希望得到半数以上的回复，成为leader
-            if (successCount.get() >= mid) {
+            if (sameItermCandidateNum.get() > 1) {
+                log.info("候选者 {} 不超时的情况下，但是存在多个候选者，把自己降级为跟随者，需要重新选举", node.getName());
+                // 当前节点降级
+                node.setRole(Role.Follower);
+                break;
+            }
+
+            if (findBiggerIterm.get() > 0) {
+                log.info("候选者 {} 不超时的情况下，但是存发现了更大的任期，把自己降级为跟随者，需要重新选举", node.getName());
+                // 当前节点降级
+                node.setRole(Role.Follower);
+                break;
+            }
+
+            maybeContains = this.node.getHeartBeat();
+            if (maybeContains != null && maybeContains.getIterm() >= this.node.getIterm()) {
+                this.node.setIterm(maybeContains.getIterm());
+                this.node.leaderName = maybeContains.getLeaderName();
+                this.node.setRole(Role.Follower);
+                break;
+            }
+
+            // 节点获得半数以上的投票
+            if (votesPassed.get() >= mid) {
                 // 半数以上投票成功了
                 log.info("候选者 {} 获得半数以上投票 成为 Leader,当前任期为 {}", node.getName(), node.getIterm());
-                node.setLeader(true);
                 node.setRole(Role.Leader);
                 break;
-            } else {
-                log.info("候选者{} 选举失败了，重新选举", node.getName());
             }
 
+            log.info("候选者 {} 选举失败了，重新选举", node.getName());
         }
 
         runAsRole();
     }
 
-
     private void runAsLeader() {
         log.info("节点 {} 开始以 {} 的状态运行 ,并立即向子节点发送心跳", node.getName(), node.getRole());
-        // 制造故障
-        // AtomicInteger tryCrack = new AtomicInteger(0);
+        node.setLeader(true);
 
         for (Node other : node.getClusterInfo()) {
             if (!other.isLeader()) {
@@ -228,44 +266,19 @@ public class NodeStateMachine {
                     public void run() {
                         // 每次发送之前都要判断下自己有没有主动降级了
                         if (!node.isLeader()) {
+                            // 角色切换
                             runAsRole();
                             return;
                         }
                         // 模拟网络延迟，可能会造成重新选举
-                        mockNetDelay();
+                        Utils.mockNetDelay();
                         other.receiveHeartBeat(node.getName(), node.getIterm());
 
-                        // if (tryCrack.get() > node.getClusterInfo().size() * 10) {
-                        //     tryCrack.getAndSet(0);
-                        //     log.info("========== ========== Leader {} 模拟故障 ========== ==========", node.getName());
-                        //     LEADER_SES.schedule(this, 5, TimeUnit.SECONDS);
-                        // } else {
-                        //     tryCrack.incrementAndGet();
-                        //     LEADER_SES.schedule(this, heartbeatSecond(), TimeUnit.SECONDS);
-                        // }
-
-                        LEADER_SES.schedule(this, heartbeatSecond(), TimeUnit.SECONDS);
+                        LEADER_SES.schedule(this, Utils.heartbeatTimeout(), TimeUnit.MILLISECONDS);
                     }
-                }, 0, TimeUnit.SECONDS);
+                }, 0, TimeUnit.MILLISECONDS);
             }
         }
     }
 
-
-    private int randomSeconds() {
-        return RandomUtils.nextInt(2, 5);
-    }
-
-    private int heartbeatSecond() {
-        return 1;
-    }
-
-    private void mockNetDelay() {
-        try {
-            // 模拟网络延迟
-            Thread.sleep(RandomUtils.nextLong(10, 200));
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

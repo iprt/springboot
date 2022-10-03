@@ -1,4 +1,4 @@
-package org.iproute.raft.election;
+package org.iproute.raft.election.algo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * HeartBeat
+ * VoteReq
  *
  * @author zhuzhenjie
  * @since 2022/9/22
@@ -17,7 +17,9 @@ import lombok.ToString;
 @ToString
 @Builder
 @Data
-public class HeartBeat {
-    private String leader;
+public class VoteReq {
     private long iterm;
+
+    // 候选leader
+    private String candidateLeader;
 }
