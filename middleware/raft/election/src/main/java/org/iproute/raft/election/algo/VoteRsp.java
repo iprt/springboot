@@ -23,6 +23,8 @@ public class VoteRsp {
     // 谁想当Leader
     private String possibleLeader;
 
+
+    private boolean fromLeader;
     // 存在的leader
     // private String existedLeader;
 }

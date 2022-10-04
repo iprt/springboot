@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -60,7 +61,8 @@ public class NodeStateMachine {
 
     private void runAsFollower() {
         // 重要：随机定时,小于心跳的
-        long rs = Utils.followerTimeoutSeconds();
+        // long rs = Utils.followerTimeoutSeconds();
+        long rs = 2L;
 
         log.info("节点 {} 开始以 {} 的状态运行, 随机定时器时间为 {}", node.getName(), node.getRole(), rs);
 
@@ -127,8 +129,8 @@ public class NodeStateMachine {
 
             log.info("候选者 {},向其他人开始推荐自己", node.getName());
 
-            // 理想的情况下只有一个候选者，如果出现了多个候选者，把自己降级成 follower ,这个是我自己的思路
-            AtomicInteger sameItermCandidateNum = new AtomicInteger(1);
+            // 是否选举的时候发现了Leader
+            AtomicBoolean findLeader = new AtomicBoolean(false);
 
             // 发现更大的任期
             AtomicInteger findBiggerIterm = new AtomicInteger(0);
@@ -149,18 +151,18 @@ public class NodeStateMachine {
                             // 模拟 投票 返回结果
                             VoteRsp otherVoteRsp = otherNode.receiveVoteReq(voteReq);
                             if (otherVoteRsp.getIterm() == voteReq.getIterm()
-                                    && voteReq.getCandidateLeader().equals(otherVoteRsp.getPossibleLeader())) {
+                                    && voteReq.getCandidateLeader().equals(otherVoteRsp.getPossibleLeader())
+                                    && !otherVoteRsp.isFromLeader()) {
                                 // 任期相同，得到的 leader 也相同
                                 votesPassed.incrementAndGet();
-                            } else if (otherVoteRsp.getIterm() == voteReq.getIterm()
-                                    && !voteReq.getCandidateLeader().equals(otherVoteRsp.getPossibleLeader())) {
-                                // 任期相同，但是有多个candidate
-                                sameItermCandidateNum.incrementAndGet();
+                            } else if (voteReq.getIterm() <= otherVoteRsp.getIterm()
+                                    && otherVoteRsp.isFromLeader()) {
+                                // 小于等于当前投票节点的任期内存在Leader
+                                findLeader.compareAndSet(false, true);
                             } else if (otherVoteRsp.getIterm() > voteReq.getIterm()) {
                                 // 投票发现返回的任期 比 自己本身的任期还要大，需要降级
                                 findBiggerIterm.incrementAndGet();
                             }
-
                             ctd.countDown();
                         }
                     });
@@ -180,9 +182,7 @@ public class NodeStateMachine {
                         break;
                     }
 
-                    // 超时了要先判断是否需要绝对降级
-                    if (sameItermCandidateNum.get() > 1) {
-                        log.info("候选人 {} 节点超时的情况下，状态角色变更,新的角色为 {}", node.getName(), node.getRole());
+                    if (findLeader.get()) {
                         node.setRole(Role.Follower);
                         break;
                     }
@@ -200,6 +200,12 @@ public class NodeStateMachine {
                     }
 
                     if (votesPassed.get() >= mid) {
+                        // 判断是否已经有leader的心跳了
+                        HeartBeat heartBeat = node.getHeartBeat();
+                        if (heartBeat != null) {
+                            node.setRole(Role.Follower);
+                            break;
+                        }
                         // 集群中超过半数认同当前节点作为 Leader
                         node.setRole(Role.Leader);
                         break;
@@ -219,9 +225,7 @@ public class NodeStateMachine {
                 break;
             }
 
-            if (sameItermCandidateNum.get() > 1) {
-                log.info("候选者 {} 不超时的情况下，但是存在多个候选者，把自己降级为跟随者，需要重新选举", node.getName());
-                // 当前节点降级
+            if (findLeader.get()) {
                 node.setRole(Role.Follower);
                 break;
             }
@@ -243,6 +247,14 @@ public class NodeStateMachine {
 
             // 节点获得半数以上的投票
             if (votesPassed.get() >= mid) {
+
+                // 变成leader之前判断是否已经有leader生成了
+                HeartBeat heartBeat = node.getHeartBeat();
+                if (heartBeat != null) {
+                    node.setRole(Role.Follower);
+                    break;
+                }
+
                 // 半数以上投票成功了
                 log.info("候选者 {} 获得半数以上投票 成为 Leader,当前任期为 {}", node.getName(), node.getIterm());
                 node.setRole(Role.Leader);
