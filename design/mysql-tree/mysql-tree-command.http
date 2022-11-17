@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
   "basePid": -1,
-  "path": "D:/src"
+  "path": "C:/develop/apache-maven-3.6.3"
 }
 
 

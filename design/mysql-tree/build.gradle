@@ -32,7 +32,6 @@ dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
     // https://mvnrepository.com/artifact/commons-collections/commons-collections
 
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
@@ -40,10 +39,15 @@ dependencies {
 
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
+
     // jdbc driver
     implementation 'mysql:mysql-connector-java'
+
+    // liquibase
+    implementation 'org.liquibase:liquibase-core'
 
     // https://mvnrepository.com/artifact/com.beust/jcommander
     implementation group: 'com.beust', name: 'jcommander', version: '1.82'

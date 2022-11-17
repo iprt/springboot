@@ -1,5 +1,4 @@
 drop table if exists tree_node;
-
 create table tree_node
 (
     `id`          bigint(20) unsigned not null auto_increment comment 'id',

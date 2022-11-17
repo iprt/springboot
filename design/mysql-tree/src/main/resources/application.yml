@@ -14,6 +14,10 @@ spring:
     url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: Root@123#
+  liquibase:
+    # liquibase default config
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml
