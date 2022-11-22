@@ -21,5 +21,5 @@ public interface FolderTreeNodeInit {
      *
      * @param id the id
      */
-    void query(Long id);
+    void logPrintQuery(Long id);
 }

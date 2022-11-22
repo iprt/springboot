@@ -2,8 +2,8 @@ package org.iproute.springboot.design.mysqltree.controller;
 
 import com.beust.jcommander.JCommander;
 import org.apache.commons.lang3.StringUtils;
-import org.iproute.springboot.design.mysqltree.model.req.InitReq;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
+import org.iproute.springboot.design.mysqltree.model.req.InitReq;
 import org.iproute.springboot.design.mysqltree.model.req.TreeNodeReq;
 import org.iproute.springboot.design.mysqltree.service.FolderTreeNodeInit;
 import org.iproute.springboot.design.mysqltree.service.TreeNodeCmdService;
@@ -103,7 +103,7 @@ public class TreeNodeController {
         return "init in thread";
     }
 
-    @PostMapping("/query")
+    @PostMapping("/logPrintQuery")
     @SuppressWarnings("all")
     public String query(@RequestBody InitReq req) {
         if (Objects.isNull(req.getId())) {
@@ -113,7 +113,7 @@ public class TreeNodeController {
         new Thread(() -> {
             initLock.lock();
             try {
-                folderTreeNodeInit.query(id);
+                folderTreeNodeInit.logPrintQuery(id);
             } finally {
                 initLock.unlock();
             }
@@ -134,6 +134,13 @@ public class TreeNodeController {
         TreeNode parentNode = req.getParentNode();
         List<TreeNode> addNodes = req.getAddedNodes();
         return treeNodeService.addNodes(parentNode.getId(), addNodes.stream().map(TreeNode::getName).collect(Collectors.toList()));
+    }
+
+
+    @PostMapping("/reset")
+    public String reset() {
+        treeNodeService.reset();
+        return "reset";
     }
 
 }

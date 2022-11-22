@@ -96,4 +96,10 @@ public interface TreeNodeService {
      */
     void removeLevel(int level);
 
+
+    /**
+     * 重置
+     */
+    void reset();
+
 }

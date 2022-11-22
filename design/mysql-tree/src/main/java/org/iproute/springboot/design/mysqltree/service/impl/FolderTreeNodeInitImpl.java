@@ -108,7 +108,7 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
 
 
     @Override
-    public void query(Long id) {
+    public void logPrintQuery(Long id) {
 
         TreeNode treeNode = treeNodeService.nodeInfo(id);
 

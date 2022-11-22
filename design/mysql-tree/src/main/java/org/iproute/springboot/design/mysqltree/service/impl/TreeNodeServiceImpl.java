@@ -201,4 +201,10 @@ public class TreeNodeServiceImpl implements TreeNodeService {
 
         treeNodeMapper.removeRange(levelMin.getLft(), levelMax.getRgt(), true);
     }
+
+    @Override
+    public void reset() {
+        log.info("reset tree");
+        treeNodeMapper.reset();
+    }
 }

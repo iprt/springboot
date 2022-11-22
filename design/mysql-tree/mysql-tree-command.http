@@ -8,6 +8,10 @@ Content-Type: application/json
 }
 
 
+### reset
+POST http://127.0.0.1:8090/treeNode/reset
+Accept: text/plain
+
 ### 递归初始化数据
 POST http://127.0.0.1:8090/treeNode/init
 Accept: application/json
@@ -15,12 +19,12 @@ Content-Type: application/json
 
 {
   "basePid": -1,
-  "path": "C:/develop/apache-maven-3.6.3"
+  "path": "D:/gradle-7.4.2"
 }
 
 
 ### 递归查询初始化数据
-POST http://127.0.0.1:8090/treeNode/query
+POST http://127.0.0.1:8090/treeNode/logPrintQuery
 Accept: application/json
 Content-Type: application/json
 

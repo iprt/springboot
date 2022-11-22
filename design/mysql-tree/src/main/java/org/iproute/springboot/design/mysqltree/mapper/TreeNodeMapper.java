@@ -127,4 +127,10 @@ public interface TreeNodeMapper extends BaseMapper<TreeNode> {
      */
     int removeRange(@Param("lft") int lft, @Param("rgt") int rgt, @Param("include") boolean include);
 
+
+    /**
+     * reset.
+     */
+    void reset();
+
 }

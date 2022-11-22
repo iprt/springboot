@@ -174,4 +174,8 @@
         #{rgt}
     </delete>
 
+    <update id="reset">
+        truncate tree_node;
+    </update>
+
 </mapper>
