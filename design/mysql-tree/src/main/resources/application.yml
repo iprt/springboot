@@ -11,7 +11,7 @@ spring:
     time-zone: GMT+8
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
     username: root
     password: Root@123#
   liquibase:
