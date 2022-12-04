@@ -72,7 +72,6 @@ public class TreeNodeController {
         }
     }
 
-
     @PostMapping("/nodeInfo")
     public TreeNode nodeInfo(@RequestBody TreeNode node) {
         return treeNodeService.nodeInfo(node.getId());

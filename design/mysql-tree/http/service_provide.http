@@ -1,0 +1,17 @@
+### 允许提供服务
+GET http://127.0.0.1:8090/service/enable
+
+
+
+### 禁止提供服务
+GET http://127.0.0.1:8090/service/disable
+
+
+
+### Hello World
+GET http://127.0.0.1:8090/sayHello
+
+
+
+### refresh bean
+GET http://127.0.0.1:8090/refreshBean

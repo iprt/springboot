@@ -40,6 +40,8 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
 
@@ -51,6 +53,13 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.beust/jcommander
     implementation group: 'com.beust', name: 'jcommander', version: '1.82'
+
+
+    // spring cloud
+    // https://start.spring.io/actuator/info
+    // implementation platform('org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12')
+    // implementation('org.springframework.cloud:spring-cloud-starter-config')
+    // implementation('org.springframework.cloud:spring-cloud-starter-bootstrap')
 
 }
 
