@@ -26,7 +26,7 @@ dependencies {
     implementation platform('org.apache.camel.springboot:camel-spring-boot-bom:3.14.3')
 
     // commons
-    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.alibaba:fastjson:1.2.75'
     implementation 'cn.hutool:hutool-all:5.8.4'
