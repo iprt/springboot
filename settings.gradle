@@ -16,12 +16,14 @@ include('component:integration:integration-tcp-client')
 include('component:integration:integration-tcp-server')
 include('component:integration:tcp')
 
+// component graphql
+include('component:graphql')
 // component alibaba
 include('component:alibaba:sentinel')
 
 include('component:oauth2')
 
-include('component:graphql')
+include('component:security:01form-login')
 
 // design
 include('design:mysql-tree')
