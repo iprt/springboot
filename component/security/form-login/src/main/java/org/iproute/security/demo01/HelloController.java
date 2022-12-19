@@ -17,4 +17,9 @@ public class HelloController {
         return "Hello，Demo01";
     }
 
+    @GetMapping("/s")
+    public String success() {
+        return "success";
+    }
+
 }

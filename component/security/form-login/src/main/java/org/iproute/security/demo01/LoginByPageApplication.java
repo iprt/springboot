@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2022/12/11
  */
 @SpringBootApplication
-public class SpringSecurityDemo01 {
+public class LoginByPageApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringSecurityDemo01.class, args);
+        SpringApplication.run(LoginByPageApplication.class, args);
     }
 
 }
