@@ -5,8 +5,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
-import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolDecoder;
-import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolEncoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolDecoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolEncoder;
 
 /**
  * ClientAuthHandler

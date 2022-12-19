@@ -1,0 +1,6 @@
+### start tcp server
+GET http://127.0.0.1:8080/startTcp/7001
+
+
+### stop tcp server
+GET http://127.0.0.1:8080/stopTcp/7001

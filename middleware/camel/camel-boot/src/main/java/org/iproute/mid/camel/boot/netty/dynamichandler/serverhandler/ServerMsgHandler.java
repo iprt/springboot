@@ -3,7 +3,7 @@ package org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocol;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
@@ -18,6 +18,7 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("ServerMsgHandler channelActive | {}", NettyUtils.getRemoteInfo(ctx));
+        log.info("id is {}", ctx.channel().id());
 
         String msg = "Netty,Rock!";
 

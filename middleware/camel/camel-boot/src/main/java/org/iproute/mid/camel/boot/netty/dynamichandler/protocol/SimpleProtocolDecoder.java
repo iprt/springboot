@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.netty.dynamichandler;
+package org.iproute.mid.camel.boot.netty.dynamichandler.protocol;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

@@ -7,6 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.netty.dynamichandler.clienthandler.ClientInitializer;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocol;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

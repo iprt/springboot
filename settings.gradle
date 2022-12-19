@@ -33,6 +33,7 @@ include('design:tdengine')
 include('generic')
 // middleware apache camel
 include('middleware:camel:camel-boot')
+include('middleware:camel:netty-api')
 
 // middleware elasticsearch
 include('middleware:elastic:boot-logstash')

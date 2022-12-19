@@ -1,4 +1,4 @@
-package org.iproute.mid.camel.boot.netty.dynamichandler;
+package org.iproute.mid.camel.netty.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,21 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.net.InetSocketAddress;
+
 /**
- * MyProtocol
+ * ServerInfo
  *
  * @author zhuzhenjie
- * @since 2022/8/7
+ * @since 2022/12/19
  */
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Builder
 @Data
-public class SimpleProtocol {
-
-    private int len;
-
-    private byte[] content;
-
+public class ServerInfo {
+    private String uuid;
+    private int port;
 }

@@ -2,12 +2,11 @@ package org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.socket.SocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
-import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolDecoder;
-import org.iproute.mid.camel.boot.netty.dynamichandler.SimpleProtocolEncoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolDecoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolEncoder;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 import java.util.UUID;
@@ -44,7 +43,6 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        SocketChannel sc = (SocketChannel) ctx.channel();
 
         // 第一次验证
         if (authTime == 1) {

@@ -32,7 +32,7 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation 'com.alibaba:fastjson:1.2.75'
+    implementation 'com.alibaba:fastjson:1.2.83'
 
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
