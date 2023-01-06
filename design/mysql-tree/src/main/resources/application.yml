@@ -9,15 +9,9 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: Root@123#
-  liquibase:
-    # liquibase default config
-    change-log: classpath:db/changelog/db.changelog-master.xml
-    enabled: true
+  profiles:
+    include:
+      - datasource
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*Mapper.xml

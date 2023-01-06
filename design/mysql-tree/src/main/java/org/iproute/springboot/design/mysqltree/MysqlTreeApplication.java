@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MysqlTreeApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(MysqlTreeApplication.class, args);
     }

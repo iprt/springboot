@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.mapper;
+package org.iproute.springboot.design.mysqltree.mapper.mysql;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

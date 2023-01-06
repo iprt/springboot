@@ -41,7 +41,7 @@ dependencies {
     // web
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // mybatis
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
     // jdbc driver
     implementation 'com.taosdata.jdbc:taos-jdbcdriver:2.0.38'
 

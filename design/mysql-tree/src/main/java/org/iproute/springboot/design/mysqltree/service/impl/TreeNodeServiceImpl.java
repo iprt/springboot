@@ -1,7 +1,7 @@
 package org.iproute.springboot.design.mysqltree.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.springboot.design.mysqltree.mapper.TreeNodeMapper;
+import org.iproute.springboot.design.mysqltree.mapper.mysql.TreeNodeMapper;
 import org.iproute.springboot.design.mysqltree.model.TreeNode;
 import org.iproute.springboot.design.mysqltree.service.TreeNodeService;
 import org.springframework.beans.factory.annotation.Autowired;

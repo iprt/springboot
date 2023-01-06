@@ -4,7 +4,7 @@
 
 **1. 业务数据库添加 `undo_log` 表**
 
-- [0_init/20221117.sql](0_sql/20221117.sql)
+- [0_init/20230107.sql](0_sql/20230107.sql)
 
 **2. 增加依赖 `spring-cloud-alibaba-seata`**
 
@@ -364,7 +364,9 @@ spring:
 ```
 
 ### <font color=indigo>4. 配置数据源 和 数据源代理 </font>
+
 [DataSourceConfiguration.java](order/src/main/java/org/iproute/middleware/seata/at/order/DataSourceConfiguration.java)
+
 ```java
 /**
  * 数据源代理
@@ -412,13 +414,11 @@ public class DataSourceConfiguration {
 }
 ```
 
-
 <font color=blue>每个应用的入口添加</font>
+
 ```java
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 ```
-
-
 
 ### <font color=red>5. 在bussiness阶段进行事务的设置</font>
 

@@ -13,6 +13,6 @@
         2.1：path （在 include 标签里是 file）：指定要加载的文件或文件夹位置
         2.2：relativeToChangelogFile ：文件位置的路径是否相对于 root changelog 是相对路径; 默认 false，即相对于 classpath 是相对路径。
     -->
-    <includeAll path="db/changelog/records" relativeToChangelogFile="false"/>
+    <includeAll path="db/changelog/mysql/records" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>

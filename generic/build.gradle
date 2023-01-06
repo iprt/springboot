@@ -47,8 +47,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // mybatis
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.1'
-    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.4.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
+    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1'
 
     // sharding-jdbc
     implementation 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
