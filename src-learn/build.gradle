@@ -42,7 +42,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.apache.camel:camel-test-spring-junit5'
+    // testImplementation 'org.apache.camel:camel-test-spring-junit5'
     testImplementation 'junit:junit'
 
 }
