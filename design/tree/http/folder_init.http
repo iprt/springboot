@@ -1,0 +1,50 @@
+### Mysql递归初始化数据
+POST http://127.0.0.1:8090/treeNode/init
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ds": "mysql",
+  "basePid": -1,
+  "path": "D:/apache-maven-3.6.3"
+}
+
+
+### mysql reset
+POST http://127.0.0.1:8090/treeNode/reset
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ds": "mysql"
+}
+
+
+### 允许提供服务
+GET http://127.0.0.1:8090/service/enable
+
+
+### postgres递归初始化数据
+POST http://127.0.0.1:8090/treeNode/init
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ds": "postgres",
+  "basePid": -1,
+  "path": "D:/apache-maven-3.6.3"
+}
+
+
+### postgres reset
+POST http://127.0.0.1:8090/treeNode/reset
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ds": "postgres"
+}
+
+
+
+

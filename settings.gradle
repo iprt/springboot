@@ -27,7 +27,7 @@ include('component:security:form-login')
 include('component:security:json-login')
 
 // design
-include('design:mysql-tree')
+include('design:tree')
 include('design:tdengine')
 
 include('generic')

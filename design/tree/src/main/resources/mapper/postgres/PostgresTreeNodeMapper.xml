@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.iproute.springboot.design.tree.mapper.PostgresTreeNodeMapper">
+
+    <sql id="treep">
+        id
+        ,name,level,sort_key,create_time,update_time
+    </sql>
+
+    <select id="nodeInfo" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node where id =#{id}
+    </select>
+
+    <select id="levelNodes" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        select
+        <include refid="treep"/>
+        from tree_node
+        where
+        level =#{level}
+        order by sort_key
+    </select>
+
+    <select id="parents" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        -- 查询父节点
+        with recursive r(id, name, pid, level, sort_key, create_time, update_time, tmp_level) as
+                           (select id,
+                                   name,
+                                   pid,
+                                   level,
+                                   sort_key,
+                                   create_time,
+                                   update_time,
+                                   0
+                            from tree_node
+                            where id = #{id}
+                            union all
+                            select tree_node.id,
+                                   tree_node.name,
+                                   tree_node.pid,
+                                   tree_node.level,
+                                   tree_node.sort_key,
+                                   tree_node.create_time,
+                                   tree_node.update_time,
+                                   r.tmp_level + 1
+                            from tree_node,
+                                 r
+                            where tree_node.id = r.pid)
+        select id,
+               name,
+               pid,
+               level,
+               sort_key,
+               create_time,
+               update_time
+        from r
+        where 0 = 0
+        <if test="include=false">
+            and id != #{id}
+        </if>
+        and level <![CDATA[
+            <=
+          ]]> #{level}
+        order by id desc
+    </select>
+
+    <select id="parent" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        select id, name, pid, level, sort_key, create_time, update_time
+        from tree_node
+        where id = (select pid from tree_node where id = #{id});
+    </select>
+
+    <select id="children" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        with recursive r(id, name, pid, level, sort_key, create_time, update_time, tmp_level) as
+                   (select id,
+                           name,
+                           pid,
+                           level,
+                           sort_key,
+                           create_time,
+                           update_time,
+                           0
+                    from tree_node
+                    where id = #{id}
+                    union all
+                    select tree_node.id,
+                           tree_node.name,
+                           tree_node.pid,
+                           tree_node.level,
+                           tree_node.sort_key,
+                           tree_node.create_time,
+                           tree_node.update_time,
+                           r.tmp_level + 1
+                    from tree_node,
+                         r
+                    where tree_node.pid = r.id)
+        select id,
+               name,
+               pid,
+               level,
+               sort_key,
+               create_time,
+               update_time
+        from r
+        where 0 = 0
+        <if test="include=false">
+            and id != #{id}
+        </if>
+        and tmp_level <![CDATA[
+            <=
+          ]]> 2
+        order by id, sort_key;
+    </select>
+
+
+    <select id="addNode" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        insert into tree_node (name, pid, level)
+        values (#{name}, #{pid}, #{level}) returning *;
+    </select>
+
+    <select id="addNodes" resultType="org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode">
+        insert into tree_node (name, pid, level)
+        values
+        <foreach collection="list" item="treeNode" separator=",">
+            (#{treeNode.name},#{treeNode.pid},#{treeNode.level})
+        </foreach>
+        returning *;
+    </select>
+
+    <delete id="removeNodes">
+        with recursive r(id) as
+                   (select id,
+                           pid
+                    from tree_node
+                    where id = #{id}
+                    union all
+                    select tree_node.id,
+                           tree_node.pid
+                    from tree_node,
+                         r
+                    where tree_node.pid = r.id)
+        delete
+        from tree_node
+        where id in (select id from r <if test="include=true">where r.id != 2</if>)
+    </delete>
+
+    <delete id="removeLevel">
+        -- 递归删除层级
+        with recursive r(id) as
+                           (select id,
+                                   pid
+                            from tree_node
+                            where level = #{level}
+                            union all
+                            select tree_node.id,
+                                   tree_node.pid
+                            from tree_node,
+                                 r
+                            where tree_node.pid = r.id)
+        delete
+        from tree_node
+        where id in (select id from r )
+    </delete>
+
+    <update id="reset">
+        truncate tree_node;
+    </update>
+
+</mapper>
