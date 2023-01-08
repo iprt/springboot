@@ -108,7 +108,7 @@ public class TreeNodeController {
             } finally {
                 initLock.unlock();
             }
-        }, "INIT").start();
+        }, req.getDs().toLowerCase() + " init").start();
 
         return "init in thread";
     }
@@ -158,7 +158,7 @@ public class TreeNodeController {
     }
 
 
-    @PostMapping(" /reset")
+    @PostMapping("/reset")
     public String reset(@RequestBody TreeNodeReq req) {
         String ds = req.getDs();
         choose(ds).reset();
