@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * <p>
  * 1. datasource配置
  * 2. liquibase配置
- * 3. reference: https://www.jianshu.com/p/1d42731dc28b
+ * 3. reference: <a href="https://www.jianshu.com/p/1d42731dc28b">...</a>
  *
  * @author winterfell
  * @since 2023/1/6
