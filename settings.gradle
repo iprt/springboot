@@ -19,6 +19,7 @@ include('component:integration:tcp')
 // component graphql
 include('component:graphql')
 // component alibaba
+include('component:alibaba:nacos-subservice')
 include('component:alibaba:sentinel')
 
 include('component:oauth2')

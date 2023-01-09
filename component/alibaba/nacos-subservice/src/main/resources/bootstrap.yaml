@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: nacos-subservice
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos_discovery_addr:10.1.4.27:8848}
+        username: nacos
+        password: nacos
+        namespace: lb
+        group: DEFAULT_GROUP
+      config:
+        server-addr: ${nacos_config_addr:10.1.4.27:8848}
+        username: nacos
+        password: nacos
+        namespace: lb
+        group: DEFAULT_GROUP
+        file-extension: yml
+        extension-configs:
+          - group: DEFAULT_GROUP
+            data-id: test_bean.yaml
+            refresh: true
