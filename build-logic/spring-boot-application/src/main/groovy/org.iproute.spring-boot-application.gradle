@@ -1,0 +1,25 @@
+plugins {
+    // from build.gradle implementation(project(':commons'))
+    id('org.iproute.commons')
+    // build.gradle implementation(platform('org.iproute.platform:plugins-platform'))
+    id('org.springframework.boot')
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    // actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    // devtools
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+
+    // compileOnly 'org.projectlombok:lombok:1.18.24'
+    // annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // this is an question
+    compileOnly('org.projectlombok:lombok:1.18.24')
+    annotationProcessor('org.projectlombok:lombok:1.18.24')
+
+}

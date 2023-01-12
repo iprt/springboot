@@ -1,0 +1,14 @@
+plugins {
+    id('groovy-gradle-plugin') // <1>
+}
+
+dependencies {
+  implementation(platform('org.iproute.platform:plugins-platform')) // <2>
+
+    // 传递commons
+    implementation(project(':commons')) // <3>
+
+    // from <2>
+    // use springboot build plugin, without version
+    implementation('org.springframework.boot:org.springframework.boot.gradle.plugin')  // <4>
+}

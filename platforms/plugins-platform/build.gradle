@@ -1,0 +1,13 @@
+plugins {
+    id('java-platform')
+}
+
+// 定义group 其他引用
+group = 'org.iproute.platform'
+
+dependencies {
+    // 传递依赖
+    constraints {
+        api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.3.12.RELEASE')
+    }
+}

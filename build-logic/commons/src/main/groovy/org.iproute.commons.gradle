@@ -1,0 +1,27 @@
+plugins {
+    id('java')
+}
+
+group = 'org.iproute.product'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+
+dependencies {
+    implementation(platform('org.iproute.platform:product-platform'))
+
+    // from platform
+    implementation("org.apache.commons:commons-lang3")
+    implementation("commons-io:commons-io")
+    implementation("com.google.guava:guava")
+
+    testImplementation(platform('org.iproute.platform:test-platform'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+}
+
+tasks.named("test") {
+    useJUnitPlatform()
+}

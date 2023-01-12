@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositories {
+        // 构建逻辑中要定义请求的仓库，下载platform定义的版本
+        maven {
+            url 'https://maven.aliyun.com/repository/gradle-plugin'
+        }
+        gradlePluginPortal()
+    }
+}
+includeBuild('../platforms')
+
+rootProject.name = 'build-logic'
+include('commons')
+include('java-library')
+include('spring-boot-application')
+include('spring-cloud-application')

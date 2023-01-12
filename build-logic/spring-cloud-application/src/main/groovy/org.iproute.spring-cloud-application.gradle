@@ -1,0 +1,18 @@
+plugins {
+    // from build.gradle implementation(project(':commons'))
+    id('org.iproute.commons')
+    // build.gradle implementation(platform('org.iproute.platform:plugins-platform'))
+    id('org.springframework.boot')
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    implementation('org.springframework.cloud:spring-cloud-starter')
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+
+    // this is an question
+    compileOnly('org.projectlombok:lombok:1.18.24')
+    annotationProcessor('org.projectlombok:lombok:1.18.24')
+}

@@ -1,0 +1,29 @@
+plugins {
+    id('java-platform')
+}
+
+group = 'org.iproute.platform'
+
+// allow the definition of dependencies to other platforms like the Spring Boot BOM
+javaPlatform.allowDependencies()
+
+dependencies {
+    // version reference:
+    // https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
+
+    // with version
+    api(platform('org.springframework.boot:spring-boot-dependencies:2.3.12.RELEASE'))
+    api(platform('org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'))
+    api(platform('com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.9.RELEASE'))
+    api(platform('org.apache.camel.springboot:camel-spring-boot-bom:3.14.3'))
+
+    // 传递依赖
+    constraints {
+        api('org.apache.commons:commons-lang3:3.12.0')
+        api('commons-io:commons-io:2.11.0')
+        api("com.google.guava:guava:31.1-jre")
+        api("org.apache.juneau:juneau-marshall:8.2.0")
+        // 加密 , 3.0 的还有一定问题
+        api('com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1')
+    }
+}

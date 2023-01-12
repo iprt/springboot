@@ -1,0 +1,9 @@
+plugins {
+    // from build-logic spring-cloud-application
+    id("org.iproute.spring-cloud-application")
+}
+
+version = "1.0-SNAPSHOT"
+
+dependencies {
+}

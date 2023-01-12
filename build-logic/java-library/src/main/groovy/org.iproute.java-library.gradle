@@ -1,0 +1,4 @@
+plugins {
+    id('org.iproute.commons')
+    id('java-library')
+}

@@ -1,0 +1,9 @@
+plugins {
+    id('groovy-gradle-plugin')
+}
+
+dependencies {
+    implementation(platform('org.iproute.platform:plugins-platform'))
+
+    implementation(project(':commons'))
+}
