@@ -22,9 +22,5 @@ dependencies {
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor('org.projectlombok:lombok:1.18.24')
 
-
-    implementation('com.baomidou:mybatis-plus-boot-starter:3.5.3.1')
-    implementation('com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1')
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

@@ -15,7 +15,7 @@ dependencies {
     api(platform('org.springframework.boot:spring-boot-dependencies:2.3.12.RELEASE'))
     api(platform('org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'))
     api(platform('com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.9.RELEASE'))
-    // api(platform('org.apache.camel.springboot:camel-spring-boot-bom:3.14.3'))
+    api(platform('org.apache.camel.springboot:camel-spring-boot-bom:3.14.3'))
 
     // 依赖约束
     constraints {
@@ -45,9 +45,12 @@ dependencies {
             }
         }
 
+
         api('org.apache.commons:commons-lang3:3.12.0')
         api('commons-io:commons-io:2.11.0')
         api("com.google.guava:guava:31.1-jre")
+        api('com.alibaba:fastjson:1.2.83')
+        api('cn.hutool:hutool-all:5.8.4')
         api("org.apache.juneau:juneau-marshall:8.2.0")
         // 加密 , 3.0 的还有一定问题
         api('com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1')
