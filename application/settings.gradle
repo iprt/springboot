@@ -17,6 +17,9 @@ dependencyResolutionManagement {
 includeBuild('../platforms')
 
 rootProject.name = 'application'
+
+include('demo:boot')
+
 // component
 
 // component integration

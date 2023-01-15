@@ -19,4 +19,6 @@ mybatis-plus:
 
 logging:
   level:
+    #    root: debug
+    web: debug
     org.iproute.springboot.design.tree.mapper: debug
