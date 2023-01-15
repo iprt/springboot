@@ -68,5 +68,7 @@ dependencies {
         //         strictly '4.3.1'
         //     }
         // }
+
+        api('io.netty:netty-all:4.1.87.Final')
     }
 }
