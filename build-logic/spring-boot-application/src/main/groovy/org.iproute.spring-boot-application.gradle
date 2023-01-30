@@ -18,7 +18,7 @@ dependencies {
     // compileOnly 'org.projectlombok:lombok:1.18.24'
     // annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    // this is an question
+    // this is a question
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor('org.projectlombok:lombok:1.18.24')
 
