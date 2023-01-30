@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-  implementation(platform('org.iproute.platform:plugins-platform')) // <2>
+    implementation(platform('org.iproute.platform:plugins-platform')) // <2>
 
     // 传递commons
     implementation(project(':commons')) // <3>
