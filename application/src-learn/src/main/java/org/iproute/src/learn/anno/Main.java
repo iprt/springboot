@@ -12,7 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext atx = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext atx =
+                new AnnotationConfigApplicationContext(Config.class);
 
         DemoBean bean = atx.getBean(DemoBean.class);
 
