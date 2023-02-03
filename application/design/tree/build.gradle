@@ -9,19 +9,18 @@ version = '1.0-SNAPSHOT'
 
 dependencies {
     // mybatis
-    implementation('com.baomidou:mybatis-plus-boot-starter:3.5.3.1')
-    implementation('com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1')
+    implementation('com.baomidou:mybatis-plus-boot-starter')
+    implementation('com.baomidou:dynamic-datasource-spring-boot-starter')
 
     // jdbc driver 版本申明了
     implementation 'mysql:mysql-connector-java:8.0.21'
     // implementation 'mysql:mysql-connector-java'
     implementation 'org.postgresql:postgresql'
-
     // liquibase
     implementation 'org.liquibase:liquibase-core'
 
-    // https://mvnrepository.com/artifact/com.beust/jcommander
-    implementation group: 'com.beust', name: 'jcommander', version: '1.82'
+    // implementation group: 'com.beust', name: 'jcommander', version: '1.82'
+    implementation('com.beust:jcommander')
 }
 
 test {
