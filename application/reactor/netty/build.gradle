@@ -1,0 +1,12 @@
+plugins {
+    id 'org.iproute.reactor-application'
+}
+
+group = 'org.iproute'
+version = '1.0-SNAPSHOT'
+
+// https://blog.csdn.net/MyronCham/article/details/117731622
+dependencies {
+    implementation 'io.projectreactor.netty:reactor-netty-core'
+    implementation 'io.projectreactor.netty:reactor-netty-http'
+}

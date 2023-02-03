@@ -19,6 +19,6 @@ repositories {
 }
 
 dependencies {
-    implementation platform('io.projectreactor:reactor-bom:2020.0.18')
+    implementation platform('io.projectreactor:reactor-bom:2022.0.2')
     implementation 'io.projectreactor:reactor-core'
 }

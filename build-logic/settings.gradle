@@ -12,5 +12,6 @@ includeBuild('../platforms')
 rootProject.name = 'build-logic'
 include('commons')
 include('java-library')
+include('reactor-application')
 include('spring-boot-application')
 include('spring-cloud-application')

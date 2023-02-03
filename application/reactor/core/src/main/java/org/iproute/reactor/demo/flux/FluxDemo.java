@@ -6,7 +6,7 @@ package org.iproute.reactor.demo.flux;
  * @author winterfell
  * @since 2022/4/17
  */
-public class FluxDemo02 {
+public class FluxDemo {
     public static void main(String[] args) {
 
 

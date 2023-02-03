@@ -1,0 +1,27 @@
+plugins {
+    id('org.iproute.commons')
+}
+
+dependencies {
+    implementation('io.projectreactor:reactor-core')
+}
+
+
+/*
+1. build.gradle
+    implementation(project(':commons'))
+      ->
+        org.iproute.reactor-application.gradle
+        plugins {
+            id('org.iproute.commons')
+        }
+
+2. build-logic: setting.gradle
+       includeBuild('../platforms')
+   所以
+   commons's build.gradle
+       implementation(platform('org.iproute.platform:product-platform'))
+
+3. 所以可以用到
+
+ */

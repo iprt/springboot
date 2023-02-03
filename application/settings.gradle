@@ -70,8 +70,9 @@ include('middleware:seata:at:storage')
 // middleware zookeeper lock
 include('middleware:zookeeper-lock')
 
-// reactor java
-include('reactor-java')
+// reactor
+include('reactor:core')
+include('reactor:netty')
 
 // reactor java
 include('src-learn')

@@ -11,11 +11,18 @@ dependencies {
     // version reference:
     // https://github.com/aliba1ba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
 
-    // with version
+    // exists version
+
+    // springboot
     api(platform('org.springframework.boot:spring-boot-dependencies:2.3.12.RELEASE'))
+    // spring cloud
     api(platform('org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12'))
+    // spring cloud alibaba
     api(platform('com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.9.RELEASE'))
+    // apache camel
     api(platform('org.apache.camel.springboot:camel-spring-boot-bom:3.14.3'))
+    // project reactor
+    api(platform('io.projectreactor:reactor-bom:2022.0.2'))
 
     // 依赖约束
     constraints {

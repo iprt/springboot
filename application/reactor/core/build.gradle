@@ -1,0 +1,9 @@
+plugins {
+    id 'org.iproute.reactor-application'
+}
+
+group = 'org.iproute'
+version = '1.0-SNAPSHOT'
+
+dependencies {
+}
