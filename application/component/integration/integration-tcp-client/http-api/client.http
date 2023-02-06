@@ -1,0 +1,15 @@
+### hello
+GET http://127.0.0.1:8090/hello/zhuzhenjie
+Accept: text/plain
+
+
+
+### write to file
+POST http://127.0.0.1:8090/file/write
+Content-Type: application/json
+Accept: text/plain
+
+{
+  "filename": "integration.txt",
+  "text": "spring boot integration"
+}

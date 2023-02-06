@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: integration-tcp-client
+  profiles:
+    # xmlConfig dslConfig javaConfig
+    active: dslConfig
 
 tcp:
   client:
