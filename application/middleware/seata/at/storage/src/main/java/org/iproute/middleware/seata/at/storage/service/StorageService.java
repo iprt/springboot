@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 /**
  * 仓库服务
  *
- * @author winterfell
+ * @author zhuzhenjie
  */
 @Service
 public class StorageService {

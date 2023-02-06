@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 /**
  * old 1.0.0 config: @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
  *
- * @author winterfell
+ * @author zhuzhenjie
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient

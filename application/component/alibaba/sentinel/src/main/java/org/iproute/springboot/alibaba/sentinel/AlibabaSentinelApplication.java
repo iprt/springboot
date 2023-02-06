@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * AlibabaSentinelApplication
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/4/6
  */
 @SpringBootApplication

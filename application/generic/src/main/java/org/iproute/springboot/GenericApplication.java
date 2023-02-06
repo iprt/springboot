@@ -9,7 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * @author winterfell
+ * @author zhuzhenjie
  */
 @SpringBootApplication
 @EnableCaching

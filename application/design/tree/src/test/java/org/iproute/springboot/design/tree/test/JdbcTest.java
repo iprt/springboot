@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.test;
+package org.iproute.springboot.design.tree.test;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class JdbcTest {
     /**
      * Test allow multi queries.
      */
-    @Test
+    // @Test
     public void testAllowMultiQueries() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

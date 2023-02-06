@@ -25,6 +25,8 @@ public class IntegrationConfig {
                                         .serializer(TcpCodecs.crlf())
                                         .get())
                 )
-                .transform(Transformers.objectToString());
+                .transform(
+                        Transformers.objectToString()
+                );
     }
 }

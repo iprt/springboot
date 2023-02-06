@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * DateShardingAlgorithm
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 @Slf4j

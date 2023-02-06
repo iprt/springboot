@@ -7,7 +7,7 @@ import org.springframework.integration.annotation.Transformer;
 /**
  * Echo
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 @MessageEndpoint

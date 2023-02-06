@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * DeptMapper
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2021/11/27
  */
 @Repository

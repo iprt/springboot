@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * InitReq
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/4/20
  */
 @AllArgsConstructor

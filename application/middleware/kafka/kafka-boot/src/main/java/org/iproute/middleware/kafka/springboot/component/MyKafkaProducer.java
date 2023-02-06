@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * KafkaSender
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/3/16
  */
 @Component

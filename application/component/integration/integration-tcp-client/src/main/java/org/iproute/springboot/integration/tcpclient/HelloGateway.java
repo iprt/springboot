@@ -5,7 +5,8 @@ import org.springframework.integration.annotation.MessagingGateway;
 
 import java.util.concurrent.CompletableFuture;
 
-@MessagingGateway(name = "hello", defaultRequestChannel = "integrationFlow.input")
+@MessagingGateway(name = "hello",
+        defaultRequestChannel = "integrationFlow.input")
 public interface HelloGateway {
 
     @Gateway

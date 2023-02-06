@@ -18,7 +18,7 @@ import java.util.HashSet;
 /**
  * RedisConfig
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/3/18
  */
 @RequiredArgsConstructor

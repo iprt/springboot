@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author winterfell
+ * @author zhuzhenjie
  */
 @FeignClient("points-service")
 public interface PointsServiceClient {

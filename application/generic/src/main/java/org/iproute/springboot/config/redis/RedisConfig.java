@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 /**
  * RedisConfig
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2021/11/25
  */
 @Configuration

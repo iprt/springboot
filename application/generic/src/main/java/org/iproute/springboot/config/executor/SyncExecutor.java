@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * SyncExecutor
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 @Configuration

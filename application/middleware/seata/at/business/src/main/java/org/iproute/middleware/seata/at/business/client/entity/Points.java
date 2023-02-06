@@ -1,7 +1,7 @@
 package org.iproute.middleware.seata.at.business.client.entity;
 
 /**
- * @author winterfell
+ * @author zhuzhenjie
  */
 public class Points {
     private Integer pointsId;

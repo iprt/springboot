@@ -12,8 +12,7 @@ public class HelloController {
     @Resource
     private HelloGateway helloGateway;
 
-
-    @GetMapping(path = "{name}")
+    @GetMapping(path = "/hello/{name}")
     public String hello(@PathVariable("name") String name) {
         return this.helloGateway.hello(name);
     }

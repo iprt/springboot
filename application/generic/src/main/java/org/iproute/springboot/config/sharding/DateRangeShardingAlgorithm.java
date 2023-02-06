@@ -10,7 +10,7 @@ import java.util.*;
 /**
  * The type Date range sharding algorithm.
  *
- * @author winterfell
+ * @author zhuzhenjie
  */
 @Slf4j
 public class DateRangeShardingAlgorithm implements RangeShardingAlgorithm<Date> {

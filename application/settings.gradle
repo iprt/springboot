@@ -4,7 +4,7 @@ pluginManagement {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         gradlePluginPortal()
     }
-    includeBuild('../build-logic')
+    includeBuild('../shared/build-logic')
 }
 
 // == Define locations for components ==
@@ -14,7 +14,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-includeBuild('../platforms')
+includeBuild('../shared/platforms')
 
 rootProject.name = 'application'
 
@@ -28,7 +28,7 @@ include('component:integration:tcp')
 // component graphql
 include('component:graphql')
 // component alibaba
-include('component:alibaba:nacos-subservice')
+include('component:alibaba:nacos-client')
 include('component:alibaba:sentinel')
 
 include('component:oauth2')

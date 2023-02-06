@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.test;
+package org.iproute.springboot.design.tree.test;
 
 import com.beust.jcommander.JCommander;
 import org.iproute.springboot.design.tree.utils.TreeNodeCommand;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * TreeCommandTest
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/4/20
  */
 public class TreeCommandTest {

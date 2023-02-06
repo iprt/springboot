@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * ShardingTablesLoadRunner
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 @Slf4j

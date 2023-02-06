@@ -21,7 +21,6 @@ import static graphql.schema.idl.TypeRuntimeWiring.newTypeWiring;
 @Component
 public class GraphQLProvider {
 
-
     @Autowired
     GraphQLDataFetchers graphQLDataFetchers;
 

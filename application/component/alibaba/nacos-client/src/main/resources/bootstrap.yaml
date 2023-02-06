@@ -1,6 +1,6 @@
 spring:
   application:
-    name: nacos-subservice
+    name: nacos-client
   cloud:
     nacos:
       discovery:

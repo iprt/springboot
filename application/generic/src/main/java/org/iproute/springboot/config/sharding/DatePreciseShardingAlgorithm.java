@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * DatePreciseShardingAlgorithm
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 public class DatePreciseShardingAlgorithm implements PreciseShardingAlgorithm<Date> {

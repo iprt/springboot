@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * TreeNodeValidator
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/4/20
  */
 public class TreeNodeValidator {

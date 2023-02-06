@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxNever
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2023/2/4
  */
 public class FluxNever {

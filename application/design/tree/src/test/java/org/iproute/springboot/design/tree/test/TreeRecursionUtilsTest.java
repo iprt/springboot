@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.mysqltree.test;
+package org.iproute.springboot.design.tree.test;
 
 import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeExpandable;
 import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeOperator;

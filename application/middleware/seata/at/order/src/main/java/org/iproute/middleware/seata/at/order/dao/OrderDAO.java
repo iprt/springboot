@@ -3,7 +3,7 @@ package org.iproute.middleware.seata.at.order.dao;
 import org.iproute.middleware.seata.at.order.entity.Order;
 
 /**
- * @author winterfell
+ * @author zhuzhenjie
  */
 public interface OrderDAO {
     /**

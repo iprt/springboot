@@ -11,7 +11,7 @@ import java.util.TreeSet;
 /**
  * ShardingUtils
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 public class ShardingUtils {

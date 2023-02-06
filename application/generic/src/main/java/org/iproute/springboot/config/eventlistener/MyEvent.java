@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * MyEvent
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022/1/23
  */
 @Slf4j

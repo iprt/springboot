@@ -21,6 +21,7 @@ dependencies {
 
     // implementation group: 'com.beust', name: 'jcommander', version: '1.82'
     implementation('com.beust:jcommander')
+    testImplementation('mysql:mysql-connector-java:8.0.21')
 }
 
 test {

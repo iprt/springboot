@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * LockController
  *
- * @author winterfell
+ * @author zhuzhenjie
  * @since 2022 /3/18
  */
 @RequiredArgsConstructor
