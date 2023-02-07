@@ -1,19 +1,21 @@
 spring:
   application:
     name: nacos-client
+  profiles:
+    include: ext
   cloud:
     nacos:
       discovery:
-        server-addr: ${nacos_discovery_addr:172.100.1.100:8848}
+        server-addr: ${discovery.server:172.100.1.100:8848}
         username: nacos
         password: nacos
-        namespace: lb
+        namespace: services
         group: DEFAULT_GROUP
       config:
-        server-addr: ${nacos_config_addr:172.100.1.100:8848}
+        server-addr: ${config.server:172.100.1.100:8848}
         username: nacos
         password: nacos
-        namespace: lb
+        namespace: config-center
         group: DEFAULT_GROUP
         file-extension: yml
         extension-configs:

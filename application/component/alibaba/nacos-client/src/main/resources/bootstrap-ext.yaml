@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        extension-configs:
+          - group: DEFAULT_GROUP
+            data-id: test_bean
+            refresh: true
