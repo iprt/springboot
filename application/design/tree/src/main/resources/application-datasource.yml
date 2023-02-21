@@ -8,7 +8,7 @@ spring:
           driverClassName: com.mysql.cj.jdbc.Driver
           url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
           username: root
-          password: Root@123#
+          password: root
         postgres:
           driverClassName: org.postgresql.Driver
           url: jdbc:postgresql://172.100.1.100:5432/springboot
