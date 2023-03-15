@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: redis-jdbc
+  datasource:
+    driver-class-name: jdbc.RedisDriver
+    url: jdbc:redis://172.100.1.100:6379/0
+    password: root

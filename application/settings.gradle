@@ -58,7 +58,8 @@ include('middleware:kafka:kafka-boot')
 include('middleware:raft:election')
 
 // middleware redisson
-include('middleware:redisson-boot')
+include('middleware:redis:redisson-boot')
+include('middleware:redis:redis-jdbc')
 
 // middleware seata
 include('middleware:seata:at:business')
