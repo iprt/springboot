@@ -1,0 +1,12 @@
+### put student
+POST http://localhost:8080/stu/put
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": 1,
+  "name": "james",
+  "age": 18
+}
+
+###

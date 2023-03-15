@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: redis-cache
+  # 数据库相关
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://172.100.1.100:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=true
+    username: root
+    password: root
+  # jpa 相关
+  redis:
+    host: 172.100.1.100
+    password: root
+    database: 0
+  jpa:
+    hibernate:
+      ddl-auto: update   # ddl-auto: 设为 create 表示每次都重新建表
+    show-sql: true
