@@ -9,4 +9,9 @@ Accept: application/json
   "age": 18
 }
 
-###
+### get student
+GET http://localhost:8080/stu/able/1
+Accept: application/json
+
+### del student
+DELETE http://localhost:8080/stu/evit/1

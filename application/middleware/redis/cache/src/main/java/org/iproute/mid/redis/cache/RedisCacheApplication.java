@@ -6,10 +6,10 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
-import org.springframework.data.redis.cache.RedisCacheWriter;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
 /**
@@ -49,20 +49,25 @@ public class RedisCacheApplication {
         return template;
     }
 
+
+    /**
+     * reference: <a href="https://stackoverflow.com/questions/51418161/how-to-create-rediscachemanager-in-spring-data-2-0-x">...</a>
+     *
+     * @param redisConnectionFactory the redis connection factory
+     * @return the redis cache manager
+     */
     @Bean
     public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
-        // 1. 获取一个 RedisCacheConfiguration
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig()
+
+        RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig()
+                .serializeValuesWith(
+                        RedisSerializationContext.SerializationPair.fromSerializer(RedisSerializer.json())
+                )
                 .disableCachingNullValues();
 
-
-        // 2. 通过Builder创建RedisCacheManager
-        // 2.1 cacheWriter can not be null
-        RedisCacheWriter cacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory);
-
-        return RedisCacheManager.builder()
-                .cacheDefaults(config)
-                .cacheWriter(cacheWriter)
+        return RedisCacheManager.RedisCacheManagerBuilder
+                .fromConnectionFactory(redisConnectionFactory)
+                .cacheDefaults(configuration)
                 .build();
     }
 }
