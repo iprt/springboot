@@ -6,7 +6,7 @@ dependencies {
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter'
     // jdbc driver
-    implementation 'com.taosdata.jdbc:taos-jdbcdriver:2.0.38'
+    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.1.0'
 
 }
 

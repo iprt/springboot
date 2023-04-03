@@ -11,7 +11,7 @@ spring:
     time-zone: GMT+8
   datasource:
     driverClassName: com.taosdata.jdbc.rs.RestfulDriver
-    url: jdbc:TAOS-RS://localhost:6041
+    url: jdbc:TAOS-RS://172.100.1.100:6041
     username: root
     password: taosdata
     hikari:
