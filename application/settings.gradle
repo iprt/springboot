@@ -59,7 +59,6 @@ include('middleware:raft:election')
 
 // middleware redisson
 include('middleware:redis:cache')
-include('middleware:redis:redis-jdbc')
 include('middleware:redis:redisson-boot')
 
 // middleware seata
