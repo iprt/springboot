@@ -21,13 +21,13 @@ import java.util.concurrent.atomic.AtomicLong;
  * @since 2022/8/19
  */
 @Slf4j
-public class Client {
+public class DhClient {
 
     @SuppressWarnings("all")
     public static void main(String[] args) {
 
         Connector connector = new Connector(
-                "127.0.0.1", 7002, Client::bootstrapInit
+                "127.0.0.1", 7002, DhClient::bootstrapInit
         );
 
         connector.connect();

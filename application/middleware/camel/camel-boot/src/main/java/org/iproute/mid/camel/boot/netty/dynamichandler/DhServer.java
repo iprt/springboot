@@ -16,7 +16,7 @@ import org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler.ServerIniti
  * @since 2022/8/19
  */
 @Slf4j
-public class Server {
+public class DhServer {
 
     public static void main(String[] args) {
 
