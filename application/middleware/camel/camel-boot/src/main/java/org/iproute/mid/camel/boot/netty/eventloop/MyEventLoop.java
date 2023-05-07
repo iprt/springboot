@@ -15,6 +15,8 @@ import java.util.concurrent.FutureTask;
 public class MyEventLoop extends Thread {
 
     /**
+     * step1
+     * <p>
      * container
      */
     private final BlockingQueue<FutureTask<String>> queue;
@@ -24,6 +26,9 @@ public class MyEventLoop extends Thread {
     }
 
 
+    /**
+     * step2
+     */
     @Override
     public void run() {
         // case1 当前线程没有被interrupted掉
@@ -40,6 +45,13 @@ public class MyEventLoop extends Thread {
         }
     }
 
+    /**
+     * step3
+     * <p>
+     * Execute task
+     *
+     * @param task the task
+     */
     public static void executeTask(final FutureTask<String> task) {
         if (!task.isCancelled()) {
             try {

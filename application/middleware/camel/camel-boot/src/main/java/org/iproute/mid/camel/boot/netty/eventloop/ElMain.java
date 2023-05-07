@@ -17,6 +17,9 @@ public class ElMain {
 
     public static void main(String[] args) throws InterruptedException {
         groupInGroupInGroup();
+
+        Thread.sleep(10_000);
+        group.terminate();
     }
 
 
@@ -44,20 +47,14 @@ public class ElMain {
                 return "group in group";
             });
         }
-
-        Thread.sleep(10_000);
-        group.terminate();
     }
 
 
-    static void simple() throws InterruptedException {
+    static void simple() {
         for (int i = 0; i < 500; i++) {
             String result = group.route("add a+b", new MyTask());
             log.info("execute result is {}", result);
         }
-
-        Thread.sleep(10_000);
-        group.terminate();
     }
 
 
