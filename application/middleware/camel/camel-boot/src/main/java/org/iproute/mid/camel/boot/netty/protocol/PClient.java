@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2022/8/8
  */
 @Slf4j
-public class ClientTest {
+public class PClient {
 
     public static void main(String[] args) {
 
