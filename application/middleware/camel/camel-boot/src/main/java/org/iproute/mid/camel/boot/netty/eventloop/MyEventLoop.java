@@ -52,7 +52,7 @@ public class MyEventLoop extends Thread {
      *
      * @param task the task
      */
-    public static void executeTask(final FutureTask<String> task) {
+    static void executeTask(final FutureTask<String> task) {
         if (!task.isCancelled()) {
             try {
                 task.run();
