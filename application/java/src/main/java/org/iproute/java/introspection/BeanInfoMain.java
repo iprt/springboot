@@ -7,12 +7,12 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 
 /**
- * Demo
+ * BeanInfoMain
  *
  * @author zhuzhenjie
  * @since 5/22/2023
  */
-public class Demo {
+public class BeanInfoMain {
     public static void main(String[] args) {
         try {
             BeanInfo beanInfo = Introspector.getBeanInfo(Person.class, Object.class);
