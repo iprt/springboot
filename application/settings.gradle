@@ -32,6 +32,7 @@ include('component:alibaba:nacos-client')
 include('component:alibaba:sentinel')
 
 include('component:oauth2')
+include('component:sa-token')
 
 include('component:security:form-login')
 include('component:security:json-login')
