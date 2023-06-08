@@ -4,7 +4,8 @@ pluginManagement {
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         gradlePluginPortal()
     }
-    includeBuild('../shared/build-logic')
+    // includeBuild('../shared/build-logic')
+    includeBuild('../build-logic')
 }
 
 // == Define locations for components ==
@@ -14,7 +15,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-includeBuild('../shared/platforms')
+// includeBuild('../shared/platforms')
+includeBuild('../platforms')
 
 rootProject.name = 'application'
 

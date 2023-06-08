@@ -1,4 +1,0 @@
-rootProject.name = 'shared'
-
-includeBuild('build-logic')
-includeBuild('platforms')

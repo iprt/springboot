@@ -1,4 +1,9 @@
 rootProject.name = 'springboot'
 
-includeBuild('shared')
+// includeBuild('shared')
+
+includeBuild('platforms')
+
+includeBuild('build-logic')
+
 includeBuild('application')
