@@ -1,6 +1,7 @@
 package org.iproute.component.satoken.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     // 查询登录状态，浏览器访问： http://localhost:8081/user/isLogin
-    @RequestMapping("isLogin")
+    @RequestMapping("/isLogin")
     public String isLogin() {
         return "当前会话是否登录：" + StpUtil.isLogin();
     }
