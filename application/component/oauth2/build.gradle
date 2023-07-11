@@ -8,6 +8,9 @@ group = "org.iproute"
 
 version = "0.0.1-SNAPSHOT"
 sourceCompatibility = "1.8"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 
 configurations {
     compileOnly {
@@ -44,9 +47,9 @@ dependencies {
 
 
     compileOnly "org.projectlombok:lombok"
-	
+
     developmentOnly "org.springframework.boot:spring-boot-devtools"
-	
+
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor "org.projectlombok:lombok"
 

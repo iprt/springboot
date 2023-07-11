@@ -5,6 +5,9 @@ plugins {
 
 group = 'org.iproute'
 version = '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 
 repositories {
     maven { url 'https://maven.aliyun.com/repository/public/' }

@@ -2,6 +2,9 @@ plugins {
     id('org.iproute.spring-boot-application')
 }
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 dependencies {
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter'
