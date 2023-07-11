@@ -11,11 +11,7 @@ import org.iproute.springboot.entities.po.mysql.MysqlUser;
 import org.iproute.springboot.repository.commons.CommonMapper;
 import org.iproute.springboot.repository.mysql.MysqlUserMapper;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,15 +21,14 @@ import java.util.List;
  * @author zhuzhenjie
  * @since 2021 /11/25
  */
+@AllArgsConstructor
 @RestController
 @RecordParameters
 @Slf4j
-@AllArgsConstructor
 public class TestController {
+
     private final CommonMapper commonMapper;
-
     private final MysqlUserMapper mysqlUserMapper;
-
     private final RequestLogBeanMapper requestLogBeanMapper;
 
     /**

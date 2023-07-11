@@ -3,12 +3,12 @@ package org.iproute.springboot.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.AllArgsConstructor;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.config.mvc.req.PageReq;
 import org.iproute.springboot.entities.po.Dept;
 import org.iproute.springboot.repository.commons.DeptMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,12 +21,12 @@ import java.util.Optional;
  * @author zhuzhenjie
  * @since 2021 /11/30
  */
+@AllArgsConstructor
 @RestController
 @RecordParameters
 public class DeptController {
 
-    @Autowired
-    private DeptMapper deptMapper;
+    private final DeptMapper deptMapper;
 
     /**
      * Dept list.

@@ -12,7 +12,6 @@ import org.springframework.context.ApplicationEvent;
 @Slf4j
 public class MyEvent extends ApplicationEvent {
 
-
     /**
      * 构造器
      *
