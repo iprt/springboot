@@ -12,7 +12,3 @@ dependencies {
     implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.1.0'
 
 }
-
-test {
-    useJUnitPlatform()
-}

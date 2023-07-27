@@ -15,4 +15,15 @@ dependencies {
     // this is a question
     compileOnly('org.projectlombok:lombok:1.18.24')
     annotationProcessor('org.projectlombok:lombok:1.18.24')
+    testCompileOnly('org.projectlombok:lombok:1.18.24')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+        // includeEngines("junit-vintage")
+        // excludeEngines("junit-jupiter")
+    }
 }
