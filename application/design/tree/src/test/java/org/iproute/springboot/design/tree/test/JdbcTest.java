@@ -1,6 +1,7 @@
 package org.iproute.springboot.design.tree.test;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +18,7 @@ public class JdbcTest {
     /**
      * Test allow multi queries.
      */
-    // @Test
+    @Test
     public void testAllowMultiQueries() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

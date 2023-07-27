@@ -1,9 +1,9 @@
 package org.iproute.springboot.design.tree.test;
 
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeExpandable;
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeOperator;
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeRecursionUtils;
-import org.junit.Test;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeNodeExpandable;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeNodeOperator;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeRecursionUtils;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.Collections;

@@ -4,4 +4,19 @@ plugins {
 
 dependencies {
     implementation(project(':commons'))
+
+    // junit-jupiter-engine 用于运行JUnit 5 引擎测试
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+
 }
+
+test {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+        // includeEngines("junit-vintage")
+        // excludeEngines("junit-jupiter")
+    }
+}
+
+

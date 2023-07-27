@@ -1,4 +1,4 @@
-package org.iproute.springboot.design.tree.utils.recursion.tree;
+package org.iproute.springboot.design.tree.utils.treefunc;
 
 import lombok.Builder;
 import lombok.Getter;

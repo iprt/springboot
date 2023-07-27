@@ -152,6 +152,7 @@ public class TreeNodeController {
         return choose(req.getDs()).removeNode(req.getRemovedNode().getId(), req.getInclude());
     }
 
+    @PostMapping("/removeLevel")
     public int removeLevel(@RequestBody TreeNodeReq req) {
         Integer level = req.getRemovedNode().getLevel();
         return choose(req.getDs()).removeLevel(level);

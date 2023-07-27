@@ -122,7 +122,7 @@ public interface MysqlTreeNodeMapper extends BaseMapper<MysqlTreeNode> {
      *
      * @param lft     > lft
      * @param rgt     < rgt
-     * @param include the include
+     * @param include 是否包含
      * @return the int
      */
     int removeRange(@Param("lft") int lft, @Param("rgt") int rgt, @Param("include") boolean include);

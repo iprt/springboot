@@ -8,9 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.design.tree.model.tree.TreeNode;
 import org.iproute.springboot.design.tree.service.FolderTreeNodeInit;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeExpandable;
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeNodeOperator;
-import org.iproute.springboot.design.tree.utils.recursion.tree.TreeRecursionUtils;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeNodeExpandable;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeNodeOperator;
+import org.iproute.springboot.design.tree.utils.treefunc.TreeRecursionUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -133,9 +133,9 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
 
 
     @Builder
+    @Getter
     private static class FileTreeNodeHelper {
 
-        @Getter
         private File file;
 
         @Setter

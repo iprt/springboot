@@ -1,7 +1,7 @@
 package org.iproute.springboot.design.tree.controller;
 
+import lombok.AllArgsConstructor;
 import org.iproute.springboot.design.tree.model.refresh.RefreshBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author zhuzhenjie
  * @since 2022/12/3
  */
+@AllArgsConstructor
 @RestController
 public class RefreshController {
 
-    @Autowired
-    private RefreshBean refreshBean;
+    private final RefreshBean refreshBean;
 
     @GetMapping("/refreshBean")
     public RefreshBean refreshBean() {

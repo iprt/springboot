@@ -26,7 +26,3 @@ dependencies {
     implementation('com.beust:jcommander')
     testImplementation('mysql:mysql-connector-java:8.0.21')
 }
-
-test {
-    useJUnitPlatform()
-}
