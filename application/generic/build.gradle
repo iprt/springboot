@@ -31,8 +31,6 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
     implementation 'com.alibaba:fastjson:1.2.83'
 
     // web
@@ -63,8 +61,21 @@ dependencies {
 
     // 加密 , 3.0 的还有一定问题
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        // 忽略 junit4
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
 }
 
+// test {
+//     useJUnitPlatform()
+// }
+
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+        // includeEngines("junit-vintage")
+        // excludeEngines("junit-jupiter")
+    }
 }

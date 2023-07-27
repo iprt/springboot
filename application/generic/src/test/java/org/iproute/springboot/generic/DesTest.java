@@ -1,8 +1,8 @@
 package org.iproute.springboot.generic;
 
 import org.iproute.springboot.utils.DesUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.security.GeneralSecurityException;
 
@@ -23,6 +23,6 @@ public class DesTest {
                 DesUtils.encrypt(msg, key),
                 key);
 
-        Assert.assertEquals(msg, msg0);
+        Assertions.assertEquals(msg, msg0);
     }
 }
