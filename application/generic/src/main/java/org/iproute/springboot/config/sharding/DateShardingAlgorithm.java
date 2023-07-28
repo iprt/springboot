@@ -21,27 +21,12 @@ import java.util.TreeSet;
 @Slf4j
 public class DateShardingAlgorithm extends ShardingAlgorithmTool<Date> {
 
-    /*
-    @Override
-    public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<Date> shardingValue) {
-        Date date = shardingValue.getValue();
-        String suffix = ShardingUtils.getSuffixByYearMonth(date);
-        for (String tableName : availableTargetNames) {
-            if (tableName.endsWith(suffix)) {
-                return tableName;
-            }
-        }
-        throw new IllegalArgumentException("未找到匹配的数据表");
-    }
-     */
-
     @Override
     public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<Date> preciseShardingValue) {
         // TODO 对于插入数据没有问题，对于查询数据有问题
         return shardingTablesCheckAndCreateAndReturn(preciseShardingValue.getLogicTableName(),
                 preciseShardingValue.getLogicTableName() + "_" + ShardingUtils.getSuffixByYearMonth(preciseShardingValue.getValue()));
     }
-
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames, RangeShardingValue<Date> rangeShardingValue) {
@@ -73,4 +58,5 @@ public class DateShardingAlgorithm extends ShardingAlgorithmTool<Date> {
         }
         return flag;
     }
+
 }

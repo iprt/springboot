@@ -3,7 +3,6 @@ package org.iproute.springboot.config.sharding;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.api.sharding.standard.PreciseShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.RangeShardingAlgorithm;
-import org.iproute.springboot.config.atx.ApplicationContextUtils;
 import org.iproute.springboot.entities.bo.CreateTableSql;
 import org.iproute.springboot.repository.commons.CommonMapper;
 
@@ -16,16 +15,16 @@ import java.util.List;
 @Slf4j
 public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements PreciseShardingAlgorithm<T>, RangeShardingAlgorithm<T> {
 
-    // private static CommonMapper commonMapper;
+    private static CommonMapper commonMapper;
 
-    private static final HashSet<String> TABLE_NAME_CACHE = new HashSet<>();
+    public static final HashSet<String> TABLE_NAME_CACHE = new HashSet<>();
 
-    // /**
-    //  * 手动注入
-    //  */
-    // public static void setCommonMapper(CommonMapper commonMapper) {
-    //     ShardingAlgorithmTool.commonMapper = commonMapper;
-    // }
+    /**
+     * 手动注入
+     */
+    public static void setCommonMapper(CommonMapper commonMapper) {
+        ShardingAlgorithmTool.commonMapper = commonMapper;
+    }
 
     /**
      * 判断 分表获取的表名是否存在 不存在则自动建表
@@ -35,9 +34,6 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      * @return 确认存在于数据库中的真实表名
      */
     public String shardingTablesCheckAndCreateAndReturn(String logicTableName, String resultTableName) {
-
-        CommonMapper commonMapper = ApplicationContextUtils.getBean(CommonMapper.class);
-
 
         synchronized (logicTableName.intern()) {
             // 缓存中有此表 返回
@@ -73,8 +69,6 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      * @param schemaName 待加载表名所属数据库名
      */
     public static void tableNameCacheReload(String schemaName) {
-
-        CommonMapper commonMapper = ApplicationContextUtils.getBean(CommonMapper.class);
 
         // 读取数据库中所有表名
         List<String> tableNameList = commonMapper.getAllTableNameBySchema(schemaName);

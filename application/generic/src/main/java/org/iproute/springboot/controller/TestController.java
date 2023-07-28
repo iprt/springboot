@@ -3,7 +3,9 @@ package org.iproute.springboot.controller;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.aop.RecordParameters;
+import org.iproute.springboot.config.atx.ApplicationContextUtils;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
+import org.iproute.springboot.config.sharding.ShardingAlgorithmTool;
 import org.iproute.springboot.entities.bo.CreateTableSql;
 import org.iproute.springboot.entities.dto.PostDTO;
 import org.iproute.springboot.entities.po.RequestLogBean;
@@ -14,6 +16,7 @@ import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * TestController
@@ -79,6 +82,17 @@ public class TestController {
     @GetMapping("/reqLog/all")
     public List<RequestLogBean> allRequestLogBean() {
         return requestLogBeanMapper.selectList(null);
+    }
+
+
+    @GetMapping("/atxUtils")
+    public String atxUtils() {
+        return ApplicationContextUtils.getBean(CommonMapper.class).toString();
+    }
+
+    @GetMapping("/tables")
+    public Set<String> tables() {
+        return ShardingAlgorithmTool.TABLE_NAME_CACHE;
     }
 
 }
