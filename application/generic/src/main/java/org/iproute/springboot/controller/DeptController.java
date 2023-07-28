@@ -9,7 +9,11 @@ import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.config.mvc.req.PageReq;
 import org.iproute.springboot.entities.po.Dept;
 import org.iproute.springboot.repository.commons.DeptMapper;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +33,7 @@ public class DeptController {
     private final DeptMapper deptMapper;
 
     /**
-     * Dept list.
+     * 获取所有dept
      *
      * @param id the id
      * @return the list
@@ -41,7 +45,7 @@ public class DeptController {
     }
 
     /**
-     * Page page.
+     * Dept分页查询
      *
      * @param pageReq the page req
      * @return the page

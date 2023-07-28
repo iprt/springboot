@@ -5,7 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.api.sharding.standard.RangeShardingAlgorithm;
 import org.apache.shardingsphere.api.sharding.standard.RangeShardingValue;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * The type Date range sharding algorithm.
@@ -17,6 +22,7 @@ public class DateRangeShardingAlgorithm implements RangeShardingAlgorithm<Date> 
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames, RangeShardingValue<Date> rangeShardingValue) {
+
         List<String> list = new ArrayList<>();
         log.info("availableTargetNames : " + availableTargetNames);
         log.info(rangeShardingValue.toString());

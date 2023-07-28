@@ -4,13 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * MyEvent
+ * 自定义事件
  *
  * @author zhuzhenjie
- * @since 2022/1/23
  */
 @Slf4j
-public class MyEvent extends ApplicationEvent {
+public class CustomEvent extends ApplicationEvent {
 
     /**
      * 构造器
@@ -18,7 +17,7 @@ public class MyEvent extends ApplicationEvent {
      * @param source 该事件的相关数据
      * @since 2019 /11/19 6:40
      */
-    public MyEvent(Object source) {
+    public CustomEvent(Object source) {
         super(source);
     }
 }

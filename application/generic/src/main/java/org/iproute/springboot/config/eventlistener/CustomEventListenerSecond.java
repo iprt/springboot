@@ -5,14 +5,13 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 /**
- * MyListenerOne
+ * CustomEventListenerSecond
  *
  * @author zhuzhenjie
- * @since 2022/1/23
  */
 @Component
 @Slf4j
-public class MyEventListenerTwo implements ApplicationListener<MyEvent> {
+public class CustomEventListenerSecond implements ApplicationListener<CustomEvent> {
 
     /**
      * 编写处理事件的逻辑
@@ -20,7 +19,7 @@ public class MyEventListenerTwo implements ApplicationListener<MyEvent> {
      * @param event 当前事件对象
      */
     @Override
-    public void onApplicationEvent(MyEvent event) {
+    public void onApplicationEvent(CustomEvent event) {
         log.info("监听器 - 线程名称 : {}", Thread.currentThread().getName());
         log.info("监听器 - MyEventListenerTwo => 监听到的事件: {}", event);
     }

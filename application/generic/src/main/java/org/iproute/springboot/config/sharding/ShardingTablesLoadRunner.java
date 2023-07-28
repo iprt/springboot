@@ -29,7 +29,8 @@ public class ShardingTablesLoadRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // 给 分表工具类注入属性
-        ShardingAlgorithmTool.setCommonMapper(commonMapper);
+        // ShardingAlgorithmTool.setCommonMapper(commonMapper);
+
         // 调用缓存重载方法
         ShardingAlgorithmTool.tableNameCacheReload(schemaName);
 

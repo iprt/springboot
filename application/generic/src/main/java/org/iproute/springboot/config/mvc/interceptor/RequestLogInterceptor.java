@@ -74,7 +74,7 @@ public class RequestLogInterceptor implements HandlerInterceptor {
                 requestLogMapper.insert(logBean);
             } catch (Exception e) {
                 // do nothing
-                log.error("RequestLogInterceptor.preHandle Exception | {}", e.getMessage());
+                log.error("RequestLogInterceptor.preHandle Exception", e);
             }
         });
     }

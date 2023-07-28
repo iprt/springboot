@@ -1,4 +1,4 @@
-package org.iproute.springboot.config.spring;
+package org.iproute.springboot.config.atx;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -19,6 +19,11 @@ public class ApplicationContextUtils implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         ApplicationContextUtils.applicationContext = applicationContext;
+    }
+
+
+    public static ApplicationContext getApplicationContext(){
+        return ApplicationContextUtils.applicationContext;
     }
 
     /**
@@ -44,6 +49,5 @@ public class ApplicationContextUtils implements ApplicationContextAware {
     public static <T> T getBean(String name) {
         return (T) applicationContext.getBean(name);
     }
-
 
 }

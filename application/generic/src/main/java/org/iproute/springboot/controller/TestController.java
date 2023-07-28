@@ -26,7 +26,6 @@ import java.util.List;
 @RecordParameters
 @Slf4j
 public class TestController {
-
     private final CommonMapper commonMapper;
     private final MysqlUserMapper mysqlUserMapper;
     private final RequestLogBeanMapper requestLogBeanMapper;

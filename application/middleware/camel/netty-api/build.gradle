@@ -11,14 +11,8 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     maven { url 'https://maven.aliyun.com/repository/public/' }
-    mavenLocal()
-    mavenCentral()
 }
 
 dependencies {
     implementation 'io.netty:netty-all'
-}
-
-test {
-    useJUnitPlatform()
 }

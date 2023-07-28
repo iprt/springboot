@@ -1,4 +1,4 @@
-package org.iproute.springboot.generic;
+package org.iproute.springboot.test;
 
 import org.iproute.springboot.utils.DesUtils;
 import org.junit.jupiter.api.Assertions;

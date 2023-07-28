@@ -13,12 +13,12 @@ spring:
         commons:
           url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: Root@123#
+          password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
         mysql:
           url: jdbc:mysql://172.100.1.100:3306/mysql?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
           username: root
-          password: Root@123#
+          password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
 
   # 分表配置

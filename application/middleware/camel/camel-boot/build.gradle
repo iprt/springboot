@@ -11,12 +11,4 @@ dependencies {
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter'
     implementation 'org.apache.camel.springboot:camel-netty-starter'
     implementation 'org.apache.camel.springboot:camel-stream-starter'
-
-    // testImplementation 'org.apache.camel:camel-test-spring-junit5'
-    testImplementation 'junit:junit'
-
-}
-
-test {
-    useJUnitPlatform()
 }
