@@ -28,8 +28,13 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
 
     compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testAnnotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     implementation 'com.alibaba:fastjson:1.2.83'
 
