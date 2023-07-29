@@ -13,7 +13,11 @@ import org.iproute.springboot.entities.po.mysql.MysqlUser;
 import org.iproute.springboot.repository.commons.CommonMapper;
 import org.iproute.springboot.repository.mysql.MysqlUserMapper;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Set;
@@ -92,6 +96,7 @@ public class TestController {
 
     @GetMapping("/tables")
     public Set<String> tables() {
+        log.info("ShardingAlgorithmTool 的类加载器为 : {}", ShardingAlgorithmTool.class.getClassLoader());
         return ShardingAlgorithmTool.TABLE_NAME_CACHE;
     }
 

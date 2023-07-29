@@ -35,6 +35,8 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      */
     public String shardingTablesCheckAndCreateAndReturn(String logicTableName, String resultTableName) {
 
+        log.info("分库分表的类加载器为 : {}", this.getClass().getClassLoader());
+
         synchronized (logicTableName.intern()) {
             // 缓存中有此表 返回
             if (shardingTablesExistsCheck(resultTableName)) {
