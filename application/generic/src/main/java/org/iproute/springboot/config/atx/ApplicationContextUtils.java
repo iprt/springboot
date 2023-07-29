@@ -27,7 +27,7 @@ public class ApplicationContextUtils implements ApplicationContextAware {
     }
 
     /**
-     * Gets bean.
+     * get bean by class
      *
      * @param <T>   the type parameter
      * @param clazz the clazz
@@ -37,17 +37,14 @@ public class ApplicationContextUtils implements ApplicationContextAware {
         return applicationContext.getBean(clazz);
     }
 
-
     /**
-     * Get bean t.
+     * get bean by name
      *
-     * @param <T>  the type parameter
      * @param name the name
-     * @return the t
+     * @return the bean
      */
-    @SuppressWarnings("unchecked")
-    public static <T> T getBean(String name) {
-        return (T) applicationContext.getBean(name);
+    public static Object getBean(String name) {
+        return applicationContext.getBean(name);
     }
 
 }
