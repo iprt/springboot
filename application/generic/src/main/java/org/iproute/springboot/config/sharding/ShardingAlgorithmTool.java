@@ -35,7 +35,7 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      */
     public String shardingTablesCheckAndCreateAndReturn(String logicTableName, String resultTableName) {
 
-        log.info("分库分表的类加载器为 : {}", this.getClass().getClassLoader());
+        log.info("分库分表的时候 ShardingAlgorithmTool的类加载器为 : {}", this.getClass().getClassLoader());
 
         synchronized (logicTableName.intern()) {
             // 缓存中有此表 返回
@@ -71,6 +71,8 @@ public abstract class ShardingAlgorithmTool<T extends Comparable<?>> implements 
      * @param schemaName 待加载表名所属数据库名
      */
     public static void tableNameCacheReload(String schemaName) {
+
+        log.info("初始化的时候 ShardingAlgorithmTool 的类加载器为 : {}", ShardingAlgorithmTool.class.getClassLoader());
 
         // 读取数据库中所有表名
         List<String> tableNameList = commonMapper.getAllTableNameBySchema(schemaName);

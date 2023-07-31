@@ -23,7 +23,6 @@ public class DateShardingAlgorithm extends ShardingAlgorithmTool<Date> {
 
     @Override
     public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<Date> preciseShardingValue) {
-        // TODO 对于插入数据没有问题，对于查询数据有问题
         return shardingTablesCheckAndCreateAndReturn(preciseShardingValue.getLogicTableName(),
                 preciseShardingValue.getLogicTableName() + "_" + ShardingUtils.getSuffixByYearMonth(preciseShardingValue.getValue()));
     }
