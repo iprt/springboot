@@ -30,14 +30,17 @@ public class DateShardingAlgorithm extends ShardingAlgorithmTool<Date> {
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames, RangeShardingValue<Date> rangeShardingValue) {
         List<String> list = new ArrayList<>();
-        log.info("availableTargetNames : " + availableTargetNames);
-        log.info(rangeShardingValue.toString());
+        log.info("availableTargetNames : {}", availableTargetNames);
+        log.info("rangeShardingValue : {}", rangeShardingValue);
         Range<Date> valueRange = rangeShardingValue.getValueRange();
+
         Date lowerDate = valueRange.lowerEndpoint();
         Date upperDate = valueRange.upperEndpoint();
         String lowerSuffix = ShardingUtils.getSuffixByYearMonth(lowerDate);
         String upperSuffix = ShardingUtils.getSuffixByYearMonth(upperDate);
+
         TreeSet<String> suffixList = ShardingUtils.getSuffixListForRange(lowerSuffix, upperSuffix);
+
         for (String tableName : availableTargetNames) {
             if (containTableName(suffixList, tableName)) {
                 list.add(tableName);
