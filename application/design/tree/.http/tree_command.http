@@ -1,5 +1,5 @@
 ### Command操作
-POST http://127.0.0.1:8090/treeNode/command
+POST http://127.0.0.1:8091/treeNode/command
 Accept: application/json
 Content-Type: application/json
 
@@ -9,11 +9,11 @@ Content-Type: application/json
 
 
 ### reset
-POST http://127.0.0.1:8090/treeNode/reset
+POST http://127.0.0.1:8091/treeNode/reset
 Accept: text/plain
 
 ### 递归初始化数据
-POST http://127.0.0.1:8090/treeNode/init
+POST http://127.0.0.1:8091/treeNode/init
 Accept: application/json
 Content-Type: application/json
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 
 ### 递归查询初始化数据
-POST http://127.0.0.1:8090/treeNode/logPrintQuery
+POST http://127.0.0.1:8091/treeNode/logPrintQuery
 Accept: application/json
 Content-Type: application/json
 

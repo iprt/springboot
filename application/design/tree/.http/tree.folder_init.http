@@ -1,5 +1,5 @@
 ### Mysql递归初始化数据
-POST http://127.0.0.1:8090/treeNode/init
+POST http://127.0.0.1:8091/treeNode/init
 Accept: application/json
 Content-Type: application/json
 
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ### mysql reset
-POST http://127.0.0.1:8090/treeNode/reset
+POST http://127.0.0.1:8091/treeNode/reset
 Accept: application/json
 Content-Type: application/json
 
@@ -21,11 +21,11 @@ Content-Type: application/json
 
 
 ### 允许提供服务
-GET http://127.0.0.1:8090/service/enable
+GET http://127.0.0.1:8091/service/enable
 
 
 ### postgres递归初始化数据
-POST http://127.0.0.1:8090/treeNode/init
+POST http://127.0.0.1:8091/treeNode/init
 Accept: application/json
 Content-Type: application/json
 
@@ -37,7 +37,7 @@ Content-Type: application/json
 
 
 ### postgres reset
-POST http://127.0.0.1:8090/treeNode/reset
+POST http://127.0.0.1:8091/treeNode/reset
 Accept: application/json
 Content-Type: application/json
 

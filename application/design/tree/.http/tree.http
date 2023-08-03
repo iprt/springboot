@@ -1,5 +1,5 @@
 ### 查询第一层节点
-POST http://127.0.0.1:8090/treeNode/levelNodes
+POST http://127.0.0.1:8091/treeNode/levelNodes
 Accept: application/json
 Content-Type: application/json
 
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### 查询第二层节点
-POST http://127.0.0.1:8090/treeNode/levelNodes
+POST http://127.0.0.1:8091/treeNode/levelNodes
 Accept: application/json
 Content-Type: application/json
 
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 
 ### 添加第一层节点 /usr
-POST http://127.0.0.1:8090/treeNode/addNode
+POST http://127.0.0.1:8091/treeNode/addNode
 Accept: application/json
 Content-Type: application/json
 
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ### 添加第一层节点 /etc
-POST http://127.0.0.1:8090/treeNode/addNode
+POST http://127.0.0.1:8091/treeNode/addNode
 Accept: application/json
 Content-Type: application/json
 
@@ -40,7 +40,7 @@ Content-Type: application/json
 }
 
 ### 添加第二层节点 /usr/local
-POST http://127.0.0.1:8090/treeNode/addNode
+POST http://127.0.0.1:8091/treeNode/addNode
 Accept: application/json
 Content-Type: application/json
 
@@ -55,7 +55,7 @@ Content-Type: application/json
 
 
 ### 添加第二层节点 /usr/bin
-POST http://127.0.0.1:8090/treeNode/addNode
+POST http://127.0.0.1:8091/treeNode/addNode
 Accept: application/json
 Content-Type: application/json
 
@@ -69,7 +69,7 @@ Content-Type: application/json
 }
 
 ### 添加多个第二层节点
-POST http://127.0.0.1:8090/treeNode/addNodes
+POST http://127.0.0.1:8091/treeNode/addNodes
 Accept: application/json
 Content-Type: application/json
 

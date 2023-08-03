@@ -42,7 +42,7 @@ public class DataSourceConfiguration {
     private DynamicDataSourceProperties dynamicDataSourceProperties;
 
     /**
-     * shardingjdbc有四种数据源，需要根据业务注入不同的数据源
+     * sharding jdbc 有四种数据源，需要根据业务注入不同的数据源
      *
      * <p>1. 未使用分片, 脱敏的名称(默认): shardingDataSource;
      * <p>2. 主从数据源: masterSlaveDataSource;

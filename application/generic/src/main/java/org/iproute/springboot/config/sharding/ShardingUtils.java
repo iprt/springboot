@@ -1,12 +1,14 @@
 package org.iproute.springboot.config.sharding;
 
+import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TreeSet;
+import java.util.List;
 
 /**
  * ShardingUtils
@@ -14,6 +16,7 @@ import java.util.TreeSet;
  * @author zhuzhenjie
  * @since 2022/1/23
  */
+@Slf4j
 public class ShardingUtils {
 
     /**
@@ -23,29 +26,34 @@ public class ShardingUtils {
      * @param upperSuffix the upper suffix
      * @return the suffix list for range
      */
-    public static TreeSet<String> getSuffixListForRange(String lowerSuffix, String upperSuffix) {
-        TreeSet<String> suffixList = new TreeSet<>();
-        if (lowerSuffix.equals(upperSuffix)) { //上下界在同一张表
+    public static List<String> getSuffixListForRange(String lowerSuffix, String upperSuffix) {
+        List<String> suffixList = Lists.newArrayList();
+        // 上下界在同一张表
+        if (lowerSuffix.equals(upperSuffix)) {
             suffixList.add(lowerSuffix);
-        } else {  //上下界不在同一张表  计算间隔的所有表
-            String tempSuffix = lowerSuffix;
-            while (!tempSuffix.equals(upperSuffix)) {
-                suffixList.add(tempSuffix);
-                String[] ym = tempSuffix.split("_");
-                Date tempDate = null;
-                try {
-                    tempDate = DateUtils.parseDate(ym[0] + (ym[1].length() == 1 ? "0" + ym[1] : ym[1]), "yyyyMM");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                Calendar cal = Calendar.getInstance();
-                assert tempDate != null;
-                cal.setTime(tempDate);
-                cal.add(Calendar.MONTH, 1);
-                tempSuffix = ShardingUtils.getSuffixByYearMonth(cal.getTime());
-            }
-            suffixList.add(tempSuffix);
+
+            return suffixList;
         }
+        String tempSuffix = lowerSuffix;
+        while (!tempSuffix.equals(upperSuffix)) {
+            suffixList.add(tempSuffix);
+            String[] ym = tempSuffix.split("_");
+            Date tempDate = null;
+            try {
+                tempDate = DateUtils.parseDate(ym[0] + (ym[1].length() == 1 ? "0" + ym[1] : ym[1]), "yyyyMM");
+            } catch (ParseException e) {
+                log.error("", e);
+            }
+            Calendar cal = Calendar.getInstance();
+            assert tempDate != null;
+            cal.setTime(tempDate);
+            cal.add(Calendar.MONTH, 1);
+
+            // 月份+1
+            tempSuffix = ShardingUtils.getSuffixByYearMonth(cal.getTime());
+        }
+        suffixList.add(tempSuffix);
+
         return suffixList;
     }
 

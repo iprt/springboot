@@ -77,6 +77,5 @@ public class CommonController {
         return commonMapper.selectTableCreateSql(tableName);
     }
 
-
 }
 
