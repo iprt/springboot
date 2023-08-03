@@ -52,7 +52,8 @@ dependencies {
             }
         }
 
-        api('org.slf4j:jul-to-slf4j:1.7.30')
+        // java.util.log 到 slf4j 的桥梁
+        // api('org.slf4j:jul-to-slf4j:1.7.30')
 
         api('org.apache.commons:commons-lang3:3.12.0')
         api('commons-io:commons-io:2.11.0')
@@ -71,7 +72,9 @@ dependencies {
             }
         }
 
-        api('com.taosdata.jdbc:taos-jdbcdriver:2.0.38')
+        // api('com.taosdata.jdbc:taos-jdbcdriver:2.0.38')
+        api('com.taosdata.jdbc:taos-jdbcdriver:3.2.4')
+
 
         // api('org.liquibase:liquibase-core') {
         //     version {
@@ -79,7 +82,8 @@ dependencies {
         //     }
         // }
 
-        api('io.netty:netty-all:4.1.87.Final')
+        api('io.netty:netty-all:4.1.92.Final')
+
 
         api('com.baomidou:mybatis-plus-boot-starter:3.5.3.1')
         api('com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1')
