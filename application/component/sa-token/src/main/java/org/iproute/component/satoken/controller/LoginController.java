@@ -26,7 +26,6 @@ public class LoginController {
         return SaResult.error("登录失败");
     }
 
-
     // 查询登录状态  ---- http://localhost:8081/acc/isLogin
     @RequestMapping("isLogin")
     public SaResult isLogin() {

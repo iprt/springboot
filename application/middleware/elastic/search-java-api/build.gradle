@@ -22,11 +22,15 @@ repositories {
 
 
 dependencies {
+    implementation(project(":commons:log4j2-console"))
 
-    compileOnly 'org.projectlombok:lombok:1.18.4'
-    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+    compileOnly('org.projectlombok:lombok:1.18.28')
+    annotationProcessor('org.projectlombok:lombok:1.18.28')
 
-    implementation 'cn.hutool:hutool-all:5.8.4'
+    testCompileOnly('org.projectlombok:lombok:1.18.28')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.28')
+
+    implementation 'cn.hutool:hutool-all:5.8.16'
 
     implementation('org.elasticsearch:elasticsearch:7.8.0')
     implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.8.0")
@@ -34,15 +38,29 @@ dependencies {
     // log4j  color use this : -Dlog4j.skipJansi=false
     // implementation("org.slf4j:slf4j-api:1.7.25")
     // implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.17.1'
+    // implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.20.0'
 
-    implementation("org.apache.logging.log4j:log4j-api:2.18.0")
-    implementation('org.apache.logging.log4j:log4j-core:2.18.0')
+    // implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    // implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 
-    implementation('com.fasterxml.jackson.core:jackson-databind:2.12.6.1')
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 
-    testImplementation 'junit:junit:4.13.1'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.1'
+
+    // junit-jupiter-engine 用于运行JUnit 5 引擎测试
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+}
+
+test {
+    useJUnitPlatform()
 }

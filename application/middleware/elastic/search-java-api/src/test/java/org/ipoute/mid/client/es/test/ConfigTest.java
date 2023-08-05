@@ -1,7 +1,8 @@
 package org.ipoute.mid.client.es.test;
 
+import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.client.es.config.EsConfig;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * ConfigTest
@@ -14,6 +15,6 @@ public class ConfigTest {
     @Test
     public void show() {
         EsConfig esConfig = EsConfig.get();
-        System.out.println(esConfig.toString());
+
     }
 }

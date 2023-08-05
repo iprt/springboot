@@ -77,7 +77,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-        //配置令牌的存储（这里存放在内存中）
+        // 配置令牌的存储（这里存放在内存中）
         endpoints.tokenStore(inMemoryTokenStore)
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
@@ -87,11 +87,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerSecurityConfigurer security) {
         // 表示支持 client_id 和 client_secret 做登录认证
         security.allowFormAuthenticationForClients();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                new BCryptPasswordEncoder().encode("client-secret-demo")
-        );
     }
 }

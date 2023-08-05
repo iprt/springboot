@@ -25,6 +25,8 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":commons:logback-console"))
+
     // commons
     implementation "org.apache.commons:commons-lang3:3.12.0"
 

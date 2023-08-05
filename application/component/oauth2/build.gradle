@@ -31,6 +31,8 @@ ext {
 
 dependencies {
 
+    implementation(project(":commons:logback-console"))
+
     implementation "org.springframework.boot:spring-boot-starter-web"
 
     // 1. spring security 依赖
@@ -43,16 +45,22 @@ dependencies {
     implementation "org.apache.commons:commons-lang3:3.12.0"
 
     // fastjson
-    implementation "com.alibaba:fastjson:1.2.76"
+    implementation 'com.alibaba:fastjson:1.2.83'
 
 
     compileOnly "org.projectlombok:lombok"
-
-    developmentOnly "org.springframework.boot:spring-boot-devtools"
-
-    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor "org.projectlombok:lombok"
 
+    testCompileOnly "org.projectlombok:lombok"
+    testAnnotationProcessor "org.projectlombok:lombok"
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        // 忽略 junit4
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
 }
 
 test {

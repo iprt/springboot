@@ -20,6 +20,11 @@ includeBuild('../platforms')
 
 rootProject.name = 'application'
 
+
+include("commons:log4j2-console")
+include("commons:logback-console")
+include("commons:logback-console-springboot")
+
 // component
 
 // component integration

@@ -6,6 +6,8 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
+
+    implementation(project(":commons:logback-console"))
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter'
     // jdbc driver

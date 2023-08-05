@@ -39,16 +39,14 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 
-
-    // dev-tools
-    implementation 'org.springframework.boot:spring-boot-devtools'
     // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit'
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        // 忽略 junit4
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
 }
 
 test {

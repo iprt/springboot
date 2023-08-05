@@ -2,7 +2,7 @@ package org.ipoute.mid.client.es.test;
 
 import org.iproute.mid.client.es.document.query.QueryDoc;
 import org.iproute.mid.client.es.simplify.EsOperator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * QueryDocTest

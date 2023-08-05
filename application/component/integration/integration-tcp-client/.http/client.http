@@ -13,3 +13,7 @@ Accept: text/plain
   "filename": "integration.txt",
   "text": "spring boot integration"
 }
+
+
+### 测试 tcp client
+GET http://127.0.0.1:8090/tcp-client

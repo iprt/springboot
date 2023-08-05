@@ -2,7 +2,7 @@ package org.iproute.mid.es.boot.test.detail;
 
 import org.iproute.mid.es.boot.config.IndexConst;
 import org.iproute.mid.es.boot.test.BaseFrameTestCase;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 
@@ -24,7 +24,7 @@ public class IndexTestCase extends BaseFrameTestCase {
                 IndexCoordinates.of(IndexConst.INDEX_NAME)
         ).exists();
 
-        Assert.assertTrue(exists);
+        Assertions.assertTrue(exists);
     }
 
     /**
@@ -35,6 +35,6 @@ public class IndexTestCase extends BaseFrameTestCase {
         // 创建索引，系统初始化会自动创建索引
         boolean flg = elasticsearchRestTemplate.indexOps(IndexCoordinates.of(IndexConst.INDEX_NAME))
                 .delete();
-        Assert.assertTrue(flg);
+        Assertions.assertTrue(flg);
     }
 }

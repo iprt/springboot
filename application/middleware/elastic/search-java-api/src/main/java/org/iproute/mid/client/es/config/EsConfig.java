@@ -29,7 +29,7 @@ public class EsConfig {
     }
 
     static {
-        ClassPathResource cpr = new ClassPathResource("config.properties");
+        ClassPathResource cpr = new ClassPathResource("es-config.properties");
 
         try {
             Properties p = new Properties();
