@@ -5,6 +5,7 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.iproute.middleware.zk.lock.config.ZkServerConfig;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,10 +17,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class WarehouseService {
 
-    public static final String CONNECT_STRING = "127.0.0.1:2181";
-
     public static int shoe = 10;
 
+    private final ZkServerConfig zkServerConfig;
+
+    public WarehouseService(ZkServerConfig zkServerConfig) {
+        this.zkServerConfig = zkServerConfig;
+    }
 
     /**
      * Out of warehouse int.
@@ -48,7 +52,7 @@ public class WarehouseService {
         RetryPolicy policy = new ExponentialBackoffRetry(5000, 10);
 
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString(CONNECT_STRING)
+                .connectString(zkServerConfig.getConnectString())
                 .retryPolicy(policy)
                 .build();
         // 建立socket连接
