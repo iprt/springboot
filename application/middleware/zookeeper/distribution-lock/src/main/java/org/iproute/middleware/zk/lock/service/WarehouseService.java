@@ -16,7 +16,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class WarehouseService {
 
+    public static final String CONNECT_STRING = "127.0.0.1:2181";
+
     public static int shoe = 10;
+
 
     /**
      * Out of warehouse int.
@@ -45,7 +48,7 @@ public class WarehouseService {
         RetryPolicy policy = new ExponentialBackoffRetry(5000, 10);
 
         CuratorFramework client = CuratorFrameworkFactory.builder()
-                .connectString("shdq02:2181")
+                .connectString(CONNECT_STRING)
                 .retryPolicy(policy)
                 .build();
         // 建立socket连接

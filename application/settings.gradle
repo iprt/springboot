@@ -77,7 +77,7 @@ include('middleware:seata:at:points')
 include('middleware:seata:at:storage')
 
 // middleware zookeeper lock
-include('middleware:zookeeper-lock')
+include('middleware:zookeeper:distribution-lock')
 
 // reactor
 include('reactor:core')
