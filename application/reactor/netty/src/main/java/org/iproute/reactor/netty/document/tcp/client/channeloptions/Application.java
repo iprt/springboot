@@ -21,15 +21,15 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

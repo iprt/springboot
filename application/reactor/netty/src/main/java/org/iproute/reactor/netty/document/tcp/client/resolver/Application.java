@@ -22,15 +22,15 @@ import java.time.Duration;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .resolver(spec -> spec.queryTimeout(Duration.ofMillis(500))) // <1>
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .resolver(spec -> spec.queryTimeout(Duration.ofMillis(500))) // <1>
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

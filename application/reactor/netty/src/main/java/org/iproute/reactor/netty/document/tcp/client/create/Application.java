@@ -20,12 +20,12 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()      //<1>
-				         .connectNow(); //<2>
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()      //<1>
+                        .connectNow(); //<2>
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

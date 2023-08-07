@@ -21,24 +21,24 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .connectNow();
 
-		connection.outbound()
-		          .sendString(Mono.just("hello 1")) //<1>
-		          .then()
-		          .subscribe();
+        connection.outbound()
+                .sendString(Mono.just("hello 1")) //<1>
+                .then()
+                .subscribe();
 
-		connection.outbound()
-		          .sendString(Mono.just("hello 2")) //<2>
-		          .then()
-		          .subscribe(null, null, connection::dispose); //<3>
+        connection.outbound()
+                .sendString(Mono.just("hello 2")) //<2>
+                .then()
+                .subscribe(null, null, connection::dispose); //<3>
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

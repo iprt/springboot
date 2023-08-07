@@ -1,7 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.3.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-    id 'java'
+    id('org.iproute.spring-boot-application')
 }
 
 group = 'org.iproute'
@@ -9,50 +7,18 @@ version = '1.0-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
-repositories {
-    maven { url 'https://maven.aliyun.com/repository/public/' }
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
-
-    // commons
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'commons-io:commons-io:2.11.0'
-
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-
-    testCompileOnly 'org.projectlombok:lombok'
-    testAnnotationProcessor 'org.projectlombok:lombok'
-
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    testAnnotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-
-    implementation 'com.alibaba:fastjson:1.2.83'
-
-    // web
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.alibaba:fastjson'
 
     // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
-    // devtools
-    // implementation 'org.springframework.boot:spring-boot-devtools'
 
     // aop
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // mybatis
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
-    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter'
+    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter'
 
     // sharding-jdbc
     implementation 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
@@ -62,25 +28,9 @@ dependencies {
 
     // redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.apache.commons:commons-pool2:2.9.0'
+    implementation 'org.apache.commons:commons-pool2'
 
     // 加密 , 3.0 的还有一定问题
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        // 忽略 junit4
-        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
-    }
-}
-
-// test {
-//     useJUnitPlatform()
-// }
-
-test {
-    useJUnitPlatform {
-        includeEngines("junit-jupiter")
-        // includeEngines("junit-vintage")
-        // excludeEngines("junit-jupiter")
-    }
 }

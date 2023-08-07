@@ -52,17 +52,34 @@ dependencies {
             }
         }
 
+        // sharding jdbc
+        api('org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1')
+
+        // 加密 , 3.0 的还有一定问题
+        api('com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1')
+
+        // mybatis-plus
+        api('com.baomidou:mybatis-plus-boot-starter:3.5.3.1')
+
+        // ynamic-datasource
+        api('com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1')
+
+        api('io.netty:netty-all:4.1.92.Final')
+
         // java.util.log 到 slf4j 的桥梁
         // api('org.slf4j:jul-to-slf4j:1.7.30')
 
         api('org.apache.commons:commons-lang3:3.12.0')
+
         api('commons-io:commons-io:2.11.0')
+
         api("com.google.guava:guava:31.1-jre")
+
         api('com.alibaba:fastjson:1.2.83')
-        api('cn.hutool:hutool-all:5.8.4')
+
+        api('cn.hutool:hutool-all:5.8.16')
+
         api("org.apache.juneau:juneau-marshall:8.2.0")
-        // 加密 , 3.0 的还有一定问题
-        api('com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1')
 
         // 固定Mysql依赖版本
         api('mysql:mysql-connector-java') {
@@ -81,12 +98,6 @@ dependencies {
         //         strictly '4.3.1'
         //     }
         // }
-
-        api('io.netty:netty-all:4.1.92.Final')
-
-
-        api('com.baomidou:mybatis-plus-boot-starter:3.5.3.1')
-        api('com.baomidou:dynamic-datasource-spring-boot-starter:3.6.1')
 
         api('com.beust:jcommander:1.82')
     }

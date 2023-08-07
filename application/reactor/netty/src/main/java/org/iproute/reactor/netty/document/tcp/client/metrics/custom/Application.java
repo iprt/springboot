@@ -24,41 +24,41 @@ import java.time.Duration;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .metrics(true, CustomChannelMetricsRecorder::new) //<1>
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .metrics(true, CustomChannelMetricsRecorder::new) //<1>
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 
-	private static class CustomChannelMetricsRecorder implements ChannelMetricsRecorder {
-		@Override
-		public void recordDataReceived(SocketAddress socketAddress, long l) {
-		}
+    private static class CustomChannelMetricsRecorder implements ChannelMetricsRecorder {
+        @Override
+        public void recordDataReceived(SocketAddress socketAddress, long l) {
+        }
 
-		@Override
-		public void recordDataSent(SocketAddress socketAddress, long l) {
-		}
+        @Override
+        public void recordDataSent(SocketAddress socketAddress, long l) {
+        }
 
-		@Override
-		public void incrementErrorsCount(SocketAddress socketAddress) {
-		}
+        @Override
+        public void incrementErrorsCount(SocketAddress socketAddress) {
+        }
 
-		@Override
-		public void recordTlsHandshakeTime(SocketAddress socketAddress, Duration duration, String s) {
-		}
+        @Override
+        public void recordTlsHandshakeTime(SocketAddress socketAddress, Duration duration, String s) {
+        }
 
-		@Override
-		public void recordConnectTime(SocketAddress socketAddress, Duration duration, String s) {
-		}
+        @Override
+        public void recordConnectTime(SocketAddress socketAddress, Duration duration, String s) {
+        }
 
-		@Override
-		public void recordResolveAddressTime(SocketAddress socketAddress, Duration duration, String s) {
-		}
-	}
+        @Override
+        public void recordResolveAddressTime(SocketAddress socketAddress, Duration duration, String s) {
+        }
+    }
 }

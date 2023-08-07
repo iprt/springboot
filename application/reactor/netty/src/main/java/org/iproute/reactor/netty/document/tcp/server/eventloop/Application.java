@@ -21,15 +21,15 @@ import reactor.netty.tcp.TcpServer;
 
 public class Application {
 
-	public static void main(String[] args) {
-		LoopResources loop = LoopResources.create("event-loop", 1, 4, true);
+    public static void main(String[] args) {
+        LoopResources loop = LoopResources.create("event-loop", 1, 4, true);
 
-		DisposableServer server =
-				TcpServer.create()
-				         .runOn(loop)
-				         .bindNow();
+        DisposableServer server =
+                TcpServer.create()
+                        .runOn(loop)
+                        .bindNow();
 
-		server.onDispose()
-		      .block();
-	}
+        server.onDispose()
+                .block();
+    }
 }

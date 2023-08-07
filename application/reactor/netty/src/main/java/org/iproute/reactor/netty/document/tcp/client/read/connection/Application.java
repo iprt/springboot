@@ -20,19 +20,19 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .connectNow();
 
-		connection.inbound()
-		          .receive() //<1>
-		          .then()
-		          .subscribe();
+        connection.inbound()
+                .receive() //<1>
+                .then()
+                .subscribe();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

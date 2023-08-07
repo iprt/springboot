@@ -20,15 +20,15 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .wiretap(true) //<1>
-				         .host("example.com")
-				         .port(80)
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .wiretap(true) //<1>
+                        .host("example.com")
+                        .port(80)
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

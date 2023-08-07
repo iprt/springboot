@@ -21,17 +21,17 @@ import reactor.netty.tcp.TcpSslContextSpec;
 
 public class Application {
 
-	public static void main(String[] args) {
-		TcpSslContextSpec tcpSslContextSpec = TcpSslContextSpec.forClient();
+    public static void main(String[] args) {
+        TcpSslContextSpec tcpSslContextSpec = TcpSslContextSpec.forClient();
 
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(443)
-				         .secure(spec -> spec.sslContext(tcpSslContextSpec))
-				         .connectNow();
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(443)
+                        .secure(spec -> spec.sslContext(tcpSslContextSpec))
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

@@ -18,24 +18,25 @@ package org.iproute.reactor.netty.document.tcp.client.pool.config;
 import reactor.netty.Connection;
 import reactor.netty.resources.ConnectionProvider;
 import reactor.netty.tcp.TcpClient;
+
 import java.time.Duration;
 
 public class Application {
 
-	public static void main(String[] args) {
-		ConnectionProvider provider =
-				ConnectionProvider.builder("fixed")
-				                  .maxConnections(50)
-				                  .pendingAcquireTimeout(Duration.ofSeconds(60)) //<1>
-				                  .build();
+    public static void main(String[] args) {
+        ConnectionProvider provider =
+                ConnectionProvider.builder("fixed")
+                        .maxConnections(50)
+                        .pendingAcquireTimeout(Duration.ofSeconds(60)) //<1>
+                        .build();
 
-		Connection connection =
-				TcpClient.create(provider)
-				         .host("example.com")
-				         .port(80)
-				         .connectNow();
+        Connection connection =
+                TcpClient.create(provider)
+                        .host("example.com")
+                        .port(80)
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

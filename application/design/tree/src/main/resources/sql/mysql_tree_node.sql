@@ -1,3 +1,4 @@
+-- @formatter:off
 drop table if exists tree_node;
 create table tree_node
 (
@@ -13,3 +14,4 @@ create table tree_node
 
 ) engine = InnoDB
   ROW_FORMAT = DYNAMIC comment = 'tree node';
+-- @formatter:on

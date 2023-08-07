@@ -1,8 +1,8 @@
 // == Define locations for build logic ==
 pluginManagement {
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
         gradlePluginPortal()
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
     }
     // includeBuild('../shared/build-logic')
     includeBuild('../build-logic')

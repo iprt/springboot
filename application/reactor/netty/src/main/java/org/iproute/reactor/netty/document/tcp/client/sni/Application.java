@@ -24,18 +24,18 @@ import javax.net.ssl.SNIHostName;
 
 public class Application {
 
-	public static void main(String[] args) throws Exception {
-		SslContext sslContext = SslContextBuilder.forClient().build();
+    public static void main(String[] args) throws Exception {
+        SslContext sslContext = SslContextBuilder.forClient().build();
 
-		Connection connection =
-				TcpClient.create()
-				         .host("127.0.0.1")
-				         .port(8080)
-				         .secure(spec -> spec.sslContext(sslContext)
-				                             .serverNames(new SNIHostName("test.com")))
-				         .connectNow();
+        Connection connection =
+                TcpClient.create()
+                        .host("127.0.0.1")
+                        .port(8080)
+                        .secure(spec -> spec.sslContext(sslContext)
+                                .serverNames(new SNIHostName("test.com")))
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

@@ -21,17 +21,17 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		LoopResources loop = LoopResources.create("event-loop", 1, 4, true);
+    public static void main(String[] args) {
+        LoopResources loop = LoopResources.create("event-loop", 1, 4, true);
 
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .runOn(loop)
-				         .connectNow();
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .runOn(loop)
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

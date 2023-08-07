@@ -20,13 +20,13 @@ import reactor.netty.tcp.TcpServer;
 
 public class Application {
 
-	public static void main(String[] args) {
-		DisposableServer server =
-				TcpServer.create()
-				         .metrics(true) //<1>
-				         .bindNow();
+    public static void main(String[] args) {
+        DisposableServer server =
+                TcpServer.create()
+                        .metrics(true) //<1>
+                        .bindNow();
 
-		server.onDispose()
-		      .block();
-	}
+        server.onDispose()
+                .block();
+    }
 }

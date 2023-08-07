@@ -1,3 +1,4 @@
+-- @formatter:off
 drop table if exists tree_node;
 create table tree_node
 (
@@ -9,3 +10,4 @@ create table tree_node
     create_time timestamp(0) without time zone not null default now(),
     update_time timestamp(0) without time zone not null default now()
 );
+-- @formatter:on

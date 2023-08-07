@@ -24,24 +24,24 @@ import java.io.File;
 
 public class Application {
 
-	public static void main(String[] args) throws Exception {
-		File defaultCert = new File("default_certificate.crt");
-		File defaultKey = new File("default_private.key");
+    public static void main(String[] args) throws Exception {
+        File defaultCert = new File("default_certificate.crt");
+        File defaultKey = new File("default_private.key");
 
-		File testDomainCert = new File("default_certificate.crt");
-		File testDomainKey = new File("default_private.key");
+        File testDomainCert = new File("default_certificate.crt");
+        File testDomainKey = new File("default_private.key");
 
-		SslContext defaultSslContext = SslContextBuilder.forServer(defaultCert, defaultKey).build();
-		SslContext testDomainSslContext = SslContextBuilder.forServer(testDomainCert, testDomainKey).build();
+        SslContext defaultSslContext = SslContextBuilder.forServer(defaultCert, defaultKey).build();
+        SslContext testDomainSslContext = SslContextBuilder.forServer(testDomainCert, testDomainKey).build();
 
-		DisposableServer server =
-				TcpServer.create()
-				         .secure(spec -> spec.sslContext(defaultSslContext)
-				                             .addSniMapping("*.test.com",
-				                                     testDomainSpec -> testDomainSpec.sslContext(testDomainSslContext)))
-				         .bindNow();
+        DisposableServer server =
+                TcpServer.create()
+                        .secure(spec -> spec.sslContext(defaultSslContext)
+                                .addSniMapping("*.test.com",
+                                        testDomainSpec -> testDomainSpec.sslContext(testDomainSslContext)))
+                        .bindNow();
 
-		server.onDispose()
-		      .block();
-	}
+        server.onDispose()
+                .block();
+    }
 }

@@ -23,18 +23,18 @@ import java.io.File;
 
 public class Application {
 
-	public static void main(String[] args) {
-		File cert = new File("certificate.crt");
-		File key = new File("private.key");
+    public static void main(String[] args) {
+        File cert = new File("certificate.crt");
+        File key = new File("private.key");
 
-		TcpSslContextSpec tcpSslContextSpec = TcpSslContextSpec.forServer(cert, key);
+        TcpSslContextSpec tcpSslContextSpec = TcpSslContextSpec.forServer(cert, key);
 
-		DisposableServer server =
-				TcpServer.create()
-				         .secure(spec -> spec.sslContext(tcpSslContextSpec))
-				         .bindNow();
+        DisposableServer server =
+                TcpServer.create()
+                        .secure(spec -> spec.sslContext(tcpSslContextSpec))
+                        .bindNow();
 
-		server.onDispose()
-		      .block();
-	}
+        server.onDispose()
+                .block();
+    }
 }

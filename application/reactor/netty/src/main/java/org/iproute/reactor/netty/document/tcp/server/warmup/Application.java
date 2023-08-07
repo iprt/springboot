@@ -20,17 +20,17 @@ import reactor.netty.tcp.TcpServer;
 
 public class Application {
 
-	public static void main(String[] args) {
-		TcpServer tcpServer =
-				TcpServer.create()
-				         .handle((inbound, outbound) -> inbound.receive().then());
+    public static void main(String[] args) {
+        TcpServer tcpServer =
+                TcpServer.create()
+                        .handle((inbound, outbound) -> inbound.receive().then());
 
-		tcpServer.warmup() //<1>
-		         .block();
+        tcpServer.warmup() //<1>
+                .block();
 
-		DisposableServer server = tcpServer.bindNow();
+        DisposableServer server = tcpServer.bindNow();
 
-		server.onDispose()
-		      .block();
-	}
+        server.onDispose()
+                .block();
+    }
 }

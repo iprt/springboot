@@ -4,9 +4,10 @@
     <springProperty scop="context" name="spring.application.name" source="spring.application.name"
                     defaultValue="anonymous"/>
 
-    <property name="log.path" value="./log/${spring.application.name}"/>
+    <!--    <property name="log.path" value="./log/${spring.application.name}"/>-->
+    <property name="log.path" value="./log/generic"/>
 
-    <property name="log.filename" value="${spring.application.name}"/>
+    <property name="log.filename" value="generic"/>
 
     <!--  base config  -->
     <property name="LOG_MAX_FILE_SIZE" value="30MB"/>
@@ -29,14 +30,14 @@
 
 
     <!-- Console log output -->
-    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
     </appender>
 
     <!-- Log file debug output -->
-    <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="DEBUG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/${log.filename}-debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-debug.%i.log.zip</fileNamePattern>
@@ -49,7 +50,7 @@
     </appender>
 
     <!-- Log file error output -->
-    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/${log.filename}-error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-error.%i.log.zip</fileNamePattern>
@@ -65,7 +66,7 @@
     </appender>
 
     <!-- Log file sql output -->
-    <appender name="sql" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="SQL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/${log.filename}-sql.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-sql.%i.log.zip</fileNamePattern>
@@ -81,7 +82,7 @@
     </appender>
 
     <!-- Log file access output -->
-    <appender name="access" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="ACCESS_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/${log.filename}-access.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-access.%i.log.zip</fileNamePattern>
@@ -119,19 +120,19 @@
     <logger name="org.iproute" level="debug"/>
 
     <logger name="org.iproute.springboot.repository.mysql" level="DEBUG" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="sql"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="SQL_FILE"/>
     </logger>
 
     <logger name="org.iproute.springboot.config.aop.AccessAspect" level="info" additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="access"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ACCESS_FILE"/>
     </logger>
 
     <logger name="org.iproute.springboot.config.aop.RecordParametersAdvice" level="debug"
             additivity="false">
-        <appender-ref ref="console"/>
-        <appender-ref ref="access"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ACCESS_FILE"/>
     </logger>
 
     <!--  另外一种写法？
@@ -144,8 +145,8 @@
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">
-        <appender-ref ref="console"/>
-        <appender-ref ref="debug"/>
-        <appender-ref ref="error"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="DEBUG_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
     </root>
 </configuration>

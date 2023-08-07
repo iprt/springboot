@@ -21,13 +21,13 @@ import reactor.netty.tcp.TcpClient;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .remoteAddress(() -> new DomainSocketAddress("/tmp/test.sock")) //<1>
-				         .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .remoteAddress(() -> new DomainSocketAddress("/tmp/test.sock")) //<1>
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

@@ -16,24 +16,24 @@
 package org.iproute.reactor.netty.document.tcp.client.proxy;
 
 import reactor.netty.Connection;
-import reactor.netty.transport.ProxyProvider;
 import reactor.netty.tcp.TcpClient;
+import reactor.netty.transport.ProxyProvider;
 
 public class Application {
 
-	public static void main(String[] args) {
-		Connection connection =
-				TcpClient.create()
-				         .host("example.com")
-				         .port(80)
-				         .proxy(spec -> spec.type(ProxyProvider.Proxy.SOCKS4)
-				                            .host("proxy")
-				                            .port(8080)
-				                            .nonProxyHosts("localhost")
-				                            .connectTimeoutMillis(20_000)) //<1>
-				        .connectNow();
+    public static void main(String[] args) {
+        Connection connection =
+                TcpClient.create()
+                        .host("example.com")
+                        .port(80)
+                        .proxy(spec -> spec.type(ProxyProvider.Proxy.SOCKS4)
+                                .host("proxy")
+                                .port(8080)
+                                .nonProxyHosts("localhost")
+                                .connectTimeoutMillis(20_000)) //<1>
+                        .connectNow();
 
-		connection.onDispose()
-		          .block();
-	}
+        connection.onDispose()
+                .block();
+    }
 }

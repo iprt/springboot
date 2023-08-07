@@ -21,19 +21,19 @@ import reactor.netty.tcp.TcpServer;
 
 public class MultiAddressApplication {
 
-	public static void main(String[] args) {
-		TcpServer tcpServer = TcpServer.create();
-		DisposableServer server1 = tcpServer
-				.host("localhost") //<1>
-				.port(8080)        //<2>
-				.bindNow();
+    public static void main(String[] args) {
+        TcpServer tcpServer = TcpServer.create();
+        DisposableServer server1 = tcpServer
+                .host("localhost") //<1>
+                .port(8080)        //<2>
+                .bindNow();
 
-		DisposableServer server2 = tcpServer
-				.host("0.0.0.0") //<3>
-				.port(8081)      //<4>
-				.bindNow();
+        DisposableServer server2 = tcpServer
+                .host("0.0.0.0") //<3>
+                .port(8081)      //<4>
+                .bindNow();
 
-		Mono.when(server1.onDispose(), server2.onDispose())
-				.block();
-	}
+        Mono.when(server1.onDispose(), server2.onDispose())
+                .block();
+    }
 }
