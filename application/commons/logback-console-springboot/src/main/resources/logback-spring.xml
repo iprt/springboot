@@ -30,7 +30,9 @@
     </appender>
 
     <logger name="io.netty" level="INFO"/>
-    <logger name="org.iproute" level="DEBUG"/>
+
+    <!--  default info  -->
+    <logger name="org.iproute" level="INFO"/>
 
     <root level="info">
         <appender-ref ref="CONSOLE"/>

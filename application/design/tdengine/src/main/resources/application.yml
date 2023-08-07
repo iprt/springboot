@@ -23,4 +23,4 @@ mybatis-plus:
 
 logging:
   level:
-    org.iproute.springboot.design.mysqltree.mapper: debug
+    org.iproute.springboot.design.tdengine.mapper: debug
