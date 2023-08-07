@@ -36,7 +36,7 @@ dependencies {
 
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
 
-    compileOnly 'mysql:mysql-connector-java:5.1.37'
+    compileOnly 'mysql:mysql-connector-java'
 
     /*
     // seata 1.0.0 config

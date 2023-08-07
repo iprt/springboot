@@ -20,9 +20,10 @@ import java.util.Date;
 @Slf4j
 public class MyKafkaProducer {
     public static final String DEFAULT_TOPIC = "hello";
+
     private final KafkaTemplate<String, String> kafkaTemplate;
 
-    private Gson gson = new GsonBuilder().create();
+    private final Gson GSON = new GsonBuilder().create();
 
     public MyKafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
@@ -34,9 +35,9 @@ public class MyKafkaProducer {
         message.setId(System.currentTimeMillis());
         message.setMsg(msg);
         message.setSendTime(new Date());
-        log.info("【++++++++++++++++++ message ：{}】", gson.toJson(message));
-        //对 topic =  hello2 的发送消息
-        kafkaTemplate.send(DEFAULT_TOPIC, gson.toJson(message));
+        log.info("【++++++++++++++++++ message ：{}】", GSON.toJson(message));
+        // 对 topic =  hello2 的发送消息
+        kafkaTemplate.send(DEFAULT_TOPIC, GSON.toJson(message));
     }
 
     public void send(String topic, String msg) {
@@ -50,8 +51,8 @@ public class MyKafkaProducer {
                 .sendTime(new Date())
                 .build();
 
-        log.info("【++++++++++++++++++ topic : {} ,message ：{}】", topic, gson.toJson(message));
-        //对 topic =  hello2 的发送消息
-        kafkaTemplate.send(topic, gson.toJson(message));
+        log.info("【++++++++++++++++++ topic : {} ,message ：{}】", topic, GSON.toJson(message));
+        // 对 topic =  hello2 的发送消息
+        kafkaTemplate.send(topic, GSON.toJson(message));
     }
 }
