@@ -11,12 +11,15 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 
 dependencies {
+
+    implementation(project(':commons:logback-console-springboot'))
+
     // mybatis
     implementation('com.baomidou:mybatis-plus-boot-starter')
     implementation('com.baomidou:dynamic-datasource-spring-boot-starter')
 
     // jdbc driver 版本申明了
-    implementation 'mysql:mysql-connector-java:8.0.21'
+    implementation 'mysql:mysql-connector-java'
     // implementation 'mysql:mysql-connector-java'
     implementation 'org.postgresql:postgresql'
     // liquibase
