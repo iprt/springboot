@@ -4,7 +4,10 @@
         <Property name="CONSOLE_LOG_PATTERN">
             <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level}{ERROR=Bright RED, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White} %style{[%15t]}{cyan} %style{%50c{1.}.%M(%L)}{blue}: %msg%n-->
             <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-30.30logger{1.} (%-4L)}{cyan} : %msg%n-->
-            %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n
+
+
+            <!--  %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n-->
+            %d{HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n
         </Property>
     </Properties>
     <Appenders>
