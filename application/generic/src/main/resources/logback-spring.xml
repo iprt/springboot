@@ -5,7 +5,7 @@
                     defaultValue="anonymous"/>
 
     <!--    <property name="log.path" value="./log/${spring.application.name}"/>-->
-    <property name="log.path" value="./log/generic"/>
+    <property name="log.path" value="./logs"/>
 
     <property name="log.filename" value="generic"/>
 
@@ -38,9 +38,10 @@
 
     <!-- Log file debug output -->
     <appender name="DEBUG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${log.filename}-debug.log</file>
+        <file>${log.path}/${log.filename}.log</file>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-debug.%i.log.zip</fileNamePattern>
+            <fileNamePattern>${log.path}/${log.filename}-%d{yyyy-MM-dd}-${log.filename}.%i.log.zip</fileNamePattern>
             <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
             <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
         </rollingPolicy>
@@ -51,7 +52,9 @@
 
     <!-- Log file error output -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
         <file>${log.path}/${log.filename}-error.log</file>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${log.path}/%d{yyyy-MM-dd}-${log.filename}-error.%i.log.zip</fileNamePattern>
             <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
