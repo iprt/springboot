@@ -1,15 +1,11 @@
 package org.iproute.raft.election.algo;
 
 /**
- * Role
+ * State
  *
  * @author zhuzhenjie
- * @since 2022 /9/22
+ * @since 2023-08-27
  */
 public enum Role {
-    Leader,
-
-    Candidate,
-
-    Follower
+    follower,candidate,leader
 }

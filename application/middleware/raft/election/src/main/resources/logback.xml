@@ -18,20 +18,18 @@
 <!-- https://github.com/reactor/reactor-netty/blob/main/reactor-netty-examples/src/main/resources/logback.xml -->
 <configuration>
 
-    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>
-                <!-- %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n-->
-                <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %cyan([%15.15thread]) %yellow(%-5level) %green([%-40.40logger{39}] %30file:%-4line) - %msg%n-->
-                %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}\(%-4.4L\)) : %msg%n
+                %d{HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}) : %msg%n
             </pattern>
         </encoder>
     </appender>
 
-    <logger name="org.iproute.raft" level="DEBUG"/>
+    <logger name="org.iproute" level="DEBUG"/>
 
     <root level="info">
-        <appender-ref ref="stdout"/>
+        <appender-ref ref="console"/>
     </root>
 
 </configuration>

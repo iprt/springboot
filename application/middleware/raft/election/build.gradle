@@ -1,8 +1,5 @@
 plugins {
-    // gradle lombok plugin
-    id 'io.franzbecker.gradle-lombok' version '5.0.0'
     id 'java'
-    id 'idea'
 }
 
 group 'org.iproute'
@@ -21,11 +18,10 @@ repositories {
 dependencies {
     implementation "org.apache.commons:commons-lang3:3.11"
 
-    // compileOnly 'org.projectlombok:lombok:1.18.24'
-    // annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    compileOnly('org.projectlombok:lombok:1.18.28')
+    annotationProcessor('org.projectlombok:lombok:1.18.28')
 
     implementation 'org.slf4j:slf4j-api:1.7.36'
     implementation 'ch.qos.logback:logback-classic:1.2.11'
     implementation 'ch.qos.logback:logback-core:1.2.11'
-
 }

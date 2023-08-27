@@ -25,6 +25,7 @@
                 <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %cyan([%15.15thread]) %yellow(%-5level) %green([%-40.40logger{39}] %30file:%-4line) - %msg%n-->
                 <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}\(%-4L\)) : %msg%n-->
                 <!-- %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}) : %msg%n-->
+                <!-- %d{HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}) : %msg%n-->
                 %d{HH:mm:ss.SSS} %highlight(%-5level) [%15.15thread] %cyan(%-40.40logger{39}) : %msg%n
             </pattern>
         </encoder>
