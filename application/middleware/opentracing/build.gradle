@@ -1,0 +1,11 @@
+plugins {
+    id 'org.iproute.spring-boot-application'
+}
+
+
+dependencies {
+    implementation(project(":commons:logback-console-springboot"))
+
+    // zk distribution lock
+    implementation 'io.opentracing:opentracing-api:0.33.0'
+}
