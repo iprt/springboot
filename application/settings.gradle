@@ -45,8 +45,8 @@ include('component:security:form-login')
 include('component:security:json-login')
 
 // design
-include('design:tree')
-include('design:tdengine')
+include('sql:tree')
+include('sql:tdengine')
 
 include('generic')
 // middleware apache camel
