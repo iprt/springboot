@@ -12,8 +12,8 @@ spring:
         postgres:
           driverClassName: org.postgresql.Driver
           url: jdbc:postgresql://172.100.1.100:5432/springboot
-          username: springboot
-          password: springboot
+          username: postgres
+          password: postgres
   # liquibase config
   liquibase:
     mysql:

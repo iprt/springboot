@@ -44,9 +44,9 @@ include('component:sa-token')
 include('component:security:form-login')
 include('component:security:json-login')
 
-// design
-include('sql:tree')
-include('sql:tdengine')
+// db
+include('db:tree')
+include('db:tdengine')
 
 include('generic')
 // middleware apache camel
