@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: tdengine
+#  output:
+  #    ansi:
+  #      enabled: always
   mvc:
     throw-exception-if-no-handler-found: true
   jackson:
