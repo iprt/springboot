@@ -15,7 +15,6 @@ import java.util.UUID;
  * ClientChannelInitializer
  *
  * @author zhuzhenjie
- * @since 2022/8/19
  */
 public class ClientInitializer extends ChannelInitializer<SocketChannel> {
 
