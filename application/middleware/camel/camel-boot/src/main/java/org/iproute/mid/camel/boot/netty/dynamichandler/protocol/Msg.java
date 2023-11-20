@@ -17,7 +17,7 @@ import lombok.ToString;
 @ToString
 @Builder
 @Data
-public class SimpleProtocol {
+public class Msg {
 
     private int len;
 

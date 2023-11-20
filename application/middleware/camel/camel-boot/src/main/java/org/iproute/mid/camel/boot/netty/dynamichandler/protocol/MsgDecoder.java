@@ -14,7 +14,7 @@ import java.util.List;
  * @author zhuzhenjie
  * @since 2022/8/7
  */
-public class SimpleProtocolDecoder extends ByteToMessageDecoder {
+public class MsgDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
@@ -22,14 +22,13 @@ public class SimpleProtocolDecoder extends ByteToMessageDecoder {
             return;
         }
 
-        // 标记 ByteBuf 读指针位置
-        in.markReaderIndex();
+        in.markReaderIndex(); // 标记 ByteBuf 读指针位置
 
         int len = in.readInt();
 
         if (in.readableBytes() < len) {
-            // 重置 ByteBuf 读指针位置
-            in.resetReaderIndex();
+
+            in.resetReaderIndex(); // 重置 ByteBuf 读指针位置
 
             return;
         }
@@ -37,9 +36,18 @@ public class SimpleProtocolDecoder extends ByteToMessageDecoder {
         byte[] content = new byte[len];
         in.readBytes(content);
 
-        out.add(SimpleProtocol.builder().len(len)
+        out.add(Msg.builder().len(len)
                 .content(content)
                 .build());
 
     }
 }
+
+/*
+
+markReaderIndex和resetReaderIndex是一个成对的操作。
+
+markReaderIndex可以打一个标记，
+调用resetReaderIndex可以把readerIndex重置到原来打标记的位置。
+
+ */

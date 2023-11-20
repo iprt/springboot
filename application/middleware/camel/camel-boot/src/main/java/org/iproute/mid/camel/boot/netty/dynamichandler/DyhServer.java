@@ -10,13 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler.ServerInitializer;
 
 /**
- * Server
+ * DyhServer
  *
  * @author zhuzhenjie
- * @since 2022/8/19
  */
 @Slf4j
-public class DhServer {
+public class DyhServer {
 
     public static void main(String[] args) {
 

@@ -7,7 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.mid.camel.boot.netty.dynamichandler.clienthandler.ClientInitializer;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.Msg;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -15,19 +15,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * client
+ * DyhClient
  *
  * @author zhuzhenjie
- * @since 2022/8/19
  */
 @Slf4j
-public class DhClient {
+public class DyhClient {
 
     @SuppressWarnings("all")
     public static void main(String[] args) {
 
         Connector connector = new Connector(
-                "127.0.0.1", 7002, DhClient::bootstrapInit
+                "127.0.0.1", 7002, DyhClient::bootstrapInit
         );
 
         connector.connect();
@@ -72,7 +71,7 @@ public class DhClient {
     static boolean send(Connector connector, String msg) {
         Channel channel = connector.getChannel();
         if (channel != null && channel.isActive()) {
-            SimpleProtocol pMsg = SimpleProtocol.builder()
+            Msg pMsg = Msg.builder()
                     .len(msg.getBytes().length)
                     .content(msg.getBytes())
                     .build();

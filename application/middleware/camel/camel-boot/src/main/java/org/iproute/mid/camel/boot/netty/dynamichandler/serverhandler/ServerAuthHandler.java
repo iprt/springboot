@@ -5,8 +5,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolDecoder;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocolEncoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsgDecoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsglEncoder;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 import java.util.UUID;
@@ -85,8 +85,8 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
         ctx.pipeline().remove(AuthBefore.AUTH_NAME);
 
 
-        ctx.pipeline().addLast(new SimpleProtocolDecoder());
-        ctx.pipeline().addLast(new SimpleProtocolEncoder());
+        ctx.pipeline().addLast(new MsgDecoder());
+        ctx.pipeline().addLast(new MsglEncoder());
         ctx.pipeline().addLast(new ServerMsgHandler());
 
         // fire !!! ctx.pipeline()

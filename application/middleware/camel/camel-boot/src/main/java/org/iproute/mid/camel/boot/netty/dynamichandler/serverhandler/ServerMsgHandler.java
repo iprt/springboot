@@ -3,7 +3,7 @@ package org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.Msg;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
@@ -13,7 +13,7 @@ import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
  * @since 2022/8/19
  */
 @Slf4j
-public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol> {
+public class ServerMsgHandler extends SimpleChannelInboundHandler<Msg> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -22,7 +22,7 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
 
         String msg = "Netty,Rock!";
 
-        SimpleProtocol pMsg = SimpleProtocol.builder()
+        Msg pMsg = Msg.builder()
                 .len(msg.getBytes().length)
                 .content(msg.getBytes())
                 .build();
@@ -31,12 +31,12 @@ public class ServerMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, SimpleProtocol msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, Msg msg) throws Exception {
         String clientMsg = new String(msg.getContent());
         log.info("接收到客户端【{}】消息|{}", NettyUtils.getRemoteInfo(ctx), clientMsg);
 
         String rspMsg = "server response ： " + clientMsg;
-        SimpleProtocol pRspMsg = SimpleProtocol.builder()
+        Msg pRspMsg = Msg.builder()
                 .len(rspMsg.getBytes().length)
                 .content(rspMsg.getBytes())
                 .build();

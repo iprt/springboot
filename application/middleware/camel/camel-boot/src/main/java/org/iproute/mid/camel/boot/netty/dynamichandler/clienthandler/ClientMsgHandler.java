@@ -3,7 +3,7 @@ package org.iproute.mid.camel.boot.netty.dynamichandler.clienthandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.SimpleProtocol;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.Msg;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
@@ -13,7 +13,7 @@ import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
  * @since 2022/8/19
  */
 @Slf4j
-public class ClientMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol> {
+public class ClientMsgHandler extends SimpleChannelInboundHandler<Msg> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -21,7 +21,7 @@ public class ClientMsgHandler extends SimpleChannelInboundHandler<SimpleProtocol
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, SimpleProtocol msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, Msg msg) throws Exception {
         String receiveMsg = new String(msg.getContent());
         log.info("接收到服务端的消息|{}", receiveMsg);
     }
