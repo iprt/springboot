@@ -7,20 +7,16 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * MyProtocol
+ * MyMsg
  *
  * @author zhuzhenjie
- * @since 2022/8/7
  */
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Builder
 @Data
-public class MyProtocol {
-
-    private int len;
-
-    private byte[] content;
-
+public class MyMsg {
+    private boolean success;
+    private String data;
 }

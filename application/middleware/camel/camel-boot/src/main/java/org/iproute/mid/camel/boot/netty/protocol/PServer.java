@@ -34,32 +34,23 @@ public class PServer {
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new MyProtocolDecoder());
                         ch.pipeline().addLast(new MyProtocolEncoder());
-                        ch.pipeline().addLast(new SimpleChannelInboundHandler<MyProtocol>() {
+                        ch.pipeline().addLast(new SimpleChannelInboundHandler<MyMsg>() {
 
                             @Override
                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
-                                String msg = "Netty,Rock!";
-                                ctx.writeAndFlush(MyProtocol.builder()
-                                        .len(msg.getBytes().length)
-                                        .content(msg.getBytes())
-                                        .build());
+                                String data = "Netty,Rock!";
+                                ctx.writeAndFlush(
+                                        MyMsg.builder().data(data).build()
+                                );
                                 ctx.fireChannelActive();
-
                             }
 
                             @Override
-                            protected void channelRead0(ChannelHandlerContext ctx, MyProtocol msg) throws Exception {
-                                byte[] content = msg.getContent();
-                                String s = new String(content);
-                                log.info("接收到客户端消息|{}", s);
-                                String rtMsg = s.toUpperCase();
-
-                                byte[] rtContent = rtMsg.getBytes();
-
-                                ctx.writeAndFlush(MyProtocol.builder()
-                                        .len(rtContent.length)
-                                        .content(rtContent)
-                                        .build());
+                            protected void channelRead0(ChannelHandlerContext ctx, MyMsg msg) throws Exception {
+                                String receiveData = msg.getData();
+                                log.info("接收到客户端消息|{}", receiveData);
+                                // echo
+                                ctx.writeAndFlush(msg);
                             }
                         });
 
@@ -67,8 +58,9 @@ public class PServer {
                 });
 
         try {
-            Channel channel = server.bind(7001).sync().channel();
-
+            final int port = 7001;
+            Channel channel = server.bind(port).sync().channel();
+            log.info("Protocol server listening on {}", port);
             channel.closeFuture().sync();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);

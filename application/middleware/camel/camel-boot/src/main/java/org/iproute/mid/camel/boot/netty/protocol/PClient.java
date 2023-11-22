@@ -10,6 +10,8 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * ClientTest
  *
@@ -25,7 +27,6 @@ public class PClient {
 
         Bootstrap bootstrap = new Bootstrap();
 
-
         bootstrap.group(g)
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<SocketChannel>() {
@@ -33,7 +34,7 @@ public class PClient {
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ch.pipeline().addLast(new MyProtocolDecoder());
                         ch.pipeline().addLast(new MyProtocolEncoder());
-                        ch.pipeline().addLast(new SimpleChannelInboundHandler<MyProtocol>() {
+                        ch.pipeline().addLast(new SimpleChannelInboundHandler<MyMsg>() {
 
                             @Override
                             public void channelActive(ChannelHandlerContext ctx) throws Exception {
@@ -58,12 +59,14 @@ public class PClient {
                                 // });
 
                                 // https://github.com/netty/netty/issues/9908
+
+                                log.info("client channel active");
                             }
 
                             @Override
-                            protected void channelRead0(ChannelHandlerContext ctx, MyProtocol msg) throws Exception {
-                                byte[] content = msg.getContent();
-                                log.info("接收到服务端的消息：{}", new String(content));
+                            protected void channelRead0(ChannelHandlerContext ctx, MyMsg msg) throws Exception {
+                                // byte[] content = msg.getContent();
+                                log.info("接收到服务端的消息：{}", msg.getData());
                             }
                         });
                     }
@@ -77,21 +80,22 @@ public class PClient {
                 if (!channel.isActive()) {
                     break;
                 }
-                Thread.sleep(1000);
 
-                String msg = "hello world " + i++;
+                TimeUnit.SECONDS.sleep(1);
 
-                byte[] bytes = msg.getBytes();
-                channel.writeAndFlush(new MyProtocol(
-                        bytes.length,
-                        bytes
-                ));
+                String data = "hello world " + i++;
+
+                channel.writeAndFlush(MyMsg.builder()
+                        .data(data)
+                        .build());
+                if (i == 10001) {
+                    break;
+                }
             }
-
 
             // channel.closeFuture().sync();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("", e);
         } finally {
             g.shutdownGracefully();
         }

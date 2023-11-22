@@ -10,14 +10,19 @@ import io.netty.handler.codec.MessageToByteEncoder;
  * @author zhuzhenjie
  * @since 2022/8/7
  */
-public class MyProtocolEncoder extends MessageToByteEncoder<MyProtocol> {
+public class MyProtocolEncoder extends MessageToByteEncoder<MyMsg> {
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, MyProtocol msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, MyMsg msg, ByteBuf out) throws Exception {
 
-        out.writeInt(msg.getLen());
+        // out.writeInt(msg.getLen());
+        //
+        // out.writeBytes(msg.getContent());
 
-        out.writeBytes(msg.getContent());
 
+        byte[] bytes = msg.getData().getBytes();
+
+        out.writeInt(bytes.length);
+        out.writeBytes(bytes);
     }
 }

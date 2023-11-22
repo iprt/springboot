@@ -37,8 +37,13 @@ public class MyProtocolDecoder extends ByteToMessageDecoder {
         byte[] content = new byte[len];
         in.readBytes(content);
 
-        out.add(MyProtocol.builder().len(len)
-                .content(content)
+        // out.add(MyProtocol.builder().len(len)
+        //         .content(content)
+        //         .build());
+
+        out.add(MyMsg.builder()
+                .success(true)
+                .data(new String(content))
                 .build());
 
     }
