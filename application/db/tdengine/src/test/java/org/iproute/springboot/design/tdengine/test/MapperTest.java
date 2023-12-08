@@ -39,7 +39,6 @@ public class MapperTest {
         demoMapper.createTable();
     }
 
-
     @Test
     @Order(3)
     public void testInsert() {

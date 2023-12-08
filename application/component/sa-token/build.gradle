@@ -13,7 +13,7 @@ ext {
 
 dependencies {
 
-    implementation(project(":commons:logback-console-springboot"))
+    implementation(project(":logs-config:logback-springboot"))
 
     implementation "cn.dev33:sa-token-spring-boot-starter:${SA_TOKEN_VERSION}"
     // Sa-Token 整合 Redis （使用 jackson 序列化方式）

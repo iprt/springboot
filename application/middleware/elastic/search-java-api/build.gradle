@@ -22,7 +22,7 @@ repositories {
 
 
 dependencies {
-    implementation(project(":commons:log4j2-console"))
+    implementation(project(":logs-config:log4j2-console"))
 
     compileOnly('org.projectlombok:lombok:1.18.28')
     annotationProcessor('org.projectlombok:lombok:1.18.28')

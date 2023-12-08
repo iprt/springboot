@@ -9,7 +9,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 
 dependencies {
-    implementation(project(":commons:logback-console"))
+    implementation(project(":logs-config:logback-console"))
 
     // integration
     implementation 'org.springframework.boot:spring-boot-starter-integration'

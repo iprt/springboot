@@ -7,7 +7,7 @@
 
 
             <!--  %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n-->
-            %d{HH:mm:ss.SSS} %highlight{%-5level} [%15.15t] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n
+            %d{HH:mm:ss.SSS} %highlight{%-5level} [%20.20] %style{%-40.40logger{1.} (%-4L)}{cyan} : %msg%n
         </Property>
     </Properties>
     <Appenders>

@@ -4,7 +4,7 @@ plugins {
 
 
 dependencies {
-    implementation(project(":commons:logback-console-springboot"))
+    implementation(project(":logs-config:logback-springboot"))
 
     // zk distribution lock
     implementation 'org.apache.curator:curator-recipes:5.5.0'

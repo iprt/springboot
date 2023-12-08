@@ -5,6 +5,11 @@ plugins {
     id('org.springframework.boot')
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 dependencies {
     // web
     implementation('org.springframework.boot:spring-boot-starter-web')
