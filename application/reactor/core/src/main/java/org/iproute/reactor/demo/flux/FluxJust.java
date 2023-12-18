@@ -6,7 +6,6 @@ import reactor.core.publisher.Flux;
  * FluxJust
  *
  * @author zhuzhenjie
- * @since 2023/2/4
  */
 public class FluxJust {
     public static void main(String[] args) {

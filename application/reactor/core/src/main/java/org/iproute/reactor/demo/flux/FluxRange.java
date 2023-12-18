@@ -6,7 +6,6 @@ import reactor.core.publisher.Flux;
  * FluxRange
  *
  * @author zhuzhenjie
- * @since 2023/2/4
  */
 public class FluxRange {
     public static void main(String[] args) {

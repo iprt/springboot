@@ -6,7 +6,6 @@ import reactor.core.publisher.Flux;
  * FluxFlatMap
  *
  * @author zhuzhenjie
- * @since 4/24/2023
  */
 public class FluxFlatMap {
     public static void main(String[] args) {

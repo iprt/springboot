@@ -3,7 +3,6 @@ package org.iproute.reactor.demo.flux;
 import com.google.common.collect.Lists;
 import reactor.core.publisher.Flux;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
