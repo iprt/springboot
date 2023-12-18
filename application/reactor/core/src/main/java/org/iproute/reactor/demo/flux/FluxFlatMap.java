@@ -16,7 +16,7 @@ public class FluxFlatMap {
 
         stringFlux2.log().subscribe(System.out::println);
 
-        stringFlux2.flatMap(flux1 -> flux1.map(word -> word.toUpperCase()))
+        stringFlux2.flatMap(flux1 -> flux1.map(String::toUpperCase))
                 .subscribe(System.out::println);
 
         Flux<String> stringFlux3 = stringFlux2.flatMap(flux -> flux);
