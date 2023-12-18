@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * TreeApplication
  *
  * @author zhuzhenjie
- * @since 2022/4/19
- * @since 2023/1/08
  */
 @SpringBootApplication
 public class TreeApplication {

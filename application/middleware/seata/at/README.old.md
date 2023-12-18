@@ -4,7 +4,7 @@
 
 **1. 业务数据库添加 `undo_log` 表**
 
-- [0_init/20230107.sql](0_sql/20230107.sql)
+- [0_init/001_init.sql](0_sql/001_init.sql)
 
 **2. 增加依赖 `spring-cloud-alibaba-seata`**
 

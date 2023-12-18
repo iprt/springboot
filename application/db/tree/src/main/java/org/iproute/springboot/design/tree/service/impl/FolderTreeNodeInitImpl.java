@@ -123,7 +123,7 @@ public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
                 .expandable(TreeNodeExpandable.<TreeNode>builder()
                         .expandable(n -> {
                             long nodeId = n.getId();
-                            return treeNodeService.children(nodeId, false, 1).size() > 0;
+                            return !treeNodeService.children(nodeId, false, 1).isEmpty();
                         })
                         .expandFunc(n -> treeNodeService.children(n.getId(), false, 1))
                         .build())

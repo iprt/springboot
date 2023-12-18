@@ -18,73 +18,73 @@ public interface TreeNodeService {
     int ROOT_LEVEL = 1;
 
     /**
-     * Node info list.
+     * Retrieves information about a tree node.
      *
-     * @param id the id
-     * @return the list
+     * @param id the ID of the tree node to retrieve information for
+     * @return the TreeNode object representing the tree node with the specified ID
      */
     TreeNode nodeInfo(long id);
 
     /**
-     * 获取某一层的所有的treeNode
+     * Returns a list of TreeNodes at the specified level.
      *
-     * @param level the level
-     * @return the list
+     * @param level the level of the TreeNodes to retrieve
+     * @return a list of TreeNodes at the specified level
      */
     List<TreeNode> levelNodes(int level);
 
     /**
-     * 查询父节点继承树
+     * Retrieves a list of parent TreeNodes for a given ID.
      *
-     * @param id      id
-     * @param include 是否包含当前节点
-     * @param level   向上查询父节点的层数
-     * @return 父节点继承数 list
+     * @param id      the ID of the TreeNode to retrieve parents for
+     * @param include a flag indicating whether or not to include the TreeNode with the given ID in the result list
+     * @param level   the number of levels up the tree to retrieve parents from (including the initial TreeNode)
+     * @return a list of parent TreeNodes at the specified level, if any; otherwise an empty list
      */
     List<TreeNode> parents(Long id, boolean include, int level);
 
     /**
-     * 查询单个父节点
+     * Retrieves the parent TreeNode for a given ID.
      *
-     * @param id the id
-     * @return 父节点
+     * @param id the ID of the TreeNode
+     * @return the parent TreeNode object of the specified ID
      */
     TreeNode parent(Long id);
 
     /**
-     * Child nodes list.
+     * Retrieves a list of child TreeNodes for a given ID, optionally including the TreeNode with the given ID.
      *
-     * @param id      the id
-     * @param include 是否包含当前节点
-     * @param level   查询子节点的层数 最小 1 层
-     * @return the list
+     * @param id      the ID of the parent TreeNode
+     * @param include a flag indicating whether or not to include the TreeNode with the given ID in the result list
+     * @param level   the number of levels down the tree to retrieve children from (including the initial TreeNode)
+     * @return a list of child TreeNodes at the specified level, if any; otherwise an empty list
      */
     List<TreeNode> children(Long id, boolean include, int level);
 
     /**
-     * 添加节点
+     * Adds a new TreeNode to the tree.
      *
-     * @param pid      id < 0 时：添加一层节点，否则添加子节点，这个行为是个约定
-     * @param nodeName the node name
-     * @return the tree node
+     * @param pid       the parent ID of the new node
+     * @param nodeName  the name of the new node
+     * @return the newly created TreeNode
      */
     TreeNode addNode(Long pid, String nodeName);
 
     /**
-     * Add nodes tree node.
+     * Adds multiple TreeNodes with the given parent ID and node names.
      *
-     * @param pid       the pid
-     * @param nodeNames the node names
-     * @return the tree node
+     * @param pid       the parent ID of the new nodes
+     * @param nodeNames the list of node names to be added
+     * @return a list of the newly created TreeNodes
      */
     List<TreeNode> addNodes(Long pid, List<String> nodeNames);
 
     /**
-     * Remove.
+     * Removes a TreeNode with the specified ID, optionally including its children.
      *
-     * @param id      the id
-     * @param include the include
-     * @return the int
+     * @param id      the ID of the TreeNode to be removed
+     * @param include a flag indicating whether or not to include the children of the TreeNode with the given ID
+     * @return the number of TreeNodes that were removed
      */
     int removeNode(Long id, boolean include);
 
@@ -99,15 +99,17 @@ public interface TreeNodeService {
     }
 
     /**
-     * 删除某一层，（理论意义上删除所有的子节点）
+     * Removes all TreeNodes at the specified level, optionally including their children.
      *
-     * @param level the level
+     * @param level    the level of the TreeNodes to be removed
+     * @return the number of TreeNodes that were removed
      */
     int removeLevel(int level);
 
 
     /**
-     * 重置
+     * Resets the state of the TreeNodeService.
+     * This method clears any existing data and sets the service back to its initial state.
      */
     void reset();
 
