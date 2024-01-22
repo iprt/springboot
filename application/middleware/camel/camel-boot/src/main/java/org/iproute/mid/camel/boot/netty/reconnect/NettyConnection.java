@@ -32,7 +32,7 @@ import java.util.TimerTask;
  */
 @Slf4j
 public class NettyConnection {
-    private Bootstrap bootstrap = new Bootstrap();
+    private final Bootstrap bootstrap = new Bootstrap();
     private final SocketAddress addr_;
     private Channel channel_;
     private final Timer timer_;
@@ -166,6 +166,5 @@ public class NettyConnection {
             }
         }
     }
-
 
 }
