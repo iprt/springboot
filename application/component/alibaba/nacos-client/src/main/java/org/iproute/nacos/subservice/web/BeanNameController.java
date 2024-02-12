@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  * BeanNameController
  *
  * @author zhuzhenjie
- * @since 2023/1/10
  */
 @RestController
 // @RefreshScope

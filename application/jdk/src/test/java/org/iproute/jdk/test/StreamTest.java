@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 public class StreamTest {
 
     @Test
-    public void testGroup() {
+    public void testGroupWithProperty() {
         List<People> peoples = Lists.newArrayList(
                 People.builder().id(1).name("name1").build(),
                 People.builder().id(1).name("name11").build(),
@@ -43,6 +44,44 @@ public class StreamTest {
         });
 
     }
+
+    @Test
+    public void testGroup() {
+
+        List<People> peoples = Lists.newArrayList(
+                People.builder().id(1).name("name_1").build(),
+                People.builder().id(1).name("name-1").build(),
+                People.builder().id(2).name("name_2").build()
+        );
+
+
+        Map<Integer, People> aMap = peoples.stream().collect(
+                Collectors.toMap(
+                        People::getId, Function.identity(), (a, b) -> a
+                )
+        );
+
+        Map<Integer, People> bMap = peoples.stream().collect(
+                Collectors.toMap(
+                        People::getId, Function.identity(), (a, b) -> b
+                )
+        );
+
+
+        log.info("a map");
+
+        aMap.forEach((k, v) ->
+                log.info("key = {} , value = {}", k, v)
+        );
+
+        log.info("b map");
+
+        bMap.forEach((Integer k, People v) ->
+                log.info("key = {} , value = {}", k, v)
+        );
+
+    }
+
 
     @AllArgsConstructor
     @NoArgsConstructor
