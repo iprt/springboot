@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <include resource="logback/default.xml"/>
+
+    <property name="LOGS" value="./logs"/>
+    <springProperty scop="context" name="spring.application.name" source="spring.application.name"
+                    defaultValue="undefined"/>
+    <property name="LOG_BASE_NAME" value="${spring.application.name}"/>
+
+    <include resource="logback/console-appender.xml"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

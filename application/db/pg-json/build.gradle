@@ -1,0 +1,33 @@
+plugins {
+    // from build-logic spring-boot-application
+    id('org.iproute.spring-boot-application')
+}
+
+group = 'org.iproute'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation(project(':logs-config:logback-springboot-console'))
+    // mybatis
+    implementation('com.baomidou:mybatis-plus-boot-starter')
+    // implementation 'mysql:mysql-connector-java'
+    implementation 'org.postgresql:postgresql'
+    // liquibase
+    implementation 'org.liquibase:liquibase-core'
+    // fastjson
+    implementation 'com.alibaba.fastjson2:fastjson2'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        // 忽略 junit4
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+    }
+}

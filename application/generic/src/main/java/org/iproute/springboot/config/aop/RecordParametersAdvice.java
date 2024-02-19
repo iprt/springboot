@@ -1,6 +1,6 @@
 package org.iproute.springboot.config.aop;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -146,7 +146,6 @@ public class RecordParametersAdvice {
      * @param targetMethod       目标方法
      * @param classMethodInfo    目标类#方法
      * @param isControllerMethod 是否是controller类中的方法
-     * @date 2020/4/10 18:21:17
      */
     private void preHandle(ProceedingJoinPoint pjp, RecordParameters.LogLevel logLevel,
                            Method targetMethod, String classMethodInfo, boolean isControllerMethod) {
@@ -184,7 +183,6 @@ public class RecordParametersAdvice {
      * @param obj                目标方法的返回结果
      * @param classMethodInfo    目标类#方法
      * @param isControllerMethod 是否是controller类中的方法
-     * @date 2020/4/10 18:21:17
      */
     private void postHandle(RecordParameters.LogLevel logLevel, Method targetMethod,
                             Object obj, String classMethodInfo, boolean isControllerMethod) {
@@ -228,7 +226,6 @@ public class RecordParametersAdvice {
          *
          * @param logLevel    要记录的日志的级别
          * @param markerValue formatter中占位符的值
-         * @date 2020/4/11 12:57:21
          */
         private void log(RecordParameters.LogLevel logLevel, Object markerValue) {
             try {
@@ -239,11 +236,10 @@ public class RecordParametersAdvice {
         }
 
         /**
-         * json格式化输出
+         * Returns a string representation of the given object in a pretty JSON format.
          *
-         * @param obj 需要格式化的对象
-         * @return json字符串
-         * @date 2019/12/5 11:03
+         * @param obj the object to be converted to a JSON string
+         * @return a JSON string representation of the given object
          */
         String jsonPretty(Object obj) {
             return JSON.toJSONString(obj);

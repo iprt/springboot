@@ -23,6 +23,7 @@ rootProject.name = 'application'
 include("logs-config:log4j2-console")
 include("logs-config:logback-console")
 include("logs-config:logback-springboot")
+include("logs-config:logback-springboot-console")
 
 // component
 
@@ -46,6 +47,7 @@ include('component:security:json-login')
 // db
 include('db:tree')
 include('db:tdengine')
+include('db:pg-json')
 
 include('generic')
 // middleware apache camel

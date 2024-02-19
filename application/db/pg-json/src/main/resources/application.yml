@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://172.100.1.100:5432/pg_json
+    username: postgres
+    password: postgres
