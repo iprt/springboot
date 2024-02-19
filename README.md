@@ -4,10 +4,10 @@
 
 Gradle
 
-- [Structuring Large Projects](https://docs.gradle.org/current/userguide/structuring_software_products.html)
-- [Declaring Versions and Ranges](https://docs.gradle.org/current/userguide/single_versions.html)
-- [Declaring Rich Versions](https://docs.gradle.org/current/userguide/rich_versions.html)
-- [Sharing dependency versions between projects](https://docs.gradle.org/current/userguide/platforms.html)
+- [Structuring Large Projects](https://docs.gradle.org/7.5.1/userguide/structuring_software_products.html)
+- [Declaring Versions and Ranges](https://docs.gradle.org/7.5.1/userguide/single_versions.html)
+- [Declaring Rich Versions](https://docs.gradle.org/7.5.1/userguide/rich_versions.html)
+- [Sharing dependency versions between projects](https://docs.gradle.org/7.5.1/userguide/platforms.html)
 
 Spring boot
 
