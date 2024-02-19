@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * RefeshController
+ * RefreshController
  *
  * @author zhuzhenjie
- * @since 2022/12/3
  */
 @AllArgsConstructor
 @RestController
