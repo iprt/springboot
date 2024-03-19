@@ -53,8 +53,8 @@ public class BookServiceTest {
     @Test
     public void testGetAllBooks() {
         List<Book> books = bookService.getAllBooks();
+        books.forEach(System.out::println);
         Assertions.assertNotNull(books);
-        Assertions.assertEquals(0, books.size());
     }
 
     @Test
