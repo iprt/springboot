@@ -12,8 +12,14 @@ configurations {
     }
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+java{
+    sourceCompatibility=JavaVersion.VERSION_11
+    targetCompatibility=JavaVersion.VERSION_11
+}
 
 repositories {
     maven { url 'https://maven.aliyun.com/repository/public' }
@@ -57,9 +63,6 @@ dependencies {
 
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
 
 test {
     useJUnitPlatform()
