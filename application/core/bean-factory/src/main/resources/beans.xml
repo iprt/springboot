@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" name="p" class="org.iproute.core.factory.xml.Person"/>
+
+    <bean id="conn" class="org.iproute.core.factory.xml.ConnectionFactoryBean"/>
+
+    <!--  非静态方法需要两个Bean  -->
+    <bean id="connFactory" class="org.iproute.core.factory.xml.ConnectionFactory"/>
+    <bean id="conn1" factory-bean="connFactory" factory-method="getConnection"/>
+
+
+    <bean id="conn2" class="org.iproute.core.factory.xml.ConnectionStaticFactory" factory-method="getConnection"/>
+
+    <bean id="dateConvertor" class="org.iproute.core.factory.xml.convertor.DateConvertor"/>
+
+    <bean id="moreConvertor" class="org.iproute.core.factory.xml.convertor.MoreDateConvertor">
+        <constructor-arg value="yyyy-MM-dd HH:mm:ss"/>
+    </bean>
+
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="moreConvertor"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="product" class="org.iproute.core.factory.xml.Product" init-method="myInit" destroy-method="myDestroy">
+        <constructor-arg value="beans.xml"/>
+        <property name="date" value="2024-01-01 12:00:00"/>
+    </bean>
+
+</beans>

@@ -32,6 +32,9 @@ include('component:integration:integration-tcp-client')
 include('component:integration:integration-tcp-server')
 include('component:integration:tcp')
 
+// core
+include('core:bean-factory')
+
 // component graphql
 include('component:graphql')
 // component alibaba
