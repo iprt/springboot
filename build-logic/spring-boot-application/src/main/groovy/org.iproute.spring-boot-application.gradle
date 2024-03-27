@@ -24,7 +24,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
     // spring-boot-configuration-processor
-    implementation 'org.springframework.boot:spring-boot-configuration-processor'
+    // implementation 'org.springframework.boot:spring-boot-configuration-processor'
+
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     // compileOnly 'org.projectlombok:lombok:1.18.24'
     // annotationProcessor 'org.projectlombok:lombok:1.18.24'
