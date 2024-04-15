@@ -1,6 +1,7 @@
 package org.iproute.pg.json.service;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.pg.json.entities.Book;
@@ -36,5 +37,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public int deleteBook(long id) {
         return bookMapper.deleteById(id);
+    }
+
+    @Override
+    public Page<Book> limitPage(int pageNo, int pageSize) {
+        Page<?> page = new Page<>(pageNo, pageSize);
+        return bookMapper.limitPage(page);
     }
 }

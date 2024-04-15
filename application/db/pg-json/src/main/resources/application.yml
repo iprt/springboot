@@ -6,3 +6,10 @@ spring:
     url: jdbc:postgresql://172.100.1.100:5432/pg_json
     username: postgres
     password: postgres
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+logging:
+  level:
+    org.iproute.pg.json.mapper: debug

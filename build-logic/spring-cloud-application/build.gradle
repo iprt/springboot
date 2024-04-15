@@ -11,4 +11,6 @@ dependencies {
     // from <2>
     // use springboot build plugin, without version
     implementation('org.springframework.boot:org.springframework.boot.gradle.plugin')  // <4>
+    implementation('io.spring.dependency-management:io.spring.dependency-management.gradle.plugin')
+
 }

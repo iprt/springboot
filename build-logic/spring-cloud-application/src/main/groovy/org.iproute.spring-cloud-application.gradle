@@ -3,13 +3,18 @@ plugins {
     id('org.iproute.commons')
     // build.gradle implementation(platform('org.iproute.platform:plugins-platform'))
     id('org.springframework.boot')
+    id("io.spring.dependency-management")
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
 }
-
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')

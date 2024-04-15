@@ -9,5 +9,7 @@ dependencies {
     // 传递依赖
     constraints {
         api('org.springframework.boot:org.springframework.boot.gradle.plugin:2.3.12.RELEASE')
+        // https://mvnrepository.com/artifact/io.spring.dependency-management/io.spring.dependency-management.gradle.plugin
+        api('io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.0.15.RELEASE')
     }
 }
