@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.iproute.pg.json.entities.Book;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * BookService
@@ -45,4 +46,12 @@ public interface BookService {
      * @return a {@link Page} object containing the limited page of books
      */
     Page<Book> limitPage(int pageNo, int pageSize);
+
+    /**
+     * Retrieves a list of mappings, each representing a record in the database.
+     * Each mapping has a String key representing the column name, and an Object value representing the column value.
+     *
+     * @return a list of mappings representing the records
+     */
+    List<Map<String, Object>> listReturnMap();
 }

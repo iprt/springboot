@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
@@ -100,5 +101,12 @@ public class BookServiceTest {
         System.out.println("records.size is " + bookPage.getRecords().size());
     }
 
+    @Test
+    public void listReturnMap() {
+
+        List<Map<String, Object>> maps = bookService.listReturnMap();
+
+        System.out.println("BookServiceTest.listReturnMap");
+    }
 
 }

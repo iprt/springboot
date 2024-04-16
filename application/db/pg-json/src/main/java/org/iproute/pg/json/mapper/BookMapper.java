@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.iproute.pg.json.entities.Book;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * BookMapper
  *
@@ -22,4 +25,14 @@ public interface BookMapper extends BaseMapper<Book> {
      * @return A new page with the limited results
      */
     Page<Book> limitPage(Page<?> page);
+
+
+    /**
+     * Retrieves a list of mappings, each representing a record in the database.
+     * Each mapping has a String key representing the column name, and an Object value representing the column value.
+     *
+     * @return a list of mappings representing the records
+     */
+    List<Map<String, Object>> listReturnMap();
+
 }

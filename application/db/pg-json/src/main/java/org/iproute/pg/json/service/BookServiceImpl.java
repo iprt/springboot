@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * BookServiceImpl
@@ -33,7 +34,6 @@ public class BookServiceImpl implements BookService {
         return bookMapper.selectList(Wrappers.emptyWrapper());
     }
 
-
     @Override
     public int deleteBook(long id) {
         return bookMapper.deleteById(id);
@@ -44,4 +44,10 @@ public class BookServiceImpl implements BookService {
         Page<?> page = new Page<>(pageNo, pageSize);
         return bookMapper.limitPage(page);
     }
+
+    @Override
+    public List<Map<String, Object>> listReturnMap() {
+        return bookMapper.listReturnMap();
+    }
+
 }

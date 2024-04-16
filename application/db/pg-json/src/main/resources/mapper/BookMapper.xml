@@ -25,4 +25,15 @@
         from book limit 100
         ) t
     </select>
+
+
+    <select id="listReturnMap" resultType="java.util.Map">
+        select
+        <include refid="BookColumns"/>
+        from
+        book
+        limit 10
+    </select>
+
+
 </mapper>
