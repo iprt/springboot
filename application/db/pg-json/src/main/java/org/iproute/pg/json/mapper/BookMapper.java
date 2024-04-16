@@ -2,6 +2,7 @@ package org.iproute.pg.json.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.iproute.pg.json.entities.Book;
 import org.springframework.stereotype.Repository;
@@ -33,6 +34,7 @@ public interface BookMapper extends BaseMapper<Book> {
      *
      * @return a list of mappings representing the records
      */
+    @MapKey("id")
     List<Map<String, Object>> listReturnMap();
 
 }
