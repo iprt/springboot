@@ -78,7 +78,6 @@ public class BookServiceTest {
 
     }
 
-
     @Test
     public void testGetAllBooks() {
         List<Book> books = bookService.getAllBooks();

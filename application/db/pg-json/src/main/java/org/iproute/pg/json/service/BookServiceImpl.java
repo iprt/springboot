@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.pg.json.entities.Book;
 import org.iproute.pg.json.mapper.BookMapper;
+import org.iproute.pg.json.utils.CastUtils;
+import org.postgresql.util.PGobject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +49,14 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Map<String, Object>> listReturnMap() {
-        return bookMapper.listReturnMap();
+        List<Map<String, Object>> rows = bookMapper.listReturnMap();
+
+        rows.forEach(row -> {
+            PGobject pGobject = CastUtils.cast(row.get("detail"), PGobject.class);
+            log.info("book.detail type = {}; value= {}", pGobject.getType(), pGobject.getValue());
+        });
+
+        return rows;
     }
 
 }
