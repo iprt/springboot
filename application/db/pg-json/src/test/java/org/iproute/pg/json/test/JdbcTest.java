@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,7 +18,6 @@ import java.sql.Statement;
  * @author zhuzhenjie
  */
 public class JdbcTest {
-
     private static Connection conn;
     private static Statement stmt;
 
@@ -36,12 +36,18 @@ public class JdbcTest {
     }
 
     @Test
-    public void testSelect() throws SQLException {
-        try (ResultSet rs = stmt.executeQuery("select id ,detail,authors from book limit 10")) {
+    public void testSelect() {
+        try (ResultSet rs = stmt.executeQuery(
+                "select id ,detail,authors,types from book limit 10"
+        )) {
             while (rs.next()) {
                 Object detail = rs.getObject("detail");
-                System.out.println(detail.getClass());
+                Object authors = rs.getObject("authors");
+                Array array = rs.getArray("types");
+                System.out.println("detail:" + detail.getClass() + " | authors:" + authors.getClass() + " | types:" + array.getClass());
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

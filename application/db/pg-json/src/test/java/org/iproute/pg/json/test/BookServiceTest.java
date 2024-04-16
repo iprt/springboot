@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 /**
  * BookServiceTest
@@ -47,6 +47,7 @@ public class BookServiceTest {
                                 Book.Author.builder().authorName("zhuzhenjie").age(18).build(),
                                 Book.Author.builder().authorName("John Smith").age(20).build()
                         ))
+                        .types(new String[]{"悬疑", "爱情"})
                         .build()
         );
 
@@ -55,7 +56,7 @@ public class BookServiceTest {
 
     @Test
     public void testBatchInsert() {
-        IntStream.range(0, 1000).forEach(i -> {
+        LongStream.range(0, 1000).forEach(i -> {
             Date now = new Date();
             bookService.addBook(
                     Book.builder()
@@ -72,6 +73,7 @@ public class BookServiceTest {
                                     Book.Author.builder().authorName("zhuzhenjie").age(18).build(),
                                     Book.Author.builder().authorName("John Smith").age(20).build()
                             ))
+                            .types(new String[]{"悬疑", "爱情"})
                             .build()
             );
         });

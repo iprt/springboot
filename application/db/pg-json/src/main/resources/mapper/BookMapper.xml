@@ -8,32 +8,30 @@
         <result column="detail" property="detail" typeHandler="org.iproute.pg.json.entities.Book$DetailTypeHandler"/>
         <result column="authors" property="authors"
                 typeHandler="org.iproute.pg.json.entities.Book$ListAuthorTypeHandler"/>
-
+        <result column="types" property="types" typeHandler="org.iproute.pg.json.entities.Book$StringArrayTypeHandler"/>
     </resultMap>
 
-    <sql id="BookColumns">
-        id, detail, authors
-    </sql>
-
     <select id="limitPage" resultMap="BookResultMap">
-        select
-        <include refid="BookColumns"/>
-        from
-        (
-        select
-        <include refid="BookColumns"/>
-        from book limit 100
-        ) t
+        select id,
+               detail,
+               authors,
+               types
+        from (select id,
+                     detail,
+                     authors,
+                     types
+              from book
+              limit 100) t
     </select>
 
 
     <select id="listReturnMap" resultType="java.util.Map">
-        select
-        <include refid="BookColumns"/>
-        from
-        book
+        select id,
+               detail,
+               authors,
+               types
+        from book
         limit 10
     </select>
-
 
 </mapper>

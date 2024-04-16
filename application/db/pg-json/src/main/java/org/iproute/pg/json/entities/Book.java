@@ -16,6 +16,7 @@ import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.postgresql.util.PGobject;
 
+import java.sql.Array;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,13 +39,16 @@ import java.util.List;
 public class Book {
 
     @TableId(value = "id", type = IdType.AUTO)
-    private long id;
+    private Long id;
 
     @TableField(value = "detail", typeHandler = DetailTypeHandler.class)
     private Detail detail;
 
     @TableField(value = "authors", typeHandler = ListAuthorTypeHandler.class)
     private List<Author> authors;
+
+    @TableField(value = "types", typeHandler = StringArrayTypeHandler.class)
+    private String[] types;
 
     @AllArgsConstructor
     @NoArgsConstructor
@@ -174,4 +178,41 @@ public class Book {
         }
 
     }
+
+    public static class StringArrayTypeHandler extends BaseTypeHandler<String[]> {
+
+        @Override
+        public void setNonNullParameter(PreparedStatement preparedStatement, int i, String[] strings, JdbcType jdbcType) throws SQLException {
+            preparedStatement.setObject(i, preparedStatement.getConnection().createArrayOf("varchar", strings));
+        }
+
+        @Override
+        public String[] getNullableResult(ResultSet resultSet, String columnName) throws SQLException {
+            Array array = resultSet.getArray(columnName);
+            if (array == null) {
+                return new String[0];
+            }
+            return (String[]) array.getArray();
+        }
+
+        @Override
+        public String[] getNullableResult(ResultSet resultSet, int i) throws SQLException {
+            Array array = resultSet.getArray(i);
+            if (array == null) {
+                return new String[0];
+            }
+            return (String[]) array.getArray();
+        }
+
+        @Override
+        public String[] getNullableResult(CallableStatement callableStatement, int i) throws SQLException {
+            Array array = callableStatement.getArray(i);
+            if (array == null) {
+                return new String[0];
+            }
+            return (String[]) array.getArray();
+        }
+
+    }
+
 }
