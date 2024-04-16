@@ -15,3 +15,8 @@ Spring boot
 - [netty](https://www.netty.io)
 - [camel](https://camel.apache.org/)
 - [elastic](https://www.elastic.co)
+
+
+## IDEA BUG
+
+https://youtrack.jetbrains.com/issue/IDEA-343588/Fails-to-download-sources-for-gradle-projects-using-includeBuild
