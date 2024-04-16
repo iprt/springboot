@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * SaTokenConfigure
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/15
  */
 @Configuration

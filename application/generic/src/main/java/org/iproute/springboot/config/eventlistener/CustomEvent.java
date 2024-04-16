@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * 自定义事件
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Slf4j
 public class CustomEvent extends ApplicationEvent {

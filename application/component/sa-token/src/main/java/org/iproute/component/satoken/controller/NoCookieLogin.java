@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * NoCookieLogin
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/15
  */
 @RequestMapping("/NoCookie")

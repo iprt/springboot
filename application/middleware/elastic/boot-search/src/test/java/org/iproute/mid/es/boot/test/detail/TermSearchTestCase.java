@@ -16,7 +16,7 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 /**
  * term是代表完全匹配，即不进行分词器分析，文档中必须包含整个搜索的词汇
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 public class TermSearchTestCase extends BaseFrameTestCase {

@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * OrderController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/17
  */
 @RestController
@@ -43,7 +43,6 @@ public class OrderController {
             return "failure";
         }
     }
-
 
     /**
      * Reset string.

@@ -5,7 +5,7 @@ import lombok.*;
 /**
  * PostDTO
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/28
  */
 @AllArgsConstructor

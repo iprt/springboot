@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * OAuth2Application
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @SpringBootApplication
 public class OAuth2Application {

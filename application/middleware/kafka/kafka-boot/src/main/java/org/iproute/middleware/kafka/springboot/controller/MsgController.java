@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * MsgController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/16
  */
 @RestController

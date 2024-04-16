@@ -3,7 +3,7 @@ package org.iproute.raft.election.algo;
 /**
  * 当前节点为follower的时候
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023-08-27
  */
 public class Leader {

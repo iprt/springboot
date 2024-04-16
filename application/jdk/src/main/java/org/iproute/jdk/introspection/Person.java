@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * Person
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 5/22/2023
  */
 @Data

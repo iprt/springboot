@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * UserController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/6/5
  */
 @RestController

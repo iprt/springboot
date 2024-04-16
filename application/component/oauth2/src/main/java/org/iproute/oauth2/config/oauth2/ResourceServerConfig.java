@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 /**
  * ResourceServerConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/5/18
  */
 @Configuration

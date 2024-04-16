@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Demo
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/5/30
  */
 @TableName("demo")

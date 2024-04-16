@@ -15,7 +15,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 /**
  * RedisCacheApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 3/15/2023
  */
 @SpringBootApplication

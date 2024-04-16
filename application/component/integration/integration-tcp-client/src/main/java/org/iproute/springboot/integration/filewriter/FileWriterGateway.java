@@ -7,7 +7,7 @@ import org.springframework.messaging.handler.annotation.Header;
 /**
  * FileWriterGateway
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/2/6
  */
 @MessagingGateway(

@@ -11,7 +11,7 @@ import java.util.List;
  * <p>
  * 参考文章 <a href="https://www.cnblogs.com/caoweixiong/p/14663492.html">...</a>
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/8/7
  */
 public class MsgDecoder extends ByteToMessageDecoder {

@@ -19,7 +19,7 @@ import java.util.stream.LongStream;
 /**
  * BookServiceTest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @SpringBootTest
 public class BookServiceTest {

@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * DateShardingAlgorithm
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/1/23
  */
 @Slf4j

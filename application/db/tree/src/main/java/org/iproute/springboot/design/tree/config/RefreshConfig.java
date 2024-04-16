@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * RefreshConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/3
  */
 @Configuration

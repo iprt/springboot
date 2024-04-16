@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * BeanNameController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @RestController
 // @RefreshScope

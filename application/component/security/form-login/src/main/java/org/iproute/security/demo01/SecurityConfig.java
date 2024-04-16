@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * SecurityConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/11
  */
 @Configuration

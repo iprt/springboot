@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * LogstashApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/24
  */
 @SpringBootApplication

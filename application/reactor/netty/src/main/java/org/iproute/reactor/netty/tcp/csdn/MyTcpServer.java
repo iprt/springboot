@@ -15,7 +15,7 @@ import java.util.List;
  * MyTcpServer
  * <a href="https://blog.csdn.net/MyronCham/article/details/117731622">...</a>
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/2/4
  */
 @Slf4j

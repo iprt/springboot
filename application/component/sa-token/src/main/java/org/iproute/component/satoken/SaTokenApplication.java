@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * SaTokenApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/6/5
  */
 @SpringBootApplication

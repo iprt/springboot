@@ -20,7 +20,7 @@ import java.util.UUID;
 /**
  * EchoStringServer
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 5/1/2023
  */
 public class EchoStringServer {

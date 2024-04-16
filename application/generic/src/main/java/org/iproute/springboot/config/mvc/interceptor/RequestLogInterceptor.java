@@ -22,7 +22,7 @@ import java.util.concurrent.Executor;
 /**
  * RequestLogInterceptor
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/25
  */
 @Component

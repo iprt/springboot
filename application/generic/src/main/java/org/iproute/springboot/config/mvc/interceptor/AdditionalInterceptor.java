@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * AdditionalInterceptor
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/25
  */
 @Component

@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 /**
  * 基础框架
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 @SpringBootTest

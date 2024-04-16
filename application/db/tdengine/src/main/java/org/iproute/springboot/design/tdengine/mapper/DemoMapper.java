@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 /**
  * DemoMapper
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/5/30
  */
 @Mapper

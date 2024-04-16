@@ -11,7 +11,7 @@ import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsglEncoder;
 /**
  * ClientAuthHandler
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/8/19
  */
 @Slf4j

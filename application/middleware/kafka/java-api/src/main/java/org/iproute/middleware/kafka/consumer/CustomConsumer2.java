@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * 自动提交offset
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/15
  */
 public class CustomConsumer2 {

@@ -10,7 +10,7 @@ import lombok.experimental.SuperBuilder;
 /**
  * DemoBeanExtend
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/2
  */
 @EqualsAndHashCode(callSuper = true)

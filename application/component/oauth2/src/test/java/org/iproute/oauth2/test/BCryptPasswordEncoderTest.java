@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**
  * BCryptPasswordEncoderTest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/6
  */
 @Slf4j

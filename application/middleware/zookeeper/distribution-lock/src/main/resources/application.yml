@@ -1,5 +1,9 @@
 server:
   port: 8091
 
+spring:
+  application:
+    name: zk-distribution-lock
+
 zk-server:
   connect-string: 127.0.0.1:2181

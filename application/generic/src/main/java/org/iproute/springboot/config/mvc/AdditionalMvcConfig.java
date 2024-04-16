@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * AdditionalMvcConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/25
  */
 @Configuration

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * ApplicationContextUtils
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/27
  */
 @Component

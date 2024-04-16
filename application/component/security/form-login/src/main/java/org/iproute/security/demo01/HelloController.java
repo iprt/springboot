@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * HelloController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/11
  */
 @RestController

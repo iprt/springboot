@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * The interface Storage dao.
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Repository
 @Mapper

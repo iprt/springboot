@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * RequestLogUtils
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/30
  */
 public class RequestLogUtils {

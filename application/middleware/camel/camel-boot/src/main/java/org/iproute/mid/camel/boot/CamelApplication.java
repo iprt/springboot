@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * CamelApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/20
  */
 @SpringBootApplication

@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * MysqlUser
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/19
  */
 @AllArgsConstructor

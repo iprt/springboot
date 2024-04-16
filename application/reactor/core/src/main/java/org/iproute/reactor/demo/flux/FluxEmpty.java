@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxEmpty
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class FluxEmpty {
 

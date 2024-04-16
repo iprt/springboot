@@ -10,7 +10,7 @@ import io.netty.util.concurrent.Promise;
 /**
  * PromiseDemo
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/2/3
  */
 public class PromiseDemo {

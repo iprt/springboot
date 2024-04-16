@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * DemoBean
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/2
  */
 @AllArgsConstructor

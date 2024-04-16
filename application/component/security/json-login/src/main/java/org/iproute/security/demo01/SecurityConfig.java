@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 /**
  * SecurityConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/11
  */
 @Configuration

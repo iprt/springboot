@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 /**
  * 认证配置
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/5/18
  */
 @Configuration

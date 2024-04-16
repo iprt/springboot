@@ -15,7 +15,7 @@ import org.springframework.data.elasticsearch.annotations.Setting;
 /**
  * Product
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 @AllArgsConstructor

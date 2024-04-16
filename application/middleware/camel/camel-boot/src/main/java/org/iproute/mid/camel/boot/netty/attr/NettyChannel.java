@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * NetttyChannel
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 4/29/2023
  */
 @Builder

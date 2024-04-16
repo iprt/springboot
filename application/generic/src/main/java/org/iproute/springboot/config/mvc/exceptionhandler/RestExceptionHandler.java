@@ -17,7 +17,7 @@ import java.util.concurrent.Executor;
 /**
  * RestExceptionHandler
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/27
  */
 @ControllerAdvice

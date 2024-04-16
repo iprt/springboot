@@ -11,7 +11,7 @@ import java.net.InetSocketAddress;
 /**
  * ServerInfo
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/19
  */
 @AllArgsConstructor

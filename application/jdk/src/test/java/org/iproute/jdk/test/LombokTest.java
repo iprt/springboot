@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * LombokTest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/8/2
  */
 @Slf4j

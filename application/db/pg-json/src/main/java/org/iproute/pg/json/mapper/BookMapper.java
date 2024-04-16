@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * BookMapper
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Repository
 @Mapper

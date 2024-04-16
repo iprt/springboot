@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * DyhClient
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Slf4j
 public class DyhClient {

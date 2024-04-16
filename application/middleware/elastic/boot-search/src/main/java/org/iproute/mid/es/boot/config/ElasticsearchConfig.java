@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * ElasticsearchConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 @ConfigurationProperties(prefix = "elasticsearch")

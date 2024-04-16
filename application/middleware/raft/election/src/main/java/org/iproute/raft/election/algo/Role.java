@@ -3,7 +3,7 @@ package org.iproute.raft.election.algo;
 /**
  * State
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023-08-27
  */
 public enum Role {

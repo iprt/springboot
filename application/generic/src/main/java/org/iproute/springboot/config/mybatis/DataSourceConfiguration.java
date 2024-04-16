@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  * <p>
  * 使用{@link com.baomidou.dynamic.datasource.annotation.DS}注解，切换数据源
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/1/23
  */
 @Configuration

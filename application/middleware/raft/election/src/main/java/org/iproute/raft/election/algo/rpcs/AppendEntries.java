@@ -10,7 +10,7 @@ import java.util.List;
  * <p>
  * 由领导人调用，用于日志条目的复制，同时也被当做心跳使用
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023-08-27
  */
 @Data

@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxError
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class FluxError {
     public static void main(String[] args) {

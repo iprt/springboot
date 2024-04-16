@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * raft 节点状态机
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023-08-27
  */
 @Slf4j

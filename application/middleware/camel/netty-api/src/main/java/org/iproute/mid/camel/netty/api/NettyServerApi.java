@@ -5,7 +5,7 @@ import org.iproute.mid.camel.netty.model.ServerInfo;
 /**
  * NettyApi
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/19
  */
 public interface NettyServerApi {

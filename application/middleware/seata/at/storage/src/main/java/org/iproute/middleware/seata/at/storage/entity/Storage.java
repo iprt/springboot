@@ -1,7 +1,7 @@
 package org.iproute.middleware.seata.at.storage.entity;
 
 /**
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class Storage {
     private Integer storageId;

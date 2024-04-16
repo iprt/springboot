@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 /**
  * 数据源代理
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 //@Configuration
 @Deprecated

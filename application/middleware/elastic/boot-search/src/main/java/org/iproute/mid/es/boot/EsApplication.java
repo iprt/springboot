@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * EsApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 @SpringBootApplication

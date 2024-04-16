@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 /**
  * StuServiceImpl
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 3/15/2023
  */
 @AllArgsConstructor

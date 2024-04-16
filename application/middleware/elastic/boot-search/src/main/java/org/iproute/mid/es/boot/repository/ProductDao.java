@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * ProductDao
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 @Repository

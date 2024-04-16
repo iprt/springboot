@@ -3,7 +3,7 @@ package org.iproute.mid.client.es.config;
 /**
  * IndexConst
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/17
  */
 public interface IndexConst {

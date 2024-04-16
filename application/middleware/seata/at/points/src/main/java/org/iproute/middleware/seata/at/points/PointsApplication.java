@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 /**
  * 6.3 排除默认数据源配置类
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient

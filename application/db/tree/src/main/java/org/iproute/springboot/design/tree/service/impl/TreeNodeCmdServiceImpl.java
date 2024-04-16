@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * TreeNodeCommandQueryServiceImpl
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/4/20
  */
 @Service

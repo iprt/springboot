@@ -3,7 +3,7 @@ package org.iproute.springboot.service;
 /**
  * EventService
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/7/28
  */
 public interface EventService {

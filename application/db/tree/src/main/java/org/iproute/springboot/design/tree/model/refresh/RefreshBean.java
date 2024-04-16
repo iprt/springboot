@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * RefreshBean
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/3
  */
 @AllArgsConstructor

@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * CustomConsumer2
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/16
  */
 public class CustomConsumer3 {

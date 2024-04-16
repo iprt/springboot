@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * PgJsonApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @SpringBootApplication
 public class PgJsonApplication {

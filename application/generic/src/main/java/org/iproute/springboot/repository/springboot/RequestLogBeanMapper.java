@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 /**
  * RequestLogMapper 需要指定sharding的数据源
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/25
  */
 @Repository

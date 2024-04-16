@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 /**
  * Client
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/8/19
  */
 @Slf4j

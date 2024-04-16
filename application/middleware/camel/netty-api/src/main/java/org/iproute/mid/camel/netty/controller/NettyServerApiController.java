@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * NettyServerApiController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/20
  */
 @RestController

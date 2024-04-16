@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * RedissonApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/18
  */
 @SpringBootApplication

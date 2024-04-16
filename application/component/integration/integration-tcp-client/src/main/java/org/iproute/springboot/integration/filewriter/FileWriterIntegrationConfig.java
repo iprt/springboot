@@ -19,7 +19,7 @@ import java.io.File;
 /**
  * FileWriterIntegrationConfig
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/2/6
  */
 @Configuration

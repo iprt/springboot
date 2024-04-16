@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxNever
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class FluxNever {
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 /**
  * EsBootTtest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 public class IndexTestCase extends BaseFrameTestCase {

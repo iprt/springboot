@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxRange
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class FluxRange {
     public static void main(String[] args) {

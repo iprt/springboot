@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 /**
  * NettyApiApplication 实现netty的动态启停
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/19
  */
 @SpringBootApplication

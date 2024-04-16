@@ -12,7 +12,7 @@ import org.iproute.mid.camel.boot.netty.dynamichandler.serverhandler.ServerIniti
 /**
  * DyhServer
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Slf4j
 public class DyhServer {

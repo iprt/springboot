@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * CustomEventSyncListener
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/1/23
  */
 @Component

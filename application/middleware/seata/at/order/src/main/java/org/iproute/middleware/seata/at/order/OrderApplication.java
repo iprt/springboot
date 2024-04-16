@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 /**
  * old : @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient

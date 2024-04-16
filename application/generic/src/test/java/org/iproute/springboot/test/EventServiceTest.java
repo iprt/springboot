@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 /**
  * EventServiceTest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/7/28
  */
 @SpringBootTest

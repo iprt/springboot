@@ -17,7 +17,7 @@ import java.util.Date;
 /**
  * RequestLog
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/25
  */
 @AllArgsConstructor

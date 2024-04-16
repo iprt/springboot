@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * DefineHeaderController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/19
  */
 @RestController

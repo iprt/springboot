@@ -9,7 +9,7 @@ import java.util.Properties;
 /**
  * 不带回调函数的api
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/3/13
  */
 public class CustomProducer {

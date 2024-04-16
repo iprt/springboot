@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * RemoteInfo
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/8/20
  */
 @AllArgsConstructor

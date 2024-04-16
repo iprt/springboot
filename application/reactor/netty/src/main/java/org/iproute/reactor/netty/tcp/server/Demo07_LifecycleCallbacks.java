@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Demo7
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/2/5
  */
 public class Demo07_LifecycleCallbacks {

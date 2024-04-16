@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * StreamTest
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @Slf4j
 public class StreamTest {

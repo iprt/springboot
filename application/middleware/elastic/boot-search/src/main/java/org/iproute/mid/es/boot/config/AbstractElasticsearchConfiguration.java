@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.core.convert.ElasticsearchConverte
 /**
  * AbstractElasticsearchConfiguration
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/7/18
  */
 public abstract class AbstractElasticsearchConfiguration extends ElasticsearchConfigurationSupport {

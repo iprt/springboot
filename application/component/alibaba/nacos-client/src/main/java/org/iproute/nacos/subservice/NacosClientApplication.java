@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 /**
  * NacosClientApplication
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/1/10
  */
 @SpringBootApplication

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * SpringSecurityDemo01
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/12/11
  */
 @SpringBootApplication

@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 /**
  * PrefixRestController
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2021/11/27
  */
 @Target(ElementType.TYPE)

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 自定义权限验证接口扩展
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023/6/8
  */
 @Component

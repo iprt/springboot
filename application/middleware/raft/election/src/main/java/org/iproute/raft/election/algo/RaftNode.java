@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * raft 节点
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2023-08-26
  */
 @Data

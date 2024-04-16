@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Product
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 @ToString
 @Data

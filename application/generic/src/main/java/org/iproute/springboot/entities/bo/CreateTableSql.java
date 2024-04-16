@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * CreateTableSql
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/1/23
  */
 @AllArgsConstructor

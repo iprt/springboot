@@ -13,7 +13,7 @@ import org.springframework.messaging.MessageChannel;
 /**
  * Config
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 2022/1/23
  */
 @EnableIntegration

@@ -13,7 +13,7 @@ import static org.iproute.mid.camel.boot.netty.attr.Constant.NETTY_CHANNEL_KEY;
 /**
  * AttrClientHandler
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  * @since 4/28/2023
  */
 @Slf4j

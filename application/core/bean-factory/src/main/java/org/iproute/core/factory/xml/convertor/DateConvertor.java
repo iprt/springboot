@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * DateConvertor
  *
- * @author zhuzhenjie
+ * @author devops@kubectl.net
  */
 public class DateConvertor implements Converter<String, Date> {
 
