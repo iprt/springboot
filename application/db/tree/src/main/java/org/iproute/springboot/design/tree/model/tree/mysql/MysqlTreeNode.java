@@ -11,11 +11,10 @@ import org.iproute.springboot.design.tree.model.tree.TreeNode;
  * @author devops@kubectl.net
  * @since 2022/4/19
  */
+@Setter
 @Getter
 @TableName("tree_node")
 public class MysqlTreeNode extends TreeNode {
-    @Setter
     private int lft;
-    @Setter
     private int rgt;
 }

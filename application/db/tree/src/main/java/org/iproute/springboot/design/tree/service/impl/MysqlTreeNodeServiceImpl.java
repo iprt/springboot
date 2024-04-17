@@ -27,15 +27,16 @@ import java.util.stream.IntStream;
 @Slf4j
 public class MysqlTreeNodeServiceImpl implements TreeNodeService {
 
-    /**
-     * transaction
-     */
-    @Qualifier("mysqlTreeNodeService")
-    @Autowired
-    private TreeNodeService treeNodeService;
+    // transaction
+    private final TreeNodeService treeNodeService;
+    private final MysqlTreeNodeMapper mysqlTreeNodeMapper;
 
     @Autowired
-    private MysqlTreeNodeMapper mysqlTreeNodeMapper;
+    public MysqlTreeNodeServiceImpl(@Qualifier("mysqlTreeNodeService") TreeNodeService treeNodeService,
+                                    MysqlTreeNodeMapper mysqlTreeNodeMapper) {
+        this.treeNodeService = treeNodeService;
+        this.mysqlTreeNodeMapper = mysqlTreeNodeMapper;
+    }
 
     @Override
     public MysqlTreeNode nodeInfo(long id) {

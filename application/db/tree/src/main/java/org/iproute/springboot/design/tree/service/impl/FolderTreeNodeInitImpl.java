@@ -29,7 +29,6 @@ import java.util.stream.Stream;
 @Slf4j
 public class FolderTreeNodeInitImpl implements FolderTreeNodeInit {
 
-
     @Override
     public void init(TreeNodeService treeNodeService,
                      Long basePid, String path) {

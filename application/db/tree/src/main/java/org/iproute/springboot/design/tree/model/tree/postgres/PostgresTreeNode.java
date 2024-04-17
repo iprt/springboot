@@ -11,10 +11,10 @@ import org.iproute.springboot.design.tree.model.tree.TreeNode;
  * @author devops@kubectl.net
  * @since 2023/1/7
  */
+@Setter
 @Getter
 @TableName("tree_node")
 public class PostgresTreeNode extends TreeNode {
 
-    @Setter
     private long pid;
 }

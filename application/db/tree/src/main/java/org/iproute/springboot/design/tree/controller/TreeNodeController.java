@@ -10,7 +10,6 @@ import org.iproute.springboot.design.tree.service.FolderTreeNodeInit;
 import org.iproute.springboot.design.tree.service.TreeNodeCmdService;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
 import org.iproute.springboot.design.tree.utils.TreeNodeCommand;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,19 +34,21 @@ public class TreeNodeController {
 
     private final Lock initLock = new ReentrantLock();
 
-    @Qualifier("mysqlTreeNodeService")
-    @Autowired
-    private TreeNodeService mysqlTreeNodeService;
+    private final TreeNodeService mysqlTreeNodeService;
 
-    @Qualifier("postgresTreeNodeService")
-    @Autowired
-    private TreeNodeService postgresTreeNodeService;
+    private final TreeNodeService postgresTreeNodeService;
+    private final FolderTreeNodeInit folderTreeNodeInit;
+    private final TreeNodeCmdService treeNodeCmdService;
 
-    @Autowired
-    private FolderTreeNodeInit folderTreeNodeInit;
-
-    @Autowired
-    private TreeNodeCmdService treeNodeCmdService;
+    public TreeNodeController(@Qualifier("mysqlTreeNodeService") TreeNodeService mysqlTreeNodeService,
+                              @Qualifier("postgresTreeNodeService") TreeNodeService postgresTreeNodeService,
+                              FolderTreeNodeInit folderTreeNodeInit,
+                              TreeNodeCmdService treeNodeCmdService) {
+        this.mysqlTreeNodeService = mysqlTreeNodeService;
+        this.postgresTreeNodeService = postgresTreeNodeService;
+        this.folderTreeNodeInit = folderTreeNodeInit;
+        this.treeNodeCmdService = treeNodeCmdService;
+    }
 
     @PostMapping("/command")
     public List<TreeNode> command(@RequestBody TreeNodeReq req) {
@@ -62,12 +63,12 @@ public class TreeNodeController {
         }
 
         TreeNodeCommand cmd = new TreeNodeCommand();
-        String[] strs = cmdStr.substring(TreeNodeCommand.PREFIX.length()).trim().split("\\s+");
+        String[] strings = cmdStr.substring(TreeNodeCommand.PREFIX.length()).trim().split("\\s+");
 
         JCommander.newBuilder()
                 .addObject(cmd)
                 .build()
-                .parse(strs);
+                .parse(strings);
 
         initLock.lock();
         try {
@@ -94,9 +95,7 @@ public class TreeNodeController {
 
 
     @PostMapping("/init")
-    @SuppressWarnings("all")
     public String init(@RequestBody InitReq req) {
-
         Long basePid = req.getBasePid();
         String path = req.getPath();
 

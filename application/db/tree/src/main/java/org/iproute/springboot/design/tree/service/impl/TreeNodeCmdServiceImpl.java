@@ -20,7 +20,6 @@ import java.util.Objects;
 @Service
 public class TreeNodeCmdServiceImpl implements TreeNodeCmdService {
 
-
     @Override
     public List<TreeNode> command(TreeNodeService treeNodeService,
                                   String option, String type,

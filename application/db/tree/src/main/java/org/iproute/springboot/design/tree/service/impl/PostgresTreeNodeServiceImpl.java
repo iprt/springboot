@@ -24,16 +24,16 @@ import java.util.stream.Collectors;
 @Slf4j
 public class PostgresTreeNodeServiceImpl implements TreeNodeService {
 
-
-    /**
-     * transaction
-     */
-    @Qualifier("postgresTreeNodeService")
-    @Autowired
-    private TreeNodeService treeNodeService;
+    // transaction
+    private final TreeNodeService treeNodeService;
+    private final PostgresTreeNodeMapper postgresTreeNodeMapper;
 
     @Autowired
-    private PostgresTreeNodeMapper postgresTreeNodeMapper;
+    public PostgresTreeNodeServiceImpl(@Qualifier("postgresTreeNodeService") TreeNodeService treeNodeService,
+                                       PostgresTreeNodeMapper postgresTreeNodeMapper) {
+        this.treeNodeService = treeNodeService;
+        this.postgresTreeNodeMapper = postgresTreeNodeMapper;
+    }
 
     @Override
     public TreeNode nodeInfo(long id) {
