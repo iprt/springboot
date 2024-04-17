@@ -8,4 +8,5 @@ package org.iproute.pg.json.service;
 public interface SayService {
 
     String say();
+
 }
