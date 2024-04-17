@@ -107,7 +107,7 @@ public class BookServiceTest {
 
         List<Map<String, Object>> maps = bookService.listReturnMap();
 
-        System.out.println("BookServiceTest.listReturnMap");
+        System.out.println("BookServiceTest.listReturnMap " + maps);
     }
 
 }
