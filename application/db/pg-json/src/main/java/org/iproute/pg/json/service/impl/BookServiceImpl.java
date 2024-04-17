@@ -1,4 +1,4 @@
-package org.iproute.pg.json.service;
+package org.iproute.pg.json.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.pg.json.entities.Book;
 import org.iproute.pg.json.mapper.BookMapper;
+import org.iproute.pg.json.service.BookService;
 import org.iproute.pg.json.utils.CastUtils;
 import org.postgresql.util.PGobject;
 import org.springframework.beans.factory.annotation.Autowired;
