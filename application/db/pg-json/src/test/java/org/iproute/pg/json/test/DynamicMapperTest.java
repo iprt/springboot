@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  * @author devops@kubectl.net
  */
 @SpringBootTest
-public class DynamicTest {
+public class DynamicMapperTest {
 
     @Resource
     private DynamicMapper dynamicMapper;
