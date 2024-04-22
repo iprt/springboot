@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.iproute.pg.json.mapper.DynamicMapper">
+
+    <select id="dynamicSelect" resultType="org.iproute.pg.json.bo.GroupRow">
+        select
+        <foreach collection="groupParam.colMappings" item="colMapping" separator=",">
+            ${colMapping.colName} as "${groupParam.tableAlias}.${colMapping.colAlias}"
+        </foreach>
+        from ${groupParam.tableName}
+    </select>
+
+</mapper>
