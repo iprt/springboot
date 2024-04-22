@@ -14,3 +14,5 @@ comment on column book.id is 'id';
 comment on column book.detail is 'detail';
 comment on column book.authors is 'authors';
 comment on column book.types is 'types';
+
+-- changeset zhuzhenjie:20240219_01

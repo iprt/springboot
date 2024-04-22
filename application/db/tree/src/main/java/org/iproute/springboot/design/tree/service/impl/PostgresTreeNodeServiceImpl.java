@@ -5,10 +5,10 @@ import org.iproute.springboot.design.tree.mapper.PostgresTreeNodeMapper;
 import org.iproute.springboot.design.tree.model.tree.TreeNode;
 import org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -25,15 +25,12 @@ import java.util.stream.Collectors;
 public class PostgresTreeNodeServiceImpl implements TreeNodeService {
 
     // transaction
-    private final TreeNodeService treeNodeService;
-    private final PostgresTreeNodeMapper postgresTreeNodeMapper;
+    @Qualifier("postgresTreeNodeService")
+    @Resource
+    private TreeNodeService treeNodeService;
 
-    @Autowired
-    public PostgresTreeNodeServiceImpl(@Qualifier("postgresTreeNodeService") TreeNodeService treeNodeService,
-                                       PostgresTreeNodeMapper postgresTreeNodeMapper) {
-        this.treeNodeService = treeNodeService;
-        this.postgresTreeNodeMapper = postgresTreeNodeMapper;
-    }
+    @Resource
+    private PostgresTreeNodeMapper postgresTreeNodeMapper;
 
     @Override
     public TreeNode nodeInfo(long id) {

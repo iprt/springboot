@@ -5,12 +5,12 @@ import org.iproute.springboot.design.tree.mapper.MysqlTreeNodeMapper;
 import org.iproute.springboot.design.tree.model.tree.TreeNode;
 import org.iproute.springboot.design.tree.model.tree.mysql.MysqlTreeNode;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -28,15 +28,12 @@ import java.util.stream.IntStream;
 public class MysqlTreeNodeServiceImpl implements TreeNodeService {
 
     // transaction
-    private final TreeNodeService treeNodeService;
-    private final MysqlTreeNodeMapper mysqlTreeNodeMapper;
+    @Qualifier("mysqlTreeNodeService")
+    @Resource
+    private TreeNodeService treeNodeService;
 
-    @Autowired
-    public MysqlTreeNodeServiceImpl(@Qualifier("mysqlTreeNodeService") TreeNodeService treeNodeService,
-                                    MysqlTreeNodeMapper mysqlTreeNodeMapper) {
-        this.treeNodeService = treeNodeService;
-        this.mysqlTreeNodeMapper = mysqlTreeNodeMapper;
-    }
+    @Resource
+    private MysqlTreeNodeMapper mysqlTreeNodeMapper;
 
     @Override
     public MysqlTreeNode nodeInfo(long id) {
