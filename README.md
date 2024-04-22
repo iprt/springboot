@@ -1,5 +1,13 @@
 # Spring boot
 
+<!-- TOC -->
+
+* [Spring boot](#spring-boot)
+    * [Reference](#reference)
+    * [IDEA BUG](#idea-bug)
+
+<!-- TOC -->
+
 ## Reference
 
 Gradle
@@ -15,7 +23,6 @@ Spring boot
 - [netty](https://www.netty.io)
 - [camel](https://camel.apache.org/)
 - [elastic](https://www.elastic.co)
-
 
 ## IDEA BUG
 
