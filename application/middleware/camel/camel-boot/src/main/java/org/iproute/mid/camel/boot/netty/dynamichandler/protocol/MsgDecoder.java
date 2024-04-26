@@ -7,7 +7,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 
 /**
- * MyProtocolDecoder 解码器
+ * MsgDecoder 解码器
  * <p>
  * 参考文章 <a href="https://www.cnblogs.com/caoweixiong/p/14663492.html">...</a>
  *

@@ -35,8 +35,6 @@ public class Connector {
 
     private final ScheduledExecutorService ses;
 
-
-    @SuppressWarnings("all")
     public Connector(String host, int port, Consumer<Bootstrap> bootstrapInit) {
         this(host, port,
                 Executors.newSingleThreadScheduledExecutor(), bootstrapInit);

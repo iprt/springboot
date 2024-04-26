@@ -6,7 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
 import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsgDecoder;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsglEncoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsgEncoder;
+import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 /**
  * ClientAuthHandler
@@ -57,7 +58,7 @@ public class ClientAuthHandler extends SimpleChannelInboundHandler<String> {
         ctx.pipeline().remove(this);
 
         ctx.pipeline().addLast(new MsgDecoder());
-        ctx.pipeline().addLast(new MsglEncoder());
+        ctx.pipeline().addLast(new MsgEncoder());
         ctx.pipeline().addLast(new ClientMsgHandler());
 
         ctx.pipeline().fireChannelActive();
@@ -67,4 +68,11 @@ public class ClientAuthHandler extends SimpleChannelInboundHandler<String> {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         log.error("验证失败，服务端关闭连接");
     }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        log.error("ClientAuthHandler exceptionCaught | Server is = {}", NettyUtils.getRemoteInfo(ctx));
+        ctx.close();
+    }
+
 }

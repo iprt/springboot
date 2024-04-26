@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.iproute.mid.camel.boot.netty.dynamichandler.AuthBefore;
 import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsgDecoder;
-import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsglEncoder;
+import org.iproute.mid.camel.boot.netty.dynamichandler.protocol.MsgEncoder;
 import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 
 import java.util.UUID;
@@ -86,7 +86,7 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
 
 
         ctx.pipeline().addLast(new MsgDecoder());
-        ctx.pipeline().addLast(new MsglEncoder());
+        ctx.pipeline().addLast(new MsgEncoder());
         ctx.pipeline().addLast(new ServerMsgHandler());
 
         // fire !!! ctx.pipeline()
@@ -96,7 +96,7 @@ public class ServerAuthHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        log.error(cause.getMessage());
+        log.error("ServerAuthHandler exceptionCaught | Server is = {}", NettyUtils.getRemoteInfo(ctx));
         ctx.close();
     }
 }

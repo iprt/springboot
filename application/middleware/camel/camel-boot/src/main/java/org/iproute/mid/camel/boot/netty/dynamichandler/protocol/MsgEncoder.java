@@ -5,12 +5,12 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
- * MyProtocolEncoder 编码器
+ * MsgEncoder 编码器
  *
  * @author devops@kubectl.net
  * @since 2022/8/7
  */
-public class MsglEncoder extends MessageToByteEncoder<Msg> {
+public class MsgEncoder extends MessageToByteEncoder<Msg> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Msg msg, ByteBuf out) throws Exception {

@@ -22,7 +22,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Slf4j
 public class DyhClient {
 
-    @SuppressWarnings("all")
     public static void main(String[] args) {
 
         Connector connector = new Connector(
@@ -34,7 +33,6 @@ public class DyhClient {
         loopSendMsg(connector);
     }
 
-    @SuppressWarnings("all")
     private static void loopSendMsg(Connector connector) {
         AtomicLong id = new AtomicLong(1);
 
