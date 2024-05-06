@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
-import org.iproute.pg.json.entities.Book;
+import org.iproute.pg.json.entities.po.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

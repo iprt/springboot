@@ -1,7 +1,7 @@
 package org.iproute.pg.json.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import org.iproute.pg.json.entities.Book;
+import org.iproute.pg.json.entities.po.Book;
 
 import java.util.List;
 import java.util.Map;

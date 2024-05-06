@@ -2,8 +2,8 @@ package org.iproute.pg.json.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.iproute.pg.json.bo.GroupQueryParam;
-import org.iproute.pg.json.bo.GroupRow;
+import org.iproute.pg.json.bo.DynamicQueryParam;
+import org.iproute.pg.json.bo.DynamicTypeRow;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +17,6 @@ import java.util.List;
 @Mapper
 public interface DynamicMapper {
 
-    List<GroupRow> dynamicSelect(@Param("groupParam") GroupQueryParam dynamicParam);
+    List<DynamicTypeRow> dynamicSelect(@Param("dynamicParam") DynamicQueryParam dynamicParam);
 
 }

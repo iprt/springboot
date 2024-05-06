@@ -5,8 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.iproute.pg.json.entities.Student;
-import org.iproute.pg.json.entities.Teacher;
+import org.iproute.pg.json.entities.po.Student;
+import org.iproute.pg.json.entities.po.Teacher;
 
 /**
  * GroupRow
@@ -18,7 +18,10 @@ import org.iproute.pg.json.entities.Teacher;
 @ToString
 @Builder
 @Data
-public class GroupRow {
+public class DynamicTypeRow {
+
+    private String tableName;
+    private Long id;
 
     private Student stu;
 

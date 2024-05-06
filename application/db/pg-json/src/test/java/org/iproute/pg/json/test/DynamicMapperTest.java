@@ -1,10 +1,8 @@
 package org.iproute.pg.json.test;
 
-import com.google.common.collect.Lists;
-import org.iproute.pg.json.bo.GroupQueryParam;
-import org.iproute.pg.json.bo.GroupRow;
-import org.iproute.pg.json.entities.Student;
-import org.iproute.pg.json.entities.Teacher;
+import org.iproute.pg.json.bo.DynamicTypeRow;
+import org.iproute.pg.json.entities.po.Student;
+import org.iproute.pg.json.entities.po.Teacher;
 import org.iproute.pg.json.mapper.DynamicMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,6 +12,9 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import static org.iproute.pg.json.bo.DynamicQueryParam.queryStu;
+import static org.iproute.pg.json.bo.DynamicQueryParam.queryTeacher;
 
 /**
  * DynamicTest
@@ -28,26 +29,12 @@ public class DynamicMapperTest {
 
     @Test
     public void testListStudents() {
-        String tableName = "student";
-        String tableAlias = "stu";
+        List<DynamicTypeRow> dynamicTypeRows = dynamicMapper.dynamicSelect(queryStu);
 
-        GroupQueryParam param = GroupQueryParam.builder()
-                .tableName(tableName).tableAlias(tableAlias)
-                .colMappings(
-                        Lists.newArrayList(
-                                GroupQueryParam.ColMappings.builder().colName("id").colAlias("id").build(),
-                                GroupQueryParam.ColMappings.builder().colName("student_name").colAlias("studentName").build(),
-                                GroupQueryParam.ColMappings.builder().colName("create_time").colAlias("createTime").build()
-                        )
-                )
-                .build();
-
-        List<GroupRow> groupRows = dynamicMapper.dynamicSelect(param);
-
-        List<Student> students = groupRows.stream().map(GroupRow::getStu).collect(Collectors.toList());
+        List<Student> students = dynamicTypeRows.stream().map(DynamicTypeRow::getStu).collect(Collectors.toList());
         students.forEach(System.out::println);
 
-        List<Teacher> teachers = groupRows.stream().map(GroupRow::getTeacher)
+        List<Teacher> teachers = dynamicTypeRows.stream().map(DynamicTypeRow::getTeacher)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
@@ -57,27 +44,13 @@ public class DynamicMapperTest {
 
     @Test
     public void testListTeachers() {
-        String tableName = "teacher";
-        String tableAlias = "teacher";
+        List<DynamicTypeRow> dynamicTypeRows = dynamicMapper.dynamicSelect(queryTeacher);
 
-        GroupQueryParam param = GroupQueryParam.builder()
-                .tableName(tableName).tableAlias(tableAlias)
-                .colMappings(
-                        Lists.newArrayList(
-                                GroupQueryParam.ColMappings.builder().colName("id").colAlias("id").build(),
-                                GroupQueryParam.ColMappings.builder().colName("teacher_name").colAlias("teacherName").build(),
-                                GroupQueryParam.ColMappings.builder().colName("create_time").colAlias("createTime").build()
-                        )
-                )
-                .build();
-
-        List<GroupRow> groupRows = dynamicMapper.dynamicSelect(param);
-
-        List<Student> students = groupRows.stream().map(GroupRow::getStu)
+        List<Student> students = dynamicTypeRows.stream().map(DynamicTypeRow::getStu)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
-        List<Teacher> teachers = groupRows.stream().map(GroupRow::getTeacher).collect(Collectors.toList());
+        List<Teacher> teachers = dynamicTypeRows.stream().map(DynamicTypeRow::getTeacher).collect(Collectors.toList());
         teachers.forEach(System.out::println);
 
         Assertions.assertFalse(teachers.isEmpty());

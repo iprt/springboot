@@ -3,12 +3,14 @@
 
 <mapper namespace="org.iproute.pg.json.mapper.DynamicMapper">
 
-    <select id="dynamicSelect" resultType="org.iproute.pg.json.bo.GroupRow">
+    <select id="dynamicSelect" resultType="org.iproute.pg.json.bo.DynamicTypeRow">
         select
-        <foreach collection="groupParam.colMappings" item="colMapping" separator=",">
-            ${colMapping.colName} as "${groupParam.tableAlias}.${colMapping.colAlias}"
+        "${dynamicParam.tableName}" as "tableName",
+        id,
+        <foreach collection="dynamicParam.colMappings" item="colMapping" separator=",">
+            ${colMapping.colName} as "${dynamicParam.tableAlias}.${colMapping.colAlias}"
         </foreach>
-        from ${groupParam.tableName}
+        from ${dynamicParam.tableName}
     </select>
 
 </mapper>

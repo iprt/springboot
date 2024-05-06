@@ -1,4 +1,4 @@
-package org.iproute.pg.json.entities;
+package org.iproute.pg.json.entities.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

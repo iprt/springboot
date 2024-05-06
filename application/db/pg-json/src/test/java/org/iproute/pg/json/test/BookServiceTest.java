@@ -3,7 +3,7 @@ package org.iproute.pg.json.test;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.commons.lang3.time.DateUtils;
 import org.assertj.core.util.Lists;
-import org.iproute.pg.json.entities.Book;
+import org.iproute.pg.json.entities.po.Book;
 import org.iproute.pg.json.service.BookService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

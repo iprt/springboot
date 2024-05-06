@@ -3,12 +3,12 @@
 
 <mapper namespace="org.iproute.pg.json.mapper.BookMapper">
 
-    <resultMap id="BookResultMap" type="org.iproute.pg.json.entities.Book">
+    <resultMap id="BookResultMap" type="org.iproute.pg.json.entities.po.Book">
         <id column="id" property="id"/>
-        <result column="detail" property="detail" typeHandler="org.iproute.pg.json.entities.Book$DetailTypeHandler"/>
+        <result column="detail" property="detail" typeHandler="org.iproute.pg.json.entities.po.Book$DetailTypeHandler"/>
         <result column="authors" property="authors"
-                typeHandler="org.iproute.pg.json.entities.Book$ListAuthorTypeHandler"/>
-        <result column="types" property="types" typeHandler="org.iproute.pg.json.entities.Book$StringArrayTypeHandler"/>
+                typeHandler="org.iproute.pg.json.entities.po.Book$ListAuthorTypeHandler"/>
+        <result column="types" property="types" typeHandler="org.iproute.pg.json.entities.po.Book$StringArrayTypeHandler"/>
     </resultMap>
 
     <select id="limitPage" resultMap="BookResultMap">
