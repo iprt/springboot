@@ -25,6 +25,9 @@ public class DynamicQueryServiceImpl implements DynamicQueryService {
 
     @Override
     public List<Student> getStudents(TypeEnum stuEnum) {
+        if (TypeEnum.UNKNOWN == stuEnum) {
+            return List.of();
+        }
         return dynamicMapper.dynamicSelect(DynamicQueryParam.queryStu)
                 .stream()
                 .map(row -> stuEnum.getGetter().apply(row))
@@ -34,6 +37,9 @@ public class DynamicQueryServiceImpl implements DynamicQueryService {
 
     @Override
     public List<Teacher> getTeachers(TypeEnum tecEnum) {
+        if (TypeEnum.UNKNOWN == tecEnum) {
+            return List.of();
+        }
         return dynamicMapper.dynamicSelect(DynamicQueryParam.queryTeacher)
                 .stream()
                 .map(row -> tecEnum.getGetter().apply(row))
