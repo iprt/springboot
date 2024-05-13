@@ -50,3 +50,16 @@ values
     ('teacher_001'),
     ('teacher_002'),
     ('teacher_003');
+
+-- changeset devops:20240513_01
+drop table if exists demo_bean;
+create table demo_bean
+(
+    id          bigserial    not null primary key,
+    name        varchar(100) not null default 'unknown',
+    create_time timestamp    not null default current_timestamp,
+    update_time timestamp    not null default current_timestamp
+);
+comment on table demo_bean is 'demo';
+comment on column demo_bean.id is 'id';
+comment on column demo_bean.name is 'name';

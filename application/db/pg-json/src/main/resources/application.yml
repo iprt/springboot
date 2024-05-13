@@ -2,6 +2,9 @@ server:
   port: 8080
 
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   datasource:
     url: jdbc:postgresql://172.100.1.100:5432/pg_json
     username: postgres
