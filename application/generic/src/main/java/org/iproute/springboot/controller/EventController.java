@@ -1,11 +1,12 @@
 package org.iproute.springboot.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.po.EventMsg;
 import org.iproute.springboot.service.EventService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @author devops@kubectl.net
  * @since 2023/7/28
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
 @RequestMapping("/event")
 @Slf4j
 @RecordParameters
-@AllArgsConstructor
 public class EventController {
     private final EventService eventService;
 

@@ -4,12 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.mvc.RequestLogUtils;
 import org.iproute.springboot.entities.po.RequestLogBean;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.concurrent.Executor;
@@ -27,10 +27,10 @@ public class RestExceptionHandler {
     @Value("${spring.application.name:springboot}")
     private String applicationName;
 
-    @Autowired
+    @Resource
     private RequestLogBeanMapper requestLogBeanMapper;
 
-    @Autowired
+    @Resource
     private Executor asyncExecutor;
 
     @ExceptionHandler(Exception.class)

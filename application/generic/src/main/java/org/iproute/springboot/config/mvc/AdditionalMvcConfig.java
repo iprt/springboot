@@ -1,10 +1,11 @@
 package org.iproute.springboot.config.mvc;
 
 import org.iproute.springboot.config.mvc.interceptor.AdditionalInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.annotation.Resource;
 
 /**
  * AdditionalMvcConfig
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AdditionalMvcConfig implements WebMvcConfigurer {
 
-    @Autowired
+    @Resource
     private AdditionalInterceptor additionalInterceptor;
 
     @Override

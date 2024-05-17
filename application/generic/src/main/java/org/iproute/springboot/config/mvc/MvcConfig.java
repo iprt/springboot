@@ -6,13 +6,13 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.iproute.springboot.config.mvc.anno.PrefixRestController;
 import org.iproute.springboot.config.mvc.interceptor.RequestLogInterceptor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.annotation.Resource;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
-    @Autowired
+    @Resource
     private RequestLogInterceptor requestLogInterceptor;
 
 

@@ -1,16 +1,17 @@
 package org.iproute.springboot.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.sharding.ShardingAlgorithmTool;
 import org.iproute.springboot.entities.po.RequestLogBean;
 import org.iproute.springboot.repository.springboot.RequestLogBeanMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -24,13 +25,12 @@ import java.util.List;
  * @author devops@kubectl.net
  * @since 2023/7/31
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/reqLog")
 @RestController
 @Slf4j
 public class ReqLogController {
-
-    @Resource
-    private RequestLogBeanMapper requestLogBeanMapper;
+    private final RequestLogBeanMapper requestLogBeanMapper;
 
     @Value("${db.schema-name:springboot}")
     private String schemaName;

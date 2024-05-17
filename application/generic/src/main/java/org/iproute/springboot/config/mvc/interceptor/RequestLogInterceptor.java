@@ -1,7 +1,7 @@
 package org.iproute.springboot.config.mvc.interceptor;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.config.mvc.RequestLogUtils;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
 import org.iproute.springboot.entities.po.RequestLogBean;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -25,20 +24,18 @@ import java.util.concurrent.Executor;
  * @author devops@kubectl.net
  * @since 2021/11/25
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Component
 @Slf4j
 public class RequestLogInterceptor implements HandlerInterceptor {
 
     private static final String REQ_TIME_ATTRIBUTE = "RequestLogInterceptor_Request_Time";
 
+    private final RequestLogBeanMapper requestLogMapper;
+    private final Executor asyncExecutor;
+
     @Value("${spring.application.name:springboot}")
     private String applicationName;
-
-    @Resource
-    private RequestLogBeanMapper requestLogMapper;
-
-    @Autowired
-    private Executor asyncExecutor;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

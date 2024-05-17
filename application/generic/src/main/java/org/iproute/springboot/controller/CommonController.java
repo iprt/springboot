@@ -1,6 +1,6 @@
 package org.iproute.springboot.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.iproute.springboot.config.aop.RecordParameters;
 import org.iproute.springboot.config.mvc.anno.RequestLog;
@@ -9,6 +9,7 @@ import org.iproute.springboot.entities.dto.PostDTO;
 import org.iproute.springboot.entities.po.mysql.MysqlUser;
 import org.iproute.springboot.repository.commons.CommonMapper;
 import org.iproute.springboot.repository.mysql.MysqlUserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ import java.util.List;
  * @author devops@kubectl.net
  * @since 2021 /11/25
  */
-@AllArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
 @RecordParameters
 @Slf4j
