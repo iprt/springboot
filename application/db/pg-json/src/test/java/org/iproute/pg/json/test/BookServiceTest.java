@@ -1,15 +1,16 @@
 package org.iproute.pg.json.test;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.time.DateUtils;
 import org.assertj.core.util.Lists;
 import org.iproute.pg.json.entities.po.Book;
 import org.iproute.pg.json.service.BookService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -21,11 +22,11 @@ import java.util.stream.LongStream;
  *
  * @author devops@kubectl.net
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest
 public class BookServiceTest {
 
-    @Resource
-    private BookService bookService;
+    private final BookService bookService;
 
     final long id = 123L;
 

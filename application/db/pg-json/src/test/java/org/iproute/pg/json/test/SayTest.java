@@ -1,5 +1,6 @@
 package org.iproute.pg.json.test;
 
+import lombok.RequiredArgsConstructor;
 import org.iproute.pg.json.service.SayService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,11 +13,10 @@ import org.springframework.boot.test.context.SpringBootTest;
  *
  * @author devops@kubectl.net
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest
 public class SayTest {
-
-    @Autowired
-    private SayService sayService;
+    private final SayService sayService;
 
     @Test
     public void testSingle() {

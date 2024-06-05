@@ -1,14 +1,15 @@
 package org.iproute.pg.json.test;
 
+import lombok.RequiredArgsConstructor;
 import org.iproute.pg.json.bo.DynamicTypeRow;
 import org.iproute.pg.json.entities.po.Student;
 import org.iproute.pg.json.entities.po.Teacher;
 import org.iproute.pg.json.mapper.DynamicMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.annotation.Resource;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -21,11 +22,11 @@ import static org.iproute.pg.json.bo.DynamicQueryParam.queryTeacher;
  *
  * @author devops@kubectl.net
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest
 public class DynamicMapperTest {
 
-    @Resource
-    private DynamicMapper dynamicMapper;
+    private final DynamicMapper dynamicMapper;
 
     @Test
     public void testListStudents() {

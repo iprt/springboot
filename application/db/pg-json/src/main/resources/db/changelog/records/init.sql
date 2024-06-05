@@ -63,3 +63,17 @@ create table demo_bean
 comment on table demo_bean is 'demo';
 comment on column demo_bean.id is 'id';
 comment on column demo_bean.name is 'name';
+
+
+-- changeset devops:20240605_01
+drop table if exists demo_bean_leaf;
+create table demo_bean_leaf
+(
+    id          bigint       not null primary key,
+    name        varchar(100) not null default 'unknown',
+    create_time timestamp    not null default current_timestamp,
+    update_time timestamp    not null default current_timestamp
+);
+comment on table demo_bean_leaf is 'demo';
+comment on column demo_bean_leaf.id is 'id 基于snowflake算法生产的id';
+comment on column demo_bean_leaf.name is 'name';
