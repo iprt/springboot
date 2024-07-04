@@ -3,8 +3,8 @@
 <!-- TOC -->
 
 * [Spring boot](#spring-boot)
-    * [Reference](#reference)
-    * [IDEA BUG](#idea-bug)
+  * [Reference](#reference)
+  * [IDEA BUG](#idea-bug)
 
 <!-- TOC -->
 
@@ -27,3 +27,10 @@ Spring boot
 ## IDEA BUG
 
 https://youtrack.jetbrains.com/issue/IDEA-343588/Fails-to-download-sources-for-gradle-projects-using-includeBuild
+
+## gradle support
+
+https://stackoverflow.com/questions/76188050/how-to-fix-gradle-build-failed-due-to-void-org-gradle-api-internal-artifacts-dsl
+
+https://docs.spring.io/spring-boot/docs/2.6.x/gradle-plugin/reference/htmlsingle/#introduction
+
