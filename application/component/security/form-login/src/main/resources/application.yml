@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: security.pageLogin
-  security:
-    user:
-      name: winterfell
-      password: winterfell

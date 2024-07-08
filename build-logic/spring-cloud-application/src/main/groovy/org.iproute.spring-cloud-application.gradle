@@ -7,8 +7,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 configurations {
     compileOnly {
@@ -24,10 +24,10 @@ dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
 
     // this is a question
-    compileOnly('org.projectlombok:lombok:1.18.24')
-    annotationProcessor('org.projectlombok:lombok:1.18.24')
-    testCompileOnly('org.projectlombok:lombok:1.18.24')
-    testAnnotationProcessor('org.projectlombok:lombok:1.18.24')
+    compileOnly('org.projectlombok:lombok:1.18.32')
+    annotationProcessor('org.projectlombok:lombok:1.18.32')
+    testCompileOnly('org.projectlombok:lombok:1.18.32')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.32')
 }
 
 

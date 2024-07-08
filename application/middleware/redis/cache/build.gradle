@@ -3,8 +3,8 @@ plugins {
 }
 
 // reference https://stackoverflow.com/questions/18487406/how-do-i-tell-gradle-to-use-specific-jdk-version
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')

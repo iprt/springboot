@@ -7,8 +7,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
@@ -37,8 +37,8 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
 
-    // compileOnly 'org.projectlombok:lombok:1.18.24'
-    // annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    // compileOnly 'org.projectlombok:lombok:1.18.32'
+    // annotationProcessor 'org.projectlombok:lombok:1.18.32'
 
     // this is a question -> fixed by id("io.spring.dependency-management")
     compileOnly('org.projectlombok:lombok')

@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: integration-tcp-server
-
-tcp:
-  server:
-    port: ${server.port:5000}

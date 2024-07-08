@@ -35,18 +35,6 @@ include('component:integration:tcp')
 // core
 include('core:bean-factory')
 
-// component graphql
-include('component:graphql')
-// component alibaba
-include('component:alibaba:nacos-client')
-include('component:alibaba:sentinel')
-
-include('component:oauth2')
-include('component:sa-token')
-
-include('component:security:form-login')
-include('component:security:json-login')
-
 // db
 include('db:tree')
 include('db:tdengine')
@@ -75,13 +63,6 @@ include('middleware:raft:election')
 // middleware redisson
 include('middleware:redis:cache')
 include('middleware:redis:redisson-boot')
-
-// middleware seata
-include('middleware:seata:at:business')
-include('middleware:seata:at:eureka')
-include('middleware:seata:at:order')
-include('middleware:seata:at:points')
-include('middleware:seata:at:storage')
 
 // middleware zookeeper lock
 include('middleware:zookeeper:distribution-lock')

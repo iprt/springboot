@@ -4,10 +4,6 @@ server:
 spring:
   application:
     name: generic
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss

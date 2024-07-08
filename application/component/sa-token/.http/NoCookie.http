@@ -1,7 +1,0 @@
-### 登录
-POST http://localhost:8081/NoCookie/doLogin
-
-
-
-### 登出
-POST http://localhost:8081/NoCookie/doLogout
