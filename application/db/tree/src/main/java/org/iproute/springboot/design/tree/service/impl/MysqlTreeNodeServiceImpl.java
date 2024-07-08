@@ -1,16 +1,17 @@
 package org.iproute.springboot.design.tree.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.iproute.springboot.design.tree.config.AtxUtils;
 import org.iproute.springboot.design.tree.mapper.MysqlTreeNodeMapper;
 import org.iproute.springboot.design.tree.model.tree.TreeNode;
 import org.iproute.springboot.design.tree.model.tree.mysql.MysqlTreeNode;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -23,17 +24,12 @@ import java.util.stream.IntStream;
  * @author devops@kubectl.net
  * @since 2022/4/19
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service("mysqlTreeNodeService")
 @Slf4j
 public class MysqlTreeNodeServiceImpl implements TreeNodeService {
-
-    // transaction
-    @Qualifier("mysqlTreeNodeService")
-    @Resource
-    private TreeNodeService treeNodeService;
-
-    @Resource
-    private MysqlTreeNodeMapper mysqlTreeNodeMapper;
+    private final AtxUtils atxUtils;
+    private final MysqlTreeNodeMapper mysqlTreeNodeMapper;
 
     @Override
     public MysqlTreeNode nodeInfo(long id) {
@@ -63,6 +59,7 @@ public class MysqlTreeNodeServiceImpl implements TreeNodeService {
     @Transactional
     @Override
     public List<TreeNode> children(Long id, boolean include, int level) {
+        TreeNodeService treeNodeService = atxUtils.getAtx().get().getBean(TreeNodeService.class, "mysqlTreeNodeService");
         TreeNode treeNode = treeNodeService.nodeInfo(id);
         if (Objects.isNull(treeNode)) {
             return Collections.emptyList();

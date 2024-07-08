@@ -1,6 +1,7 @@
 package org.iproute.springboot.design.tree.config;
 
 import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
+import jakarta.annotation.Resource;
 import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
@@ -8,7 +9,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -26,7 +26,6 @@ public class DatabaseConfig {
 
     @Resource
     private DataSource dataSource;
-
 
     @Bean("mysqlLiquibaseProperties")
     @ConfigurationProperties(prefix = "spring.liquibase.mysql")
@@ -83,7 +82,7 @@ public class DatabaseConfig {
         liquibase.setDefaultSchema(properties.getDefaultSchema());
         liquibase.setDropFirst(properties.isDropFirst());
         liquibase.setShouldRun(properties.isEnabled());
-        liquibase.setLabels(properties.getLabels());
+        // liquibase.setLabels(properties.getLabels());
         liquibase.setChangeLogParameters(properties.getParameters());
         liquibase.setRollbackFile(properties.getRollbackFile());
         return liquibase;

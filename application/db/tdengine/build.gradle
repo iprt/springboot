@@ -2,15 +2,16 @@ plugins {
     id('org.iproute.spring-boot-application')
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 dependencies {
 
     implementation(project(":logs-config:logback-springboot"))
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter'
     // jdbc driver
-    implementation 'com.taosdata.jdbc:taos-jdbcdriver:3.1.0'
+    implementation 'com.taosdata.jdbc:taos-jdbcdriver'
 
 }

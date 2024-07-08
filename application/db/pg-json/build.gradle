@@ -11,10 +11,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-repositories {
-    maven { url 'https://maven.aliyun.com/repository/public/' }
-}
-
 dependencies {
     implementation(project(':logs-config:logback-springboot-console'))
     // mybatis

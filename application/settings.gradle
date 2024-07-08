@@ -47,7 +47,6 @@ include('middleware:camel:netty-api')
 
 // middleware elasticsearch
 include('middleware:elastic:boot-logstash')
-include('middleware:elastic:boot-search')
 include('middleware:elastic:search-java-api')
 
 // middleware kafka

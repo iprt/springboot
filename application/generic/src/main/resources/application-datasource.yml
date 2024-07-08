@@ -4,6 +4,7 @@ spring:
       # commons 为了建库而使用的
       primary: commons
       strict: false
+      grace-destroy: false
       datasource:
         #springboot:
         #  url: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
@@ -21,40 +22,39 @@ spring:
           password: root
           driver-class-name: com.mysql.cj.jdbc.Driver
 
-  # 分表配置
-  shardingsphere:
-    datasource:
-      names: springboot
-      springboot:
-        type: com.zaxxer.hikari.HikariDataSource
-        # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
-        jdbcUrl: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
-        username: root
-        password: root
-        driverClassName: com.mysql.cj.jdbc.Driver
-    props:
-      # 日志显示SQL
-      sql.show: true
-    sharding:
-      tables:
-        # 请求日志表
-        request_log:
-          # 真实表
-          # springboot 是 sharding 里面定义的name
-          # 分库策略
-          # databaseStrategy:
-          #  none:
-          # 分表策略
-          logicTable: request_log
-          actualDataNodes: springboot.request_log_$->{2022..2025}_$->{1..12}
-          table-strategy:
-            standard:
-              sharding-column: request_time
-              precise-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
-              range-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
-      binding-tables:
-        - request_log
-
-
-db:
-  schema-name: springboot
+#  # 分表配置
+#  shardingsphere:
+#    datasource:
+#      names: springboot
+#      springboot:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        # https://github.com/apache/shardingsphere/issues/994 druid 用url, hakari 用 jdbcUrl
+#        jdbcUrl: jdbc:mysql://172.100.1.100:3306/springboot?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false&serverTimezone=Asia/Shanghai
+#        username: root
+#        password: root
+#        driverClassName: com.mysql.cj.jdbc.Driver
+#    props:
+#      # 日志显示SQL
+#      sql.show: true
+#    sharding:
+#      tables:
+#        # 请求日志表
+#        request_log:
+#          # 真实表
+#          # springboot 是 sharding 里面定义的name
+#          # 分库策略
+#          # databaseStrategy:
+#          #  none:
+#          # 分表策略
+#          logicTable: request_log
+#          actualDataNodes: springboot.request_log_$->{2022..2025}_$->{1..12}
+#          table-strategy:
+#            standard:
+#              sharding-column: request_time
+#              precise-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
+#              range-algorithm-class-name: org.iproute.springboot.config.sharding.DateShardingAlgorithm
+#      binding-tables:
+#        - request_log
+#
+#db:
+#  schema-name: springboot

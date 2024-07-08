@@ -3,7 +3,6 @@ package org.iproute.springboot.config.mybatis;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2021/11/27
  */
 @Configuration
-@MapperScan(basePackages = "org.iproute.springboot", annotationClass = Mapper.class)
+@MapperScan(basePackages = "org.iproute.springboot")
 public class MybatisPlusConfig {
 
     /**

@@ -1,14 +1,15 @@
 package org.iproute.springboot.design.tree.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.iproute.springboot.design.tree.config.AtxUtils;
 import org.iproute.springboot.design.tree.mapper.PostgresTreeNodeMapper;
 import org.iproute.springboot.design.tree.model.tree.TreeNode;
 import org.iproute.springboot.design.tree.model.tree.postgres.PostgresTreeNode;
 import org.iproute.springboot.design.tree.service.TreeNodeService;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -20,17 +21,12 @@ import java.util.stream.Collectors;
  * @author devops@kubectl.net
  * @since 2022/4/19
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service("postgresTreeNodeService")
 @Slf4j
 public class PostgresTreeNodeServiceImpl implements TreeNodeService {
-
-    // transaction
-    @Qualifier("postgresTreeNodeService")
-    @Resource
-    private TreeNodeService treeNodeService;
-
-    @Resource
-    private PostgresTreeNodeMapper postgresTreeNodeMapper;
+    private final AtxUtils atxUtils;
+    private final PostgresTreeNodeMapper postgresTreeNodeMapper;
 
     @Override
     public TreeNode nodeInfo(long id) {
@@ -65,6 +61,8 @@ public class PostgresTreeNodeServiceImpl implements TreeNodeService {
 
     @Override
     public TreeNode addNode(Long pid, String nodeName) {
+        TreeNodeService treeNodeService = atxUtils.getAtx().get().getBean(TreeNodeService.class, "postgresTreeNodeService");
+
         // 找不到父节点
         if (Objects.isNull(pid) || pid < 0) {
             return postgresTreeNodeMapper.addNode(0L, nodeName, ROOT_LEVEL);
@@ -79,6 +77,8 @@ public class PostgresTreeNodeServiceImpl implements TreeNodeService {
 
     @Override
     public List<TreeNode> addNodes(Long pid, List<String> nodeNames) {
+        TreeNodeService treeNodeService = atxUtils.getAtx().get().getBean(TreeNodeService.class, "postgresTreeNodeService");
+
         TreeNode pNode = treeNodeService.nodeInfo(pid);
         if (Objects.isNull(pNode)) {
             log.error("找不到父节点的信息,pid = {}", pid);
@@ -101,6 +101,7 @@ public class PostgresTreeNodeServiceImpl implements TreeNodeService {
 
     @Override
     public int removeNode(Long id, boolean include) {
+        TreeNodeService treeNodeService = atxUtils.getAtx().get().getBean(TreeNodeService.class, "postgresTreeNodeService");
         TreeNode cNode = treeNodeService.nodeInfo(id);
         if (Objects.isNull(cNode)) {
             log.error("找不到节点，treeNode.id = {}", id);

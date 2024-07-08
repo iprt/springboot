@@ -5,6 +5,10 @@ plugins {
 group = 'org.iproute'
 version = '1.0-SNAPSHOT'
 
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -24,16 +28,21 @@ dependencies {
     implementation 'com.baomidou:dynamic-datasource-spring-boot-starter'
 
     // sharding-jdbc
-    implementation 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
+    // implementation 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
 
     // jdbc driver
-    implementation 'mysql:mysql-connector-java'
+    // implementation 'com.mysql:mysql-connector-j'
+    // implementation 'mysql:mysql-connector-java'
 
     // redis
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.apache.commons:commons-pool2'
 
     // 加密 , 3.0 的还有一定问题
-    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
+    // implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
 
+}
+
+compileJava {
+    options.compilerArgs.add("-parameters")
 }

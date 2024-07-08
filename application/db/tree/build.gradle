@@ -6,9 +6,10 @@ plugins {
 group = 'org.iproute'
 version = '1.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 dependencies {
 
@@ -19,7 +20,7 @@ dependencies {
     implementation('com.baomidou:dynamic-datasource-spring-boot-starter')
 
     // jdbc driver 版本申明了
-    implementation 'mysql:mysql-connector-java'
+    implementation 'com.mysql:mysql-connector-j'
     // implementation 'mysql:mysql-connector-java'
     implementation 'org.postgresql:postgresql'
     // liquibase

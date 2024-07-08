@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.iproute.springboot.entities.po.RequestLogBean;
 import org.springframework.http.HttpHeaders;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * RequestLogUtils
