@@ -25,13 +25,13 @@ dependencies {
 
     // mybatis
     implementation 'com.baomidou:mybatis-plus-boot-starter'
-    implementation 'com.baomidou:dynamic-datasource-spring-boot-starter'
+    implementation 'com.baomidou:dynamic-datasource-spring-boot3-starter'
 
     // sharding-jdbc
     // implementation 'org.apache.shardingsphere:sharding-jdbc-spring-boot-starter:4.1.1'
 
     // jdbc driver
-    // implementation 'com.mysql:mysql-connector-j'
+    implementation 'com.mysql:mysql-connector-j'
     // implementation 'mysql:mysql-connector-java'
 
     // redis

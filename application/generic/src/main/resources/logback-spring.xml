@@ -52,7 +52,7 @@
 
     <!-- Log file error output -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        
+
         <file>${log.path}/${log.filename}-error.log</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
@@ -110,7 +110,7 @@
     <logger name="org.eclipse.jetty" level="INFO"/>
 
     <logger name="org.hibernate.validator.internal.util.Version" level="WARN"/>
-    <logger name="org.springframework" level="debug"/>
+    <logger name="org.springframework" level="info"/>
     <logger name="org.apache.commons" level="warn"/>
     <logger name="org.apache.http" level="warn"/>
     <logger name="com.netflix" level="warn"/>

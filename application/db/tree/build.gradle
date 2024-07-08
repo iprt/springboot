@@ -17,7 +17,7 @@ dependencies {
 
     // mybatis
     implementation('com.baomidou:mybatis-plus-boot-starter')
-    implementation('com.baomidou:dynamic-datasource-spring-boot-starter')
+    implementation('com.baomidou:dynamic-datasource-spring-boot3-starter')
 
     // jdbc driver 版本申明了
     implementation 'com.mysql:mysql-connector-j'
