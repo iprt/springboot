@@ -8,10 +8,11 @@ spring:
     username: root
     password: root
   # jpa 相关
-  redis:
-    host: 172.100.1.100
-    password: root
-    database: 0
+  data:
+    redis:
+      host: 172.100.1.100
+      password: root
+      database: 0
   jpa:
     hibernate:
       ddl-auto: update   # ddl-auto: 设为 create 表示每次都重新建表
