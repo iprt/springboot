@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * OpentracingApplication
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023-09-01
  */
 @SpringBootApplication

@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * Demo11_ServerNameIndication
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/5
  */
 public class Demo11_SNI {

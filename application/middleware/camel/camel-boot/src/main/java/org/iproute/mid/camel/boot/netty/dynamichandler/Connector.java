@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 /**
  * Client
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/19
  */
 @Slf4j

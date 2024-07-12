@@ -9,7 +9,7 @@ import org.iproute.mid.camel.boot.netty.utils.RemoteInfo;
 /**
  * AttrServerHandler
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/28/2023
  */
 @Slf4j

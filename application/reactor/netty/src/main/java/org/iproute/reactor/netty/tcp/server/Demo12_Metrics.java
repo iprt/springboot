@@ -10,7 +10,7 @@ import java.time.Duration;
 /**
  * Demo12_Metrics
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/5
  */
 public class Demo12_Metrics {

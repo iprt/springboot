@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * DynamicQueryController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController

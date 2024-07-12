@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * EventController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/28
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

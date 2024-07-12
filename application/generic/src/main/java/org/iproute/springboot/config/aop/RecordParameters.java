@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * 记录 入参、出参
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @date 2019/12/4 13:53
  */
 @Retention(value = RetentionPolicy.RUNTIME)

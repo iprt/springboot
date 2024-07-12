@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * BookServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * TimerTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/19
  */
 @SuppressWarnings("all")

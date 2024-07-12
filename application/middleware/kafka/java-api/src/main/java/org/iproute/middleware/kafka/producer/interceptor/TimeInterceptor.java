@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * TimeInterceptor
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/16
  */
 public class TimeInterceptor implements ProducerInterceptor<String, String> {

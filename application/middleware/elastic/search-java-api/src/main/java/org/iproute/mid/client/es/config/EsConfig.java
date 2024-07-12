@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * Esconfig
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/17
  */
 @Getter

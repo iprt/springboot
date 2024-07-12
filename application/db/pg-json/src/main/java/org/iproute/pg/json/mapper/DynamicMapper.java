@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * DynamicMapper
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Repository
 @Mapper

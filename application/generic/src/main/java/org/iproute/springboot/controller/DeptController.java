@@ -23,7 +23,7 @@ import java.util.Optional;
 /**
  * DeptController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021 /11/30
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

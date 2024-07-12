@@ -3,7 +3,7 @@ package org.iproute.pg.json.utils;
 /**
  * CastUtils
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class CastUtils {
 

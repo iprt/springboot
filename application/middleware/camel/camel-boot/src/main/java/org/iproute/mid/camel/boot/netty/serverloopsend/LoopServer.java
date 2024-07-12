@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * LoopSendSever
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/20
  */
 @Slf4j

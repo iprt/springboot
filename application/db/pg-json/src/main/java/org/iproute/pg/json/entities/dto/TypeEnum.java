@@ -13,7 +13,7 @@ import java.util.function.Function;
 /**
  * TypeEnum
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor
 @ToString

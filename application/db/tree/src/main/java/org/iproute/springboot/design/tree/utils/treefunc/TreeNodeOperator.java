@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 /**
  * TreeNodeOperator
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/16
  */
 @Getter

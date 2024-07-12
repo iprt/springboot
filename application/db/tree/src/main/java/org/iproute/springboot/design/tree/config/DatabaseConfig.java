@@ -18,7 +18,7 @@ import javax.sql.DataSource;
  * 2. liquibase配置
  * 3. reference: <a href="https://www.jianshu.com/p/1d42731dc28b">...</a>
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/1/6
  */
 @Configuration

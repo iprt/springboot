@@ -7,7 +7,7 @@ import java.util.concurrent.BlockingDeque;
 /**
  * 节点为 follower 的时候
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023-08-27
  */
 public class Follower {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * RequestLogMapper 需要指定sharding的数据源
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/25
  */
 @Repository

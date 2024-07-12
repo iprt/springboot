@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * LifeCycleTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class LifeCycleTest {
     final ClassPathXmlApplicationContext appCtx = new ClassPathXmlApplicationContext("beans.xml");

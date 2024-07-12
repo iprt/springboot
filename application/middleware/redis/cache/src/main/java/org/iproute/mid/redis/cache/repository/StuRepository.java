@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * StuRepository
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 3/15/2023
  */
 @Repository

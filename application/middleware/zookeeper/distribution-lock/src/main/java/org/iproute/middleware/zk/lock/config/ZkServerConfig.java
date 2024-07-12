@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * ZkServerConfig
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/8/7
  */
 @ConfigurationProperties(prefix = "zk-server")

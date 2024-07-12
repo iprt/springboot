@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * RequestLogUtils
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/30
  */
 public class RequestLogUtils {

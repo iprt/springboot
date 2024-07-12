@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * TypeDTO
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Data
 public class TypeDTO {

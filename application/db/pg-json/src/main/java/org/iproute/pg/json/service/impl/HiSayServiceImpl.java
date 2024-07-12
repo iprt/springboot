@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 /**
  * HiSayServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Service("hiSayService")
 public class HiSayServiceImpl implements SayService {

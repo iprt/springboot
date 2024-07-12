@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * FluxIterable
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/4
  */
 public class FluxIterable {

@@ -13,7 +13,7 @@ import static org.iproute.mid.camel.boot.netty.serverloopsend.LoopServerUtils.CL
 /**
  * ServerLoopHandler
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/20
  */
 @Slf4j

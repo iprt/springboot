@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * LoopServerUtils
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/21
  */
 @Slf4j

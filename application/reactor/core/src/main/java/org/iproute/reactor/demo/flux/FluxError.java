@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxError
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class FluxError {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * TreeApplication
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @SpringBootApplication
 public class TreeApplication {

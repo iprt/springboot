@@ -15,7 +15,7 @@ import java.sql.Statement;
 /**
  * JdbcTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class JdbcTest {
     private static Connection conn;

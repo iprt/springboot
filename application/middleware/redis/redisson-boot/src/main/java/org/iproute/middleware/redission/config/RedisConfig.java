@@ -18,7 +18,7 @@ import java.util.HashSet;
 /**
  * RedisConfig
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/18
  */
 @RequiredArgsConstructor

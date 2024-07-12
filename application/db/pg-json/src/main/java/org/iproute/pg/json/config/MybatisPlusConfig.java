@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * MybatisPlusConfig
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Configuration
 public class MybatisPlusConfig {

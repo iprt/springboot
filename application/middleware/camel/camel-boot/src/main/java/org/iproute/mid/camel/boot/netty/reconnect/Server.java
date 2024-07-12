@@ -7,7 +7,7 @@ import java.net.Socket;
 /**
  * NettyServer
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/15
  */
 public class Server {

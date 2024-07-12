@@ -3,7 +3,7 @@ package org.iproute.core.factory.xml;
 /**
  * ConnectionStaticFactory
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class ConnectionStaticFactory {
 

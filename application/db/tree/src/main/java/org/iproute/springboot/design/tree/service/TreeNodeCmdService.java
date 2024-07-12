@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * TreeNodeCommandQueryService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/20
  */
 public interface TreeNodeCmdService {

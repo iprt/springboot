@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * CamelRouter
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/20
  */
 @Component

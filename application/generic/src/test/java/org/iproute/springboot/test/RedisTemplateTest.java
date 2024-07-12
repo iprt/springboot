@@ -12,7 +12,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 /**
  * RedisTemplateTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/28
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

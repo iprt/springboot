@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 /**
  * TreeNodeController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RestController
 @RequestMapping("/treeNode")

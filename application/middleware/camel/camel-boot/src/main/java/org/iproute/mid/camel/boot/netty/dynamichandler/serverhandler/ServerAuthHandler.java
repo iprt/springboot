@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * ServerAuthHandler
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/19
  */
 @Slf4j

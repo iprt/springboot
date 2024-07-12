@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * AttrClient
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/26/2023
  */
 @Slf4j

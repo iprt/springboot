@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Demo
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/30
  */
 @TableName("demo")

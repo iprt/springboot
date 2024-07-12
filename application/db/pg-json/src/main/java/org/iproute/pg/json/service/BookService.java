@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * BookService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public interface BookService {
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * ConfigTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/17
  */
 public class ConfigTest {

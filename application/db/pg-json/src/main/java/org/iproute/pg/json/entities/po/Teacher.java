@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * Teacher
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor

@@ -3,7 +3,7 @@ package org.iproute.mid.camel.boot.netty.dynamichandler;
 /**
  * Before
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/19
  */
 public interface AuthBefore {

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * RedisController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/20
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

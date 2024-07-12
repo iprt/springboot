@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * TcpClient
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/4
  */
 @Slf4j

@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 /**
  * RecursionUtilsTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/11
  */
 public class TreeRecursionUtilsTest {

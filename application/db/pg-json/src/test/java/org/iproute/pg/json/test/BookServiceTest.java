@@ -20,7 +20,7 @@ import java.util.stream.LongStream;
 /**
  * BookServiceTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest

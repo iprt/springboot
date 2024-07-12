@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * CastTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class CastTest {
 

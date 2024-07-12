@@ -8,7 +8,7 @@ import org.iproute.springboot.design.tree.model.tree.TreeNode;
 /**
  * PostgresTreeNode
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/1/7
  */
 @Setter

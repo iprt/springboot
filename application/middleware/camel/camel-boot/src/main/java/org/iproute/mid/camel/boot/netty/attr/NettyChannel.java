@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * NetttyChannel
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/29/2023
  */
 @Builder

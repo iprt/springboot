@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * 同步发送 API
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/15
  */
 public class CustomProducer3 {

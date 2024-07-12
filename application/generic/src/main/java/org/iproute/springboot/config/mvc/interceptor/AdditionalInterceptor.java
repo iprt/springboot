@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 /**
  * AdditionalInterceptor
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/25
  */
 @Component

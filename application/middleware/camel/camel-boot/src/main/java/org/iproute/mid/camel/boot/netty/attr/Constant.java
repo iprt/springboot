@@ -5,7 +5,7 @@ import io.netty.util.AttributeKey;
 /**
  * AttributeMapConstant
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/29/2023
  */
 public class Constant {

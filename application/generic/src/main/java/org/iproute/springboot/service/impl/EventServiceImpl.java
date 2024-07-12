@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * EventServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/28
  */
 @Service

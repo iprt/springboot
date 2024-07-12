@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * StuController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 3/15/2023
  */
 @RestController

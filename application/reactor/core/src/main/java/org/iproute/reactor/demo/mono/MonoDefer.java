@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * MonoDefer
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/25/2023
  */
 public class MonoDefer {

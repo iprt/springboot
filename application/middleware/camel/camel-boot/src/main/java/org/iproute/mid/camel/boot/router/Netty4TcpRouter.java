@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * Netty4TcpRouter
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/22
  */
 @Component

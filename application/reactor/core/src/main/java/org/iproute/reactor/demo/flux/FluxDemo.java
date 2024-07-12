@@ -3,7 +3,7 @@ package org.iproute.reactor.demo.flux;
 /**
  * FluxDemo02
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class FluxDemo {
     public static void main(String[] args) {

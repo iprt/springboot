@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @SpringBootApplication
 @EnableCaching

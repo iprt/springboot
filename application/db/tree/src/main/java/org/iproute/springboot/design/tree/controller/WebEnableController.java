@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * WebEnableController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RestController
 @Slf4j

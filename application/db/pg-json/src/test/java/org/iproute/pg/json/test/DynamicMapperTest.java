@@ -20,7 +20,7 @@ import static org.iproute.pg.json.bo.DynamicQueryParam.queryTeacher;
 /**
  * DynamicTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest

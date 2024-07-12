@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * DynamicQueryServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service

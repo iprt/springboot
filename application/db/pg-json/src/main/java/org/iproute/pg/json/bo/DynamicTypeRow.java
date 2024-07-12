@@ -11,7 +11,7 @@ import org.iproute.pg.json.entities.po.Teacher;
 /**
  * GroupRow
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor

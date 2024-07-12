@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * SayHelloHandler
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/22
  */
 @Slf4j

@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * MvcConfig
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/25
  */
 @Configuration

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 /**
  * HelloSay
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Service("helloSayService")
 @Primary

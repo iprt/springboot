@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * DemoBeanMapperTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest

@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 /**
  * MonoThen
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/25/2023
  */
 public class MonoThen {

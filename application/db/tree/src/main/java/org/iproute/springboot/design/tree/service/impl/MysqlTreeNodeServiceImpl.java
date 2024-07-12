@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
 /**
  * MysqlTreeNodeServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/19
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

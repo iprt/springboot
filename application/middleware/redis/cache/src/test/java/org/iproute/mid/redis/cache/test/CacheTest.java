@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 /**
  * CacheTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 3/15/2023
  */
 @SpringBootTest

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * CustomEventListenerSecond
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Component
 @Slf4j

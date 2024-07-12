@@ -18,7 +18,7 @@ import java.util.UUID;
 /**
  * AttrServer
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 4/26/2023
  */
 public class AttrServer {

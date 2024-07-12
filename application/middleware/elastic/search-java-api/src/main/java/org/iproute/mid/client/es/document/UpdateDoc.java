@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * UpdateDoc
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/17
  */
 public class UpdateDoc {

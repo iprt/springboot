@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 /**
  * FolderTreeNodeInitImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/20
  */
 @Service

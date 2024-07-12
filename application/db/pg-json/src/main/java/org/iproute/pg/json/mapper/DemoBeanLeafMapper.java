@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * DemoBeanLeafMapper
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Repository
 @Mapper

@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * ClientTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/8
  */
 @Slf4j

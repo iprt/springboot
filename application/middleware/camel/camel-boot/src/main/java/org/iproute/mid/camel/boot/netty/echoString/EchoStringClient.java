@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * EchoStringClient
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 5/1/2023
  */
 public class EchoStringClient {

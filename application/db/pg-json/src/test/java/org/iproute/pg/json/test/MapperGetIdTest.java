@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * MapperGetIdTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 /**
  * CreateTableSql
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/1/23
  */
 @AllArgsConstructor

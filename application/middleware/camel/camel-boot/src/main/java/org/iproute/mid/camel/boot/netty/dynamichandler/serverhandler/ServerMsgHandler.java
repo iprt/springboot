@@ -9,7 +9,7 @@ import org.iproute.mid.camel.boot.netty.utils.NettyUtils;
 /**
  * ServerMsgHandler
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/19
  */
 @Slf4j

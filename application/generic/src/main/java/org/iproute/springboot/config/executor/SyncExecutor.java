@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * SyncExecutor
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/1/23
  */
 @Configuration

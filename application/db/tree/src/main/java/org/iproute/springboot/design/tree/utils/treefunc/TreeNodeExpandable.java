@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 /**
  * TreeListable
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/16
  */
 @Builder

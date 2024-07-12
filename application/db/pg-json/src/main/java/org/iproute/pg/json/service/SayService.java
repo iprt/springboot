@@ -3,7 +3,7 @@ package org.iproute.pg.json.service;
 /**
  * SayService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public interface SayService {
 

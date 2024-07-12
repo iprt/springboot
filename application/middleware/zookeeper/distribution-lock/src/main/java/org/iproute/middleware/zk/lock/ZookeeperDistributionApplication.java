@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * ZookeeperDistributionApplication
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/17
  */
 @SpringBootApplication

@@ -7,7 +7,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 /**
  * MyProtocolEncoder 编码器
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/7
  */
 public class MyProtocolEncoder extends MessageToByteEncoder<MyMsg> {

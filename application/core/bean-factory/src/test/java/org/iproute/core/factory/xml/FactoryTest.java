@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * FactoryTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class FactoryTest {
     final ClassPathXmlApplicationContext appCtx = new ClassPathXmlApplicationContext("beans.xml");

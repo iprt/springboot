@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * DynamicQueryService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public interface DynamicQueryService {
 

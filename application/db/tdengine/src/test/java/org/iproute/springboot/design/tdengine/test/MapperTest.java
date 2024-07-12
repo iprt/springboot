@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 /**
  * MapperTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/30
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

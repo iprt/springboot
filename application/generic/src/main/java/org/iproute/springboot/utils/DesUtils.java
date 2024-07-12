@@ -11,7 +11,7 @@ import java.util.Base64;
 /**
  * DesUtil
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/6/30
  */
 public class DesUtils {

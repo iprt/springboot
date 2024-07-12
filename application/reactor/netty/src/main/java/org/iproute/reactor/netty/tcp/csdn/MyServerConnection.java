@@ -9,7 +9,7 @@ import java.time.Duration;
 /**
  * MyServerConnection
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/5
  */
 @Slf4j

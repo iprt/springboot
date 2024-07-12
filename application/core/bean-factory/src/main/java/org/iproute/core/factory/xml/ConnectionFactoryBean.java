@@ -5,7 +5,7 @@ import org.springframework.beans.factory.FactoryBean;
 /**
  * ConnectionFactoryBean
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class ConnectionFactoryBean implements FactoryBean<Connection> {
     @Override

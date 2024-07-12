@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 /**
  * SayTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @SpringBootTest

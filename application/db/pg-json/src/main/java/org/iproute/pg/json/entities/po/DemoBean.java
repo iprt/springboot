@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * Demo
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor

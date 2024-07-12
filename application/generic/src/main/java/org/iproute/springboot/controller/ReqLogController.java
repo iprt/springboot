@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * ReqLogController
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/31
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

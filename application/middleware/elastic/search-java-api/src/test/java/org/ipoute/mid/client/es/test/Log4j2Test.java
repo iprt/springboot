@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Main
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/17
  */
 @Slf4j

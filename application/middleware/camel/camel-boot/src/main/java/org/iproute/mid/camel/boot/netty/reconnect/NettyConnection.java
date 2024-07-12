@@ -27,7 +27,7 @@ import java.util.TimerTask;
  * <p>
  * 参考地址  <a href="https://gist.github.com/ochinchina/e97606fd0b15f106c91c">...</a>
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/15
  */
 @Slf4j

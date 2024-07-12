@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * MessageService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/22
  */
 @Service("messageService")

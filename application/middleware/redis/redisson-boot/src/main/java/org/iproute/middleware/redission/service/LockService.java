@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * LockService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/18
  */
 @Service

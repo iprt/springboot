@@ -3,7 +3,7 @@ package org.iproute.springboot.design.tree.service;
 /**
  * FolderTreeNodeInit
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/20
  */
 public interface FolderTreeNodeInit {

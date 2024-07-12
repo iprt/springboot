@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * NashornMain
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Slf4j
 public class NashornMain {

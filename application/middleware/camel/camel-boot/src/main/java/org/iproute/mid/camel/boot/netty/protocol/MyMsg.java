@@ -9,7 +9,7 @@ import lombok.ToString;
 /**
  * MyMsg
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor

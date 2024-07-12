@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 /**
  * RequestLog
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/29
  */
 @Target(ElementType.METHOD)

@@ -6,7 +6,7 @@ import com.beust.jcommander.Parameters;
 /**
  * TreeNodeCommand
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/20
  */
 @Parameters(separators = "=")

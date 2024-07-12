@@ -5,7 +5,7 @@ import lombok.*;
 /**
  * PostDTO
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/28
  */
 @AllArgsConstructor

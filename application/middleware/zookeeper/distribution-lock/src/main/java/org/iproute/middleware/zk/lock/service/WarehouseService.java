@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * WarehouseService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/3/17
  */
 @Service

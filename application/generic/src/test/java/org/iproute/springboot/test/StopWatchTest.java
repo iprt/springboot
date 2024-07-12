@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * StopWatchTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/30
  */
 @Slf4j

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * LogPrinter
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/24
  */
 @Component

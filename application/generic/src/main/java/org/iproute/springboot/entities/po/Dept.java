@@ -6,7 +6,7 @@ import lombok.*;
 /**
  * Dept
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/27
  */
 @AllArgsConstructor

@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxFlatMap
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class FluxFlatMap {
     public static void main(String[] args) {

@@ -3,7 +3,7 @@ package org.iproute.raft.election.algo;
 /**
  * 节点为候选人
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023-08-27
  */
 public class Candidate {

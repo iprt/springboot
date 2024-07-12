@@ -3,7 +3,7 @@ package org.iproute.pg.json.utils;
 /**
  * CloseUtils
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class CloseUtils {
     private CloseUtils() {

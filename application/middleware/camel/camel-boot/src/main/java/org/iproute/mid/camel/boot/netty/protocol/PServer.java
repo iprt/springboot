@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * ServerTest
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/8/8
  */
 @Slf4j

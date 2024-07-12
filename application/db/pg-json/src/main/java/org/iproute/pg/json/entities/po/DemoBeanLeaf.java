@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * DemoBeanLeaf
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor

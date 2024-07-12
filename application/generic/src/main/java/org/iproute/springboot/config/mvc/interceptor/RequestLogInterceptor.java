@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
 /**
  * RequestLogInterceptor
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2021/11/25
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

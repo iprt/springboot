@@ -9,7 +9,7 @@ import java.io.File;
 /**
  * Demo10_SSl_TLS
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/5
  */
 public class Demo10_SSl_TLS {

@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * MysqlUser
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/19
  */
 @AllArgsConstructor

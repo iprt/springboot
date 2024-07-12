@@ -5,7 +5,7 @@ import reactor.core.publisher.Flux;
 /**
  * FluxJust
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class FluxJust {
     public static void main(String[] args) {

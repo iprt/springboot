@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * DemoMapper
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @Repository
 @Mapper

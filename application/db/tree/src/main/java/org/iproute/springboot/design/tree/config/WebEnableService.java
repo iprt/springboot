@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * WenEnableService
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/12/2
  */
 @Slf4j

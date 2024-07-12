@@ -8,7 +8,7 @@ import org.iproute.springboot.design.tree.model.tree.TreeNode;
 /**
  * TreeNode
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/19
  */
 @Setter

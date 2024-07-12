@@ -14,7 +14,7 @@ import java.util.function.Predicate;
 /**
  * TreeRecursionUtils 树形结构自上而下的递归处理封装
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/5/11
  */
 @Builder

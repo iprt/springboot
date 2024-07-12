@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * TdengineApplication
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/7/28
  */
 @SpringBootApplication

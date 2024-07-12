@@ -3,7 +3,7 @@ package org.iproute.mid.client.es.config;
 /**
  * IndexConst
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/17
  */
 public interface IndexConst {

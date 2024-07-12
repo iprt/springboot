@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 /**
  * PostgresNodeServiceImpl
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/4/19
  */
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * DateConvertor
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 public class DateConvertor implements Converter<String, Date> {
 

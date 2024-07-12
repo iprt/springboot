@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Main
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023-08-26
  */
 @Slf4j

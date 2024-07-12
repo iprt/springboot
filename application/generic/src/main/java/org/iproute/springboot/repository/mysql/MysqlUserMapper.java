@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 /**
  * MysqlUserMapper
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2022/7/19
  */
 @Repository

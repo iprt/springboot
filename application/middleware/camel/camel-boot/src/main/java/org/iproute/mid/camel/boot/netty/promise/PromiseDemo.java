@@ -10,7 +10,7 @@ import io.netty.util.concurrent.Promise;
 /**
  * PromiseDemo
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  * @since 2023/2/3
  */
 public class PromiseDemo {

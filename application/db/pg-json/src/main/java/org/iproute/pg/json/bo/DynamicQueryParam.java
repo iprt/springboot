@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * GroupQueryParam
  *
- * @author devops@kubectl.net
+ * @author tech@intellij.io
  */
 @AllArgsConstructor
 @NoArgsConstructor
