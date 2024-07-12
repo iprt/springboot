@@ -31,7 +31,7 @@ public class DynamicQueryParam {
                     )
             )
             .build();
-    ;
+
     public static final DynamicQueryParam queryTeacher = DynamicQueryParam.builder()
             .tableName("teacher").tableAlias("teacher")
             .colMappings(
@@ -42,7 +42,6 @@ public class DynamicQueryParam {
                     )
             )
             .build();
-    ;
 
 
     private String tableName;
