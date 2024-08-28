@@ -33,8 +33,8 @@ public class QueryDoc {
 
         SearchHits hits = response.getHits();
         // 查询匹配
-        log.info("took : {}", response.getTook());
-        log.info("timeout : {}", response.isTimedOut());
+        log.info("took :      {}", response.getTook());
+        log.info("timeout :   {}", response.isTimedOut());
         log.info("totalHits : {}", hits.getTotalHits());
         log.info("max score : {}", hits.getMaxScore());
 

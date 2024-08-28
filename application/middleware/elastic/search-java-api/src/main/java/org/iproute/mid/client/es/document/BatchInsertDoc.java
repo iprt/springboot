@@ -37,7 +37,7 @@ public class BatchInsertDoc {
             // 客户端发送请求，获取响应对象
             BulkResponse responses = client.bulk(br, RequestOptions.DEFAULT);
             // 打印结果信息
-            log.info("took: {}", responses.getTook());
+            log.info("took:  {}", responses.getTook());
             log.info("items: {}", (Object[]) responses.getItems());
 
         });
