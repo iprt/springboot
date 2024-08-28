@@ -1,10 +1,11 @@
-# Spring boot
+# Spring Boot
 
 <!-- TOC -->
 
-* [Spring boot](#spring-boot)
+* [Spring Boot](#spring-boot)
   * [Reference](#reference)
-  * [IDEA BUG](#idea-bug)
+  * [Intellij IDEA' BUG](#intellij-idea-bug)
+  * [Gradle Support](#gradle-support)
 
 <!-- TOC -->
 
@@ -24,13 +25,12 @@ Spring boot
 - [camel](https://camel.apache.org/)
 - [elastic](https://www.elastic.co)
 
-## IDEA BUG
+## Intellij IDEA' BUG
 
 https://youtrack.jetbrains.com/issue/IDEA-343588/Fails-to-download-sources-for-gradle-projects-using-includeBuild
 
-## gradle support
+## Gradle Support
 
 https://stackoverflow.com/questions/76188050/how-to-fix-gradle-build-failed-due-to-void-org-gradle-api-internal-artifacts-dsl
 
 https://docs.spring.io/spring-boot/docs/2.6.x/gradle-plugin/reference/htmlsingle/#introduction
-
