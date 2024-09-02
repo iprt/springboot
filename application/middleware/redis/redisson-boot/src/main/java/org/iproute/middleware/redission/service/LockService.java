@@ -1,5 +1,6 @@
 package org.iproute.middleware.redission.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -12,14 +13,13 @@ import org.springframework.stereotype.Service;
  * @author tech@intellij.io
  * @since 2022/3/18
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 @Slf4j
 public class LockService {
+    private final RedissonClient redissonClient;
 
     public static int count = 10;
-
-    @Autowired
-    private RedissonClient redissonClient;
 
     public String reset() {
         count = 10;

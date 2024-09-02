@@ -8,9 +8,10 @@ plugins {
 group = 'org.iproute'
 version = '1.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 configurations {
     compileOnly {
@@ -34,10 +35,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.apache.commons:commons-pool2:2.9.0'
-    implementation 'org.apache.commons:commons-pool2'
+    implementation 'org.apache.commons:commons-pool2:2.12.0'
 
-    implementation 'org.redisson:redisson-spring-boot-starter:3.16.8'
+    // implementation 'org.redisson:redisson-spring-boot-starter:3.16.8'
     // https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter
     implementation 'org.redisson:redisson-spring-boot-starter:3.23.2'
 

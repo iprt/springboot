@@ -2,6 +2,10 @@ plugins {
     id 'org.iproute.spring-boot-application'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 dependencies {
     implementation(project(":logs-config:logback-springboot"))

@@ -1,0 +1,5 @@
+singleServerConfig:
+  # @link{org.redisson.config.SentinelServersConfig}
+  address: redis://172.100.1.100:6379
+  # org.redisson.config.BaseConfig
+  password: root

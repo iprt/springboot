@@ -6,14 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisPassword;
-import org.springframework.data.redis.connection.RedisSentinelConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
-
-import java.util.HashSet;
 
 /**
  * RedisConfig
@@ -34,17 +31,25 @@ public class RedisConfig {
      */
     @Bean
     protected LettuceConnectionFactory redisConnectionFactory() {
-        RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration(
-                redisProperties.getSentinel().getMaster(),
-                new HashSet<>(redisProperties.getSentinel().getNodes())
-        );
-        sentinelConfig.setDatabase(redisProperties.getDatabase());
-        sentinelConfig.setPassword(RedisPassword.of(
-                redisProperties.getPassword()
-        ));
+        // RedisSentinelConfiguration sentinelConfig = new RedisSentinelConfiguration(
+        //         redisProperties.getSentinel().getMaster(),
+        //         new HashSet<>(redisProperties.getSentinel().getNodes())
+        // );
+        // sentinelConfig.setDatabase(redisProperties.getDatabase());
+        // sentinelConfig.setPassword(RedisPassword.of(
+        //         redisProperties.getPassword()
+        // ));
 
-        return new LettuceConnectionFactory(sentinelConfig,
-                LettuceClientConfiguration.defaultConfiguration());
+        // return new LettuceConnectionFactory(redisProperties,
+        //         LettuceClientConfiguration.defaultConfiguration());
+
+        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration();
+        standaloneConfiguration.setHostName(redisProperties.getHost());
+        standaloneConfiguration.setPort(redisProperties.getPort());
+        standaloneConfiguration.setPassword(RedisPassword.of(redisProperties.getPassword()));
+        standaloneConfiguration.setDatabase(redisProperties.getDatabase());
+
+        return new LettuceConnectionFactory(standaloneConfiguration);
     }
 
     @Bean
