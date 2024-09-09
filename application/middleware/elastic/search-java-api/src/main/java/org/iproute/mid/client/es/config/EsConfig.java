@@ -1,10 +1,10 @@
 package org.iproute.mid.client.es.config;
 
-import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -29,11 +29,10 @@ public class EsConfig {
     }
 
     static {
-        ClassPathResource cpr = new ClassPathResource("es-config.properties");
 
-        try {
+        try (InputStream resourceAsStream = EsConfig.class.getResourceAsStream("es-config.properties");) {
             Properties p = new Properties();
-            p.load(cpr.getStream());
+            p.load(resourceAsStream);
 
             String host1 = p.getProperty("host");
             if (StrUtil.isBlank(host1)) {

@@ -30,13 +30,13 @@ repositories {
 dependencies {
     implementation(project(":logs-config:log4j2-console"))
 
-    compileOnly('org.projectlombok:lombok:1.18.28')
-    annotationProcessor('org.projectlombok:lombok:1.18.28')
+    compileOnly('org.projectlombok:lombok:1.18.32')
+    annotationProcessor('org.projectlombok:lombok:1.18.32')
 
-    testCompileOnly('org.projectlombok:lombok:1.18.28')
-    testAnnotationProcessor('org.projectlombok:lombok:1.18.28')
+    testCompileOnly('org.projectlombok:lombok:1.18.32')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.32')
 
-    implementation 'cn.hutool:hutool-all:5.8.16'
+    implementation 'cn.hutool:hutool-all:5.8.25'
 
     implementation('org.elasticsearch:elasticsearch:7.8.0')
     implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.8.0")

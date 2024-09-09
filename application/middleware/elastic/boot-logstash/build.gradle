@@ -8,9 +8,11 @@ plugins {
 
 group = 'org.iproute'
 version = '1.0-SNAPSHOT'
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 configurations {
     compileOnly {
@@ -30,7 +32,6 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'com.alibaba:fastjson:1.2.83'
-    implementation 'cn.hutool:hutool-all:5.8.4'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
@@ -40,7 +41,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // dev-tools
-    implementation 'org.springframework.boot:spring-boot-devtools'
+    // implementation 'org.springframework.boot:spring-boot-devtools'
+    
     // actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
