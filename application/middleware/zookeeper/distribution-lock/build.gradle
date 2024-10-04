@@ -2,7 +2,6 @@ plugins {
     id 'org.iproute.spring-boot-application'
 }
 
-
 dependencies {
     implementation(project(":logs-config:logback-springboot"))
 
