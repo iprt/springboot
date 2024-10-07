@@ -71,7 +71,7 @@ public class Connector {
                 @Override
                 public void operationComplete(ChannelFuture future) throws Exception {
                     if (!future.isSuccess()) {
-                        connectionLost();
+                        logConnectionLost();
 
                         bootstrap.connect(serverAddr).addListener(this);
                     } else {
@@ -87,7 +87,7 @@ public class Connector {
                     channel.closeFuture().addListener(new ChannelFutureListener() {
                         @Override
                         public void operationComplete(ChannelFuture future) throws Exception {
-                            connectionLost();
+                            logConnectionLost();
 
                             connect(10);
                         }
@@ -101,7 +101,7 @@ public class Connector {
 
     }
 
-    private void connectionLost() {
+    private void logConnectionLost() {
         log.error("connection lost");
     }
 
