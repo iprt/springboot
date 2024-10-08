@@ -73,7 +73,8 @@ public class Connector {
                     if (!future.isSuccess()) {
                         logConnectionLost();
 
-                        bootstrap.connect(serverAddr).addListener(this);
+                        // bootstrap.connect(serverAddr).addListener(this);
+                        connect(1000);
                     } else {
                         channel = future.channel();
                         this.addCloseDetectListener(channel);
@@ -89,7 +90,7 @@ public class Connector {
                         public void operationComplete(ChannelFuture future) throws Exception {
                             logConnectionLost();
 
-                            connect(10);
+                            connect(100);
                         }
                     });
                 }
