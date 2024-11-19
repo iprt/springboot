@@ -1,10 +1,14 @@
 server:
   port: 8090
 
-
 spring:
+  application:
+    name: kafka-boot
   kafka:
-    bootstrap-servers: shdq01:9092,shdq02:9092,shdq03:9092
+    bootstrap-servers:
+      - 172.100.1.100:9092
+      - 172.100.1.101:9092
+      - 172.100.1.102:9092
     consumer:
       group-id: kafka-springboot  # bootstrap-servers：连接kafka的地址，多个地址用逗号分隔
       enable-auto-commit: true

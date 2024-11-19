@@ -1,0 +1,7 @@
+### send message to kafka
+POST http://localhost:8090/kafka/send
+Content-Type: application/json
+
+{
+  "msg": "Hello Kafka"
+}

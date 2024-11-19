@@ -1,9 +1,12 @@
 package org.iproute.middleware.kafka.springboot.controller;
 
-import org.iproute.middleware.kafka.springboot.component.MyKafkaProducer;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+import org.iproute.middleware.kafka.springboot.component.KafkaMsgSender;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -12,23 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @author tech@intellij.io
  * @since 2022/3/16
  */
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
 public class MsgController {
+    private final KafkaMsgSender kafkaMsgSender;
 
-    @Autowired
-    private MyKafkaProducer myKafkaProducer;
-
-
-    /**
-     * Send msg to kafka string.
-     *
-     * @param msg the msg
-     * @return the string
-     */
-    @GetMapping("/sendMsgToKafka/{msg}")
-    public String sendMsgToKafka(@PathVariable("msg") String msg) {
-        myKafkaProducer.send(msg);
-        return msg;
+    @PostMapping("/kafka/send")
+    public void sendMsgToKafka(@RequestBody MsgDTO msgDTO) {
+        kafkaMsgSender.send(msgDTO.getMsg());
     }
 
+    @ToString
+    @Data
+    public static class MsgDTO {
+        private String msg;
+    }
 }

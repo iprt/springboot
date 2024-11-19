@@ -1,8 +1,9 @@
 plugins {
-    id("org.iproute.spring-cloud-application")
+    id("org.iproute.spring-boot-application")
 }
 
 dependencies {
+    // implementation(project(":logs-config:logback-springboot-console"))
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'com.google.code.gson:gson'
 }
