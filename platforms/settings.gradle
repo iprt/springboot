@@ -1,3 +1,10 @@
+pluginManagement {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        gradlePluginPortal()
+    }
+}
+
 // 只需要定义 platform 的版本 不需要定义下载路径
 rootProject.name = 'platforms'
 
