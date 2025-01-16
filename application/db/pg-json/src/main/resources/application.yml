@@ -6,7 +6,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    url: jdbc:postgresql://172.100.1.100:5432/pg_json
+    url: jdbc:postgresql://dev.iproute.org:5432/pg_json
     username: postgres
     password: postgres
 

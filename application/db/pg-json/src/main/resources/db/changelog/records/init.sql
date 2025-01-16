@@ -77,3 +77,23 @@ create table demo_bean_leaf
 comment on table demo_bean_leaf is 'demo';
 comment on column demo_bean_leaf.id is 'id 基于snowflake算法生产的id';
 comment on column demo_bean_leaf.name is 'name';
+
+-- changeset devops:20250116_01
+drop table if exists demo_user;
+create table demo_user
+(
+    id    bigint       not null primary key,
+    name  varchar(100) not null default 'unknown',
+    age   int          not null default 0,
+    email varchar(100) not null default 'abc@examples.com'
+);
+comment on table demo_user is 'demo_user';
+comment on column demo_user.id is 'id';
+comment on column demo_user.name is 'name';
+comment on column demo_user.age is 'age';
+comment on column demo_user.email is 'email';
+
+-- changeset devops:20250116_02
+insert into demo_user(id, name, age, email)
+values
+    (1, 'admin', 18, 'devops@kubctl.net');
