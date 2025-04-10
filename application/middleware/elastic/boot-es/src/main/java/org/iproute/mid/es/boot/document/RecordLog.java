@@ -1,5 +1,6 @@
 package org.iproute.mid.es.boot.document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +32,7 @@ public class RecordLog {
     private String id;
 
     @Field(type = FieldType.Date)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date date;
 
     @Field(type = FieldType.Text)
