@@ -25,29 +25,13 @@ repositories {
 }
 
 dependencies {
-
-    // commons
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-    implementation 'commons-io:commons-io:2.14.0'
-    implementation 'com.alibaba:fastjson:1.2.83'
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // web
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 
-    // dev-tools
-    // implementation 'org.springframework.boot:spring-boot-devtools'
-    
-    // actuator
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit'
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    implementation 'org.jetbrains:annotations:24.1.0'
 }
 
 test {

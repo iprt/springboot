@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: boot-es
+  elasticsearch:
+    uris: ${ES_URIS}
+    username: ${ES_USERNAME}
+    password: ${ES_PASSWORD}

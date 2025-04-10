@@ -45,6 +45,7 @@ include('generic')
 include('middleware:camel:camel-boot')
 
 // middleware elasticsearch
+include('middleware:elastic:boot-es')
 include('middleware:elastic:boot-logstash')
 include('middleware:elastic:search-java-api')
 
