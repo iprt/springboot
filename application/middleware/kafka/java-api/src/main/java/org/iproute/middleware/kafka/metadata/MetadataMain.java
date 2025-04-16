@@ -95,23 +95,23 @@ public class MetadataMain {
         Map<String, TopicDescription> topicDescriptionMap = topicResult.all().get();
 
         TopicDescription topicDescription = topicDescriptionMap.get(topicName);
-        System.out.println("名称: " + topicDescription.name());
-        System.out.println("分区数: " + topicDescription.partitions().size());
+        System.out.println("Topic的名称: " + topicDescription.name());
+        System.out.println("Topic分区数: " + topicDescription.partitions().size());
         System.out.println("是否内部主题: " + topicDescription.isInternal());
 
         System.out.println("分区信息:");
         topicDescription.partitions().forEach(partition -> {
-            System.out.println("  分区ID: " + partition.partition());
-            System.out.println("  分区Leader: " + partition.leader().id() + " (" + partition.leader().host() + ":" + partition.leader().port() + ")");
+            System.out.println("  分区 ID : " + partition.partition());
+            System.out.println("  分区 Leader : " + partition.leader().id() + " (" + partition.leader().host() + ":" + partition.leader().port() + ")");
 
             System.out.println("  副本: ");
             partition.replicas().forEach(replica ->
-                    System.out.println("    - replica.id =" + replica.id() + "| (" + replica.host() + ":" + replica.port() + ")")
+                    System.out.println("    - replica.id =" + replica.id() + " (" + replica.host() + ":" + replica.port() + ")")
             );
 
             System.out.println("  ISR: ");
             partition.isr().forEach(isr ->
-                    System.out.println("    -     isr.id =" + isr.id() + "| (" + isr.host() + ":" + isr.port() + ")")
+                    System.out.println("    -     isr.id =" + isr.id() + " (" + isr.host() + ":" + isr.port() + ")")
             );
             System.out.println();
         });
