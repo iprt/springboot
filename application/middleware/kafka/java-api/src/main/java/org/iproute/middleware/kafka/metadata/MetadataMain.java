@@ -82,7 +82,6 @@ public class MetadataMain {
         for (String topic : topics) {
             System.out.println("  - " + topic);
         }
-
         return topics;
     }
 
