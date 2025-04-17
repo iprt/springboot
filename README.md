@@ -3,9 +3,9 @@
 <!-- TOC -->
 
 * [Spring Boot](#spring-boot)
-  * [Reference](#reference)
-  * [Intellij IDEA' BUG](#intellij-idea-bug)
-  * [Gradle Support](#gradle-support)
+    * [Reference](#reference)
+    * [Intellij IDEA' BUG](#intellij-idea-bug)
+    * [Gradle Support](#gradle-support)
 
 <!-- TOC -->
 
