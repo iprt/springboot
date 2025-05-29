@@ -53,6 +53,8 @@ include('middleware:elastic:search-java-api')
 include('middleware:kafka:java-api')
 include('middleware:kafka:kafka-boot')
 
+include('middleware:mqtt:mqtt-boot')
+
 // middleware trace
 include('middleware:trace:opentracing')
 

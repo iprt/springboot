@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mqtt-boot
+  profiles:
+    active: dev
+  mqtt:
+    client:
+      broker-host: dev.iproute.org
+      broker-port: 1883
+      client-id: test
+      username: test
+      password: test
